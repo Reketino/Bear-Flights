@@ -1,0 +1,14 @@
+name: Flight ingest
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger ingest endpoint
+        run: |
+          curl -X POST https://bearflightradar.vercel.app/api/ingest
