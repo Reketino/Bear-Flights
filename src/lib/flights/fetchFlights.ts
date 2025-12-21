@@ -76,7 +76,7 @@ export async function fetchFlights(): Promise<RawFlight[]> {
     geo_altitude: s[13],
     squawk: s[14],
     spi: s[15],
-    position_source: s [16],
+    position_source: s[16],
   }));
  } catch (error) {
     console.error("fetchFlights failed:", error);
