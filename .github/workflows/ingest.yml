@@ -12,3 +12,4 @@ jobs:
       - name: Trigger ingest endpoint
         run: |
           curl -X POST https://bearflightradar.vercel.app/api/ingest
+          -H "Authorization: Bearer ${{ secrets.INGEST_SECRET }}"
