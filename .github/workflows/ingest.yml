@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger ingest endpoint
-        run: |
-          curl -X POST https://bearflightradar.vercel.app/api/ingest
-          -H "Authorization: Bearer ${{ secrets.INGEST_SECRET }}"
+        shell: bash
+        run: "curl -X POST https://bearflightradar.vercel.app/api/ingest -H 'Authorization: Bearer ${{ secrets.INGEST_SECRET }}'"
+
+
+
+    
