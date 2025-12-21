@@ -9,9 +9,12 @@ jobs:
   ingest:
     runs-on: ubuntu-latest
     steps:
+      - name: Install curl
+        run: sudo apt-get update && sudo apt-get install -y curl
+
       - name: Trigger ingest endpoint
-        shell: bash
         run: "curl -X POST https://bearflightradar.vercel.app/api/ingest -H 'Authorization: Bearer ${{ secrets.INGEST_SECRET }}'"
+
 
 
 
