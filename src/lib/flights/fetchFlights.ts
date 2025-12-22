@@ -31,7 +31,7 @@ export async function fetchFlights(): Promise<RawFlight[]> {
     try {
   
   const url =
-  `https://opensky-network.org/api/states/all` 
+  `https://opensky-network.org/api/states/all`;
 
   const auth =
   process.env.OPENSKY_USER && process.env.OPENSKY_PASS
