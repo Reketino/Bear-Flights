@@ -63,7 +63,13 @@ export async function fetchFlights(): Promise<RawFlight[]> {
 
   const data: OpenSkyResponse = await res.json();
 
-  
+  console.log(
+  "OpenSky auth:",
+  Boolean(process.env.OPENSKY_USER),
+  "states:",
+  data.states === null ? "NULL" : data.states.length
+);
+
   if (!data.states) return [];
 
 
