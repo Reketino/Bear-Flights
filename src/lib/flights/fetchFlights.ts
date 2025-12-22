@@ -42,6 +42,14 @@ export async function fetchFlights(): Promise<RawFlight[]> {
   `&lomax=${maxLon}`;
 
 
+  const auth =
+  process.env.OPENSKY_USER && process.env.OPENSKY_PASS
+  ? "basic " +
+  Buffer.from(
+     `${process.env.OPENSKY_USER}:${process.env.OPENSKY_PASS}`
+  ).toString("base64")
+  : undefined;
+
   const res = await fetch(url, {
     headers: {
         "User-Agent": "BearFlightTracking/1.0",
