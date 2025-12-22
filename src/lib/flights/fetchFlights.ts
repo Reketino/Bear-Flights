@@ -30,17 +30,8 @@ type OpenSkyResponse = {
 export async function fetchFlights(): Promise<RawFlight[]> {
     try {
   
-//   Collect data only from set longtitude/Latitude
-  const { minLat, maxLat, minLon, maxLon } = BYGDA.bounds;
-
-
   const url =
-  `https://opensky-network.org/api/states/all` +
-  `?lamin=${minLat}` +
-  `&lamax=${maxLat}` +
-  `&lomin=${minLon}` +
-  `&lomax=${maxLon}`;
-
+  `https://opensky-network.org/api/states/all` 
 
   const auth =
   process.env.OPENSKY_USER && process.env.OPENSKY_PASS
@@ -53,8 +44,8 @@ export async function fetchFlights(): Promise<RawFlight[]> {
   const res = await fetch(url, {
     headers: {
         "User-Agent": "BearFlightTracking/1.0",
+        ...(auth && {Authorization: auth }),
     },
-    next: { revalidate: 60 },
   });
 
   if (!res.ok) {
