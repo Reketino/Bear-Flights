@@ -22,7 +22,7 @@ export default function HomePage() {
 
        
       <nav className=" 
-      flex flex-col sm:flex-row 
+      flex flex-col
       justify-center gap-4
       ">
       <Link
@@ -43,8 +43,9 @@ export default function HomePage() {
       className="
       px-3 py-3 rounded-xl
       text-neutral-200 font-semibold
-      border border-white/20
-      hover:bg-white/5 transition
+      
+      border border-amber-500/50
+      hover:bg-white/10 transition
       ">
       Datasource: Opensky
       </a>
