@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { getSupabaseServerClient } from "@/lib/supabase";
 
 export const revalidate = 300;
 
@@ -11,6 +11,8 @@ type Flight = {
 };
 
 export default async function FlightsPage() {
+const supabase = getSupabaseServerClient();
+
   const { data, error } = await supabase
     .from("flights")
     .select(
