@@ -61,9 +61,18 @@ const supabase = getSupabaseServerClient();
               <th className="p-3 text-left">
                 Callsign
                 </th>
-              <th className="p-3 text-left">Origin</th>
-              <th className="p-3 text-right">Distance</th>
-              <th className="p-3 text-right">Seen</th>
+              <th className="p-3 text-left">
+                Origin
+                </th>
+              <th className="p-3 text-right">
+                Distance
+                </th>
+              <th className="p-3 text-right">
+                Date
+                </th>
+              <th className="p-3 text-right">
+                Time
+                </th>
             </tr>
           </thead>
           <tbody>
@@ -72,9 +81,11 @@ const supabase = getSupabaseServerClient();
                 key={f.icao24 + f.first_seen}
                 className="border-t border-white/10"
               >
+
                 <td className="p-3 font-mono">
                   {f.callsign ?? "—"}
                 </td>
+
                 <td className="p-3">
                   {f.origin ?? "Unknown"}
                 </td>
@@ -83,12 +94,15 @@ const supabase = getSupabaseServerClient();
                     ? `${f.distance_over_area} km`
                     : "—"}
                 </td>
+
                 <td className="p-3 text-right text-neutral-400">
-                  {new Date(f.first_seen).toLocaleString("en-GB", {
-                    dateStyle: "medium",
-                    timeStyle: "short",
-                  })}
+                  {new Date(f.first_seen).toLocaleDateString("en-GB")}
                 </td>
+
+                <td className="p-3 text-right text-neutral-400">
+                  {new Date(f.first_seen).toLocaleTimeString("en-GB")}
+                </td>
+                
               </tr>
             ))}
           </tbody>
