@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getSupabaseServerClient } from "@/lib/supabase";
 
 export const revalidate = 300;
