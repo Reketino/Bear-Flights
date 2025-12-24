@@ -55,9 +55,12 @@ const supabase = getSupabaseServerClient();
         w-full text-sm border rounded-xl
         bg-black/20 border-black 
         ">
+
           <thead className="bg-black/20">
             <tr>
-              <th className="p-3 text-left">Callsign</th>
+              <th className="p-3 text-left">
+                Callsign
+                </th>
               <th className="p-3 text-left">Origin</th>
               <th className="p-3 text-right">Distance</th>
               <th className="p-3 text-right">Seen</th>
@@ -81,7 +84,10 @@ const supabase = getSupabaseServerClient();
                     : "—"}
                 </td>
                 <td className="p-3 text-right text-neutral-400">
-                  {new Date(f.first_seen).toLocaleTimeString()}
+                  {new Date(f.first_seen).toLocaleString("en-GB", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                  })}
                 </td>
               </tr>
             ))}
