@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import AnimatedLogo from "@/components/animatedlogo";
 
 export default function HomePage() {
   return (
@@ -11,15 +11,8 @@ export default function HomePage() {
       <section className="
       max-w-3xl text-center
       ">
-     <Image
-     src="/bearflights.png"
-     alt="Bearflights logo- a wild bear in the sky"
-     width={600}
-     height={600}
-     priority
-     className="mx-auto"
-     />
-
+        <AnimatedLogo />
+        
 
       <p className="text-neutral-500 text-lg mb-8">
         Overview of flights crossing the airspace
