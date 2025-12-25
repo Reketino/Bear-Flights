@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { getSupabaseServerClient } from "@/lib/supabase";
+import Link from "next/link";
 
 export const revalidate = 300;
 
@@ -87,7 +88,12 @@ const supabase = getSupabaseServerClient();
               >
 
                 <td className="p-3 font-mono">
-                  {f.callsign ?? "—"}
+                  <Link
+                  href={`/flights/${f.icao24}`}
+                  className="text-sky-400 hover:underline"
+                  >
+                  {f.callsign ?? f.icao24}
+                  </Link>
                 </td>
 
                 <td className="p-3">
