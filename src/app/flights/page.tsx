@@ -19,7 +19,7 @@ const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from("flights")
     .select(
-      "icao24, callsign, origin, distance_over_area, first_seen"
+      "icao24, callsign, origin, departure_country, distance_over_area, first_seen"
     )
     .order("first_seen", { ascending: false })
     .limit(100);
@@ -65,6 +65,9 @@ const supabase = getSupabaseServerClient();
               <th className="p-3 text-left">
                 Origin
                 </th>
+              <th className="p-3 text-left">
+                  Departure country
+                </th>
               <th className="p-3 text-right">
                 Distance
                 </th>
@@ -90,6 +93,15 @@ const supabase = getSupabaseServerClient();
                 <td className="p-3">
                   {f.origin ?? "Unknown"}
                 </td>
+
+                <td className="p-3">
+                  <span className="
+                  inline-flex items-center gap-2
+                  ">
+                    🌍 {f.departure_country ?? "—"}
+                  </span>
+                </td>
+
                 <td className="p-3 text-right">
                   {f.distance_over_area
                     ? `${f.distance_over_area} km`
