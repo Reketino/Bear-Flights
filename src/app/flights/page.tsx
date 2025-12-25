@@ -8,6 +8,7 @@ type Flight = {
   icao24: string;
   callsign: string | null;
   origin: string | null;
+  departure_country: string | null;
   distance_over_area: number | null;
   first_seen: string;
 };
