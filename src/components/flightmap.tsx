@@ -2,8 +2,9 @@
 
 
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { color } from "framer-motion";
+
 
 
 type FlightPosition = {
@@ -16,6 +17,8 @@ type FlightPosition = {
 };
 
 
+const CENTER: LatLngExpression = [62.392497, 6.578392];
+
 export default function FlightMap({
     flights,
 }: {
@@ -23,20 +26,24 @@ export default function FlightMap({
 }) {
     return (
         <MapContainer
-        center={[62.392497, 6.578392]} // Sykkylven Center
+        center={CENTER} // Sykkylven Center
         zoom={8}
         className="h-150 w-full rounded-xl"
         >
             <TileLayer
-            attribution="© OpenStreetMap contributor"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
 
         <Circle
-        center={[62.392497, 6.578392]}
-        radius={50_000}
-        pathOptions={{ color: "#38bdf8", fillOppacity: 0.05 }}
+        {...({
+        center: CENTER,
+        radius: 50_000,
+        pathOptions: { 
+            color: "#38bdf8", 
+            fillOpacity: 0.05,
+          }
+        } as any)} 
         />
 
 
@@ -45,7 +52,7 @@ export default function FlightMap({
             key={f.icao24}
             position={[f.latitude, f.longitude]}
             >
-                
+
             </Marker>
         ))}
         </MapContainer>
