@@ -34,6 +34,15 @@ export default function HomePage() {
       ">
         Take a look at flights today!✈️
       </Link>
+      <Link
+      href="/flights/map"
+      className=" px-6 py-3 rounded-xl
+      text-black font-semibold
+      bg-blue-500 hover:bg-blue-400
+      transition
+      ">
+        Flight Map🗺️
+      </Link>
 
 
       <a
