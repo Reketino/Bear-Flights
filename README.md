@@ -34,6 +34,38 @@ This made the project both technically educational and genuinely enjoyable to bu
 
 ---
 
+## 🏗️ Architecture & Design Decisions
+
+### From a Single Next.js Project to a Split Architecture
+
+The project initially started as a single Next.js application, handling both frontend rendering and backend ingestion logic.
+
+As ingestion, enrichment, and scheduling logic grew, this approach became increasingly hard to reason about. Backend concerns and UI concerns began to overlap, increasing cognitive load and making further changes riskier.
+
+To improve clarity and maintainability, the backend ingestion and data processing logic was moved to a dedicated **Python backend**, while Next.js was kept focused purely on data presentation and consumption.
+
+This separation made it significantly easier to:
+- reason about where changes belong
+- evolve backend logic independently of the UI
+- clearly understand how backend changes should be reflected in the frontend
+
+---
+
+### Ingestion Runtime & Scheduling
+
+Early experiments were done using **Supabase Functions** for data ingestion.  
+While convenient, this approach introduced limitations around execution time, rate limiting, and overall flexibility as the ingestion pipeline became more complex.
+
+To gain full control over execution, logging, and scheduling, the ingestion pipeline was moved to **GitHub Actions**.
+
+Running ingestion via GitHub Actions provides:
+- fewer platform-imposed limits
+- explicit, versioned execution
+- better observability during ingestion
+- more room to evolve the pipeline over time
+
+Supabase remains the shared data layer between backend and frontend, acting as a stable data contract rather than an execution environment.
+
 ## 🧠 What the Project Does
 
 ### Backend (Python)
