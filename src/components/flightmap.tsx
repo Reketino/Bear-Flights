@@ -50,11 +50,23 @@ export default function FlightMap({
         {flights.map((f) => (
             <Marker
             key={f.icao24}
-            position={[f.latitude, f.longitude]}
-            >
-
+            position={[f.latitude, f.longitude] as LatLngExpression}
+        >
+            <Popup>
+                <section className="
+                text-sm"
+                >
+                    <header className="
+                    font-semibold"
+                    >
+                        ✈️{f.callsign ?? f.icao24}
+                    </header>
+                    {f.altitude && <div>Altitude: {Math.round(f.altitude)} m</div>}
+                    {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
+                </section>
+            </Popup>
             </Marker>
         ))}
         </MapContainer>
-    )
+    );
 }
