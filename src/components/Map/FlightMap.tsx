@@ -4,6 +4,7 @@
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 
 
@@ -18,6 +19,15 @@ type FlightPosition = {
 
 
 const CENTER: LatLngExpression = [62.392497, 6.578392];
+
+
+const planeIcon = L.icon({
+    iconUrl: "/icons/airplane.png",
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, -16],
+})
+
 
 export default function FlightMap({
     flights,
@@ -51,6 +61,7 @@ export default function FlightMap({
             <Marker
             key={f.icao24}
             position={[f.latitude, f.longitude] as LatLngExpression}
+            icon={planeIcon}
         >
             <Popup>
                 <section className="
