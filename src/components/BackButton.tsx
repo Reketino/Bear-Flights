@@ -47,13 +47,29 @@ export default function BackButton() {
         bg black/10 backdrop-blur-[2px]
         "
         initial={{ x: 0, opacity: 0 }}
-        animate={{ x: "100%", opacity: 1 }}
+        animate={{ x: "110%", opacity: 1, skewX: -2 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.22, ease: "easeInOut" }}
+        transition={{ duration: 0.50, ease: "easeInOut" }}
         onAnimationComplete={() => router.back}
         >
-          
 
+          <motion.div
+          className="
+          absolute left-6
+          top-1/2 -translate-y-1/2
+          "
+          initial={{ scale: 0, rotate: -10 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 0.18, ease: "backOut"}}
+          >
+            <Image
+            src="/icons/plane.png"
+            alt="Airplane transition icon"
+            width={40}
+            height={40}
+            className="drop-shadow-lg"
+            />
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
