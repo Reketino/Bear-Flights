@@ -11,10 +11,12 @@ export default function BackButton() {
     onClick={() => router.back()}
     aria-label="Go back"
     className="
+    -ml-10
     inline-flex items-center gap-2
     px-3 py-1 rounded-lg
-    text-sm text-sky-400
-    bg-black/20 hover:bg-black/30
+    text-sm font-bold text-sky-400
+    bg-black/70 hover:bg-blue-950
+    hover:scale-105
     border border-white/10
     mb-4
     ">
@@ -28,6 +30,7 @@ export default function BackButton() {
       group-hover:-translate-x-1
       "
       />
+      Back
     </button>
   )
 }
