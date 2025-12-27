@@ -38,7 +38,6 @@ export default async function FlightsMapPage() {
         <main className="
         p-6 max-w-7xl mx-auto
         ">
-            <BackButton />
             <header className="mb-6">
                 <h1 className="text-3xl font-bold">
                     🗺️Live Flight Map of Sykkylven
