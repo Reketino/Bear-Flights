@@ -32,7 +32,7 @@ export default function HomePage() {
       bg-amber-500 hover:bg-amber-400
       transition
       ">
-        Take a look at flights today!✈️
+        Take a look at historical flights!✈️
       </Link>
       <Link
       href="/flights/map"
