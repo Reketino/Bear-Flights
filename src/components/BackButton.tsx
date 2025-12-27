@@ -20,7 +20,7 @@ export default function BackButton() {
     -ml-10
     inline-flex items-center gap-2
     px-3 py-1 rounded-lg
-    text-sm font-bold text-sky-400
+    text-sm font-bold text-sky-200/50
     bg-black/70 hover:bg-blue-950
     hover:scale-105
     border border-white/10
