@@ -1,12 +1,18 @@
 "use client";
+
 import Image from "next/image";
+
 import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function BackButton() {
     const router = useRouter();
+    const [leaving, setLeaving] = useState(false);
 
 
   return (
+    <>
     <button
     onClick={() => router.back()}
     aria-label="Go back"
@@ -32,5 +38,25 @@ export default function BackButton() {
       />
       Back
     </button>
+
+    <AnimatePresence>
+      {leaving && (
+        <motion.div
+        className="
+        fixed inset-0 z-9999 
+        bg black/10 backdrop-blur-[2px]
+        "
+        initial={{ x: 0, opacity: 0 }}
+        animate={{ x: "100%", opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.22, ease: "easeInOut" }}
+        onAnimationComplete={() => router.back}
+        >
+          
+
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   )
 }
