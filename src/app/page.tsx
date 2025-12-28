@@ -17,7 +17,7 @@ export default function HomePage() {
       >
         <AnimatedLogo />
 
-        <p className="text-neutral-500 text-lg mb-8">
+        <p className="text-blue-950 text-lg mb-8">
           Overview of flights crossing the airspace in Sykkylven, Norway -
           updates every 5 minutes.
         </p>
@@ -72,7 +72,6 @@ export default function HomePage() {
             className="
       px-3 py-3 rounded-xl
       text-neutral-200 font-semibold
-      
       border border-amber-500/50
       hover:bg-white/10 transition
       "
@@ -83,7 +82,7 @@ export default function HomePage() {
 
         <p
           className="
-      text-xs text-neutral-500 mt-10
+      text-xs text-blue-950 mt-10
       "
         >
           Buildt using Next.js, Supabase & Opensky API
