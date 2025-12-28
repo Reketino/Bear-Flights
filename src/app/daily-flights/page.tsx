@@ -69,13 +69,13 @@ export default async function DailyFlightsPage() {
       >
         <h1
           className="
-                text-3xl font-bold
+                text-3xl text-center font-bold
                 "
         >
           📅 Flights Registered Today
         </h1>
         <p
-          className="text-sky-900
+          className="text-sky-900 text-center mt-2
                 "
         >
           Flights Over Sykkylven Today.
@@ -90,8 +90,9 @@ export default async function DailyFlightsPage() {
           <article
             key={day.id}
             className="
-                rounded-xl p-5 border
-              border-white/10 bg-black/20
+            relative
+            rounded-xl p-5 border
+          border-white/10 bg-black/20
                 "
           >
             <header
@@ -127,29 +128,44 @@ export default async function DailyFlightsPage() {
             ) : (
               <ul
                 className="
-                        text-sm space-y-1
+                relative text-sm 
+                space-y-1 z-10
                         "
               >
                 <li>
                   <strong>Closest:</strong>{" "}
                   {day.closest_icao24 ? (
                     <Link
-                    href={`/flights/${day.closest_icao24}`}
-                    className="
+                      href={`/flights/${day.closest_icao24}`}
+                      className="
                     inline-flex items-center gap-1
                     text-sky-400 hover:text-sky-300
-                    underlline-offset-4 hover:underline
-                    ">
-                  {day.closest_callsign ?? day.closest_icao24}
-                  </Link>
+                    underline-offset-4 hover:underline
+                    "
+                    >
+                      {day.closest_callsign ?? day.closest_icao24}
+                    </Link>
                   ) : (
                     "—"
-                    )}
+                  )}
                 </li>
 
-                
-                <strong>Longest:</strong>{" "}
-                {day.longest_callsign ?? day.longest_icao24}
+                <li>
+                  <strong>Longest:</strong>{" "}
+                  {day.longest_icao24 ? (
+                    <Link
+                      href={`/flights/${day.longest_icao24}`}
+                      className="   
+                  inline-flex items-center gap-1
+                  text-sky-400 hover:text-sky-300
+                  underline-offset-4 hover:underline"
+                    >
+                      {day.longest_callsign ?? day.longest_icao24}
+                    </Link>
+                  ) : (
+                    "—"
+                  )}
+                </li>
               </ul>
             )}
             {day.fun_fact && (
