@@ -17,14 +17,13 @@ export default function BackButton() {
     onClick={() => router.back()}
     aria-label="Go back"
     className="
-    -ml-10
+    absolute top-15 -left-20 z-50
     inline-flex items-center gap-2
     px-3 py-1 rounded-lg
     text-sm font-bold text-sky-200/50
     bg-black/70 hover:bg-blue-950
     hover:scale-105
     border border-white/10
-    mb-4
     ">
       <Image
       src="/icons/backicon.png"

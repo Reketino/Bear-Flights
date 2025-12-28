@@ -9,13 +9,10 @@ export default function FlightsLayout({
 }) {
     return (
         <main className="
-        p-6 max-w-7xl mx-auto
+         relative p-6 
+         max-w-7xl mx-auto
         ">
-            <header className="
-            mb-4 flex items-center justify-between
-            ">
             <BackButton />
-            </header>
             {children}
         </main>
     )
