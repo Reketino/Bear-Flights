@@ -3,13 +3,13 @@ export const dynamic = "force-dynamic";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import Link from "next/link";
 
-export const revalidate = 300;
 
 type Flight = {
   icao24: string;
   callsign: string | null;
   origin: string | null;
   departure_country: string | null;
+  arrival_country: string | null;
   distance_over_area: number | null;
   first_seen: string;
 };
@@ -20,7 +20,7 @@ const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from("flights")
     .select(
-      "icao24, callsign, origin, departure_country, distance_over_area, first_seen"
+      "icao24, callsign, origin, departure_country, arrival_country, distance_over_area, first_seen"
     )
     .order("first_seen", { ascending: false })
     .limit(100);
@@ -47,7 +47,7 @@ const supabase = getSupabaseServerClient();
     <main className="p-6 max-w-6xl mx-auto">
       <header className="mb-6">
         <h1 className="text-3xl font-bold">✈️ Flights</h1>
-        <p className="text-sky-800">
+        <p className="text-sky-900">
           Latest aircraft recorded by BearFlights
         </p>
       </header>
@@ -83,7 +83,7 @@ const supabase = getSupabaseServerClient();
           <tbody>
             {data.map((f) => (
               <tr
-                key={f.icao24 + f.first_seen}
+                key={`$f.icao24-${f.first_seen}`}
                 className="border-t border-white/10"
               >
 
@@ -105,12 +105,15 @@ const supabase = getSupabaseServerClient();
                   inline-flex items-center gap-2
                   ">
                     🌍 {f.departure_country ?? "—"}
+                    <span className="
+                    text-blue-950">→</span>
+                    {f.arrival_country ?? "In flight"}
                   </span>
                 </td>
 
                 <td className="p-3 text-right">
                   {f.distance_over_area
-                    ? `${f.distance_over_area} km`
+                    ? `${f.distance_over_area.toFixed(1)} km`
                     : "—"}
                 </td>
 
