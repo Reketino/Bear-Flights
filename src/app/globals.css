@@ -22,8 +22,8 @@ body {
 
     background: 
     linear-gradient(
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.6)
+        rgba(3, 45, 117, 0.6),
+        rgba(7, 32, 115, 0.6)
     ),
     url("/background/planesky.png");
     background-size: cover;
