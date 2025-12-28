@@ -42,7 +42,11 @@ export default async function FlightDetailPage(props: PageProps ) {
                 ✈️ Flight {data.callsign ?? data.icao24}
             </h1>
 
-            <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <section className="
+            grid grid-cols-1 
+            sm:grid-cols-2 gap-6
+            text-blue-400
+            ">
                 <Info label ="ICAO24" value={data.icao24} />
                 <Info label ="Origin" value={data.origin ?? "Unknown"} />
                 <Info label ="Departure country" value={data.departure_country ?? "—"} />
@@ -63,11 +67,12 @@ export default async function FlightDetailPage(props: PageProps ) {
 function Info({ label, value }: { label: string; value: string; }) {
     return (
         <div className="
-        rounded-xl bg-black/20 
+        rounded-xl bg-black/20
+        hover:scale-105 
         border border-white/10 p-4
         ">
             <p className="
-            text-xs text-blue-800
+            text-xs text-blue-950
             uppercase tracking-wide
             ">
                 {label}
