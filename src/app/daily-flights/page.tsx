@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import Link from "next/link";
 import { getSupabaseServerClient } from "@/lib/supabase";
 
 type DailyFlight = {
@@ -74,7 +75,7 @@ export default async function DailyFlightsPage() {
           📅 Flights Registered Today
         </h1>
         <p
-          className="text-gray-500
+          className="text-sky-900
                 "
         >
           Flights Over Sykkylven Today.
@@ -108,7 +109,7 @@ export default async function DailyFlightsPage() {
               </h2>
               <span
                 className="
-                        text-sm text-gray-500
+                        text-sm text-shadow-blue-200
                         "
               >
                 {day.total_flights} Flights Today
@@ -131,8 +132,22 @@ export default async function DailyFlightsPage() {
               >
                 <li>
                   <strong>Closest:</strong>{" "}
+                  {day.closest_icao24 ? (
+                    <Link
+                    href={`/flights/${day.closest_icao24}`}
+                    className="
+                    inline-flex items-center gap-1
+                    text-sky-400 hover:text-sky-300
+                    underlline-offset-4 hover:underline
+                    ">
                   {day.closest_callsign ?? day.closest_icao24}
+                  </Link>
+                  ) : (
+                    "—"
+                    )}
                 </li>
+
+                
                 <strong>Longest:</strong>{" "}
                 {day.longest_callsign ?? day.longest_icao24}
               </ul>
