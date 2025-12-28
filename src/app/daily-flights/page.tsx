@@ -75,7 +75,7 @@ export default async function DailyFlightsPage() {
           📅 Flights Registered Today
         </h1>
         <p
-          className="text-sky-900 text-center mt-2
+          className="text-blue-950 text-center mt-2
                 "
         >
           Flights Over Sykkylven Today.
@@ -92,7 +92,8 @@ export default async function DailyFlightsPage() {
             className="
             relative
             rounded-xl p-5 border
-          border-white/10 bg-black/20
+           border-gray-600
+           bg-gray-800/20
                 "
           >
             <header
@@ -103,7 +104,7 @@ export default async function DailyFlightsPage() {
             >
               <h2
                 className="
-                        font-semibold
+                       font-semibold
                         "
               >
                 {new Date(day.date).toLocaleDateString("en-GB")}
@@ -139,7 +140,7 @@ export default async function DailyFlightsPage() {
                       href={`/flights/${day.closest_icao24}`}
                       className="
                     inline-flex items-center gap-1
-                    text-sky-400 hover:text-sky-300
+                    text-blue-300 hover:text-green-600
                     underline-offset-4 hover:underline
                     "
                     >
@@ -157,8 +158,10 @@ export default async function DailyFlightsPage() {
                       href={`/flights/${day.longest_icao24}`}
                       className="   
                   inline-flex items-center gap-1
-                  text-sky-400 hover:text-sky-300
-                  underline-offset-4 hover:underline"
+                  text-blue-300 hover:text-green-600
+                  underline-offset-4 hover:underline
+                  transition-all duration-200
+                  ease-out"
                     >
                       {day.longest_callsign ?? day.longest_icao24}
                     </Link>
@@ -171,7 +174,8 @@ export default async function DailyFlightsPage() {
             {day.fun_fact && (
               <p
                 className="
-                        mt-3 text-sm text-amber-400
+                        mt-3 hover:scale-105
+                        text-sm text-amber-400
                         "
               >
                 {day.fun_fact}
