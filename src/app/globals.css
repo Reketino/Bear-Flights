@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 
-
-
 *,
 *::before,
 *::after {
@@ -46,10 +44,6 @@ body {
 
 /* Link styling */
 a {
-    text-decoration: none;
-}
-
-a:hover {
     text-decoration: none;
 }
 
