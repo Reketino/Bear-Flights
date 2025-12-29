@@ -2,8 +2,6 @@ export const dynamic = "force-dynamic";
 
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightMapClient from "@/components/Map/FlightMapClient";
-import BackButton from "@/components/BackButton";
-
 
 
 

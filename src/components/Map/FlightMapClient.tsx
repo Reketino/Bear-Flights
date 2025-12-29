@@ -1,10 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import FlightMap from "./FlightMap";
 
 
-const flightmap = dynamic(
+const FlightMap = dynamic(
     () => import("./FlightMap"),
     { ssr: false }
 );
