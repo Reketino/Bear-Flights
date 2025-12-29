@@ -4,16 +4,25 @@ import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightMapClient from "@/components/Map/FlightMapClient";
 
 
+type FlightPosition = {
+    icao24: string;
+    callsign: string | null;
+    latitude: number;
+    longitude: number;
+    altitude: number | null;
+    velocity: number | null;
+}
 
 export default async function FlightsMapPage() {
     const supabase = getSupabaseServerClient();
 
 
     const { data, error } = await supabase
-    .from("flight_positions")
+    .from<"flight_positions", FlightPosition>("flight_positions")
     .select(
       "icao24, callsign, latitude, longitude, altitude, velocity"
     );
+    
 
 
     if (error) {
