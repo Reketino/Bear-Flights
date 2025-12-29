@@ -57,7 +57,7 @@ const supabase = getSupabaseServerClient();
     <main className="p-6 max-w-6xl mx-auto">
       <header className="mb-6">
         <h1 className="text-3xl font-bold">✈️ Flights</h1>
-        <p className="text-sky-900">
+        <p className="text-sky-200">
           Latest aircraft recorded by BearFlights
         </p>
       </header>
