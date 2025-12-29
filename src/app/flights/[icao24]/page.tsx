@@ -49,7 +49,7 @@ export default async function FlightDetailPage(props: PageProps ) {
             ">
                 <Info label ="ICAO24" value={data.icao24} />
                 <Info label ="Origin" value={data.origin ?? "Unknown"} />
-                <Info label ="Departure country" value={data.departure_country ?? "—"} />
+                <Info label ="Route" value={data.route ? `✈️${data.route}` : "In flight"} />
                 <Info label ="Distance over area" 
                 value={
                     data.distance_over_area
