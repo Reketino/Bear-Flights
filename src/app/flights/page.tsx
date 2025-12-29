@@ -106,7 +106,7 @@ const supabase = getSupabaseServerClient();
                   </Link>
 
                   {f.aircraft_type && (
-                    <span className="text-xs text-neutral-600">
+                    <span className="text-xs text-sky-600">
                       {f.aircraft_type}
                     </span>
                   )}
