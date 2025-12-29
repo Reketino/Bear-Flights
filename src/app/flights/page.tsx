@@ -8,8 +8,7 @@ type Flight = {
   icao24: string;
   callsign: string | null;
   origin: string | null;
-  departure_country: string | null;
-  arrival_country: string | null;
+  route: string | null;
   distance_over_area: number | null;
   first_seen: string;
   aircraft_type: string | null;
@@ -25,8 +24,7 @@ const supabase = getSupabaseServerClient();
       icao24, 
       callsign, 
       origin, 
-      departure_country, 
-      arrival_country,
+      route,
       distance_over_area,
       first_seen,
       aircraft_type
@@ -77,7 +75,7 @@ const supabase = getSupabaseServerClient();
                 Origin
                 </th>
               <th className="p-3 text-left">
-                  Departure country
+                  Route
                 </th>
               <th className="p-3 text-right">
                 Distance
@@ -116,15 +114,8 @@ const supabase = getSupabaseServerClient();
                   {f.origin ?? "Unknown"}
                 </td>
 
-                <td className="p-3">
-                  <span className="
-                  inline-flex items-center gap-2
-                  ">
-                    🌍 {f.departure_country ?? "—"}
-                    <span className="
-                    text-blue-950">→</span>
-                    {f.arrival_country ?? "In flight"}
-                  </span>
+                <td className="p-3 font-mono">
+                   {f.route ?? "Route unknown🫠"}
                 </td>
 
                 <td className="p-3 text-right">
