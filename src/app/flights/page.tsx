@@ -71,6 +71,9 @@ const supabase = getSupabaseServerClient();
               <th className="p-3 text-left">
                 Callsign
                 </th>
+                <th className="p-3 text-left">
+                  Aircraft Type
+                </th>
               <th className="p-3 text-left">
                 Origin
                 </th>
@@ -102,12 +105,10 @@ const supabase = getSupabaseServerClient();
                   >
                   {f.callsign ?? f.icao24}
                   </Link>
+                </td>
 
-                  {f.aircraft_type && (
-                    <span className="text-xs text-sky-600">
-                      {f.aircraft_type}
-                    </span>
-                  )}
+                <td className="p-3 text-left font-mono text-sky-600">
+                  {f.aircraft_type ?? "—"}
                 </td>
 
                 <td className="p-3">
