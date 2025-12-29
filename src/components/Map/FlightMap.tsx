@@ -20,7 +20,14 @@ type FlightPosition = {
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
 
-const planeIcon = useMemo(
+
+export default function FlightMap({ 
+    flights, 
+}: {
+   flights: FlightPosition[]; 
+}) {
+
+    const planeIcon = useMemo(
   () =>
     L.icon({
       iconUrl: "/icons/airplane.png",
@@ -31,7 +38,7 @@ const planeIcon = useMemo(
   []
 );
 
-export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
+
   return (
     <MapContainer
       center={CENTER} // Sykkylven Center
