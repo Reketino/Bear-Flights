@@ -14,6 +14,7 @@ type FlightPosition = {
   longitude: number;
   altitude: number | null;
   velocity: number | null;
+  route: string | null;
 };
 
 
@@ -75,6 +76,8 @@ export default function FlightMap({
               >
                 ✈️{f.callsign ?? f.icao24}
               </header>
+
+              {f.route && <div>Route: {f.route}</div>}
               {f.altitude && <div>Altitude: {Math.round(f.altitude)} m</div>}
               {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
             </section>
