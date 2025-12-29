@@ -12,6 +12,7 @@ type Flight = {
   arrival_country: string | null;
   distance_over_area: number | null;
   first_seen: string;
+  aircraft_type: string | null;
 };
 
 export default async function FlightsPage() {
@@ -20,7 +21,16 @@ const supabase = getSupabaseServerClient();
   const { data, error } = await supabase
     .from("flights")
     .select(
-      "icao24, callsign, origin, departure_country, arrival_country, distance_over_area, first_seen"
+      `
+      icao24, 
+      callsign, 
+      origin, 
+      departure_country, 
+      arrival_country,
+      distance_over_area,
+      first_seen,
+      aircraft_type
+        `
     )
     .order("first_seen", { ascending: false })
     .limit(100);
@@ -94,6 +104,12 @@ const supabase = getSupabaseServerClient();
                   >
                   {f.callsign ?? f.icao24}
                   </Link>
+
+                  {f.aircraft_type && (
+                    <span className="text-xs text-neutral-600">
+                      {f.aircraft_type}
+                    </span>
+                  )}
                 </td>
 
                 <td className="p-3">
