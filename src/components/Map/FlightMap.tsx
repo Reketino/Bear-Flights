@@ -23,7 +23,7 @@ const CENTER: LatLngExpression = [62.392497, 6.578392];
 
 const planeIcon = L.icon({
     iconUrl: "/icons/airplane.png",
-    iconSize: [32, 32],
+    iconSize: [45, 45],
     iconAnchor: [16, 16],
     popupAnchor: [0, -16],
 })
