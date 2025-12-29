@@ -125,11 +125,11 @@ const supabase = getSupabaseServerClient();
                     : "—"}
                 </td>
 
-                <td className="p-3 text-right text-neutral-400">
+                <td className="p-3 text-right text-emerald-400">
                   {new Date(f.first_seen).toLocaleDateString("en-GB")}
                 </td>
 
-                <td className="p-3 text-right text-neutral-400">
+                <td className="p-3 text-right text-white">
                   {new Date(f.first_seen).toLocaleTimeString("en-GB")}
                 </td>
                 
