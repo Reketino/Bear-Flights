@@ -41,6 +41,12 @@ export default async function FlightsMapPage() {
     }
 
 
+    const safeFlights = (data ??[]).filter(
+        (f): f is FlightPosition =>
+        Number.isFinite(f.latitude) && Number.isFinite(f.longitude)
+    );
+
+
     return (
         <main className="
         p-6 max-w-7xl mx-auto
