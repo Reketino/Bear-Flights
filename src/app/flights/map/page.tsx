@@ -60,7 +60,7 @@ export default async function FlightsMapPage() {
                 </p>
             </header>
 
-            <FlightMapClient flights={data ?? []} />
+            <FlightMapClient flights={safeFlights} />
         </main>
     )
     }
