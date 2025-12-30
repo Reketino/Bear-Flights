@@ -6,7 +6,8 @@ type PageProps = {
   };
 };
 
-export default async function FlightDetailPage({ params }: PageProps) {
+export default async function FlightDetailPage(props: PageProps) {
+  const params = await props.params;
   const supabase = getSupabaseServerClient();
 
   const { data, error } = await supabase
