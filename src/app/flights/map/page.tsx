@@ -11,7 +11,7 @@ type FlightPosition = {
     longitude: number;
     altitude: number | null;
     velocity: number | null;
-}
+};
 
 export default async function FlightsMapPage() {
     const supabase = getSupabaseServerClient();
