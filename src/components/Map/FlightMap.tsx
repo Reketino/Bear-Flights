@@ -18,6 +18,7 @@ type FlightPosition = {
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
 export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
+
   const planeIcon = (heading?: number | null) =>
     L.divIcon({
       className: "",
@@ -26,12 +27,14 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
       src="/icons/airplane.png"
       style="
       width:45px;
-      transform: rotate(${heading ?? 0}deg);
+      transform: rotate(${(heading ?? 0)-90}deg);
       transform-origin: 50% 50%;
+      display: block;
+      "
+      />
       `,
-      iconUrl: "/icons/airplane.png",
       iconSize: [45, 45],
-      iconAnchor: [16, 16],
+      iconAnchor: [22, 22],
       popupAnchor: [0, -16],
     });
 
