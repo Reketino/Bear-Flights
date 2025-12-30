@@ -30,7 +30,7 @@ export default function HomePage() {
         >
           {/* Daily Flights Page */}
           <Link
-            href="/daily-flights"
+            href="/flights/daily-flights"
             className="
         px-6 py-3 rounded-xl
         text-black font-semibold
