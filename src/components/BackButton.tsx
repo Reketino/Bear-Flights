@@ -14,7 +14,8 @@ export default function BackButton() {
   return (
     <>
     <button
-    onClick={() => router.back()}
+    onClick={() => setLeaving(true)}
+    disabled={leaving}
     aria-label="Go back"
     className="
     absolute top-15 -left-20 z-50
@@ -45,11 +46,9 @@ export default function BackButton() {
         fixed inset-0 z-9999 
         bg black/10 backdrop-blur-[2px]
         "
-        initial={{ x: 0, opacity: 0 }}
-        animate={{ x: "110%", opacity: 1, skewX: -2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.50, ease: "easeInOut" }}
-        onAnimationComplete={() => router.back}
         >
 
           <motion.div
@@ -57,15 +56,30 @@ export default function BackButton() {
           absolute left-6
           top-1/2 -translate-y-1/2
           "
-          initial={{ scale: 0, rotate: -10 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 0.18, ease: "backOut"}}
+          initial={{ 
+            x: 0,
+            scale: 0.9, 
+            rotate: -10,
+            opacity: 1, 
+          }}
+          animate={{ 
+            x: "120vw",
+            scale: 1.25, 
+            rotate: 6,
+            opacity: 0,
+          }}
+          transition={{ 
+            delay: 0.05,
+            duration: 0.45, 
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          onAnimationComplete={() => router.back()}
           >
             <Image
-            src="/icons/plane.png"
+            src="/icons/backicon.png"
             alt="Airplane transition icon"
-            width={40}
-            height={40}
+            width={400}
+            height={400}
             className="drop-shadow-lg"
             />
           </motion.div>
