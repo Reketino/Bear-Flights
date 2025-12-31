@@ -17,19 +17,31 @@ type FlightPosition = {
 
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
+
+const altitudeColor = (altitude: number | null) => {
+  if (altitude === null) return "#9ca3af";
+  if (altitude < 3000) return "#22c55e";
+  if (altitude < 9000) return "#eab308"; 
+  return "#ef4444";
+};
+
+
 export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
 
-  const planeIcon = (heading?: number | null) =>
-    L.divIcon({
+  const planeIcon = (heading: number | null, altitude: number | null) => {
+    const rotation = (heading ?? 0) - 90;
+
+    return L.divIcon({
       className: "",
       html: `
       <img
       src="/icons/airplane.png"
       style="
       width:45px;
-      transform: rotate(${(heading ?? 0)-90}deg);
+      transform: rotate(${rotation}deg);
       transform-origin: 50% 50%;
       display: block;
+      filter: drop-shadow(0 0 6px ${altitudeColor(altitude)});
       "
       />
       `,
@@ -37,6 +49,7 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
       iconAnchor: [22, 22],
       popupAnchor: [0, -16],
     });
+  };
 
   return (
     <MapContainer
@@ -61,7 +74,7 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
         <Marker
           key={f.icao24}
           position={[f.latitude, f.longitude] as LatLngExpression}
-          icon={planeIcon(f.heading)}
+          icon={planeIcon(f.heading, f.altitude)}
         >
           <Popup>
             <section
@@ -78,7 +91,9 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
               {f.heading !== null && (
                 <div>Heading: {Math.round(f.heading)}°</div>
               )}
-              {f.altitude && <div>Altitude: {Math.round(f.altitude)} m</div>}
+              {f.altitude !== null && (
+               <div>Altitude: {Math.round(f.altitude)} m</div>
+              )}
               {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
             </section>
           </Popup>
