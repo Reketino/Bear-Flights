@@ -17,6 +17,10 @@ type FlightPosition = {
 
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
+const safeHeading = (heading: number | null) =>
+  typeof heading === "number" && Number.isFinite(heading)
+    ? heading
+    : 0;
 
 const altitudeColor = (altitude: number | null) => {
   if (altitude === null) return "#9ca3af";
@@ -29,7 +33,7 @@ const altitudeColor = (altitude: number | null) => {
 export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
 
   const planeIcon = (heading: number | null, altitude: number | null) => {
-    const rotation = (heading ?? 0) - 90;
+    const rotation = safeHeading(heading)- 90;
 
     return L.divIcon({
       className: "",
@@ -72,7 +76,7 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
 
       {flights.map((f) => (
         <Marker
-          key={f.icao24}
+          key={`${f.icao24}-${Math.round(safeHeading(f.heading))}`}
           position={[f.latitude, f.longitude] as LatLngExpression}
           icon={planeIcon(f.heading, f.altitude)}
         >
