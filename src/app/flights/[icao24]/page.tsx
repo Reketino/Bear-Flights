@@ -1,4 +1,5 @@
 import { getSupabaseServerClient } from "@/lib/supabase";
+import Link from "next/link";
 
 type PageProps = {
   params: {
@@ -36,7 +37,7 @@ export default async function FlightDetailPage(props: PageProps) {
       <h1 className="text-3xl font-bold mb-6">
         ✈️ Flight {data.callsign ?? data.icao24}
       </h1>
-
+     
       <section
         className="
             grid grid-cols-1 
@@ -65,6 +66,20 @@ export default async function FlightDetailPage(props: PageProps) {
           value={new Date(data.last_seen).toLocaleString("en-GB")}
         />
       </section>
+       <Link 
+      href={`/flights/map?icao24=${data.icao24}`}
+      className="
+      inline-block mt-6
+      px-4 py-2 rounded-lg
+     bg-blue-950/30 
+     text-blue-400 font-semibold
+     hover:bg-blue-300/15 hover:scale-105
+      transition 
+      "
+      >
+        🗺️ Check out this flight on the map
+      </Link>
+
     </main>
   );
 }
