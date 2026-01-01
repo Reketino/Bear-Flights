@@ -38,18 +38,26 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
     return L.divIcon({
       className: "",
       html: `
+      <div style="
+      width:45px;
+      height:45px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transform: rotate(${rotation}deg); 
+      ">
       <img
       src="/icons/airplane.png"
       style="
       width:45px;
-      transform: rotate(${rotation}deg);
-      transform-origin: 50% 50%;
+      height:45px;
       display: block;
       filter: drop-shadow(0 0 6px ${altitudeColor(altitude)});
       "
       />
+      </div>
       `,
-      iconSize: [45, 45],
+      iconSize: [40, 40],
       iconAnchor: [22, 22],
       popupAnchor: [0, -16],
     });
@@ -76,7 +84,7 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
 
       {flights.map((f) => (
         <Marker
-          key={`${f.icao24}-${Math.round(safeHeading(f.heading))}`}
+          key={`${f.icao24}-${f.heading}`}
           position={[f.latitude, f.longitude] as LatLngExpression}
           icon={planeIcon(f.heading, f.altitude)}
         >
