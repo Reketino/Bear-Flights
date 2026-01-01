@@ -69,6 +69,7 @@ export default function HomePage() {
           <a
             href="https://opensky-network.org"
             target="_blank"
+            rel="noopener noreferrer"
             className="
       px-3 py-3 rounded-xl
       text-neutral-200 font-semibold
@@ -85,7 +86,7 @@ export default function HomePage() {
       text-xs text-blue-950 mt-10
       "
         >
-          Buildt using Next.js, Supabase & Opensky API
+          Built using Next.js, Supabase & Opensky API
         </p>
       </section>
     </main>
