@@ -14,7 +14,7 @@ export default function BackButton() {
     <>
     <button
     onClick={() => router.back()}
-    aria-label="Go back"
+    title="Back"
     className="
     absolute top-15 -left-20 z-50
     inline-flex items-center gap-2
