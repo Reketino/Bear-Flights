@@ -13,15 +13,29 @@ type FlightPosition = {
     velocity: number | null;
 };
 
-export default async function FlightsMapPage() {
+type pageProps = {
+    searchParams?: Promise<{
+        icao24?: string;
+    }>;
+};
+
+export default async function FlightsMapPage({ searchParams }: pageProps) {
     const supabase = getSupabaseServerClient();
 
 
-    const { data, error } = await supabase
-    .from<"flight_positions", FlightPosition>("flight_positions")
-    .select(
-      "icao24, callsign, latitude, longitude, altitude, velocity"
-    );
+    const params = await searchParams;
+    const icao24 = params?.icao24;
+
+
+    let query = supabase
+    .from("flight_positions")
+    .select("icao24, callsign, latitude, longitude, altitude, velocity");
+
+    if (icao24) {
+        query = query.eq("icao24", icao24);
+    }
+
+    const { data, error } = await query;
     
 
 

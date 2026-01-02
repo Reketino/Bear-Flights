@@ -15,6 +15,7 @@ type FlightPosition = {
   heading: number | null;
 };
 
+
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
 const safeHeading = (heading: number | null) =>
