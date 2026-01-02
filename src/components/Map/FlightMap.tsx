@@ -5,7 +5,7 @@ import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect } from "react";
-import { animate } from "framer-motion";
+
 
 type FlightPosition = {
   icao24: string;
