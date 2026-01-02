@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import BackButton from "@/components/Buttons/BackButton";
+import NavigationButtons from "@/components/Buttons/NavigationButtons";
 
 
 export default function FlightsLayout({
@@ -12,7 +12,7 @@ export default function FlightsLayout({
          relative p-6 
          max-w-7xl mx-auto
         ">
-            <BackButton />
+            <NavigationButtons />
             {children}
         </main>
     )
