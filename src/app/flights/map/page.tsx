@@ -74,7 +74,10 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
                 </p>
             </header>
 
-            <FlightMapClient flights={safeFlights} />
+            <FlightMapClient 
+            flights={safeFlights} 
+            singleFlight={Boolean(icao24)}
+            />
         </main>
     )
     }

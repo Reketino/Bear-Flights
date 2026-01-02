@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
@@ -55,7 +56,13 @@ function AutoPan({ flights }: { flights: FlightPosition[] }) {
   return null;
 }
 
-export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
+export default function FlightMap({ 
+  flights, 
+  singleFlight,
+}: { 
+  flights: FlightPosition[];
+  singleFlight?: boolean; 
+}) {
 
   const planeIcon = (heading: number | null, altitude: number | null) => {
     const rotation = safeHeading(heading)- 90;
@@ -88,7 +95,29 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
     });
   };
 
+
+  
+
   return (
+    <>
+    
+    {singleFlight && (
+    <section className="mb-4">
+      <a
+      href="/flights/map"
+      className="
+      inline-flex items-center gap-2
+      px-4 py-2 rounded-lg 
+      bg-slate-800 hover:bg-slate-700
+      text-slate-100 font-semibold
+      transition
+      "
+      >
+       ← Return to all flights 
+      </a>
+    </section>
+  )}
+
     <MapContainer
       center={CENTER} // Sykkylven Center
       zoom={8}
@@ -140,5 +169,6 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
         </Marker>
       ))}
     </MapContainer>
+    </>
   );
 }
