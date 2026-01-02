@@ -11,8 +11,10 @@ const FlightMap = dynamic(
 
 export default function FlightMapClient({
     flights,
+    singleFlight,
 }: {
     flights: any[];
+    singleFlight?: boolean;
 }) {
-    return <FlightMap flights={flights} />;
+    return <FlightMap flights={flights} singleFlight={singleFlight} />;
 }
