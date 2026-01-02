@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import BackButton from "@/components/BackButton";
+import BackButton from "@/components/Buttons/BackButton";
 
 
 export default function FlightsLayout({
