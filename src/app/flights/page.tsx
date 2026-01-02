@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import Link from "next/link";
 
+const PAGE_SIZE = 25;
 
 type Flight = {
   id: number;
@@ -15,25 +16,41 @@ type Flight = {
   aircraft_type: string | null;
 };
 
-export default async function FlightsPage() {
+
+type PageProps = {
+  searchParams?: Promise<{
+    page?: string;
+  }>;
+};
+
+export default async function FlightsPage({ searchParams}: PageProps) {
 const supabase = getSupabaseServerClient();
 
-  const { data, error } = await supabase
+const params = await searchParams;
+const page = Math.max(1, Number(params?.page ?? 1));
+
+const from = (page - 1) * PAGE_SIZE;
+const to = from + PAGE_SIZE - 1;
+
+  const { data, error, count } = await supabase
     .from("flights")
-    .select(
+    .select( 
       `
-      id,
-      icao24, 
-      callsign, 
-      origin, 
+       id,
+      icao24,
+      callsign,
+      origin,
       route,
       distance_over_area,
       first_seen,
       aircraft_type
-        `
-    )
+      `,
+      { count: "exact"}
+      )
     .order("first_seen", { ascending: false })
-    .limit(100);
+    .range(from, to);
+
+     const totalPages = Math.max(1, Math.ceil((count ?? 0) / PAGE_SIZE));
 
   if (error) {
     return (
@@ -52,6 +69,10 @@ const supabase = getSupabaseServerClient();
       </main>
     );
   }
+
+
+ 
+
 
   return (
     <main className="p-6 max-w-6xl mx-auto">
@@ -140,6 +161,45 @@ const supabase = getSupabaseServerClient();
           </tbody>
         </table>
       </section>
+
+      <footer className="
+      mt-6 flex items-center justify-between
+      ">
+        <section className="
+        text-sm text-neutral-400
+        ">
+          Page {page} of {totalPages}
+        </section>
+
+        <section className="flex gap-2">
+          <Link
+          href={`/flights?page=${page - 1}`}
+          aria-disabled={page <= 1}
+          className={`
+            px-3 py-1 rounded-lg border
+            ${page <= 1
+              ? "opacity-40 pointer-events-none"
+              : "hover:bg-white/10"}  
+            `}
+            >
+              ← Prev
+            </Link>
+
+            <Link
+            href={`/flights?page=${page + 1}`}
+            aria-disabled={page >= totalPages}
+            className={`
+              px-3 py-1 rounded-lg border
+              ${page >= totalPages
+              ? "opacity-40 pointer-events-none"
+              : "hover:bg-white/10"}  
+              `}
+              >
+                Next →
+              </Link>
+        </section>
+
+      </footer>
     </main>
   );
 }
