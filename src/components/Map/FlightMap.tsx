@@ -1,9 +1,11 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useEffect } from "react";
+import { animate } from "framer-motion";
 
 type FlightPosition = {
   icao24: string;
@@ -30,6 +32,28 @@ const altitudeColor = (altitude: number | null) => {
   return "#ef4444";
 };
 
+
+function AutoPan({ flights }: { flights: FlightPosition[] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (flights.length === 1) {
+      const f = flights[0];
+
+      map.flyTo(
+        [f.latitude, f.longitude],
+        11,
+        {
+          animate: true,
+          duration: 1.5,
+          easeLinearity: 0.25,
+        }
+      );
+    }
+  }, [flights, map]);
+
+  return null;
+}
 
 export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
 
@@ -70,6 +94,9 @@ export default function FlightMap({ flights }: { flights: FlightPosition[] }) {
       zoom={8}
       className="h-150 w-full rounded-xl"
     >
+
+      <AutoPan flights={flights} />
+
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       <Circle
