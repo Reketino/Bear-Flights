@@ -5,6 +5,7 @@ import Link from "next/link";
 
 
 type Flight = {
+  id: number;
   icao24: string;
   callsign: string | null;
   origin: string | null;
@@ -21,6 +22,7 @@ const supabase = getSupabaseServerClient();
     .from("flights")
     .select(
       `
+      id,
       icao24, 
       callsign, 
       origin, 
@@ -94,7 +96,7 @@ const supabase = getSupabaseServerClient();
           <tbody>
             {data.map((f) => (
               <tr
-                key={`$f.icao24-${f.first_seen}`}
+                key={f.id}
                 className="border-t border-white/10"
               >
 
