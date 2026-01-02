@@ -99,10 +99,10 @@ export default function FlightMap({
   
 
   return (
-    <>
+    <section className=" relative">
     
     {singleFlight && (
-    <section className="mb-4">
+    <div className="absolute top-4 right-4 z-1000">
       <a
       href="/flights/map"
       className="
@@ -115,7 +115,7 @@ export default function FlightMap({
       >
        ← Return to all flights 
       </a>
-    </section>
+    </div>
   )}
 
     <MapContainer
@@ -169,6 +169,6 @@ export default function FlightMap({
         </Marker>
       ))}
     </MapContainer>
-    </>
+    </section>
   );
 }
