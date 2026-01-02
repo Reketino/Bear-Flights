@@ -105,6 +105,7 @@ export default function FlightMap({
     <div className="absolute top-4 right-4 z-1000">
       <a
       href="/flights/map"
+      title="Overview"
       className="
       inline-flex items-center gap-2
       px-4 py-2 rounded-lg 
@@ -113,7 +114,7 @@ export default function FlightMap({
       transition
       "
       >
-       ← Return to all flights 
+       ← Return to overview 
       </a>
     </div>
   )}
