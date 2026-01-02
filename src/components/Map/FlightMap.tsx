@@ -128,6 +128,8 @@ export default function FlightMap({
 
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+
+      {!singleFlight && (
       <Circle
         {...({
           center: CENTER,
@@ -138,6 +140,7 @@ export default function FlightMap({
           },
         } as any)}
       />
+      )}
 
       {flights.map((f) => (
         <Marker
