@@ -166,7 +166,7 @@ const to = from + PAGE_SIZE - 1;
       mt-6 flex items-center justify-between
       ">
         <section className="
-        text-sm text-neutral-400
+        text-sm text-sky-200
         ">
           Page {page} of {totalPages}
         </section>
