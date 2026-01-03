@@ -91,14 +91,14 @@ function Info({ label, value }: { label: string; value: string }) {
   return (
     <div
       className="
-        rounded-xl bg-black/20
+        rounded-xl bg-black/30
         hover:scale-105 
         border border-white/10 p-4
         "
     >
       <p
         className="
-            text-xs text-blue-950
+            text-xs text-white
             uppercase tracking-wide
             "
       >
