@@ -66,19 +66,22 @@ export default async function FlightDetailPage(props: PageProps) {
           value={new Date(data.last_seen).toLocaleString("en-GB")}
         />
       </section>
+       
+       <section className="flex justify-center mt-6">
        <Link 
       href={`/flights/map?icao24=${data.icao24}`}
       className="
       inline-block mt-6
-      px-4 py-2 rounded-lg
-     bg-blue-950/30 
+      px-4 py-4 rounded-lg
+     bg-blue-950/90 
      text-blue-400 font-semibold
-     hover:bg-blue-300/15 hover:scale-105
+     hover:bg-blue-800/50 hover:scale-105
       transition 
       "
       >
-        🗺️ Check out this flight on the map
+        🗺️ Check out this flight on the map!
       </Link>
+      </section>
 
     </main>
   );
