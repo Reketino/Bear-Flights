@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+
 
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
@@ -16,6 +16,7 @@ type FlightPosition = {
   altitude: number | null;
   velocity: number | null;
   heading: number | null;
+  departure_airport: string | null;
 };
 
 
