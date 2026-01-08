@@ -32,7 +32,6 @@ export default function DailyFlightsCard({ day }: Props) {
       {day.total_flights === 0 ? (
         <p className="italic text-gray-500">Zero flights detected today!.</p>
       ) : (
-        
         //   Closest Flight
         <ul className="relative text-sm space-y-1 z-10">
           <li>
