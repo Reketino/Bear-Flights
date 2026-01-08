@@ -15,10 +15,9 @@ export default function DailyFlightsCard({ day }: Props) {
   return (
 
      <article className="
-          relative
-          rounded-xl p-5 border
-        border-gray-600
-        bg-gray-800/20
+     relative rounded-xl p-5 border
+    border-gray-600
+    bg-gray-800/20
            ">
             <header className="flex items-center justify-between mb-2">
               <h2 className="font-semibold">
@@ -34,18 +33,17 @@ export default function DailyFlightsCard({ day }: Props) {
               <p className="italic text-gray-500">
                 Zero flights detected today!.
               </p>
+
             ) : (
-              <ul className="relative text-sm 
-                  space-y-1 z-10">
+
+              <ul className="relative text-sm space-y-1 z-10">
                 <li>
                   <strong>Closest:</strong>{" "}
                   {day.closest_icao24 ? (
+
                     <Link
                       href={`/flights/${day.closest_icao24}`}
-                      className="inline-flex items-center gap-1
-                    text-blue-300 hover:text-green-600
-                    underline-offset-4 hover:underline
-                    ">
+                      className="closest-flight">
                       {day.closest_callsign ?? day.closest_icao24}
                     </Link>
                   ) : (
@@ -56,14 +54,9 @@ export default function DailyFlightsCard({ day }: Props) {
                 <li>
                   <strong>Longest:</strong>{" "}
                   {day.longest_icao24 ? (
+
                     <Link href={`/flights/${day.longest_icao24}`}
-                      className="   
-                  inline-flex items-center gap-1
-                  text-blue-300 hover:text-green-600
-                  underline-offset-4 hover:underline
-                  transition-all duration-200
-                  ease-out"
-                    >
+                     className="longest-flight">
                       {day.longest_callsign ?? day.longest_icao24}
                     </Link>
                   ) : (
@@ -72,6 +65,7 @@ export default function DailyFlightsCard({ day }: Props) {
                 </li>
               </ul>
             )}
+
             {day.fun_fact && (
               <p
                 className="mt-3 hover:scale-105 text-sm text-amber-400">
