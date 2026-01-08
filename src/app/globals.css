@@ -43,3 +43,19 @@ table {
     border-collapse: collapse;
 }
 
+
+/* Daily Flights styling for longest & closest */
+.closest-flight {
+    @apply inline-flex items-center gap-1
+         text-blue-300 hover:text-green-600
+           underline-offset-4 hover:underline
+}
+
+
+.longest-flight {
+    @apply inline-flex items-center gap-1
+         text-blue-300 hover:text-green-600
+           underline-offset-4 hover:underline
+           transition-all duration-200
+           ease-out
+}
