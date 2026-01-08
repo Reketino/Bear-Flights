@@ -1,18 +1,9 @@
 export const dynamic = "force-dynamic";
 
-import Link from "next/link";
 import { getSupabaseServerClient } from "@/lib/supabase";
+import DailyFlightsCard from "@/components/flights/DailyFlightsCard";
 
-type DailyFlight = {
-  id: string;
-  date: string;
-  total_flights: number;
-  closest_callsign: string | null;
-  closest_icao24: string | null;
-  longest_callsign: string | null;
-  longest_icao24: string | null;
-  fun_fact: string | null;
-};
+
 
 export default async function DailyFlightsPage() {
   const supabase = getSupabaseServerClient();
@@ -36,21 +27,11 @@ export default async function DailyFlightsPage() {
 
   if (error) {
     return (
-      <main
-        className="p-6
-            "
-      >
-        <h1
-          className="
-                text-2xl font-bold
-                "
-        >
+      <main className="p-6">
+        <h1 className="text-2xl font-bold">
           Flights Today
         </h1>
-        <p
-          className="text-red-400
-                "
-        >
+        <p className="text-red-400">
           {error.message}
         </p>
       </main>
@@ -58,130 +39,20 @@ export default async function DailyFlightsPage() {
   }
 
   return (
-    <main
-      className="
-        p-6 max-w-4xl mx-auto
-        "
-    >
+    <main className="p-6 max-w-4xl mx-auto">
       <header
-        className="mb-6
-            "
-      >
-        <h1
-          className="
-                text-3xl text-center font-bold
-                "
-        >
+        className="mb-6">
+        <h1 className="text-3xl text-center font-bold">
           📅 Flights Registered Today
         </h1>
-        <p
-          className="text-blue-950 text-center mt-2
-                "
-        >
+        <p className="text-blue-950 text-center mt-2">
           Flights Over Sykkylven Today.
         </p>
       </header>
 
-      <section
-        className="space-y-4
-            "
-      >
-        {data?.map((day) => (
-          <article
-            key={day.id}
-            className="
-            relative
-            rounded-xl p-5 border
-           border-gray-600
-           bg-gray-800/20
-                "
-          >
-            <header
-              className="
-                    flex items-center
-                    justify-between mb-2
-                    "
-            >
-              <h2
-                className="
-                       font-semibold
-                        "
-              >
-                {new Date(day.date).toLocaleDateString("en-GB")}
-              </h2>
-              <span
-                className="
-                        text-sm text-shadow-blue-200
-                        "
-              >
-                {day.total_flights} Flights Today
-              </span>
-            </header>
-
-            {day.total_flights === 0 ? (
-              <p
-                className="
-                        italic text-gray-500
-                        "
-              >
-                Zero flights detected today!.
-              </p>
-            ) : (
-              <ul
-                className="
-                relative text-sm 
-                space-y-1 z-10
-                        "
-              >
-                <li>
-                  <strong>Closest:</strong>{" "}
-                  {day.closest_icao24 ? (
-                    <Link
-                      href={`/flights/${day.closest_icao24}`}
-                      className="
-                    inline-flex items-center gap-1
-                    text-blue-300 hover:text-green-600
-                    underline-offset-4 hover:underline
-                    "
-                    >
-                      {day.closest_callsign ?? day.closest_icao24}
-                    </Link>
-                  ) : (
-                    "—"
-                  )}
-                </li>
-
-                <li>
-                  <strong>Longest:</strong>{" "}
-                  {day.longest_icao24 ? (
-                    <Link
-                      href={`/flights/${day.longest_icao24}`}
-                      className="   
-                  inline-flex items-center gap-1
-                  text-blue-300 hover:text-green-600
-                  underline-offset-4 hover:underline
-                  transition-all duration-200
-                  ease-out"
-                    >
-                      {day.longest_callsign ?? day.longest_icao24}
-                    </Link>
-                  ) : (
-                    "—"
-                  )}
-                </li>
-              </ul>
-            )}
-            {day.fun_fact && (
-              <p
-                className="
-                        mt-3 hover:scale-105
-                        text-sm text-amber-400
-                        "
-              >
-                {day.fun_fact}
-              </p>
-            )}
-          </article>
+      <section className="space-y-4">
+      {data?.map((day) => (
+        <DailyFlightsCard key={day.id} day={day} />
         ))}
       </section>
     </main>
