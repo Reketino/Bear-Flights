@@ -2,19 +2,14 @@
 
 import dynamic from "next/dynamic";
 
-
-const FlightMap = dynamic(
-    () => import("./FlightMap"),
-    { ssr: false }
-);
-
+const FlightMap = dynamic(() => import("./FlightMap"), { ssr: false });
 
 export default function FlightMapClient({
-    flights,
-    singleFlight,
+  flights,
+  singleFlight,
 }: {
-    flights: any[];
-    singleFlight?: boolean;
+  flights: any[];
+  singleFlight?: boolean;
 }) {
-    return <FlightMap flights={flights} singleFlight={singleFlight} />;
+  return <FlightMap flights={flights} singleFlight={singleFlight} />;
 }

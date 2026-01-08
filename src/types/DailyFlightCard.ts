@@ -1,4 +1,3 @@
-
 export type DailyFlight = {
   id: string;
   date: string;
