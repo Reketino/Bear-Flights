@@ -1,7 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase";
 import IacoDetails from "@/components/flights/IacoDetails";
 
-
 type PageProps = {
   params: {
     icao24: string;
@@ -29,7 +28,5 @@ export default async function FlightDetailPage(props: PageProps) {
     );
   }
 
-  return (
-  <IacoDetails flight={data} />
-  );
+  return <IacoDetails flight={data} />;
 }
