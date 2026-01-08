@@ -3,8 +3,6 @@ export const dynamic = "force-dynamic";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import DailyFlightsCard from "@/components/flights/DailyFlightsCard";
 
-
-
 export default async function DailyFlightsPage() {
   const supabase = getSupabaseServerClient();
 
@@ -28,20 +26,15 @@ export default async function DailyFlightsPage() {
   if (error) {
     return (
       <main className="p-6">
-        <h1 className="text-2xl font-bold">
-          Flights Today
-        </h1>
-        <p className="text-red-400">
-          {error.message}
-        </p>
+        <h1 className="text-2xl font-bold">Flights Today</h1>
+        <p className="text-red-400">{error.message}</p>
       </main>
     );
   }
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
-      <header
-        className="mb-6">
+      <header className="mb-6">
         <h1 className="text-3xl text-center font-bold">
           📅 Flights Registered Today
         </h1>
@@ -51,8 +44,8 @@ export default async function DailyFlightsPage() {
       </header>
 
       <section className="space-y-4">
-      {data?.map((day) => (
-        <DailyFlightsCard key={day.id} day={day} />
+        {data?.map((day) => (
+          <DailyFlightsCard key={day.id} day={day} />
         ))}
       </section>
     </main>
