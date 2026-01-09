@@ -1,7 +1,7 @@
 "use client";
 
 
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Circle, Polyline, useMap, } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -33,6 +33,7 @@ const altitudeColor = (altitude: number | null) => {
   if (altitude < 9000) return "#eab308"; 
   return "#ef4444";
 };
+
 
 
 function AutoPan({ flights }: { flights: FlightPosition[] }) {
