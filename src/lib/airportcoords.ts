@@ -5,7 +5,7 @@ export type AirPortCoords = {
   name?: string;
 };
 
-export const AirPort_COORDS: Record<string, AirPortCoords> = {
+export const AIRPORTS: Record<string, AirPortCoords> = {
   ENAL: { 
     lat: 62.5625, 
     lon: 6.119699954986572,

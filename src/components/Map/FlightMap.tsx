@@ -1,5 +1,5 @@
 "use client";
-import { AirPort_COORDS } from "@/lib/airportcoords";
+import { AIRPORTS } from "@/lib/airportcoords";
 
 import {
   MapContainer,
@@ -15,6 +15,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect } from "react";
 
+// Flight Positions
 type FlightPosition = {
   icao24: string;
   callsign: string | null;
@@ -41,33 +42,11 @@ const altitudeColor = (altitude: number | null) => {
   return "#ef4444";
 };
 
-// Autpan when entering flight from Icao24
-function AutoPan({ flights }: { flights: FlightPosition[] }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (flights.length === 1) {
-      const f = flights[0];
-
-      map.flyTo([f.latitude, f.longitude], 11, {
-        animate: true,
-        duration: 1.5,
-        easeLinearity: 0.25,
-      });
-    }
-  }, [flights, map]);
-
-  return null;
-}
-
-export default function FlightMap({
-  flights,
-  singleFlight,
-}: {
-  flights: FlightPosition[];
-  singleFlight?: boolean;
-}) {
-  const planeIcon = (heading: number | null, altitude: number | null) => {
+// Plane icon w/ altitude styling &  heading adjustment
+ const planeIcon = (
+  heading: number | null, 
+  altitude: number | null
+) => {
     const rotation = safeHeading(heading) - 90;
 
     return L.divIcon({
@@ -97,6 +76,36 @@ export default function FlightMap({
       popupAnchor: [0, -16],
     });
   };
+
+
+// Autpan when entering flight from Icao24
+function AutoPan({ flights }: { flights: FlightPosition[] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (flights.length === 1) {
+      const f = flights[0];
+
+      map.flyTo([f.latitude, f.longitude], 11, {
+        animate: true,
+        duration: 1.5,
+        easeLinearity: 0.25,
+      });
+    }
+  }, [flights, map]);
+
+  return null;
+}
+
+
+export default function FlightMap({
+  flights,
+  singleFlight,
+}: {
+  flights: FlightPosition[];
+  singleFlight?: boolean;
+}) {
+ 
 
   return (
     <section className=" relative">
@@ -145,7 +154,7 @@ export default function FlightMap({
           flights.map((f) => {
             if (!f.departure_airport) return null;
 
-            const origin = AirPort_COORDS[f.departure_airport];
+            const origin = AIRPORTS[f.departure_airport];
             if (!origin) return null;
 
             return (
@@ -196,10 +205,10 @@ export default function FlightMap({
                 {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
 
                 {/* Departure Airport in popup */}
-                {f.departure_airport && AirPort_COORDS[f.departure_airport] && (
+                {f.departure_airport && AIRPORTS[f.departure_airport] && (
                   <div>
-                    From {AirPort_COORDS[f.departure_airport].name}, {" "}
-                    {AirPort_COORDS[f.departure_airport].country}
+                    From {AIRPORTS[f.departure_airport].name}, {" "}
+                    {AIRPORTS[f.departure_airport].country}
                   </div>
                 )}
               </section>
