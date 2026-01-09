@@ -1,4 +1,5 @@
 "use client";
+import { AirPort_COORDS } from "@/lib/airportcoords";
 
 
 import { MapContainer, TileLayer, Marker, Popup, Circle, Polyline, useMap, } from "react-leaflet";
@@ -19,14 +20,16 @@ type FlightPosition = {
   departure_airport: string | null;
 };
 
-
+// Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
+// Defining heading on the map
 const safeHeading = (heading: number | null) =>
   typeof heading === "number" && Number.isFinite(heading)
     ? heading
     : 0;
 
+// Altitude Color based on Altitude
 const altitudeColor = (altitude: number | null) => {
   if (altitude === null) return "#9ca3af";
   if (altitude < 3000) return "#22c55e";
@@ -36,6 +39,7 @@ const altitudeColor = (altitude: number | null) => {
 
 
 
+// Autpan when entering flight from Icao24
 function AutoPan({ flights }: { flights: FlightPosition[] }) {
   const map = useMap();
 
@@ -144,6 +148,32 @@ export default function FlightMap({
         } as any)}
       />
       )}
+
+
+      {/* Departure Airport */}
+      {singleFlight &&
+      flights.map((f) => {
+        if (!f.departure_airport) return null;
+
+      const origin = AirPort_COORDS[f.departure_airport];
+        if (!origin) return null;
+
+        return (
+          <Polyline
+          key={`${f.icao24}-line`}
+          positions={[
+            [origin.lat, origin.lon],
+            [f.latitude, f.longitude],
+          ]}
+          pathOptions={{
+            color: "#38bdf8",
+            weight: 2,
+            dashArray: "4 6"
+          }}
+          />
+        );
+      })}
+
 
       {flights.map((f) => (
         <Marker
