@@ -1,5 +1,5 @@
 "use client";
-import { AirPort_COORDS } from "@/lib/airportcoords";
+import { AIRPORTS } from "@/lib/airportcoords";
 
 import {
   MapContainer,
@@ -145,7 +145,7 @@ export default function FlightMap({
           flights.map((f) => {
             if (!f.departure_airport) return null;
 
-            const origin = AirPort_COORDS[f.departure_airport];
+            const origin = AIRPORTS[f.departure_airport];
             if (!origin) return null;
 
             return (
@@ -196,10 +196,10 @@ export default function FlightMap({
                 {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
 
                 {/* Departure Airport in popup */}
-                {f.departure_airport && AirPort_COORDS[f.departure_airport] && (
+                {f.departure_airport && AIRPORTS[f.departure_airport] && (
                   <div>
-                    From {AirPort_COORDS[f.departure_airport].name}, {" "}
-                    {AirPort_COORDS[f.departure_airport].country}
+                    From {AIRPORTS[f.departure_airport].name}, {" "}
+                    {AIRPORTS[f.departure_airport].country}
                   </div>
                 )}
               </section>
