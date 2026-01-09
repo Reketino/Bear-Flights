@@ -1,6 +1,7 @@
 "use client";
-import { AIRPORTS } from "@/lib/airportcoords";
 
+// Imports
+import { AIRPORTS } from "@/lib/airportcoords";
 import {
   MapContainer,
   TileLayer,
@@ -115,17 +116,18 @@ export default function FlightMap({
             href="/flights/map"
             title="Overview"
             className="
-      inline-flex items-center gap-2
-      px-4 py-2 rounded-lg 
-      bg-slate-800 hover:bg-slate-700
-      text-slate-100 font-semibold
-      transition
-      "
-          >
+            inline-flex items-center 
+            px-4 py-2 gap-2 rounded-lg 
+          bg-slate-800 hover:bg-slate-700
+          text-slate-100 font-semibold
+            transition
+            "
+              >
             ← Return to overview
           </a>
         </div>
       )}
+
 
       <MapContainer
         center={CENTER} // Sykkylven Center
@@ -135,7 +137,8 @@ export default function FlightMap({
         <AutoPan flights={flights} />
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
+        
+        {/* Radius ring on map */}
         {!singleFlight && (
           <Circle
             {...({
@@ -156,7 +159,8 @@ export default function FlightMap({
 
             const origin = AIRPORTS[f.departure_airport];
             if (!origin) return null;
-
+          
+            // Line on map
             return (
               <Polyline
                 key={`${f.icao24}-line`}
@@ -172,13 +176,16 @@ export default function FlightMap({
               />
             );
           })}
-
+        
+        {/* Flight Marker */}
         {flights.map((f) => (
           <Marker
             key={`${f.icao24}-${f.heading}`}
             position={[f.latitude, f.longitude] as LatLngExpression}
             icon={planeIcon(f.heading, f.altitude)}
           >
+
+            {/* Pop Up Section */}
             <Popup>
               <section
                 className="
