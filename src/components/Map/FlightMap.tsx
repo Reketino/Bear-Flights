@@ -182,13 +182,26 @@ export default function FlightMap({
                   ✈️{f.callsign ?? f.icao24}
                 </header>
 
+              {/* Heading in pop up */}
                 {f.heading !== null && (
                   <div>Heading: {Math.round(f.heading)}°</div>
                 )}
+
+                {/* Altitude in popup */}
                 {f.altitude !== null && (
                   <div>Altitude: {Math.round(f.altitude)} m</div>
                 )}
+
+                {/* Velocity in popup */}
                 {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
+
+                {/* Departure Airport in popup */}
+                {f.departure_airport && AirPort_COORDS[f.departure_airport] && (
+                  <div>
+                    From {AirPort_COORDS[f.departure_airport].name}, {" "}
+                    {AirPort_COORDS[f.departure_airport].country}
+                  </div>
+                )}
               </section>
             </Popup>
           </Marker>
