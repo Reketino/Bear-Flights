@@ -44,7 +44,9 @@ export default function MobileNav({ pathname, onNavigate }: Props) {
                 })}
 
                 <Link
-                href="/"
+                href="https://www.reketino.no/"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onNavigate}
                 className="
                 flex items-center justify-between
