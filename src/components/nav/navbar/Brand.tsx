@@ -10,7 +10,7 @@ export default function Brand() {
     flex items-center group
     gap-3 px-2 py-1
     rounded-2xl
-    hover:bg-neutral-100
+    hover:bg-white/10
     transition
     ">
       <section className="
@@ -30,7 +30,7 @@ export default function Brand() {
         ">
             BearFlights
         </p>
-        <p className="text-xs text-neutral-500">
+        <p className="text-xs text-white">
             Air traffic dashboard
         </p>
       </section>

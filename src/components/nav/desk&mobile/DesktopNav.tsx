@@ -24,7 +24,7 @@ export default function DesktopNav ({ pathname }: { pathname: string }) {
                     "flex items-center rounded-2xl gap-2 px-3 py-2 text-sm font-medium transition",
                     Active
                     ? "bg-sky-50 text-sky-900 ring-1 ring-sky-100"
-                    : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950",
+                    : "text-black hover:bg-white/10 hover:text-neutral-950",
                     ].join(" ")}
                     >
                     <Icon className="h-4 w-4" />
