@@ -1,6 +1,6 @@
 import Link from "next/link";
-import {  NavItems } from "./NavItems";
-import { isActiveRoute } from "./navUtils";
+import {  NavItems } from "../NavItems";
+import { isActiveRoute } from "../navUtils";
 
 
 export default function DesktopNav ({ pathname }: { pathname: string }) {

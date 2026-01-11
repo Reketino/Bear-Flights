@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { NavItems } from "./NavItems"
-import { isActiveRoute } from "./navUtils";
+import { NavItems } from "../NavItems"
+import { isActiveRoute } from "../navUtils";
 
 type Props = {
     pathname: string;
