@@ -91,7 +91,7 @@ export default async function FlightsPage({ searchParams }: PageProps) {
 
         <section className="flex gap-2">
           <Link
-            href={`/flights?page=${page - 1}`}
+            href={`/flights/flight-history?page=${page - 1}`}
             aria-disabled={page <= 1}
             className={`
             px-3 py-1 rounded-lg border
@@ -104,7 +104,7 @@ export default async function FlightsPage({ searchParams }: PageProps) {
           </Link>
 
           <Link
-            href={`/flights?page=${page + 1}`}
+            href={`/flights/flight-history?page=${page + 1}`}
             aria-disabled={page >= totalPages}
             className={`
               px-3 py-1 rounded-lg border
