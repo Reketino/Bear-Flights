@@ -43,7 +43,7 @@ export default function HomePage() {
 
           {/* All Registered Flights */}
           <Link
-            href="/flights"
+            href="/flights/flight-history"
             className="
       px-6 py-3 rounded-xl
       text-black font-semibold
