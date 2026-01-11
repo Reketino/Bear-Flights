@@ -30,6 +30,7 @@ export default function AnimatedLogo() {
         width={600}
         height={600}
         priority
+        fetchPriority="high"
         className="drop-shadow-[0_0_25px_rgba(255,255,0.15)]"
       />
     </motion.div>
