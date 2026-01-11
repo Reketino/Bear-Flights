@@ -43,7 +43,7 @@ export default function NavbarActions({ open, setOpen}: Props) {
       border border-neutral-200
       bg-white hover:bg-neutral-50
       shadow-sm text-neutral-900
-      transition md:flex
+      transition md:hidden
       "
       aria-label={open ? "Close menu" : "Open menu"}
       >

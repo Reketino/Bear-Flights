@@ -16,9 +16,9 @@ export default function FlightsNavbar() {
   return (
     <header className="
     sticky top-0 z-50
-    border-b border-neutral-200/70
-    bg-white/85
-    backdrop-blur-xl
+    border-b border-neutral-200/10
+    bg-black/10
+    backdrop-blur-sm
     ">
         <section className="
         flex items-center mx-auto
