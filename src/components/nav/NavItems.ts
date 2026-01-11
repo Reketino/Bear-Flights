@@ -8,6 +8,7 @@ export type NavItem = {
     icon: LucideIcon;
 };
 
+// Icons in Navbar
 export const NavItems: NavItem[] = [
     { href: "/bearsflight", label: "Radar", icon: Radar},
     { href: "bearsflight/live", label: "Live", icon: PlaneTakeoff },
