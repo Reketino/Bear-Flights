@@ -5,21 +5,23 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import StatusChip from "./StatusChip";
 
 type Props = {
-    open: boolean;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export default function NavbarActions({ open, setOpen}: Props) {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export default function NavbarActions({ open, setOpen }: Props) {
   return (
-   <aside className="
+    <aside
+      className="
    flex items-center gap-2
-   ">
+   "
+    >
       <StatusChip />
 
       <Link
-      href="https://www.reketino.no/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
+        href="https://www.reketino.no/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
       hidden items-center
       gap-2 px-3 py-2
       md:flex rounded-2xl
@@ -30,13 +32,14 @@ export default function NavbarActions({ open, setOpen}: Props) {
       font-medium
       shadow-sm
       transition
-      ">
-       Portfolio <ArrowUpRight className="h-4 w-4" />
+      "
+      >
+        Portfolio <ArrowUpRight className="h-4 w-4" />
       </Link>
 
-      <button 
-      onClick={() => setOpen((v) => !v)}
-      className="
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="
       grid place-items-center
       rounded-2xl h-10 w-10
 
@@ -45,10 +48,10 @@ export default function NavbarActions({ open, setOpen}: Props) {
       shadow-sm text-neutral-900
       transition md:hidden
       "
-      aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? "Close menu" : "Open menu"}
       >
-       {open ? <X className="w-5 h-5" /> : <Menu className="h-5 w-5" />}
+        {open ? <X className="w-5 h-5" /> : <Menu className="h-5 w-5" />}
       </button>
     </aside>
-  )
+  );
 }
