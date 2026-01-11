@@ -25,7 +25,7 @@ export default function NavbarActions({ open, setOpen}: Props) {
       md:flex rounded-2xl
 
       bg-neutral-900
-      hover:bg-neutral-800
+       hover:bg-sky-950
       text-sm text-white
       font-medium
       shadow-sm
