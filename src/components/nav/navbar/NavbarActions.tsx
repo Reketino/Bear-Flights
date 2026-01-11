@@ -16,7 +16,9 @@ export default function NavbarActions({ open, setOpen}: Props) {
       <StatusChip />
 
       <Link
-      href="/"
+      href="https://www.reketino.no/"
+      target="_blank"
+      rel="noopener noreferrer"
       className="
       hidden items-center
       gap-2 px-3 py-2
@@ -29,7 +31,7 @@ export default function NavbarActions({ open, setOpen}: Props) {
       shadow-sm
       transition
       ">
-        Portfolio <ArrowUpRight className="h-4 w-4" />
+       Portfolio <ArrowUpRight className="h-4 w-4" />
       </Link>
 
       <button 

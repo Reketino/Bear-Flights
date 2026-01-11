@@ -4,7 +4,8 @@ import { Radar } from "lucide-react";
 export default function Brand() {
   return (
     <Link
-    href="/bearsflight"
+    href="/
+    "
     className="
     flex items-center group
     gap-3 px-2 py-1

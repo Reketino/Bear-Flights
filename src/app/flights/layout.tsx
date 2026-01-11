@@ -1,16 +1,19 @@
 import type { ReactNode } from "react";
-import NavigationButtons from "@/components/Buttons/NavigationButtons";
+import FlightsNavbar from "@/components/nav/navbar/FlightsNavbar";
 
 export default function FlightsLayout({ children }: { children: ReactNode }) {
   return (
+    <>
+    <FlightsNavbar />
     <main
       className="
          relative p-6 
          max-w-7xl mx-auto
         "
     >
-      <NavigationButtons />
+     
       {children}
     </main>
+    </>
   );
 }

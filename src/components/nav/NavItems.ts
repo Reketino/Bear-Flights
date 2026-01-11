@@ -10,8 +10,7 @@ export type NavItem = {
 
 // Icons in Navbar
 export const NavItems: NavItem[] = [
-    { href: "/bearsflight", label: "Radar", icon: Radar},
-    { href: "bearsflight/live", label: "Live", icon: PlaneTakeoff },
-    { href: "/bearsflight/history", label: "History", icon: Clock},
-    { href: "bearsflight/about", label: "About", icon: Globe2 },
+    { href: "map", label: "Flight Map", icon: Radar},
+    { href: "daily-flights", label: "Flight's Today", icon: PlaneTakeoff },
+    { href: "flight-history", label: "History", icon: Clock},
 ]
