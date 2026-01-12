@@ -51,7 +51,7 @@ export default function HomePage() {
       transition
       "
           >
-            Historical flights✈️
+            Flight History✈️
           </Link>
 
           {/* Map Showing flights */}
