@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Radar, PlaneTakeoff, Clock, } from "lucide-react";
+import { MapIcon, PlaneTakeoff, Clock, } from "lucide-react";
 
 // Defining Navitem function
 export type NavItem = {
@@ -10,7 +10,7 @@ export type NavItem = {
 
 // Icons in Navbar
 export const NavItems: NavItem[] = [
-  { href: "map", label: "Flight Map", icon: Radar },
+  { href: "map", label: "Flight Map", icon: MapIcon },
   { href: "daily-flights", label: "Flight's Today", icon: PlaneTakeoff },
-  { href: "flight-history", label: "History", icon: Clock },
+  { href: "flight-history", label: " Flight History", icon: Clock },
 ];
