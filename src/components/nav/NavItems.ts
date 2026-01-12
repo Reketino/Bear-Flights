@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
-import { Radar, PlaneTakeoff, Clock, Globe2 } from "lucide-react";
+import { Radar, PlaneTakeoff, Clock, } from "lucide-react";
 
+// Defining Navitem function
 export type NavItem = {
   href: string;
   label: string;
