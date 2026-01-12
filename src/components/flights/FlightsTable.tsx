@@ -45,7 +45,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                   {flight.aircraft_type ?? "—"}
                 </td>
 
-                <td className="p-3">{flight.origin ?? "Unknown"}</td>
+                <td className="p-3">{flight.origin_country ?? flight.origin ?? "Unknown"}</td>
 
                 <td className="p-3 font-mono">
                   {flight.route ?? "Route unknown🫠"}

@@ -32,6 +32,7 @@ export default async function FlightsPage({ searchParams }: PageProps) {
       icao24,
       callsign,
       origin,
+      origin_country,
       route,
       distance_over_area,
       first_seen,
