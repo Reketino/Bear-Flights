@@ -28,7 +28,7 @@ export default function IacoDetails({ flight }: Props) {
             "
       >
         <Info label="ICAO24" value={flight.icao24} />
-        <Info label="Origin" value={flight.origin ?? "Unknown"} />
+        <Info label="Origin" value={flight.origin_country ?? flight.origin ?? "Unknown"} />
         <Info
           label="Route"
           value={flight.route ? `✈️${flight.route}` : "In flight"}
