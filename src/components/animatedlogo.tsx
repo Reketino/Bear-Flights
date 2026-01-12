@@ -25,12 +25,13 @@ export default function AnimatedLogo() {
       className="mx-auto w-fit"
     >
       <Image
-        src="/bearflights.png"
+        src="/bearflights.webp"
         alt="Bearflights logo- a wild bear in the sky"
-        width={600}
-        height={600}
+        width={1200}
+        height={800}
         priority
         fetchPriority="high"
+        sizes="(max-width: 768px) 100vw, 750px"
         className="drop-shadow-[0_0_25px_rgba(255,255,0.15)]"
       />
     </motion.div>
