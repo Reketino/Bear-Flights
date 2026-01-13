@@ -17,8 +17,9 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
         <thead className="bg-black/20">
           <tr>
             <th className="p-3 text-left">Callsign</th>
-            <th className="p-3 text-left">Aircraft Type</th>
+            <th className="p-3 text-left">Airline</th>
             <th className="p-3 text-left">Origin</th>
+            <th className="p-3 text-left">Aircraft Type</th>
             <th className="p-3 text-left">Route</th>
             <th className="p-3 text-right">Distance</th>
             <th className="p-3 text-right">Date</th>
@@ -41,11 +42,15 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                   </Link>
                 </td>
 
-                <td className="p-3 text-left font-mono text-sky-600">
-                  {flight.aircraft_type ?? "—"}
+                <td className="p-3">
+                  {flight.airline ?? "Airline Unavaliable"}
                 </td>
 
                 <td className="p-3">{flight.origin_country ?? flight.origin ?? "Unknown"}</td>
+
+                <td className="p-3 font-mono text-sky-600">
+                  {flight.aircraft_type ?? "—"}
+                </td>
 
                 <td className="p-3 font-mono">
                   {flight.route ?? "Route unknown🫠"}
