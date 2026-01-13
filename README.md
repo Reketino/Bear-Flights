@@ -112,6 +112,21 @@ This significantly improved my understanding of Python, especially around:
 
 ---
 
+### Frontend Quality & Performance
+
+The frontend is validated using Lighthouse to ensure consistently high standards for:
+
+- Performance
+- Accessibility
+- Best practices
+- SEO
+
+This helps prevent silent regressions and keeps the UI fast, accessible, and search-friendly.
+
+![Lighthouse Desktop Results](./docs/lighthouse.png)
+
+---
+
 ## 🧩 Key Learnings
 
 Through this project I gained:
