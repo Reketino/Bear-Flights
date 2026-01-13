@@ -123,7 +123,7 @@ The frontend is validated using Lighthouse to ensure consistently high standards
 
 This helps prevent silent regressions and keeps the UI fast, accessible, and search-friendly.
 
-![Lighthouse Desktop Results](./docs/lighthouse.png)
+![Lighthouse Desktop Results](/docs/lighthouse.png)
 
 ---
 
