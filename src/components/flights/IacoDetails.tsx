@@ -1,5 +1,7 @@
 import type { IcaoFlight } from "@/types/IcaoFlight";
 import Link from "next/link";
+import OriginFlag from "../flags/OriginFlag";
+import { ReactNode } from "react";
 
 
 const DATE_LOCALE = "en-GB";
@@ -28,7 +30,12 @@ export default function IacoDetails({ flight }: Props) {
             "
       >
         <Info label="ICAO24" value={flight.icao24} />
-        <Info label="Origin" value={flight.origin_country ?? flight.origin ?? "Unknown"} />
+
+        <Info label="Origin"
+              value={
+                <OriginFlag country={flight.origin_country ?? flight.origin ?? "Unknown"} /> 
+                 }
+                 />
         <Info
           label="Route"
           value={flight.route ? `✈️${flight.route}` : "In flight"}
@@ -69,7 +76,7 @@ export default function IacoDetails({ flight }: Props) {
   );
 }
 
-function Info({ label, value }: { label: string; value: string }) {
+function Info({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div
       className="
