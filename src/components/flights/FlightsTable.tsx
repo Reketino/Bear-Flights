@@ -1,6 +1,11 @@
 import type { Flight } from "@/types/flightid";
 import Link from "next/link";
 
+import ReactCountryFlag from "react-country-flag";
+import { countryToISO } from "@/utils/countrytoIso";
+import OriginFlag from "../flags/OriginFlag";
+
+
 type FlightsTableProps = {
   flights: Flight[];
 };
@@ -46,7 +51,9 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                   {flight.airline ?? "Airline Unavaliable"}
                 </td>
 
-                <td className="p-3">{flight.origin_country ?? flight.origin ?? "Unknown"}</td>
+                <td className="p-3">
+                    <OriginFlag country={flight.origin_country ?? flight.origin } />           
+                     </td>
 
                 <td className="p-3 font-mono text-sky-600">
                   {flight.aircraft_type ?? "—"}
