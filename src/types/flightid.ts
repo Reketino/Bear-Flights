@@ -2,6 +2,8 @@ export type Flight = {
   id: number;
   icao24: string;
   callsign: string | null;
+
+  aircraft_name: string | null;
   aircraft_type: string | null;
 
   airline: string | null;

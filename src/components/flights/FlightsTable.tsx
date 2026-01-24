@@ -20,7 +20,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
             <th className="p-3 text-left">Callsign</th>
             <th className="p-3 text-left">Airline</th>
             <th className="p-3 text-left">Origin</th>
-            <th className="p-3 text-left">Aircraft Type</th>
+            <th className="p-3 text-left">Aircraft Model</th>
             <th className="p-3 text-left">Route</th>
             <th className="p-3 text-right">Distance</th>
             <th className="p-3 text-right">Date</th>
@@ -54,7 +54,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                 </td>
 
                 <td className="p-3 font-mono text-sky-600">
-                  {flight.aircraft_type ?? "—"}
+                  {flight.aircraft_type ?? flight.aircraft_name}
                 </td>
 
                 <td className="p-3 font-mono">
