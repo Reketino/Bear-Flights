@@ -38,7 +38,8 @@ export default async function FlightsPage({ searchParams }: PageProps) {
       route,
       distance_over_area,
       first_seen,
-      aircraft_type
+      aircraft_type,
+      aircraft_name
       `,
       { count: "exact" }
     )
