@@ -6,7 +6,7 @@ The project collects live flight data from the OpenSky Network, processes and en
 
 ---
 
-## 🎯 Purpose of the Project
+## 🎯 Purpose of the Project:
 
 The goal of BearFlights was not just to “make something work”, but to deeply understand:
 
@@ -66,7 +66,7 @@ Running ingestion via GitHub Actions provides:
 
 Supabase remains the shared data layer between backend and frontend, acting as a stable data contract rather than an execution environment.
 
-## 🧠 What the Project Does
+## 🧠 What the Project Does:
 
 ### Backend (Python)
 - Authenticates with the OpenSky Network using OAuth2
@@ -127,7 +127,7 @@ This helps prevent silent regressions and keeps the UI fast, accessible, and sea
 
 ---
 
-## 🧩 Key Learnings
+## 🧩 Key Learnings:
 
 Through this project I gained:
 
@@ -140,11 +140,17 @@ Through this project I gained:
 
 ---
 
-## 🚀 Future Ideas
-- flight history per aircraft
-- map-based visualization
-- multiple geographic zones
-- additional data enrichment over time
+## 🟢 Working on now:
+
+- Implementing Aircraft Type & Model in table
+
+---
+
+## 🚀 Future Ideas:
+
+- Additional data enrichment over time
+- Polyline w/ full route on map
+- Intergrate a AI to either further explain about the flights or the company.
 
 ---
 
