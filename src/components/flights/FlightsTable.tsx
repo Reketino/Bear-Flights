@@ -54,7 +54,9 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                 </td>
 
                 <td className="p-3 font-mono text-sky-600">
-                  {flight.aircraft_type ?? flight.aircraft_name}
+                  {flight.aircraft_name
+                  ? `${flight.aircraft_name} (${flight.aircraft_type})`
+                  : flight.aircraft_type ?? "Unknown aircraft"}
                 </td>
 
                 <td className="p-3 font-mono">
