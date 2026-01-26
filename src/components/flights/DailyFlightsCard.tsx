@@ -15,16 +15,16 @@ export default function DailyFlightsCard({ day }: Props) {
       className="
      relative rounded-xl p-5 border
     border-gray-600
-    bg-gray-800/20
+    bg-black/60
            "
     >
       {/* Date w/ daily flights */}
       <header className="flex items-center justify-between mb-2">
-        <h2 className="font-semibold">
+        <h2 className="font-semibold text-white">
           {date.toLocaleDateString(DATE_LOCALE)}
         </h2>
 
-        <span className="text-sm text-shadow-blue-200">
+        <span className="text-sm font-sans text-green-300">
           {day.total_flights} Flights Today
         </span>
       </header>
@@ -35,7 +35,7 @@ export default function DailyFlightsCard({ day }: Props) {
         //   Closest Flight
         <ul className="relative text-sm space-y-1 z-10">
           <li>
-            <strong>Closest:</strong>{" "}
+            <strong>Closest Callsign:</strong>{" "}
             {day.closest_icao24 ? (
               <Link
                 href={`/flights/${day.closest_icao24}`}
@@ -50,7 +50,7 @@ export default function DailyFlightsCard({ day }: Props) {
 
           {/* Longest Flight */}
           <li>
-            <strong>Longest:</strong>{" "}
+            <strong>Longest callsign:</strong>{" "}
             {day.longest_icao24 ? (
               <Link
                 href={`/flights/${day.longest_icao24}`}
