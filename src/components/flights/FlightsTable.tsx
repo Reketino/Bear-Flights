@@ -12,7 +12,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
       <table
         className=" 
         w-full text-sm border rounded-xl
-        bg-black/20 border-black 
+        bg-black/50 border-black 
         "
       >
         <thead className="bg-black/20">

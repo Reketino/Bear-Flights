@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Implementing Aircraft Type & Model in table
+- Adjusting layout of table
 
 ---
 
