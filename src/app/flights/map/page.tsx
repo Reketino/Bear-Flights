@@ -63,9 +63,9 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
         p-6 max-w-7xl mx-auto
         "
     >
-      <header className="mb-6">
-        <h1 className="text-3xl font-bold">🗺️Live Flight Map of Sykkylven</h1>
-        <p className="text-neutral-400">Detected within a 50 km radius🔍</p>
+      <header className="mb-4">
+        <h1 className="text-3xl font-bold"> Flight Map of Sykkylven</h1>
+        <p className="text-neutral-300 font-medium mt-2">Detected within a 50 km radius🔍</p>
       </header>
 
       <FlightMapClient flights={safeFlights} singleFlight={Boolean(icao24)} />
