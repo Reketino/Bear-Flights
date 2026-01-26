@@ -62,13 +62,13 @@ export default function IacoDetails({ flight }: Props) {
       className="
       inline-block mt-6
       px-4 py-4 rounded-lg
-     bg-blue-950/90 
+     bg-black/50 
      text-blue-400 font-semibold
-     hover:bg-blue-800/50 hover:scale-105
+     hover:bg-blue-950 hover:scale-95
       transition 
       "
       >
-        🗺️ Check out this flight on the map!
+        🗺️ View Flight On Map
       </Link>
       </section>
 
@@ -80,14 +80,14 @@ function Info({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div
       className="
-        rounded-xl bg-black/30
-        hover:scale-105 
+        rounded-xl bg-black/50
+        hover:scale-103 
         border border-white/10 p-4
         "
     >
       <p
         className="
-            text-xs text-white
+            text-nowrap text-white
             uppercase tracking-wide
             "
       >
