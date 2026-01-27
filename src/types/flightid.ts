@@ -12,7 +12,7 @@ export type Flight = {
   origin: string | null;
   origin_country: string | null;
 
-  route: string | null;
+  departure_airport: string | null;
   distance_over_area: number | null;
   first_seen: string;
 };
