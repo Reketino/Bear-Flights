@@ -35,7 +35,7 @@ export default async function FlightsPage({ searchParams }: PageProps) {
       airline_icao,
       origin,
       origin_country,
-      route,
+      departure_airport,
       distance_over_area,
       first_seen,
       aircraft_type,

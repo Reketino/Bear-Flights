@@ -21,7 +21,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
             <th className="p-3 text-left">Airline</th>
             <th className="p-3 text-left">Origin</th>
             <th className="p-3 text-left">Aircraft Model</th>
-            <th className="p-3 text-left">Route</th>
+            <th className="p-3 text-left">Departure & Arrival Airport</th>
             <th className="p-3 text-right">Distance</th>
             <th className="p-3 text-right">Date</th>
             <th className="p-3 text-right">Time</th>
@@ -60,7 +60,10 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                 </td>
 
                 <td className="p-3 font-mono">
-                  {flight.route ?? "Route unknown🫠"}
+                  {flight.departure_airport
+                  ? flight.departure_airport
+                  : "Dep unknown"
+                  }
                 </td>
 
                 <td className="p-3 text-right">

@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adjusting layout of table
+- Connecting departure air port to table.
 
 ---
 
