@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding departure airport name to table
+- Adding departure airport + arrival airport name to table
 
 ---
 
