@@ -59,11 +59,25 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                   : flight.aircraft_type ?? "Unknown aircraft"}
                 </td>
 
-                <td className="p-3 font-mono">
-                  {flight.departure_airport
-                  ? flight.departure_airport
-                  : "Dep unknown"
+                <td className=" font-mono">
+                <div className="flex flex-col">
+                  <span className="flex items-center">
+                  {flight.departure_airport_name ??
+                  flight.departure_airport ??
+                  "Departure Unkown"
                   }
+                  </span>
+                  <p>
+                  - 
+                  </p>
+                  <span className="flex items-center gap-1 text-sm">
+                    {flight.arrival_airport_name ??
+                    flight.arrival_airport ??
+                    "Arrival Unknown"
+                    }
+                  
+                  </span>
+                  </div>
                 </td>
 
                 <td className="p-3 text-right">
