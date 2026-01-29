@@ -44,7 +44,7 @@ export default async function FlightsPage({ searchParams }: PageProps) {
       aircraft_type,
       aircraft_name
       `,
-      { count: "exact" }
+      { count: "exact" },
     )
     .order("first_seen", { ascending: false })
     .range(from, to);

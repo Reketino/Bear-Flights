@@ -15,7 +15,7 @@ export type Flight = {
   departure_airport: string | null;
   arrival_airport: string | null;
 
-  departure_airport_name:string | null;
+  departure_airport_name: string | null;
   arrival_airport_name: string | null;
 
   distance_over_area: number | null;
