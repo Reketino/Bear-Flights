@@ -44,16 +44,12 @@ const altitudeColor = (altitude: number | null) => {
 };
 
 // Plane icon w/ altitude styling &  heading adjustment
- const planeIcon = (
-  heading: number | null, 
-  altitude: number | null
-) => {
-    const rotation = safeHeading(heading) - 90;
+const planeIcon = (heading: number | null, altitude: number | null) => {
+  const rotation = safeHeading(heading) - 90;
 
-
-    return L.divIcon({
-      className: "",
-      html: `
+  return L.divIcon({
+    className: "",
+    html: `
       <div style="
       width:45px;
       height:45px;
@@ -73,12 +69,11 @@ const altitudeColor = (altitude: number | null) => {
       />
       </div>
       `,
-      iconSize: [40, 40],
-      iconAnchor: [22, 22],
-      popupAnchor: [0, -16],
-    });
-  };
-
+    iconSize: [40, 40],
+    iconAnchor: [22, 22],
+    popupAnchor: [0, -16],
+  });
+};
 
 // Autpan when entering flight from Icao24
 function AutoPan({ flights }: { flights: FlightPosition[] }) {
@@ -99,7 +94,6 @@ function AutoPan({ flights }: { flights: FlightPosition[] }) {
   return null;
 }
 
-
 export default function FlightMap({
   flights,
   singleFlight,
@@ -107,8 +101,6 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
- 
-
   return (
     <section className=" relative">
       {singleFlight && (
@@ -123,12 +115,11 @@ export default function FlightMap({
           text-slate-100 font-semibold
             transition
             "
-              >
+          >
             ← Return to overview
           </a>
         </div>
       )}
-
 
       <MapContainer
         center={CENTER} // Sykkylven Center
@@ -138,7 +129,7 @@ export default function FlightMap({
         <AutoPan flights={flights} />
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        
+
         {/* Radius ring on map */}
         {!singleFlight && (
           <Circle
@@ -155,27 +146,27 @@ export default function FlightMap({
 
         {/* Departure Airport */}
         {flights.map((f) => {
-            if (!f.departure_airport) return null;
-            const origin = AIRPORTS[f.departure_airport];
-            if (!origin) return null;
-          
-            // Line on map
-            return (
-              <Polyline
-                key={`${f.icao24}-line`}
-                positions={[
-                  [origin.lat, origin.lon],
-                  [f.latitude, f.longitude],
-                ]}
-                pathOptions={{
-                  color: "#38bdf8",
-                  weight: 2,
-                  dashArray: "4 6",
-                }}
-              />
-            );
-          })}
-        
+          if (!f.departure_airport) return null;
+          const origin = AIRPORTS[f.departure_airport];
+          if (!origin) return null;
+
+          // Line on map
+          return (
+            <Polyline
+              key={`${f.icao24}-line`}
+              positions={[
+                [origin.lat, origin.lon],
+                [f.latitude, f.longitude],
+              ]}
+              pathOptions={{
+                color: "#38bdf8",
+                weight: 2,
+                dashArray: "4 6",
+              }}
+            />
+          );
+        })}
+
         {/* Flight Marker */}
         {flights.map((f) => (
           <Marker
@@ -183,7 +174,6 @@ export default function FlightMap({
             position={[f.latitude, f.longitude] as LatLngExpression}
             icon={planeIcon(f.heading, f.altitude)}
           >
-
             {/* Pop Up Section */}
             <Popup>
               <section
@@ -197,7 +187,7 @@ export default function FlightMap({
                   ✈️{f.callsign ?? f.icao24}
                 </header>
 
-              {/* Heading in pop up */}
+                {/* Heading in pop up */}
                 {f.heading !== null && (
                   <div>Heading: {Math.round(f.heading)}°</div>
                 )}
@@ -213,7 +203,7 @@ export default function FlightMap({
                 {/* Departure Airport in popup */}
                 {f.departure_airport && AIRPORTS[f.departure_airport] && (
                   <div>
-                    From {AIRPORTS[f.departure_airport].name}, {" "}
+                    From {AIRPORTS[f.departure_airport].name},{" "}
                     {AIRPORTS[f.departure_airport].country}
                   </div>
                 )}
