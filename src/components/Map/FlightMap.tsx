@@ -14,7 +14,7 @@ import {
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Flight Positions
 type FlightPosition = {
@@ -46,6 +46,7 @@ const altitudeColor = (altitude: number | null) => {
 // Plane icon w/ altitude styling &  heading adjustment
 const planeIcon = (heading: number | null, altitude: number | null) => {
   const rotation = safeHeading(heading) - 90;
+
 
   return L.divIcon({
     className: "",
@@ -101,6 +102,8 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
+  const [selectedFlight, setSelectedFlight] =
+  useState<FlightPosition | null>(null);
   return (
     <section className=" relative">
       {singleFlight && (
@@ -130,6 +133,25 @@ export default function FlightMap({
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+        {selectedFlight &&
+        selectedFlight.departure_airport &&        
+        AIRPORTS[selectedFlight.departure_airport] && (
+        <Polyline
+        positions={[
+          [
+            AIRPORTS[selectedFlight.departure_airport].lat,
+            AIRPORTS[selectedFlight.departure_airport].lon,
+          ],
+          [selectedFlight.latitude, selectedFlight.longitude],
+        ]}
+        pathOptions={{
+          color: "#38bdf8",
+          weight: 4,
+          dashArray: "4 6",
+        }}  
+        />
+      )}
+
         {/* Radius ring on map */}
         {!singleFlight && (
           <Circle
@@ -144,35 +166,15 @@ export default function FlightMap({
           />
         )}
 
-        {/* Departure Airport */}
-        {flights.map((f) => {
-          if (!f.departure_airport) return null;
-          const origin = AIRPORTS[f.departure_airport];
-          if (!origin) return null;
-
-          // Line on map
-          return (
-            <Polyline
-              key={`${f.icao24}-line`}
-              positions={[
-                [origin.lat, origin.lon],
-                [f.latitude, f.longitude],
-              ]}
-              pathOptions={{
-                color: "#38bdf8",
-                weight: 2,
-                dashArray: "4 6",
-              }}
-            />
-          );
-        })}
-
         {/* Flight Marker */}
         {flights.map((f) => (
           <Marker
             key={`${f.icao24}-${f.heading}`}
             position={[f.latitude, f.longitude] as LatLngExpression}
             icon={planeIcon(f.heading, f.altitude)}
+            eventHandlers={{
+              click: () => setSelectedFlight(f),
+            }}
           >
             {/* Pop Up Section */}
             <Popup>

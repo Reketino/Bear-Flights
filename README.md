@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding polyline to flightsmap
+- Making ployline show up only when flight is "clicked" on
 ---
 
 ## 🚀 Future Ideas:
