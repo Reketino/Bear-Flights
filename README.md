@@ -142,7 +142,8 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Refactoring w/ small improvements to autopan & circle
+- Optimalizing handleclick 
+
 ---
 
 ## 🚀 Future Ideas:
