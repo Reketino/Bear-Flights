@@ -142,8 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding departure airport + arrival airport w/ name to table
-
+- Adding polyline to flightsmap
 ---
 
 ## 🚀 Future Ideas:
