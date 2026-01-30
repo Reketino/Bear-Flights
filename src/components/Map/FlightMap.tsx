@@ -50,6 +50,7 @@ const altitudeColor = (altitude: number | null) => {
 ) => {
     const rotation = safeHeading(heading) - 90;
 
+
     return L.divIcon({
       className: "",
       html: `
@@ -153,10 +154,8 @@ export default function FlightMap({
         )}
 
         {/* Departure Airport */}
-        {singleFlight &&
-          flights.map((f) => {
+        {flights.map((f) => {
             if (!f.departure_airport) return null;
-
             const origin = AIRPORTS[f.departure_airport];
             if (!origin) return null;
           
