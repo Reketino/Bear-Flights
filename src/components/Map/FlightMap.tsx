@@ -1,6 +1,4 @@
 "use client";
-
-// Imports
 import { AIRPORTS } from "@/lib/airportcoords";
 import {
   MapContainer,
@@ -153,7 +151,7 @@ export default function FlightMap({
       )}
 
         {/* Radius ring on map */}
-        {!singleFlight && (
+        {!singleFlight && !selectedFlight && (
           <Circle
             {...({
               center: CENTER,
