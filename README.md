@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Making ployline show up only when flight is "clicked" on
+- Refactoring w/ small improvements to autopan & circle
 ---
 
 ## 🚀 Future Ideas:
