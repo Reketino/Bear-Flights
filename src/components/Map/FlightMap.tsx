@@ -45,7 +45,6 @@ const altitudeColor = (altitude: number | null) => {
 const planeIcon = (heading: number | null, altitude: number | null) => {
   const rotation = safeHeading(heading) - 90;
 
-
   return L.divIcon({
     className: "",
     html: `
@@ -75,11 +74,11 @@ const planeIcon = (heading: number | null, altitude: number | null) => {
 };
 
 // Autpan when entering flight from Icao24
-function AutoPanFlight({ 
-  flight, 
-  zoom = 11 
-}: { 
-  flight: FlightPosition | null 
+function AutoPanFlight({
+  flight,
+  zoom = 11,
+}: {
+  flight: FlightPosition | null;
   zoom?: number;
 }) {
   const map = useMap();
@@ -87,11 +86,11 @@ function AutoPanFlight({
   useEffect(() => {
     if (!flight) return;
 
-      map.flyTo([flight.latitude, flight.longitude], zoom, {
-        animate: true,
-        duration: 1.2,
-        easeLinearity: 0.25,
-      });
+    map.flyTo([flight.latitude, flight.longitude], zoom, {
+      animate: true,
+      duration: 1.2,
+      easeLinearity: 0.25,
+    });
   }, [flight, zoom, map]);
 
   return null;
@@ -104,11 +103,12 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [selectedFlight, setSelectedFlight] =
-  useState<FlightPosition | null>(null);
-  
+  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
+    null,
+  );
+
   const AutoFlight =
-  selectedFlight ?? (flights.length === 1 ? flights[0] : null);
+    selectedFlight ?? (flights.length === 1 ? flights[0] : null);
 
   return (
     <section className=" relative">
@@ -140,23 +140,23 @@ export default function FlightMap({
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         {selectedFlight &&
-        selectedFlight.departure_airport &&        
-        AIRPORTS[selectedFlight.departure_airport] && (
-        <Polyline
-        positions={[
-          [
-            AIRPORTS[selectedFlight.departure_airport].lat,
-            AIRPORTS[selectedFlight.departure_airport].lon,
-          ],
-          [selectedFlight.latitude, selectedFlight.longitude],
-        ]}
-        pathOptions={{
-          color: "#38bdf8",
-          weight: 4,
-          dashArray: "4 6",
-        }}  
-        />
-      )}
+          selectedFlight.departure_airport &&
+          AIRPORTS[selectedFlight.departure_airport] && (
+            <Polyline
+              positions={[
+                [
+                  AIRPORTS[selectedFlight.departure_airport].lat,
+                  AIRPORTS[selectedFlight.departure_airport].lon,
+                ],
+                [selectedFlight.latitude, selectedFlight.longitude],
+              ]}
+              pathOptions={{
+                color: "#38bdf8",
+                weight: 4,
+                dashArray: "4 6",
+              }}
+            />
+          )}
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (
@@ -179,10 +179,10 @@ export default function FlightMap({
             position={[f.latitude, f.longitude] as LatLngExpression}
             icon={planeIcon(f.heading, f.altitude)}
             eventHandlers={{
-              click: () => 
+              click: () =>
                 setSelectedFlight((prev) =>
-                  prev?.icao24 === f.icao24 ? null : f
-            ),
+                  prev?.icao24 === f.icao24 ? null : f,
+                ),
             }}
           >
             {/* Pop Up Section */}
