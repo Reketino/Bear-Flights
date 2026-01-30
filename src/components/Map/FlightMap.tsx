@@ -75,20 +75,24 @@ const planeIcon = (heading: number | null, altitude: number | null) => {
 };
 
 // Autpan when entering flight from Icao24
-function AutoPan({ flights }: { flights: FlightPosition[] }) {
+function AutoPanFlight({ 
+  flight, 
+  zoom = 11 
+}: { 
+  flight: FlightPosition | null 
+  zoom?: number;
+}) {
   const map = useMap();
 
   useEffect(() => {
-    if (flights.length === 1) {
-      const f = flights[0];
+    if (!flight) return;
 
-      map.flyTo([f.latitude, f.longitude], 11, {
+      map.flyTo([flight.latitude, flight.longitude], zoom, {
         animate: true,
-        duration: 1.5,
+        duration: 1.2,
         easeLinearity: 0.25,
       });
-    }
-  }, [flights, map]);
+  }, [flight, zoom, map]);
 
   return null;
 }
@@ -102,6 +106,10 @@ export default function FlightMap({
 }) {
   const [selectedFlight, setSelectedFlight] =
   useState<FlightPosition | null>(null);
+  
+  const AutoFlight =
+  selectedFlight ?? (flights.length === 1 ? flights[0] : null);
+
   return (
     <section className=" relative">
       {singleFlight && (
@@ -127,7 +135,7 @@ export default function FlightMap({
         zoom={8}
         className="h-150 w-full rounded-xl"
       >
-        <AutoPan flights={flights} />
+        <AutoPanFlight flight={AutoFlight} />
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
@@ -171,7 +179,10 @@ export default function FlightMap({
             position={[f.latitude, f.longitude] as LatLngExpression}
             icon={planeIcon(f.heading, f.altitude)}
             eventHandlers={{
-              click: () => setSelectedFlight(f),
+              click: () => 
+                setSelectedFlight((prev) =>
+                  prev?.icao24 === f.icao24 ? null : f
+            ),
             }}
           >
             {/* Pop Up Section */}
