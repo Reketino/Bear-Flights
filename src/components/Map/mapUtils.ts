@@ -1,17 +1,17 @@
 import L from "leaflet";
 
- export const safeHeading = (heading: number | null) =>
+export const safeHeading = (heading: number | null) =>
   typeof heading === "number" && Number.isFinite(heading) ? heading : 0;
 
- export const altitudeColor = (altitude: number | null) => {
+export const altitudeColor = (altitude: number | null) => {
   if (altitude === null) return "#9ca3af";
   if (altitude < 3000) return "#22c55e";
   if (altitude < 9000) return "#eab308";
   return "#ef4444";
 };
 
- export const planeIcon = (heading: number | null, altitude: number | null) => {
- const rotation = safeHeading(heading) - 90;
+export const planeIcon = (heading: number | null, altitude: number | null) => {
+  const rotation = safeHeading(heading) - 90;
 
   return L.divIcon({
     className: "",
