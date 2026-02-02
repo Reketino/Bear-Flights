@@ -1,18 +1,12 @@
 "use client";
 import { AIRPORTS } from "@/lib/airportcoords";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  Circle,
-  Polyline,
-  useMap,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Circle, Polyline, } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
+import { AutoPanFlight } from "./AutoPan";
+import { FlightMarker } from "./FlightMarker";
+
 
 // Flight Positions
 type FlightPosition = {
@@ -29,72 +23,6 @@ type FlightPosition = {
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
-// Defining heading on the map
-const safeHeading = (heading: number | null) =>
-  typeof heading === "number" && Number.isFinite(heading) ? heading : 0;
-
-// Altitude Color based on Altitude
-const altitudeColor = (altitude: number | null) => {
-  if (altitude === null) return "#9ca3af";
-  if (altitude < 3000) return "#22c55e";
-  if (altitude < 9000) return "#eab308";
-  return "#ef4444";
-};
-
-// Plane icon w/ altitude styling &  heading adjustment
-const planeIcon = (heading: number | null, altitude: number | null) => {
-  const rotation = safeHeading(heading) - 90;
-
-  return L.divIcon({
-    className: "",
-    html: `
-      <div style="
-      width:45px;
-      height:45px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transform: rotate(${rotation}deg); 
-      ">
-      <img
-      src="/icons/airplane.png"
-      style="
-      width:45px;
-      height:45px;
-      display: block;
-      filter: drop-shadow(0 0 6px ${altitudeColor(altitude)});
-      "
-      />
-      </div>
-      `,
-    iconSize: [40, 40],
-    iconAnchor: [22, 22],
-    popupAnchor: [0, -16],
-  });
-};
-
-// Autpan when entering flight from Icao24
-function AutoPanFlight({
-  flight,
-  zoom = 11,
-}: {
-  flight: FlightPosition | null;
-  zoom?: number;
-}) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (!flight) return;
-
-    map.flyTo([flight.latitude, flight.longitude], zoom, {
-      animate: true,
-      duration: 1.2,
-      easeLinearity: 0.25,
-    });
-  }, [flight, zoom, map]);
-
-  return null;
-}
 
 export default function FlightMap({
   flights,
@@ -103,9 +31,8 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
-    null,
-  );
+  const [selectedFlight, setSelectedFlight] = 
+  useState<FlightPosition | null>(null);
 
   const AutoFlight =
     selectedFlight ?? (flights.length === 1 ? flights[0] : null);
@@ -174,53 +101,16 @@ export default function FlightMap({
 
         {/* Flight Marker */}
         {flights.map((f) => (
-          <Marker
+          <FlightMarker
             key={`${f.icao24}-${f.heading}`}
-            position={[f.latitude, f.longitude] as LatLngExpression}
-            icon={planeIcon(f.heading, f.altitude)}
-            eventHandlers={{
-              click: () =>
-                setSelectedFlight((prev) =>
-                  prev?.icao24 === f.icao24 ? null : f,
-                ),
-            }}
-          >
-            {/* Pop Up Section */}
-            <Popup>
-              <section
-                className="
-                text-sm"
-              >
-                <header
-                  className="
-                    font-semibold"
-                >
-                  ✈️{f.callsign ?? f.icao24}
-                </header>
-
-                {/* Heading in pop up */}
-                {f.heading !== null && (
-                  <div>Heading: {Math.round(f.heading)}°</div>
-                )}
-
-                {/* Altitude in popup */}
-                {f.altitude !== null && (
-                  <div>Altitude: {Math.round(f.altitude)} m</div>
-                )}
-
-                {/* Velocity in popup */}
-                {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
-
-                {/* Departure Airport in popup */}
-                {f.departure_airport && AIRPORTS[f.departure_airport] && (
-                  <div>
-                    From {AIRPORTS[f.departure_airport].name},{" "}
-                    {AIRPORTS[f.departure_airport].country}
-                  </div>
-                )}
-              </section>
-            </Popup>
-          </Marker>
+            flight={f}
+            selected={selectedFlight?.icao24 === f.icao24}
+            onSelect={() => 
+              setSelectedFlight((prev) => 
+              prev?.icao24 === f.icao24 ? null : f,
+              )
+            }
+            />
         ))}
       </MapContainer>
     </section>
