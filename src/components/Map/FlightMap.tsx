@@ -1,12 +1,11 @@
 "use client";
 import { AIRPORTS } from "@/lib/airportcoords";
-import { MapContainer, TileLayer, Circle, Polyline, } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, Polyline } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import {  useState } from "react";
+import { useState } from "react";
 import { AutoPanFlight } from "./AutoPan";
 import { FlightMarker } from "./FlightMarker";
-
 
 // Flight Positions
 type FlightPosition = {
@@ -23,7 +22,6 @@ type FlightPosition = {
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
 
-
 export default function FlightMap({
   flights,
   singleFlight,
@@ -31,8 +29,9 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [selectedFlight, setSelectedFlight] = 
-  useState<FlightPosition | null>(null);
+  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
+    null,
+  );
 
   const AutoFlight =
     selectedFlight ?? (flights.length === 1 ? flights[0] : null);
@@ -105,12 +104,12 @@ export default function FlightMap({
             key={`${f.icao24}-${f.heading}`}
             flight={f}
             selected={selectedFlight?.icao24 === f.icao24}
-            onSelect={() => 
-              setSelectedFlight((prev) => 
-              prev?.icao24 === f.icao24 ? null : f,
+            onSelect={() =>
+              setSelectedFlight((prev) =>
+                prev?.icao24 === f.icao24 ? null : f,
               )
             }
-            />
+          />
         ))}
       </MapContainer>
     </section>
