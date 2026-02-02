@@ -12,11 +12,10 @@ export function FlightMarker({
   selected: boolean;
   onSelect: () => void;
 }) {
- 
   const plane = useMemo(
     () => planeIcon(flight.heading, flight.altitude),
     [flight.heading, flight.altitude],
-  )
+  );
 
   return (
     <Marker
@@ -37,7 +36,9 @@ export function FlightMarker({
           </header>
 
           {/* Heading in pop up */}
-          {flight.heading !== null && <div>Heading: {Math.round(flight.heading)}°</div>}
+          {flight.heading !== null && (
+            <div>Heading: {Math.round(flight.heading)}°</div>
+          )}
 
           {/* Altitude in popup */}
           {flight.altitude !== null && (
@@ -45,7 +46,9 @@ export function FlightMarker({
           )}
 
           {/* Velocity in popup */}
-          {flight.velocity && <div>Speed: {Math.round(flight.velocity)} m/s</div>}
+          {flight.velocity && (
+            <div>Speed: {Math.round(flight.velocity)} m/s</div>
+          )}
 
           {/* Departure Airport in popup */}
           {flight.departure_airport && AIRPORTS[flight.departure_airport] && (
