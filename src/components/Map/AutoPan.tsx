@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 
- export function AutoPanFlight({
+export function AutoPanFlight({
   flight,
   zoom = 11,
 }: {
-  flight: { latitude: number; longitude: number; } | null;
+  flight: { latitude: number; longitude: number } | null;
   zoom?: number;
 }) {
   const map = useMap();
