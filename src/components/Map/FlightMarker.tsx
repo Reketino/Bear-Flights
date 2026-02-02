@@ -1,4 +1,5 @@
 import { Marker, Popup } from "react-leaflet";
+import { useMemo } from "react";
 import type { LatLngExpression } from "leaflet";
 import { AIRPORTS } from "@/lib/airportcoords";
 import { planeIcon } from "./mapUtils";
@@ -12,11 +13,15 @@ export function FlightMarker({
   onSelect: () => void;
 }) {
  
+  const plane = useMemo(
+    () => planeIcon(flight.heading, flight.altitude),
+    [flight.heading, flight.altitude],
+  )
 
   return (
     <Marker
       position={[flight.latitude, flight.longitude] as LatLngExpression}
-      icon={planeIcon(flight.heading, flight.altitude)}
+      icon={plane}
       eventHandlers={{ click: onSelect }}
     >
       <Popup>
