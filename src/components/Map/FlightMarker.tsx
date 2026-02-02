@@ -5,7 +5,6 @@ import { planeIcon } from "./mapUtils";
 
 export function FlightMarker({
   flight,
-  selected,
   onSelect,
 }: {
   flight: any;
