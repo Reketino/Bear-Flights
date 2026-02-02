@@ -3,7 +3,7 @@ import type { LatLngExpression } from "leaflet";
 import { AIRPORTS } from "@/lib/airportcoords";
 import { planeIcon } from "./mapUtils";
 
-export function FlighMarker({
+export function FlightMarker({
   flight,
   selected,
   onSelect,
