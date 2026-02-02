@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Setup useMemo for planeicon
+- Optimalizing ring radius on map
 
 ---
 
