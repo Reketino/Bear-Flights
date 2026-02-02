@@ -154,7 +154,42 @@ Through this project I gained:
 
 ---
 
+## ▶️ Running the Project Locally
+
+This project consists of two main parts:
+
+- a Python backend responsible for ingestion and data enrichment
+- a Next.js frontend responsible for presenting the data
+
+Prerequisites:
+
+- Node.js (18+ recommended)
+- npm / pnpm / yarn
+- Python 3.11+
+- Supabase project (URL + anon key)
+
+### Frontend (Next.js)
+
+Install dependencies:
+
+- npm install
+- Create a .env.local file:
+- NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+- NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+
+Start the development server:
+
+- npm run dev
+
+Open the app in your browser:
+
+- 👉 http://localhost:3000
+
+---
+
 Built to understand how data survives the journey from Python to pixels.
+
+---
 
 ## 📜 License:
 - MIT
