@@ -11,12 +11,12 @@ export function FlightMarker({
   selected: boolean;
   onSelect: () => void;
 }) {
-  const f = flight;
+ 
 
   return (
     <Marker
-      position={[f.latitude, f.longitude] as LatLngExpression}
-      icon={planeIcon(f.heading, f.altitude)}
+      position={[flight.latitude, flight.longitude] as LatLngExpression}
+      icon={planeIcon(flight.heading, flight.altitude)}
       eventHandlers={{ click: onSelect }}
     >
       <Popup>
@@ -28,25 +28,25 @@ export function FlightMarker({
             className="
                     font-semibold"
           >
-            ✈️{f.callsign ?? f.icao24}
+            ✈️{flight.callsign ?? flight.icao24}
           </header>
 
           {/* Heading in pop up */}
-          {f.heading !== null && <div>Heading: {Math.round(f.heading)}°</div>}
+          {flight.heading !== null && <div>Heading: {Math.round(flight.heading)}°</div>}
 
           {/* Altitude in popup */}
-          {f.altitude !== null && (
-            <div>Altitude: {Math.round(f.altitude)} m</div>
+          {flight.altitude !== null && (
+            <div>Altitude: {Math.round(flight.altitude)} m</div>
           )}
 
           {/* Velocity in popup */}
-          {f.velocity && <div>Speed: {Math.round(f.velocity)} m/s</div>}
+          {flight.velocity && <div>Speed: {Math.round(flight.velocity)} m/s</div>}
 
           {/* Departure Airport in popup */}
-          {f.departure_airport && AIRPORTS[f.departure_airport] && (
+          {flight.departure_airport && AIRPORTS[flight.departure_airport] && (
             <div>
-              From {AIRPORTS[f.departure_airport].name},{" "}
-              {AIRPORTS[f.departure_airport].country}
+              From {AIRPORTS[flight.departure_airport].name},{" "}
+              {AIRPORTS[flight.departure_airport].country}
             </div>
           )}
         </section>
