@@ -26,19 +26,28 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Oslo", 
   }, 
+  ENVA: { 
+    lat: 63.457611, 
+    lon: 10.919623,
+    country: "Norway",
+    name: "Trondheim", 
+  }, 
+
   ESSA: { 
     lat: 59.651901245117, 
     lon: 17.918600082397,
     country: "Sweden",
     name: "Stockholm," 
-  },  
+  },
+
     EKCH: { 
     lat: 55.617900848389, 
     lon: 12.656000137329,
     country: "Denmark",
     name: "Copenhagen",
   }, 
-  
+
+ 
   // EUROPE
     EGKK: { 
     lat: 51.148102, 
@@ -46,12 +55,48 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "United Kingdom",
     name: "London", 
   },
+   EGGW: { 
+    lat: 51.873663, 
+    lon: -0.374588,
+    country: "United Kingdom",
+    name: "London", 
+  },
+   EGCC: { 
+    lat: 53.350981, 
+    lon: -2.280403,
+    country: "United Kingdom",
+    name: "Manchester", 
+  },
+
+   EINN: { 
+    lat: 52.701966, 
+    lon: -8.925054,
+    country: "Ireland",
+    name: "Limerick", 
+  },
+
   EFHK: { 
     lat: 60.316442, 
     lon: 24.944800,
     country: "Finland",
     name: "Helsingfors", 
   },
+  
+  EVRA: { 
+    lat: 56.921328, 
+    lon: 23.970873,
+    country: "Latvia",
+    name: "Riga", 
+  },
+
+
+   
+    BIKF: { 
+    lat: 63.985099, 
+    lon: -22.633124,
+    country: "Iceland",
+    name: "Reykjavik",
+  }, 
   
   // UNITED STATES OF AMERICA
   KJFK: { 
@@ -67,6 +112,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "USA",
     name: "Dallas", 
   }, 
+
 
   // MIDDLE EAST
   OTHH: { 
