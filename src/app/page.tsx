@@ -15,7 +15,7 @@ export default function HomePage() {
       max-w-3xl text-center
       "
       >
-        <AnimatedLogo  />
+        <AnimatedLogo />
 
         <p className="text-blue-950 text-lg mb-8">
           Overview of flights crossing the airspace in Sykkylven, Norway -
