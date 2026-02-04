@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Optimalizing ring radius on map
+- Fixing polyline not showing on map
 
 ---
 

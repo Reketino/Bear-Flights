@@ -29,9 +29,8 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
-    null,
-  );
+  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(null);
+  
 
   const AutoFlight =
     selectedFlight ?? (flights.length === 1 ? flights[0] : null);
