@@ -6,12 +6,20 @@ export type AirPortCoords = {
 };
 
 export const AIRPORTS: Record<string, AirPortCoords> = {
+  
+  // SCANDINAVIA
   ENAL: { 
     lat: 62.5625, 
     lon: 6.119699954986572,
     country: "Norway",
     name: "Aalesund",  
   },
+   ENBR: { 
+    lat: 60.294009, 
+    lon: 5.220485,
+    country: "Norway",
+    name: "Bergen", 
+  }, 
   ENGM: { 
     lat: 60.121, 
     lon: 11.0502,
@@ -24,29 +32,48 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Sweden",
     name: "Stockholm," 
   },  
+    EKCH: { 
+    lat: 55.617900848389, 
+    lon: 12.656000137329,
+    country: "Denmark",
+    name: "Copenhagen",
+  }, 
+  
+  // EUROPE
+    EGKK: { 
+    lat: 51.148102, 
+    lon: -0.190278,
+    country: "United Kingdom",
+    name: "London", 
+  },
+  EFHK: { 
+    lat: 60.316442, 
+    lon: 24.944800,
+    country: "Finland",
+    name: "Helsingfors", 
+  },
+  
+  // UNITED STATES OF AMERICA
   KJFK: { 
     lat: 40.63980103, 
     lon: -73.77890015,
     country: "USA",
     name: "New York", 
   }, 
+
+    KDFW: { 
+    lat: 32.894291, 
+    lon:  -97.038278,
+    country: "USA",
+    name: "Dallas", 
+  }, 
+
+  // MIDDLE EAST
   OTHH: { 
     lat: 25.273056, 
     lon: 51.608056,
     country: "Qatar",
     name: "Doha",
 
-  }, 
-  EKCH: { 
-    lat: 55.617900848389, 
-    lon: 12.656000137329,
-    country: "Denmark",
-    name: "Copenhagen",
-  }, 
-  EGKK: { 
-    lat: 51.148102, 
-    lon: -0.190278,
-    country: "United Kingdom",
-    name: "London", 
   }, 
 };
