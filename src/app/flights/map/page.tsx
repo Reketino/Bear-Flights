@@ -29,7 +29,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   let query = supabase
     .from("flight_positions")
     .select(
-      "icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport"
+      "icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport",
     );
 
   if (icao24) {
@@ -54,7 +54,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
 
   const safeFlights = (data ?? []).filter(
     (f): f is FlightPosition =>
-      Number.isFinite(f.latitude) && Number.isFinite(f.longitude)
+      Number.isFinite(f.latitude) && Number.isFinite(f.longitude),
   );
 
   return (
@@ -65,7 +65,9 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     >
       <header className="mb-4">
         <h1 className="text-3xl font-bold"> Flight Map of Sykkylven</h1>
-        <p className="text-neutral-300 font-medium mt-2">Detected within a 50 km radius🔍</p>
+        <p className="text-neutral-300 font-medium mt-2">
+          Detected within a 50 km radius🔍
+        </p>
       </header>
 
       <FlightMapClient flights={safeFlights} singleFlight={Boolean(icao24)} />
