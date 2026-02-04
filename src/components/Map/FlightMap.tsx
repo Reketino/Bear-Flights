@@ -3,7 +3,7 @@ import { AIRPORTS } from "@/lib/airportcoords";
 import { MapContainer, TileLayer, Circle, Polyline } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AutoPanFlight } from "./AutoPan";
 import { FlightMarker } from "./FlightMarker";
 import { FlightPosition } from "@/types/flightposition";
@@ -23,6 +23,18 @@ export default function FlightMap({
 
   const AutoFlight =
     selectedFlight ?? (flights.length === 1 ? flights[0] : null);
+
+  const departureICAO = useMemo(
+    () =>
+    selectedFlight?.departure_airport
+    ?.trim()
+    .toUpperCase()?? null,
+    [selectedFlight],
+  );
+
+  const departureAirport = departureICAO
+  ? AIRPORTS[departureICAO]
+  : null;
 
   return (
     <section className=" relative">
