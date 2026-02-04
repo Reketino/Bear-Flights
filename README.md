@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Fixing polyline not showing on map
+- fix airport name & location showing up on map again
 
 ---
 
