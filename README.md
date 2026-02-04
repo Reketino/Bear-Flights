@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- enriching airport coords
+- Adding arrival airport to popup & map
 
 ---
 
