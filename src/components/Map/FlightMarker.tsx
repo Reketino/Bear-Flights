@@ -19,8 +19,8 @@ export function FlightMarker({
   );
 
   const departureAirport = flight.departure_airport
-  ? AIRPORTS[flight.departure_airport]
-  : null;
+    ? AIRPORTS[flight.departure_airport]
+    : null;
 
   return (
     <Marker
@@ -59,12 +59,12 @@ export function FlightMarker({
           <div className="mt-1">
             From{" "}
             {departureAirport?.name
-            ? `${departureAirport.name}${
-              departureAirport.country
-              ? `, ${departureAirport.country}`
-              : ""
-            }`
-            : flight.departure_airport ?? "Departure Unknown"}
+              ? `${departureAirport.name}${
+                  departureAirport.country
+                    ? `, ${departureAirport.country}`
+                    : ""
+                }`
+              : (flight.departure_airport ?? "Departure Unknown")}
           </div>
         </section>
       </Popup>
