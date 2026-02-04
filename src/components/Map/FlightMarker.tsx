@@ -57,10 +57,14 @@ export function FlightMarker({
 
           {/* Departure Airport in popup */}
           <div className="mt-1">
-            From {" "}
-            {flight.departure_airport_name ??
-            flight.departure_airport ??
-            "Departure Unknown"}
+            From{" "}
+            {departureAirport?.name
+            ? `${departureAirport.name}${
+              departureAirport.country
+              ? `, ${departureAirport.country}`
+              : ""
+            }`
+            : flight.departure_airport ?? "Departure Unknown"}
           </div>
         </section>
       </Popup>
