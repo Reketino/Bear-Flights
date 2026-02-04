@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- fix airport name & location showing up on map again
+- Adding arrival airport to popup & map
 
 ---
 

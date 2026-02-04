@@ -10,5 +10,5 @@ export type FlightPosition = {
   heading: number | null;
 
   departure_airport: string | null;
-  departure_airport_name?: string | null;
+  arrival_airport: string | null;
 };

@@ -6,74 +6,114 @@ export type AirPortCoords = {
 };
 
 export const AIRPORTS: Record<string, AirPortCoords> = {
-  
   // SCANDINAVIA
-  ENAL: { 
-    lat: 62.5625, 
+  ENAL: {
+    lat: 62.5625,
     lon: 6.119699954986572,
     country: "Norway",
-    name: "Aalesund",  
+    name: "Aalesund",
   },
-   ENBR: { 
-    lat: 60.294009, 
+  ENBR: {
+    lat: 60.294009,
     lon: 5.220485,
     country: "Norway",
-    name: "Bergen", 
-  }, 
-  ENGM: { 
-    lat: 60.121, 
+    name: "Bergen",
+  },
+  ENGM: {
+    lat: 60.121,
     lon: 11.0502,
     country: "Norway",
-    name: "Oslo", 
-  }, 
-  ESSA: { 
-    lat: 59.651901245117, 
+    name: "Oslo",
+  },
+  ENVA: {
+    lat: 63.457611,
+    lon: 10.919623,
+    country: "Norway",
+    name: "Trondheim",
+  },
+
+  ESSA: {
+    lat: 59.651901245117,
     lon: 17.918600082397,
     country: "Sweden",
-    name: "Stockholm," 
-  },  
-    EKCH: { 
-    lat: 55.617900848389, 
+    name: "Stockholm,",
+  },
+
+  EKCH: {
+    lat: 55.617900848389,
     lon: 12.656000137329,
     country: "Denmark",
     name: "Copenhagen",
-  }, 
-  
+  },
+
   // EUROPE
-    EGKK: { 
-    lat: 51.148102, 
+  EGKK: {
+    lat: 51.148102,
     lon: -0.190278,
     country: "United Kingdom",
-    name: "London", 
+    name: "London",
   },
-  EFHK: { 
-    lat: 60.316442, 
-    lon: 24.944800,
+  EGGW: {
+    lat: 51.873663,
+    lon: -0.374588,
+    country: "United Kingdom",
+    name: "London",
+  },
+  EGCC: {
+    lat: 53.350981,
+    lon: -2.280403,
+    country: "United Kingdom",
+    name: "Manchester",
+  },
+
+  EINN: {
+    lat: 52.701966,
+    lon: -8.925054,
+    country: "Ireland",
+    name: "Limerick",
+  },
+
+  EFHK: {
+    lat: 60.316442,
+    lon: 24.9448,
     country: "Finland",
-    name: "Helsingfors", 
+    name: "Helsingfors",
   },
-  
+
+  EVRA: {
+    lat: 56.921328,
+    lon: 23.970873,
+    country: "Latvia",
+    name: "Riga",
+  },
+
+  BIKF: {
+    lat: 63.985099,
+    lon: -22.633124,
+    country: "Iceland",
+    name: "Reykjavik",
+  },
+
   // UNITED STATES OF AMERICA
-  KJFK: { 
-    lat: 40.63980103, 
+  KJFK: {
+    lat: 40.63980103,
     lon: -73.77890015,
     country: "USA",
-    name: "New York", 
-  }, 
+    name: "New York",
+  },
 
-    KDFW: { 
-    lat: 32.894291, 
-    lon:  -97.038278,
+  KDFW: {
+    lat: 32.894291,
+    lon: -97.038278,
     country: "USA",
-    name: "Dallas", 
-  }, 
+    name: "Dallas",
+  },
 
   // MIDDLE EAST
-  OTHH: { 
-    lat: 25.273056, 
+  OTHH: {
+    lat: 25.273056,
     lon: 51.608056,
     country: "Qatar",
     name: "Doha",
-
-  }, 
+  },
 };
