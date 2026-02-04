@@ -66,14 +66,11 @@ export default function FlightMap({
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         {selectedFlight &&
-          selectedFlight.departure_airport &&
-          AIRPORTS[selectedFlight.departure_airport] && (
+          departureAirport &&
+           (
             <Polyline
               positions={[
-                [
-                  AIRPORTS[selectedFlight.departure_airport].lat,
-                  AIRPORTS[selectedFlight.departure_airport].lon,
-                ],
+                [departureAirport.lat, departureAirport.lon],
                 [selectedFlight.latitude, selectedFlight.longitude],
               ]}
               pathOptions={{
