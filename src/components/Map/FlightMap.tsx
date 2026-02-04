@@ -6,18 +6,7 @@ import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { AutoPanFlight } from "./AutoPan";
 import { FlightMarker } from "./FlightMarker";
-
-// Flight Positions
-type FlightPosition = {
-  icao24: string;
-  callsign: string | null;
-  latitude: number;
-  longitude: number;
-  altitude: number | null;
-  velocity: number | null;
-  heading: number | null;
-  departure_airport: string | null;
-};
+import { FlightPosition } from "@/types/flightposition";
 
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
