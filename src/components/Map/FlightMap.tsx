@@ -18,23 +18,19 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(null);
-  
+  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
+    null,
+  );
 
   const AutoFlight =
     selectedFlight ?? (flights.length === 1 ? flights[0] : null);
 
   const departureICAO = useMemo(
-    () =>
-    selectedFlight?.departure_airport
-    ?.trim()
-    .toUpperCase()?? null,
+    () => selectedFlight?.departure_airport?.trim().toUpperCase() ?? null,
     [selectedFlight],
   );
 
-  const departureAirport = departureICAO
-  ? AIRPORTS[departureICAO]
-  : null;
+  const departureAirport = departureICAO ? AIRPORTS[departureICAO] : null;
 
   return (
     <section className=" relative">
@@ -65,21 +61,19 @@ export default function FlightMap({
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {selectedFlight &&
-          departureAirport &&
-           (
-            <Polyline
-              positions={[
-                [departureAirport.lat, departureAirport.lon],
-                [selectedFlight.latitude, selectedFlight.longitude],
-              ]}
-              pathOptions={{
-                color: "#38bdf8",
-                weight: 4,
-                dashArray: "4 6",
-              }}
-            />
-          )}
+        {selectedFlight && departureAirport && (
+          <Polyline
+            positions={[
+              [departureAirport.lat, departureAirport.lon],
+              [selectedFlight.latitude, selectedFlight.longitude],
+            ]}
+            pathOptions={{
+              color: "#38bdf8",
+              weight: 4,
+              dashArray: "4 6",
+            }}
+          />
+        )}
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (
