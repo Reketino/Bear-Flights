@@ -22,6 +22,10 @@ export function FlightMarker({
     ? AIRPORTS[flight.departure_airport]
     : null;
 
+    const arrivalAirport = flight.arrival_airport
+    ? AIRPORTS[flight.arrival_airport]
+    : null;
+
   return (
     <Marker
       position={[flight.latitude, flight.longitude] as LatLngExpression}
