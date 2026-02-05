@@ -12,6 +12,7 @@ type FlightPosition = {
   velocity: number | null;
   heading: number | null;
   departure_airport: string | null;
+  arrival_airport: string | null;
 };
 
 type pageProps = {
@@ -29,7 +30,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   let query = supabase
     .from("flight_positions")
     .select(
-      "icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport",
+      "icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport, arrival_airport",
     );
 
   if (icao24) {

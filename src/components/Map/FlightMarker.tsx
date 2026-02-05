@@ -19,11 +19,11 @@ export function FlightMarker({
   );
 
   const departureAirport = flight.departure_airport
-    ? AIRPORTS[flight.departure_airport]
+    ? AIRPORTS[flight.departure_airport.trim().toUpperCase()]
     : null;
 
   const arrivalAirport = flight.arrival_airport
-    ? AIRPORTS[flight.arrival_airport]
+    ? AIRPORTS[flight.arrival_airport.trim().toUpperCase()]
     : null;
 
   return (
