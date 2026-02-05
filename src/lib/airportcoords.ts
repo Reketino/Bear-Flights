@@ -13,15 +13,28 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Aalesund",
   },
+    ENSD: {
+    lat: 61.830029,
+    lon: 6.105118,
+    country: "Norway",
+    name: "Sandane",
+  },
   ENBR: {
     lat: 60.294009,
     lon: 5.220485,
     country: "Norway",
     name: "Bergen",
   },
+    ENHD: {
+    lat: 59.343927,
+    lon: 5.211017,
+    country: "Norway",
+    name: "Haugesund",
+  },
+
   ENGM: {
-    lat: 60.121,
-    lon: 11.0502,
+    lat: 60.197303,
+    lon: 11.097080,
     country: "Norway",
     name: "Oslo",
   },
@@ -86,12 +99,19 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Latvia",
     name: "Riga",
   },
-
+  
   BIKF: {
     lat: 63.985099,
     lon: -22.633124,
     country: "Iceland",
     name: "Reykjavik",
+  },
+
+    GCFV: {
+    lat: 28.448793,
+    lon: -13.863925,
+    country: "Spain",
+    name: "Puerto del Rosario",
   },
 
   // UNITED STATES OF AMERICA
