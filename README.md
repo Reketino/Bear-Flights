@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding arrival airport to popup & map
+- Fixing polyline lot showing on map
 
 ---
 
