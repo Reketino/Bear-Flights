@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Fixing polyline lot showing on map
+- Adding airports to airportcoords
 
 ---
 
