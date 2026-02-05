@@ -13,7 +13,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Aalesund",
   },
-    ENOV: {
+  ENOV: {
     lat: 62.179652,
     lon: 6.072509,
     country: "Norway",
