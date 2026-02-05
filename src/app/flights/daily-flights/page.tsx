@@ -18,7 +18,7 @@ export default async function DailyFlightsPage() {
         longest_callsign,
         longest_icao24,
         fun_fact
-        `
+        `,
     )
     .order("date", { ascending: false })
     .limit(14);
