@@ -33,8 +33,8 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   ENGM: {
-    lat: 60.121,
-    lon: 11.0502,
+    lat: 60.197303,
+    lon: 11.097080,
     country: "Norway",
     name: "Oslo",
   },
