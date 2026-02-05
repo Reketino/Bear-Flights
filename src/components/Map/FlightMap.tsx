@@ -18,6 +18,7 @@ export default function FlightMap({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
+
   const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
     null,
   );
@@ -31,6 +32,13 @@ export default function FlightMap({
   );
 
   const departureAirport = departureICAO ? AIRPORTS[departureICAO] : null;
+
+  const arrivalICAO = useMemo(
+    () => selectedFlight?.arrival_airport?.trim().toUpperCase() ?? null,
+    [selectedFlight],
+  );
+
+  const arrivalAirport = arrivalICAO ? AIRPORTS[arrivalICAO] : null;
 
   return (
     <section className=" relative">
@@ -61,7 +69,7 @@ export default function FlightMap({
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {selectedFlight && departureAirport && (
+        {selectedFlight && departureAirport && arrivalAirport(
           <Polyline
             positions={[
               [departureAirport.lat, departureAirport.lon],
