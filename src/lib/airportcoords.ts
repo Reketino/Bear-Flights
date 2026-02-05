@@ -86,12 +86,19 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Latvia",
     name: "Riga",
   },
-
+  
   BIKF: {
     lat: 63.985099,
     lon: -22.633124,
     country: "Iceland",
     name: "Reykjavik",
+  },
+
+    GCFV: {
+    lat: 28.448793,
+    lon: -13.863925,
+    country: "Spain",
+    name: "Puerto del Rosario",
   },
 
   // UNITED STATES OF AMERICA
