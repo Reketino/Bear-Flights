@@ -23,21 +23,18 @@ export default function FlightMap({
     null,
   );
 
-  const AutoFlight =
-    selectedFlight ?? (flights.length === 1 ? flights[0] : null);
+  const AutoFlight = selectedFlight || (flights.length === 1 ? flights[0] : null);
 
-  const departureICAO = useMemo(
-    () => selectedFlight?.departure_airport?.trim().toUpperCase() ?? null,
-    [selectedFlight],
-  );
+  const departureICAO = selectedFlight?.departure_airport
+  ?.trim()
+  .toUpperCase()
 
   const departureAirport = departureICAO ? AIRPORTS[departureICAO] : null;
 
-  const arrivalICAO = useMemo(
-    () => selectedFlight?.arrival_airport?.trim().toUpperCase() ?? null,
-    [selectedFlight],
-  );
-
+  const arrivalICAO = selectedFlight?.arrival_airport
+  ?.trim()
+  .toUpperCase()
+  
   const arrivalAirport = arrivalICAO ? AIRPORTS[arrivalICAO] : null;
 
   return (
