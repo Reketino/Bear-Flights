@@ -8,6 +8,7 @@ import { AutoPanFlight } from "./AutoPan";
 import { FlightMarker } from "./FlightMarker";
 import { FlightPosition } from "@/types/flightposition";
 import { FlightRoute } from "./FlightRoute";
+import { AirportMarker } from "./AirportMarker";
 
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
@@ -69,6 +70,7 @@ export default function FlightMap({
           departureAirport={departureAirport}
           arrivalAirport={arrivalAirport}
         />
+        
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (
