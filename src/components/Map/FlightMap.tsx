@@ -1,12 +1,13 @@
 "use client";
 import { AIRPORTS } from "@/lib/airportcoords";
-import { MapContainer, TileLayer, Circle, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMemo, useState } from "react";
 import { AutoPanFlight } from "./AutoPan";
 import { FlightMarker } from "./FlightMarker";
 import { FlightPosition } from "@/types/flightposition";
+import { FlightRoute } from "./FlightRoute";
 
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
@@ -39,21 +40,6 @@ export default function FlightMap({
 
   const arrivalAirport = arrivalICAO ? AIRPORTS[arrivalICAO] : null;
 
-  const PolylinePositions = useMemo(() => {
-    if (!selectedFlight || !departureAirport) return null;
-
-    const points: LatLngExpression[] = [
-      [departureAirport.lat, departureAirport.lon],
-      [selectedFlight.latitude, selectedFlight.longitude],
-    ];
-
-    if (arrivalAirport) {
-      points.push([arrivalAirport.lat, arrivalAirport.lon]);
-    }
-
-    return points;
-  }, [selectedFlight, departureAirport, arrivalAirport]);
-
   return (
     <section className=" relative">
       {singleFlight && (
@@ -83,16 +69,12 @@ export default function FlightMap({
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {PolylinePositions && (
-          <Polyline
-            positions={PolylinePositions}
-            pathOptions={{
-              color: "#38bdf8",
-              weight: 4,
-              dashArray: "4 6",
-            }}
-          />
-        )}
+        {/* PolyLine */}
+        <FlightRoute
+          flight={selectedFlight}
+          departureAirport={departureAirport}
+          arrivalAirport={arrivalAirport}
+        />
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (

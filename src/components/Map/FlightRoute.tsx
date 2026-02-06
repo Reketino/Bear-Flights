@@ -3,52 +3,55 @@ import type { LatLngExpression } from "leaflet";
 import { useMemo } from "react";
 
 type FlightRouteLogic = {
-    flight: {
-        latitude: number;
-        longitude: number;
-    } | null;
+  flight: {
+    latitude: number;
+    longitude: number;
+  } | null;
 
-    departureAirport: {
-        lat: number;
-        lon: number;
-    } | null;
+  departureAirport: {
+    lat: number;
+    lon: number;
+  } | null;
 
-    arrivalAirport?: {
-        lat: number;
-        lon: number;
-    } | null
+  arrivalAirport?: {
+    lat: number;
+    lon: number;
+  } | null;
 };
 
 export function FlightRoute({
-    flight, 
-    departureAirport,
-    arrivalAirport
+  flight,
+  departureAirport,
+  arrivalAirport,
 }: FlightRouteLogic) {
-    const position = useMemo<LatLngExpression[] | null>(() => {
-        if(!flight || !departureAirport) return null;
+  const position = useMemo<LatLngExpression[] | null>(() => {
+    if (!flight) return null;
 
-        const pts: LatLngExpression[] = [
-            [departureAirport.lat, departureAirport.lon],
-            [flight.latitude, flight.longitude],
-        ];
+    const pts: LatLngExpression[] = [];
 
-        if (arrivalAirport) {
-            pts.push([arrivalAirport.lat, arrivalAirport.lon]);
-        }
+    if (departureAirport) {
+      pts.push([departureAirport.lat, departureAirport.lon]);
+    }
 
-        return pts;
-    },[flight, departureAirport, arrivalAirport]);
+    pts.push([flight.latitude, flight.longitude]);
 
-    if (!position) return null;
+    if (arrivalAirport) {
+      pts.push([arrivalAirport.lat, arrivalAirport.lon]);
+    }
 
-    return (
-        <Polyline
-        positions={position}
-         pathOptions={{
-              color: "#38bdf8",
-              weight: 4,
-              dashArray: "4 6",
-            }}
-          />
-    )
+    return pts.length >= 2 ? pts : null;
+  }, [flight, departureAirport, arrivalAirport]);
+
+  if (!position) return null;
+
+  return (
+    <Polyline
+      positions={position}
+      pathOptions={{
+        color: "#38bdf8",
+        weight: 4,
+        dashArray: "4 6",
+      }}
+    />
+  );
 }
