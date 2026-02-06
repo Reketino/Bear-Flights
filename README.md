@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding different color to polyline from dep & arrival
+- Adding marker to Airport
 
 ---
 
