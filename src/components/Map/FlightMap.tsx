@@ -1,6 +1,6 @@
 "use client";
 import { AIRPORTS } from "@/lib/airportcoords";
-import { MapContainer, TileLayer, Circle, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Circle, } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMemo, useState } from "react";
