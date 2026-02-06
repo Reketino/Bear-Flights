@@ -1,6 +1,5 @@
 import { Polyline } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
-import { useMemo } from "react";
 
 type FlightRouteLogic = {
   flight: {
@@ -24,34 +23,38 @@ export function FlightRoute({
   departureAirport,
   arrivalAirport,
 }: FlightRouteLogic) {
-  const position = useMemo<LatLngExpression[] | null>(() => {
-    if (!flight) return null;
+  if (!flight) return null;
 
-    const pts: LatLngExpression[] = [];
-
-    if (departureAirport) {
-      pts.push([departureAirport.lat, departureAirport.lon]);
-    }
-
-    pts.push([flight.latitude, flight.longitude]);
-
-    if (arrivalAirport) {
-      pts.push([arrivalAirport.lat, arrivalAirport.lon]);
-    }
-
-    return pts.length >= 2 ? pts : null;
-  }, [flight, departureAirport, arrivalAirport]);
-
-  if (!position) return null;
+  const flightPosition: LatLngExpression = [flight.latitude, flight?.longitude];
 
   return (
-    <Polyline
-      positions={position}
-      pathOptions={{
-        color: "#38bdf8",
-        weight: 4,
-        dashArray: "4 6",
-      }}
-    />
+    <main>
+      {departureAirport && (
+        <Polyline
+          positions={[
+            [departureAirport.lat, departureAirport.lon],
+            flightPosition,
+          ]}
+          pathOptions={{
+            color: "#9ca3af",
+            weight: 6,
+            dashArray: "6 6",
+            opacity: 0.8,
+          }}
+        />
+      )}
+
+      {arrivalAirport && (
+        <Polyline
+          positions={[[arrivalAirport.lat, arrivalAirport.lon], flightPosition]}
+          pathOptions={{
+            color: "#22c55e",
+            weight: 6,
+            dashArray: "4 6",
+            opacity: 0.9,
+          }}
+        />
+      )}
+    </main>
   );
 }
