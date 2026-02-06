@@ -70,7 +70,23 @@ export default function FlightMap({
           departureAirport={departureAirport}
           arrivalAirport={arrivalAirport}
         />
-        
+
+        {departureAirport && (
+          <AirportMarker
+          position={[departureAirport.lat, departureAirport.lon]}
+          type="departure"
+          label="Departure Airport"
+          />
+        )}
+
+        {arrivalAirport && (
+          <AirportMarker
+          position={[arrivalAirport.lat, arrivalAirport.lon]}
+          type="arrival"
+          label="Arrival Airport"
+          />
+        )}
+
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (

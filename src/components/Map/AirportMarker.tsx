@@ -11,9 +11,9 @@ type AirportMarkerLogic = {
 const airportIcon = (emoji: string) =>
     L.divIcon({
         className: "",
-        html: `<div style="font-size:20px;">${emoji}</div>`,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10],
+        html: `<div style="font-size:40px;">${emoji}</div>`,
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
     })
 
 export function AirportMarker({
