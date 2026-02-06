@@ -24,20 +24,24 @@ export function FlightRoute({
     departureAirport,
     arrivalAirport
 }: FlightRouteLogic) {
-    const position = useMemo<LatLngExpression[] | null>(() => {
-        if(!flight || !departureAirport) return null;
 
-        const pts: LatLngExpression[] = [
-            [departureAirport.lat, departureAirport.lon],
-            [flight.latitude, flight.longitude],
-        ];
+    const position = useMemo<LatLngExpression[] | null>(() => {
+        if(!flight) return null;
+
+        const pts: LatLngExpression[] = [];
+
+        if (departureAirport) {
+            pts.push([departureAirport.lat, departureAirport.lon])
+        }
+
+        pts.push([flight.latitude, flight.longitude]);
 
         if (arrivalAirport) {
             pts.push([arrivalAirport.lat, arrivalAirport.lon]);
         }
 
-        return pts;
-    },[flight, departureAirport, arrivalAirport]);
+        return pts.length >= 2 ? pts : null;
+    }, [flight, departureAirport, arrivalAirport]);
 
     if (!position) return null;
 
