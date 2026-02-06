@@ -2,7 +2,7 @@ import { Polyline } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import { useMemo } from "react";
 
-type FlightRoute = {
+type FlightRouteLogic = {
     flight: {
         latitude: number;
         longitude: number;
@@ -23,7 +23,7 @@ export function FlightRoute({
     flight, 
     departureAirport,
     arrivalAirport
-}: FlightRoute) {
+}: FlightRouteLogic) {
     const position = useMemo<LatLngExpression[] | null>(() => {
         if(!flight || !departureAirport) return null;
 
@@ -41,5 +41,14 @@ export function FlightRoute({
 
     if (!position) return null;
 
-
+    return (
+        <Polyline
+        positions={position}
+         pathOptions={{
+              color: "#38bdf8",
+              weight: 4,
+              dashArray: "4 6",
+            }}
+          />
+    )
 }
