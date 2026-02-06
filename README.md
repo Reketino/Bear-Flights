@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Simplifying AirportICAO logic
+- Adding different color to polyline from dep & arrival
 
 ---
 
