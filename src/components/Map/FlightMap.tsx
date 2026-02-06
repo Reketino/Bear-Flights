@@ -1,6 +1,6 @@
 "use client";
 import { AIRPORTS } from "@/lib/airportcoords";
-import { MapContainer, TileLayer, Circle, } from "react-leaflet";
+import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMemo, useState } from "react";
@@ -69,11 +69,11 @@ export default function FlightMap({
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <FlightRoute
-      flight={selectedFlight}
-      departureAirport={departureAirport}
-      arrivalAirport={arrivalAirport}
-      />
+        <FlightRoute
+          flight={selectedFlight}
+          departureAirport={departureAirport}
+          arrivalAirport={arrivalAirport}
+        />
 
         {/* Radius ring on map */}
         {!singleFlight && !selectedFlight && (
