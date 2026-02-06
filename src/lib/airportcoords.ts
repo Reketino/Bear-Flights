@@ -84,6 +84,12 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "United Kingdom",
     name: "Manchester",
   },
+  EGGD: {
+    lat: 51.382758,
+    lon: -2.718607,
+    country: "United Kingdom",
+    name: "Bristol",
+  },
 
   EINN: {
     lat: 52.701966,
