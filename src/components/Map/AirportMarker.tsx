@@ -4,7 +4,7 @@ import type { LatLngExpression } from "leaflet";
 
 type AirportMarkerLogic = {
     position: LatLngExpression;
-    color: string;
+    type: "departure" | "arrival";
     label?: string;
 }
 
@@ -18,11 +18,12 @@ const airportIcon = (emoji: string) =>
 
 export function AirportMarker({
     position,
-    color,
+    type,
     label,
 }: AirportMarkerLogic) {
+    const emoji = type === "departure" ? "🛫" : "🛬";
     return (
-        <Marker position={position} icon={airportIcon(color)}>
+        <Marker position={position} icon={airportIcon(emoji)}>
             {label && <Popup>{label}</Popup>}
         </Marker>
     );
