@@ -126,6 +126,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Puerto del Rosario",
   },
 
+  LBLS: {
+    lat: 42.633488,
+    lon: 23.646295,
+    country: "Lesnovo",
+    name: "Bulgaria",
+  },
+
   // UNITED STATES OF AMERICA
   KJFK: {
     lat: 40.63980103,
