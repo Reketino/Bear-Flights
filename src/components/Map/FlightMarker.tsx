@@ -45,56 +45,57 @@ export function FlightMarker({
         >
           <header className="flex items-center gap-1.5 leading-none">
             <p className="text-base leading-none">✈️</p>
-            <p className="font-semibold text-sm tracking-tight leading-none">{flight.callsign ?? flight.icao24}</p>
+            <p className="font-semibold text-sm tracking-tight leading-none">
+              {flight.callsign ?? flight.icao24}
+            </p>
           </header>
 
           {/* Heading in pop up */}
           <label className="grid grid-cols-3 text-xs text-neutral-600">
-          {flight.heading !== null && (
-            <div>Heading: {Math.round(flight.heading)}°</div>
-          )}
+            {flight.heading !== null && (
+              <div>Heading: {Math.round(flight.heading)}°</div>
+            )}
 
-          {/* Altitude in popup */}
-          {flight.altitude !== null && (
-            <div>Altitude: {Math.round(flight.altitude)} m</div>
-          )}
+            {/* Altitude in popup */}
+            {flight.altitude !== null && (
+              <div>Altitude: {Math.round(flight.altitude)} m</div>
+            )}
 
-          {/* Velocity in popup */}
-          {flight.velocity && (
-            <div>Speed: {Math.round(flight.velocity)} m/s</div>
-          )}
-         </label>
+            {/* Velocity in popup */}
+            {flight.velocity && (
+              <div>Speed: {Math.round(flight.velocity)} m/s</div>
+            )}
+          </label>
 
           {/* Departure Airport in popup */}
 
           <div className="mt-3 pt-3 border-t border-neutral-300">
             <div className="truncate text-gray-700 font-bold">
-            From{" "}
-            {departureAirport?.name
-              ? `${departureAirport.name}${
-                  departureAirport.country
-                    ? `, ${departureAirport.country}`
-                    : ""
-                }`
-              : (flight.departure_airport ?? "Departure Unknown")}
+              From{" "}
+              {departureAirport?.name
+                ? `${departureAirport.name}${
+                    departureAirport.country
+                      ? `, ${departureAirport.country}`
+                      : ""
+                  }`
+                : (flight.departure_airport ?? "Departure Unknown")}
             </div>
-          
 
-          <div className="truncate text-gray-700 font-bold">
-            To{" "}
-            {arrivalAirport?.name
-              ? `${arrivalAirport.name}${
-                  arrivalAirport.country ? `, ${arrivalAirport.country}` : ""
-                }`
-              : (flight.arrival_airport ?? "Arrival Unknown")}
-          </div>
+            <div className="truncate text-gray-700 font-bold">
+              To{" "}
+              {arrivalAirport?.name
+                ? `${arrivalAirport.name}${
+                    arrivalAirport.country ? `, ${arrivalAirport.country}` : ""
+                  }`
+                : (flight.arrival_airport ?? "Arrival Unknown")}
+            </div>
           </div>
         </section>
-         <footer className="flex items-center mt-1">
-            <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
+        <footer className="flex items-center mt-1">
+          <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
             BearFlights
-            </span>
-            </footer>
+          </span>
+        </footer>
       </Popup>
     </Marker>
   );
