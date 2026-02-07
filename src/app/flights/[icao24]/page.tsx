@@ -27,6 +27,5 @@ export default async function FlightDetailPage(props: PageProps) {
       </main>
     );
   }
-
   return <IacoDetails flight={data} />;
 }

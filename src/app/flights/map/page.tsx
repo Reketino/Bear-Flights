@@ -1,19 +1,8 @@
 export const dynamic = "force-dynamic";
-
+import { FlightPosition } from "@/types/flightposition";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightMapClient from "@/components/Map/FlightMapClient";
 
-type FlightPosition = {
-  icao24: string;
-  callsign: string | null;
-  latitude: number;
-  longitude: number;
-  altitude: number | null;
-  velocity: number | null;
-  heading: number | null;
-  departure_airport: string | null;
-  arrival_airport: string | null;
-};
 
 type pageProps = {
   searchParams?: Promise<{
@@ -23,7 +12,6 @@ type pageProps = {
 
 export default async function FlightsMapPage({ searchParams }: pageProps) {
   const supabase = getSupabaseServerClient();
-
   const params = await searchParams;
   const icao24 = params?.icao24;
 
@@ -41,7 +29,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
 
   if (error) {
     return (
-      <main className="p-6">
+      <section className="p-6">
         <h1
           className="
                 text-2xl font-bold"
@@ -49,7 +37,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
           Map error
         </h1>
         <p className="text-red-400">{error.message}</p>
-      </main>
+      </section>
     );
   }
 

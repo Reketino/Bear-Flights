@@ -45,12 +45,14 @@ export default function FlightMap({
             className="
             inline-flex items-center 
             px-4 py-2 gap-2 rounded-lg 
-          bg-slate-800 hover:bg-slate-700
-          text-slate-100 font-semibold
-            transition
+          bg-transparent backdrop-blur-3xl 
+          backdrop-brightness-95
+          hover:scale-105
+         text-sky-500 font-semibold
+          transition
             "
           >
-            ← Return to overview
+            ⬅️ Return to overview
           </a>
         </div>
       )}
