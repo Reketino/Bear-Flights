@@ -37,16 +37,15 @@ export function FlightMarker({
           className="
               bg-white/5 text-neutral-900
               rounded-3xl
-              p-3.5 min-w-55
+              p-3 min-w-55 
               shadow-[0_10px_30px_rgba(0,0,0,0.15)]
               backdrop-blur 
               animate-in fade-in zoom-in-95 duration-150
               "
         >
-          <header
-            className="flex items-center">
-            <p className="text-base">✈️</p>
-            <p className="font-semibold text-sm tracking-tight">{flight.callsign ?? flight.icao24}</p>
+          <header className="flex items-center gap-1.5 leading-none">
+            <p className="text-base leading-none">✈️</p>
+            <p className="font-semibold text-sm tracking-tight leading-none">{flight.callsign ?? flight.icao24}</p>
           </header>
 
           {/* Heading in pop up */}

@@ -51,8 +51,9 @@ table {
 
 /* Popup in map */
 .bearflights-popup .leaflet-popup-content-wrapper{
-background: aqua;
-  background: transparent;
-  backdrop-filter: blur(20px);
+
+  background: rgba(101, 166, 203, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(159, 222, 239, 0.5);
 }
 
