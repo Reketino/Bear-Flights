@@ -3,13 +3,14 @@ import { useMemo } from "react";
 import type { LatLngExpression } from "leaflet";
 import { AIRPORTS } from "@/lib/airportcoords";
 import { planeIcon } from "./mapUtils";
+import { FlightPosition } from "@/types/flightposition";
 
 export function FlightMarker({
   flight,
   selected,
   onSelect,
 }: {
-  flight: any;
+  flight: FlightPosition;
   selected: boolean;
   onSelect: () => void;
 }) {
@@ -39,7 +40,6 @@ export function FlightMarker({
               rounded-3xl
               p-3 min-w-55 
               shadow-[0_10px_30px_rgba(0,0,0,0.25)]
-              hover:scale-x-105
               animate-in fade-in zoom-in-95 duration-150
               "
         >
