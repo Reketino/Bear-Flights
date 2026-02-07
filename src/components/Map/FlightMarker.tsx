@@ -54,24 +54,24 @@ export function FlightMarker({
           <dl className="grid grid-cols-3 text-xs text-neutral-600">
             {flight.heading !== null && (
               <>
-              <dt>Heading:</dt> 
-              <dd>{Math.round(flight.heading)}°</dd>
+                <dt>Heading:</dt>
+                <dd>{Math.round(flight.heading)}°</dd>
               </>
             )}
 
             {/* Altitude in popup */}
             {flight.altitude !== null && (
               <>
-              <dt>Altitude:</dt>
-              <dd> {Math.round(flight.altitude)} </dd>
+                <dt>Altitude:</dt>
+                <dd> {Math.round(flight.altitude)} </dd>
               </>
             )}
 
             {/* Velocity in popup */}
             {flight.velocity && (
               <>
-              <dt>Speed:</dt> 
-              <dd>{Math.round(flight.velocity)} m/s</dd>
+                <dt>Speed:</dt>
+                <dd>{Math.round(flight.velocity)} m/s</dd>
               </>
             )}
           </dl>
