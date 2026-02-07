@@ -32,7 +32,7 @@ export function FlightMarker({
       icon={plane}
       eventHandlers={{ click: onSelect }}
     >
-      <Popup className="">
+      <Popup className="bearflights-popup">
         <section
           className="
               bg-white/5 text-neutral-900
@@ -69,7 +69,7 @@ export function FlightMarker({
           {/* Departure Airport in popup */}
 
           <div className="mt-3 pt-3 border-t border-neutral-300">
-            <div className="truncate font-bold">
+            <div className="truncate text-gray-700 font-bold">
             From{" "}
             {departureAirport?.name
               ? `${departureAirport.name}${
@@ -81,7 +81,7 @@ export function FlightMarker({
             </div>
           
 
-          <div className="truncate font-bold">
+          <div className="truncate text-gray-700 font-bold">
             To{" "}
             {arrivalAirport?.name
               ? `${arrivalAirport.name}${

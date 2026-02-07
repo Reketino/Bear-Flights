@@ -48,3 +48,11 @@ table {
            transition-all duration-200
            ease-out;
 }
+
+.bearflights-popup .leaflet-popup-content-wrapper{
+  background: transparent;
+  padding: 0;
+}
+.bearflights-popup .leaflet-popup-content- {
+  margin: 0;
+}
