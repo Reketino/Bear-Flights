@@ -35,11 +35,11 @@ export function FlightMarker({
       <Popup className="bearflights-popup">
         <section
           className="
-              bg-white/5 text-neutral-900
+              bg-white/10 text-neutral-900
               rounded-3xl
               p-3 min-w-55 
-              shadow-[0_10px_30px_rgba(0,0,0,0.15)]
-              backdrop-blur 
+              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+              hover:scale-x-105
               animate-in fade-in zoom-in-95 duration-150
               "
         >
@@ -90,8 +90,8 @@ export function FlightMarker({
           </div>
           </div>
         </section>
-          <footer className="mt-2 flex items-center ">
-            <span className="text-[10px] font-medium tracking-wide text-neutral-600 opacity-70">
+         <footer className="flex items-center mt-1">
+            <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
             BearFlights
             </span>
             </footer>
