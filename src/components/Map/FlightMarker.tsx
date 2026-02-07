@@ -44,28 +44,37 @@ export function FlightMarker({
               "
         >
           <header className="flex items-center gap-1.5 leading-none">
-            <p className="text-base leading-none">✈️</p>
-            <p className="font-semibold text-sm tracking-tight leading-none">
+            <span className="text-base leading-none">✈️</span>
+            <span className="font-semibold text-sm tracking-tight leading-none">
               {flight.callsign ?? flight.icao24}
-            </p>
+            </span>
           </header>
 
           {/* Heading in pop up */}
-          <label className="grid grid-cols-3 text-xs text-neutral-600">
+          <dl className="grid grid-cols-3 text-xs text-neutral-600">
             {flight.heading !== null && (
-              <div>Heading: {Math.round(flight.heading)}°</div>
+              <>
+              <dt>Heading:</dt> 
+              <dd>{Math.round(flight.heading)}°</dd>
+              </>
             )}
 
             {/* Altitude in popup */}
             {flight.altitude !== null && (
-              <div>Altitude: {Math.round(flight.altitude)} m</div>
+              <>
+              <dt>Altitude:</dt>
+              <dd> {Math.round(flight.altitude)} </dd>
+              </>
             )}
 
             {/* Velocity in popup */}
             {flight.velocity && (
-              <div>Speed: {Math.round(flight.velocity)} m/s</div>
+              <>
+              <dt>Speed:</dt> 
+              <dd>{Math.round(flight.velocity)} m/s</dd>
+              </>
             )}
-          </label>
+          </dl>
 
           {/* Departure Airport in popup */}
 
