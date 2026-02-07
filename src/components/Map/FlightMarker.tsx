@@ -51,7 +51,7 @@ export function FlightMarker({
           </header>
 
           {/* Heading in pop up */}
-          <dl className="grid grid-cols-3 text-xs text-neutral-600">
+          <dl className="grid grid-cols-3 text-xs mt-2 text-neutral-600">
             {flight.heading !== null && (
               <>
                 <dt>Heading:</dt>
@@ -78,7 +78,7 @@ export function FlightMarker({
 
           {/* Departure Airport in popup */}
 
-          <ul className="mt-3 pt-3 border-t border-neutral-300">
+          <ul className="mt-2 pt-3 border-t border-neutral-300">
             <li className="truncate text-gray-700 font-bold">
               From{" "}
               {departureAirport?.name
