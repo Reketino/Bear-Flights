@@ -49,10 +49,10 @@ table {
            ease-out;
 }
 
+/* Popup in map */
 .bearflights-popup .leaflet-popup-content-wrapper{
+background: aqua;
   background: transparent;
-  padding: 0;
+  backdrop-filter: blur(20px);
 }
-.bearflights-popup .leaflet-popup-content- {
-  margin: 0;
-}
+
