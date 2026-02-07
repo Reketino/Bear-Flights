@@ -56,7 +56,7 @@ table {
   backdrop-filter: blur(18px);
   border: 1px solid rgba(159, 171, 239, 0.5);
 }
-
+/* Tooltip hidden */
 .bearflights-popup .leaflet-popup-tip {
   display: none;
 }
