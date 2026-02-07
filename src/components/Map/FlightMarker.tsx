@@ -35,16 +35,24 @@ export function FlightMarker({
       <Popup>
         <section
           className="
-                text-sm"
+              bg-white/5 text-neutral-900
+              rounded-3xl
+              p-5 min-w-55
+              shadow-[0_10px_30px_rgba(0,0,0,0.15)]
+              backdrop-blur 
+              animate-in fade-in zoom-in-95 duration-150
+              "
         >
           <header
             className="
-                    font-semibold"
+                  flex items-center"
           >
-            ✈️{flight.callsign ?? flight.icao24}
+            <p className="text-lg">✈️</p>
+            <p className="font-semibold text-sm tracking-tight">{flight.callsign ?? flight.icao24}</p>
           </header>
 
           {/* Heading in pop up */}
+          <label className="grid grid-cols-3 text-xs text-neutral-600">
           {flight.heading !== null && (
             <div>Heading: {Math.round(flight.heading)}°</div>
           )}
@@ -58,9 +66,12 @@ export function FlightMarker({
           {flight.velocity && (
             <div>Speed: {Math.round(flight.velocity)} m/s</div>
           )}
+         </label>
 
           {/* Departure Airport in popup */}
-          <div className="mt-1">
+
+          <div className="mt-3 pt-3 border-t border-neutral-200">
+            <div className="truncate">
             From{" "}
             {departureAirport?.name
               ? `${departureAirport.name}${
@@ -69,15 +80,17 @@ export function FlightMarker({
                     : ""
                 }`
               : (flight.departure_airport ?? "Departure Unknown")}
-          </div>
+            </div>
+          
 
-          <div>
+          <div className="truncate">
             To{" "}
             {arrivalAirport?.name
               ? `${arrivalAirport.name}${
                   arrivalAirport.country ? `, ${arrivalAirport.country}` : ""
                 }`
               : (flight.arrival_airport ?? "Arrival Unknown")}
+          </div>
           </div>
         </section>
       </Popup>
