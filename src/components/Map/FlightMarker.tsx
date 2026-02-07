@@ -78,8 +78,8 @@ export function FlightMarker({
 
           {/* Departure Airport in popup */}
 
-          <div className="mt-3 pt-3 border-t border-neutral-300">
-            <div className="truncate text-gray-700 font-bold">
+          <ul className="mt-3 pt-3 border-t border-neutral-300">
+            <li className="truncate text-gray-700 font-bold">
               From{" "}
               {departureAirport?.name
                 ? `${departureAirport.name}${
@@ -88,17 +88,17 @@ export function FlightMarker({
                       : ""
                   }`
                 : (flight.departure_airport ?? "Departure Unknown")}
-            </div>
+            </li>
 
-            <div className="truncate text-gray-700 font-bold">
+            <li className="truncate text-gray-700 font-bold">
               To{" "}
               {arrivalAirport?.name
                 ? `${arrivalAirport.name}${
                     arrivalAirport.country ? `, ${arrivalAirport.country}` : ""
                   }`
                 : (flight.arrival_airport ?? "Arrival Unknown")}
-            </div>
-          </div>
+            </li>
+          </ul>
         </section>
         <footer className="flex items-center mt-1">
           <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
