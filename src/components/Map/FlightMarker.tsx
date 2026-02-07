@@ -51,11 +51,11 @@ export function FlightMarker({
           </header>
 
           {/* Heading in pop up */}
-          <dl className="grid grid-cols-3 text-xs mt-2 text-neutral-600">
+          <dl className="grid grid-cols-2  text-xs mt-2 mb-1 text-neutral-600">
             {flight.heading !== null && (
               <>
                 <dt>Heading:</dt>
-                <dd>{Math.round(flight.heading)}°</dd>
+                <dd className="text-right">{Math.round(flight.heading)}°</dd>
               </>
             )}
 
@@ -63,7 +63,7 @@ export function FlightMarker({
             {flight.altitude !== null && (
               <>
                 <dt>Altitude:</dt>
-                <dd> {Math.round(flight.altitude)} </dd>
+                <dd className="text-right"> {Math.round(flight.altitude)} ft</dd>
               </>
             )}
 
@@ -71,39 +71,33 @@ export function FlightMarker({
             {flight.velocity && (
               <>
                 <dt>Speed:</dt>
-                <dd>{Math.round(flight.velocity)} m/s</dd>
+                <dd className="text-right">{Math.round(flight.velocity)} m/s</dd>
               </>
             )}
           </dl>
 
           {/* Departure Airport in popup */}
 
-          <ul className="mt-2 pt-3 border-t border-neutral-300">
-            <li className="truncate text-gray-700 font-bold">
-              From{" "}
-              {departureAirport?.name
-                ? `${departureAirport.name}${
-                    departureAirport.country
-                      ? `, ${departureAirport.country}`
-                      : ""
-                  }`
-                : (flight.departure_airport ?? "Departure Unknown")}
+          <ul className=" pt-2 border-t border-neutral-400">
+            <li className="truncate">
+            <span className="text-gray-500 font-semibold">From:{" "}</span>
+            <span className="text-gray-700 font-bold">
+              {departureAirport?.name ?? flight.departure_airport ?? "Departure Unknown"}
+            </span>
             </li>
 
-            <li className="truncate text-gray-700 font-bold">
-              To{" "}
-              {arrivalAirport?.name
-                ? `${arrivalAirport.name}${
-                    arrivalAirport.country ? `, ${arrivalAirport.country}` : ""
-                  }`
-                : (flight.arrival_airport ?? "Arrival Unknown")}
+            <li className="truncate ">
+              <span className="text-gray-500 font-semibold">To:{" "}</span>
+             <span className="text-gray-700 font-bold">{arrivalAirport?.name ?? flight.arrival_airport ?? "Arrival Unknown"}</span>
             </li>
           </ul>
         </section>
+
         <footer className="flex items-center mt-1">
           <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
             BearFlights
           </span>
+
         </footer>
       </Popup>
     </Marker>
