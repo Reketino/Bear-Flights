@@ -16,7 +16,8 @@ body {
 body {
   margin: 0;
 
-  background: linear-gradient(rgba(3, 45, 117, 0.6), rgba(7, 32, 115, 0.6)),
+  background:
+    linear-gradient(rgba(3, 45, 117, 0.6), rgba(7, 32, 115, 0.6)),
     url("/background/planesky.webp");
   background-size: cover;
   background-position: center;
@@ -50,10 +51,8 @@ table {
 }
 
 /* Popup in map */
-.bearflights-popup .leaflet-popup-content-wrapper{
-
+.bearflights-popup .leaflet-popup-content-wrapper {
   background: rgba(123, 204, 251, 0.05);
   backdrop-filter: blur(18px);
   border: 1px solid rgba(159, 171, 239, 0.5);
 }
-
