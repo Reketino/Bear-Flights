@@ -48,3 +48,12 @@ table {
            transition-all duration-200
            ease-out;
 }
+
+/* Popup in map */
+.bearflights-popup .leaflet-popup-content-wrapper{
+
+  background: rgba(123, 204, 251, 0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(159, 171, 239, 0.5);
+}
+

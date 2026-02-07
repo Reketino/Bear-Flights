@@ -32,21 +32,20 @@ export function FlightMarker({
       icon={plane}
       eventHandlers={{ click: onSelect }}
     >
-      <Popup className="">
+      <Popup className="bearflights-popup">
         <section
           className="
-              bg-white/5 text-neutral-900
+              bg-white/10 text-neutral-900
               rounded-3xl
-              p-3.5 min-w-55
-              shadow-[0_10px_30px_rgba(0,0,0,0.15)]
-              backdrop-blur 
+              p-3 min-w-55 
+              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+              hover:scale-x-105
               animate-in fade-in zoom-in-95 duration-150
               "
         >
-          <header
-            className="flex items-center">
-            <p className="text-base">✈️</p>
-            <p className="font-semibold text-sm tracking-tight">{flight.callsign ?? flight.icao24}</p>
+          <header className="flex items-center gap-1.5 leading-none">
+            <p className="text-base leading-none">✈️</p>
+            <p className="font-semibold text-sm tracking-tight leading-none">{flight.callsign ?? flight.icao24}</p>
           </header>
 
           {/* Heading in pop up */}
@@ -69,7 +68,7 @@ export function FlightMarker({
           {/* Departure Airport in popup */}
 
           <div className="mt-3 pt-3 border-t border-neutral-300">
-            <div className="truncate font-bold">
+            <div className="truncate text-gray-700 font-bold">
             From{" "}
             {departureAirport?.name
               ? `${departureAirport.name}${
@@ -81,7 +80,7 @@ export function FlightMarker({
             </div>
           
 
-          <div className="truncate font-bold">
+          <div className="truncate text-gray-700 font-bold">
             To{" "}
             {arrivalAirport?.name
               ? `${arrivalAirport.name}${
@@ -91,8 +90,8 @@ export function FlightMarker({
           </div>
           </div>
         </section>
-          <footer className="mt-2 flex items-center ">
-            <span className="text-[10px] font-medium tracking-wide text-neutral-600 opacity-70">
+         <footer className="flex items-center mt-1">
+            <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
             BearFlights
             </span>
             </footer>
