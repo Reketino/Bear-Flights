@@ -63,7 +63,10 @@ export function FlightMarker({
             {flight.altitude !== null && (
               <>
                 <dt>Altitude:</dt>
-                <dd className="text-right"> {Math.round(flight.altitude)} ft</dd>
+                <dd className="text-right">
+                  {" "}
+                  {Math.round(flight.altitude)} ft
+                </dd>
               </>
             )}
 
@@ -71,7 +74,9 @@ export function FlightMarker({
             {flight.velocity && (
               <>
                 <dt>Speed:</dt>
-                <dd className="text-right">{Math.round(flight.velocity)} m/s</dd>
+                <dd className="text-right">
+                  {Math.round(flight.velocity)} m/s
+                </dd>
               </>
             )}
           </dl>
@@ -80,15 +85,21 @@ export function FlightMarker({
 
           <ul className=" pt-2 border-t border-neutral-400">
             <li className="truncate">
-            <span className="text-gray-500 font-semibold">From:{" "}</span>
-            <span className="text-gray-700 font-bold">
-              {departureAirport?.name ?? flight.departure_airport ?? "Departure Unknown"}
-            </span>
+              <span className="text-gray-500 font-semibold">From: </span>
+              <span className="text-gray-700 font-bold">
+                {departureAirport?.name ??
+                  flight.departure_airport ??
+                  "Departure Unknown"}
+              </span>
             </li>
 
             <li className="truncate ">
-              <span className="text-gray-500 font-semibold">To:{" "}</span>
-             <span className="text-gray-700 font-bold">{arrivalAirport?.name ?? flight.arrival_airport ?? "Arrival Unknown"}</span>
+              <span className="text-gray-500 font-semibold">To: </span>
+              <span className="text-gray-700 font-bold">
+                {arrivalAirport?.name ??
+                  flight.arrival_airport ??
+                  "Arrival Unknown"}
+              </span>
             </li>
           </ul>
         </section>
@@ -97,7 +108,6 @@ export function FlightMarker({
           <span className="text-[10px] font- tracking-widest text-neutral-600 opacity-70">
             BearFlights
           </span>
-
         </footer>
       </Popup>
     </Marker>
