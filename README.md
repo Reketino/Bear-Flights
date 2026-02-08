@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Styling popup
+- AI description in integrated into frontend.
 
 ---
 
