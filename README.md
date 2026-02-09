@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- AI description in integrated into frontend.
+- Using Ai description of flight in flightstable
 
 ---
 
