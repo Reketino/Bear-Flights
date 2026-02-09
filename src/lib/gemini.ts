@@ -6,16 +6,16 @@ const genAI = new GoogleGenAI({
 });
 
 export async function aiAircraftDescription(icao: string): Promise<string> {
-    const response = await genAI.models.generateContent({
-        model: "gemini-2.5-flash-lite-preview-09-2025",
-        contents: aircraftPrompt(icao)
-    });
+  const response = await genAI.models.generateContent({
+    model: "gemini-2.5-flash-lite-preview-09-2025",
+    contents: aircraftPrompt(icao),
+  });
 
-    const text = response.text;
-    
-    if (!text) {
-        throw new Error("Gemini couldn't return a response")
-    }
+  const text = response.text;
 
-    return text.trim();
+  if (!text) {
+    throw new Error("Gemini couldn't return a response");
+  }
+
+  return text.trim();
 }
