@@ -1,11 +1,13 @@
+import { supabase } from "@/db/supabase";
 import { NextResponse } from "next/server";
 
 export async function GET(
   _req: Request,
   { params }: { params: { icao: string } },
 ) {
-  const res = await fetch(`http://127.0.0.1:8000/aircraft/${params.icao}/ai`);
 
-  const data = await res.json();
+ const icao = params.icao.toUpperCase();
+
+  const data = await supabase
   return NextResponse.json(data);
 }
