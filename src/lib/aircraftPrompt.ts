@@ -1,6 +1,5 @@
-
 export function aircraftPrompt(icao: string): string {
-    return `
+  return `
     You are an aviation expert 
 
 Explain the aircraft type ${icao} in a friendly, 
@@ -20,5 +19,5 @@ Rules:
 - Optimized for UI display
 
 keep it concise
-`
+`;
 }
