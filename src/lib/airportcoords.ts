@@ -13,11 +13,19 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Aalesund",
   },
+
   ENOV: {
     lat: 62.179652,
     lon: 6.072509,
     country: "Norway",
     name: "Orsta-Volda",
+  },
+
+   ENBL: {
+    lat: 61.392091,
+    lon: 5.762737,
+    country: "Norway",
+    name: "Førde",
   },
 
   ENSD: {
@@ -26,24 +34,28 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Sandane",
   },
+
   ENBR: {
     lat: 60.294009,
     lon: 5.220485,
     country: "Norway",
     name: "Bergen",
   },
+
   ENHD: {
     lat: 59.343927,
     lon: 5.211017,
     country: "Norway",
     name: "Haugesund",
   },
+
   ENGM: {
     lat: 60.197303,
     lon: 11.09708,
     country: "Norway",
     name: "Oslo",
   },
+
   ENVA: {
     lat: 63.457611,
     lon: 10.919623,
@@ -72,18 +84,21 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "United Kingdom",
     name: "London",
   },
+
   EGGW: {
     lat: 51.873663,
     lon: -0.374588,
     country: "United Kingdom",
     name: "London",
   },
+
   EGCC: {
     lat: 53.350981,
     lon: -2.280403,
     country: "United Kingdom",
     name: "Manchester",
   },
+  
   EGGD: {
     lat: 51.382758,
     lon: -2.718607,
