@@ -17,13 +17,20 @@ export default function AircraftDescriptionModal({
   useEffect(() => {
     if (!aircraftType) return;
 
+    const controller = new AbortController();
     setLoading(true);
-    fetch(`/api/aircraft/${aircraftType}/ai`)
+
+    setLoading(true);
+    fetch(`/api/aircraft/${aircraftType}/ai`, {
+      signal: controller.signal,
+    })
       .then((res) => res.json())
       .then((data) => {
         setDescription(data.description);
         setLoading(false);
       });
+
+    return () => controller.abort();
   }, [aircraftType]);
 
   if (!aircraftType) return null;
