@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Using Ai description of flight in flightstable
+- Framer-motion in modal
 
 ---
 
