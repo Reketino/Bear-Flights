@@ -34,15 +34,14 @@ export default function AircraftDescriptionModal({
     return () => controller.abort();
   }, [aircraftType]);
 
-   useEffect(() => {
+  useEffect(() => {
     if (aircraftType) document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = ""; };
-    }, [aircraftType]);
+      document.body.style.overflow = "";
+    };
+  }, [aircraftType]);
 
   if (!aircraftType) return null;
-
- 
 
   return (
     <AnimatePresence>
