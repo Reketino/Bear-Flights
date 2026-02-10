@@ -46,15 +46,14 @@ export default function AircraftDescriptionModal({
           bg-cover bg-center
           "
           style={{
-            backgroundImage: "url('/modal/modal.png')"
+            backgroundImage: "url('/modal/modal.png')",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
-
-            <div className="absolute inset-0" />
+          <div className="absolute inset-0" />
 
           <motion.section
             className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
