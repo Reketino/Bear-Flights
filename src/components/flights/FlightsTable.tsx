@@ -1,10 +1,16 @@
+"use client";
 import type { Flight } from "@/types/flightid";
 import Link from "next/link";
 import OriginFlag from "../flags/OriginFlag";
+import {useState} from "react";
+import AircraftDescriptionModal from "@/app/components/AiDescModal/AircraftDescriptionModal";
+
 
 type FlightsTableProps = {
   flights: Flight[];
 };
+
+const [selectedAircraft, setSelectedAircraft] = useState<string | null>(null); 
 
 export default function FlightsTable({ flights }: FlightsTableProps) {
   return (
@@ -59,7 +65,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                     : (flight.aircraft_type ?? "Unknown aircraft")}
                 </td>
 
-                <td className=" font-mono">
+                <td className="font-mono">
                   <div className="flex flex-col">
                     <span className="flex items-center">
                       {flight.departure_airport_name ??
