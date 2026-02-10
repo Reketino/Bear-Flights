@@ -40,12 +40,21 @@ export default function AircraftDescriptionModal({
     <AnimatePresence>
       {aircraftType && (
         <motion.div
-          className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+          className="
+          fixed inset-0 z-50  
+          flex items-center justify-center
+          bg-cover bg-center
+          "
+          style={{
+            backgroundImage: "url('/modal/modal.png')",
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
+          <div className="absolute inset-0" />
+
           <motion.section
             className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
             initial={{ scale: 0.9, opacity: 0 }}

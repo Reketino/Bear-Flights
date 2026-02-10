@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding Airport to map
+- modal bakcghround image
 
 ---
 
