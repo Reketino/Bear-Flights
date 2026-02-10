@@ -10,10 +10,13 @@ type FlightsTableProps = {
   flights: Flight[];
 };
 
-const [selectedAircraft, setSelectedAircraft] = useState<string | null>(null); 
+
 
 export default function FlightsTable({ flights }: FlightsTableProps) {
+  const [selectedAircraft, setSelectedAircraft] = useState<string | null>(null); 
+  
   return (
+    <>
     <section className="overflow-x-auto">
       <table
         className=" 
@@ -60,9 +63,15 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                 </td>
 
                 <td className="p-3 font-mono text-sky-600">
+                  <button
+                  onClick={() => setSelectedAircraft(flight.aircraft_type ?? null )}
+                  className="text-sky-600 hover:underline text-left"
+                  disabled={!flight.aircraft_type}
+                  >
                   {flight.aircraft_name
                     ? `${flight.aircraft_name} (${flight.aircraft_type})`
                     : (flight.aircraft_type ?? "Unknown aircraft")}
+                    </button>
                 </td>
 
                 <td className="font-mono">
@@ -102,5 +111,11 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
         </tbody>
       </table>
     </section>
+
+    <AircraftDescriptionModal
+    aircraftType={selectedAircraft}
+    onClose={() => setSelectedAircraft(null)}
+    />
+    </>
   );
 }
