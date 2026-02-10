@@ -163,6 +163,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Dallas",
   },
 
+    KMIA: {
+    lat: 25.786904,
+    lon: -80.297804,
+    country: "USA",
+    name: "Miami",
+  },
+
   // MIDDLE EAST
   OTHH: {
     lat: 25.273056,

@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Framer-motion in modal
+- Adding Airport to map
 
 ---
 
