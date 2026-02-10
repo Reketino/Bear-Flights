@@ -46,7 +46,14 @@ export default function AircraftDescriptionModal({
     exit={{ opacity: 0 }}
     onClick={onClose}
     >
-      <section className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10">
+      <motion.section 
+      className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
+      initial={{ scale: 0.9, opacity: 0}}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      onClick={(e) => e.stopPropagation()}
+      >
         <label className="flex justify-between items-center mb-4">
           <h2 className="font-mono text-sky-400">Aircraft: {aircraftType}</h2>
           <button 
@@ -63,7 +70,7 @@ export default function AircraftDescriptionModal({
             {description}
           </p>
         )}
-      </section>
+      </motion.section>
     </motion.div>
     )}
     </AnimatePresence>
