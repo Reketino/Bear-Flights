@@ -21,7 +21,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Orsta-Volda",
   },
 
-   ENBL: {
+  ENBL: {
     lat: 61.392091,
     lon: 5.762737,
     country: "Norway",
@@ -98,7 +98,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "United Kingdom",
     name: "Manchester",
   },
-  
+
   EGGD: {
     lat: 51.382758,
     lon: -2.718607,
@@ -161,6 +161,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: -97.038278,
     country: "USA",
     name: "Dallas",
+  },
+
+  KMIA: {
+    lat: 25.786904,
+    lon: -80.297804,
+    country: "USA",
+    name: "Miami",
   },
 
   // MIDDLE EAST
