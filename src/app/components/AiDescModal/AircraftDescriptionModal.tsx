@@ -17,6 +17,9 @@ export default function AircraftDescriptionModal({
   useEffect(() => {
     if (!aircraftType) return;
 
+    const controller = new AbortController();
+    setLoading(true);
+
     setLoading(true);
     fetch(`/api/aircraft/${aircraftType}/ai`)
       .then((res) => res.json())
