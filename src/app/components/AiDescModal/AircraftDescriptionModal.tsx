@@ -21,12 +21,16 @@ export default function AircraftDescriptionModal({
     setLoading(true);
 
     setLoading(true);
-    fetch(`/api/aircraft/${aircraftType}/ai`)
+    fetch(`/api/aircraft/${aircraftType}/ai`, {
+        signal: controller.signal,
+    })
       .then((res) => res.json())
       .then((data) => {
         setDescription(data.description);
         setLoading(false);
       });
+
+      return () => controller.abort();
   }, [aircraftType]);
 
   if (!aircraftType) return null;
