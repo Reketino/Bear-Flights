@@ -37,12 +37,22 @@ export default function AircraftDescriptionModal({
   if (!aircraftType) return null;
 
   return (
-    <main className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+    <AnimatePresence>
+        {aircraftType &&  (
+    <motion.div 
+    className="fixed inset-0 z-50 bg-black flex items-center justify-center"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    onClick={onClose}
+    >
       <section className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10">
         <label className="flex justify-between items-center mb-4">
           <h2 className="font-mono text-sky-400">Aircraft: {aircraftType}</h2>
-          <button onClick={onClose} className="text-white/60 hover:text-white">
-            X
+          <button 
+          onClick={onClose} 
+          className="text-white/60 hover:text-white">
+           ✕
           </button>
         </label>
 
@@ -54,6 +64,8 @@ export default function AircraftDescriptionModal({
           </p>
         )}
       </section>
-    </main>
+    </motion.div>
+    )}
+    </AnimatePresence>
   );
 }
