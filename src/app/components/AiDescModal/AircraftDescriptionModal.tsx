@@ -22,7 +22,7 @@ export default function AircraftDescriptionModal({
 
     setLoading(true);
     fetch(`/api/aircraft/${aircraftType}/ai`, {
-        signal: controller.signal,
+      signal: controller.signal,
     })
       .then((res) => res.json())
       .then((data) => {
@@ -30,7 +30,7 @@ export default function AircraftDescriptionModal({
         setLoading(false);
       });
 
-      return () => controller.abort();
+    return () => controller.abort();
   }, [aircraftType]);
 
   if (!aircraftType) return null;
