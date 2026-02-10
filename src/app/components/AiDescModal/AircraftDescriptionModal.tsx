@@ -53,10 +53,10 @@ export default function AircraftDescriptionModal({
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
-          <div className="absolute inset-0" />
+          <div className=" absolute inset-0 bg-black/80 backdrop-blur-xs" />
 
           <motion.section
-            className="bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
+            className="relative bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
