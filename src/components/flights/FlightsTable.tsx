@@ -61,6 +61,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
 
                   <td className="p-3 font-mono text-sky-600">
                     <button
+                    title="Click to view aircraft description"
                       onClick={() =>
                         setSelectedAircraft(flight.aircraft_type ?? null)
                       }
