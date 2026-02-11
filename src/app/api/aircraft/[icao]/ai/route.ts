@@ -4,11 +4,10 @@ import { aiAircraftDescription } from "@/lib/gemini";
 
 export async function GET(
   _req: Request,
-  context: { params: Promise< { icao: string }> }
+  context: { params: Promise<{ icao: string }> },
 ) {
-  const { icao } = await context.params
+  const { icao } = await context.params;
   const supabase = getSupabaseServerClient();
-  
 
   const { data } = await supabase
     .from("aircraft_ai_descriptions")
