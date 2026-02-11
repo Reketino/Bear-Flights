@@ -34,7 +34,13 @@ export default function AircraftDescriptionModal({
     return () => controller.abort();
   }, [aircraftType]);
 
-  
+  useEffect(() => {
+    const onKey = (e:KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
 
   useEffect(() => {
     if (aircraftType) document.body.style.overflow = "hidden";
