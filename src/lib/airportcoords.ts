@@ -106,7 +106,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Bristol",
   },
 
-  
   EGVN: {
     lat: 51.750717,
     lon: -1.579009,
