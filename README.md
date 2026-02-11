@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding useEffect so you can close modal by pressing "ESC" key
+- Improving modal style
 
 ---
 
