@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- modal bakcghround image
+- Adding useEffect so you can close modal by pressing "ESC" key
 
 ---
 

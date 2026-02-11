@@ -34,6 +34,8 @@ export default function AircraftDescriptionModal({
     return () => controller.abort();
   }, [aircraftType]);
 
+  
+
   useEffect(() => {
     if (aircraftType) document.body.style.overflow = "hidden";
     return () => {
