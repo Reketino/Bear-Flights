@@ -35,7 +35,7 @@ export default function AircraftDescriptionModal({
   }, [aircraftType]);
 
   useEffect(() => {
-    const onKey = (e:KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
