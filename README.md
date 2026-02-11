@@ -149,8 +149,9 @@ Through this project I gained:
 ## 🚀 Future Ideas:
 
 - Additional data enrichment over time
-- Polyline w/ full route on map
-- Intergrate a AI to either further explain about the flights or the company.
+- Improve Route visualization
+- Add "time since last flight" indicator
+
 
 ---
 
