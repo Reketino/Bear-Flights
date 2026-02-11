@@ -35,7 +35,7 @@ export default function AircraftDescriptionModal({
   }, [aircraftType]);
 
   useEffect(() => {
-    const onKey = (e:KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
@@ -71,7 +71,7 @@ export default function AircraftDescriptionModal({
           <div className=" absolute inset-0 bg-black/80 backdrop-blur-xs" />
 
           <motion.section
-            className="relative bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
+            className="relative z-10 bg-zinc-900 max-w-lg w-full p-6 rounded-xl border border-white/10"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
