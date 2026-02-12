@@ -28,7 +28,7 @@ export default function FlightActivityLive({
       .on(
         "postgres_changes",
         {
-          event: "*",
+          event: "INSERT",
           schema: "public",
           table: "flights",
         },
