@@ -23,8 +23,6 @@ export default function HomePage() {
           updates every 5 minutes.
         </p>
 
-      
-
         <nav
           className=" 
       flex flex-col
@@ -83,13 +81,12 @@ export default function HomePage() {
             Datasource: Opensky
           </a>
         </nav>
-     
-      <FlightActivity  />
-     
+
+        <FlightActivity />
+
         <p className="text-xs text-blue-950 mt-5">
           Built using Next.js, Supabase & Opensky API
         </p>
-
       </section>
     </main>
   );
