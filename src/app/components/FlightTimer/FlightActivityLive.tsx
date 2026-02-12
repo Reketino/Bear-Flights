@@ -47,9 +47,9 @@ export default function FlightActivityLive({
   const hours = Math.floor(minutes / 60);
 
   return (
-    <section 
-    className="flex items-center justify-center p-2 gap-2"
-    aria-live="polite"
+    <section
+      className="flex items-center justify-center p-2 gap-2"
+      aria-live="polite"
     >
       <p className="font-bold text-blue-950">✈️ Last Flight:</p>
 
