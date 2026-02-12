@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving modal style
+- Adding "time since last flight" indicator to the UI
 
 ---
 
