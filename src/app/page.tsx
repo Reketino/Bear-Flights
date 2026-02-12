@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnimatedLogo from "@/components/animatedlogo";
+import FlightActivity from "./components/FlightTimer/FlightActivity";
 
 export default function HomePage() {
   return (
@@ -17,10 +18,12 @@ export default function HomePage() {
       >
         <AnimatedLogo />
 
-        <p className="text-blue-950 text-lg mb-8">
+        <p className="text-blue-950 text-lg mb-4">
           Overview of flights crossing the airspace in Sykkylven, Norway -
           updates every 5 minutes.
         </p>
+
+        <FlightActivity  />
 
         <nav
           className=" 
