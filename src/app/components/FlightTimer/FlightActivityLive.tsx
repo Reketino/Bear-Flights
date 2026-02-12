@@ -3,9 +3,9 @@ import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 
 const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-)
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+);
 
 export default function FlightActivityLive({
   initialSeconds,
@@ -13,7 +13,7 @@ export default function FlightActivityLive({
   initialSeconds: number;
 }) {
   const [seconds, setSeconds] = useState(initialSeconds);
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prev) => prev + 1);
@@ -24,22 +24,22 @@ export default function FlightActivityLive({
 
   useEffect(() => {
     const channel = supabase
-    .channel("flight-activity")
-    .on(
+      .channel("flight-activity")
+      .on(
         "postgres_changes",
         {
-            event: "*",
-            schema: "public",
-            table: "flights",
+          event: "*",
+          schema: "public",
+          table: "flights",
         },
         () => {
-            setSeconds(0);
-        }
-    )
-    .subscribe();
+          setSeconds(0);
+        },
+      )
+      .subscribe();
 
     return () => {
-        supabase.removeChannel(channel);
+      supabase.removeChannel(channel);
     };
   }, []);
 
@@ -47,7 +47,7 @@ export default function FlightActivityLive({
   const hours = Math.floor(minutes / 60);
 
   return (
-      <section className="mt-4 mb-4">
+    <section className="mt-4 mb-4">
       <p className="text-center font-medium text-blue-950">
         ✈️ Last flight observed:
       </p>
@@ -56,5 +56,5 @@ export default function FlightActivityLive({
         {hours > 0 ? `${hours}h` : ""} {minutes % 60}m {seconds % 60}s ago
       </p>
     </section>
-  )
+  );
 }
