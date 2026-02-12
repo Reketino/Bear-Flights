@@ -21,5 +21,5 @@ export default async function FlightActivity() {
         <p className="mt-6 text-sm text-blue-950">
             ✈️ Last flight observed was {hours > 0 ? `${hours}h` : ""} {minutes % 60}m {seconds % 60}s ago
         </p>
-    )
+    );
 }
