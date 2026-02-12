@@ -54,7 +54,8 @@ export default function FlightActivityLive({
       <p className="font-bold text-blue-950">✈️ Last Flight:</p>
 
       <p className=" font-serif text-sky-200">
-        {hours > 0 ? `${hours}h` : ""} {minutes % 60}m {seconds % 60}s ago
+        {hours > 0 && `${hours}h `}
+        {minutes % 60}m {seconds % 60}s ago
       </p>
     </section>
   );

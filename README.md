@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving layout on timer
+- adding airport to airport coords
 
 ---
 
