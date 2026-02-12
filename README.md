@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding reset to time w/out the need to refresh page
+- Improving layout on timer
 
 ---
 
