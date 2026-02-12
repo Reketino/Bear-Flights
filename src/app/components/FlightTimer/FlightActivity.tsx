@@ -1,7 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
+import { getSupabaseServerClient } from "@/lib/supabase";
 
 export default async function FlightActivity() {
-    const supabase = createClient();
+    const supabase = getSupabaseServerClient();
 
     const { data } = await supabase
     .from("flight_activity")
@@ -13,6 +13,6 @@ export default async function FlightActivity() {
     }
 
     const seconds = Math.floor(data.seconds_since_last_flight);
-    
+
     
 }
