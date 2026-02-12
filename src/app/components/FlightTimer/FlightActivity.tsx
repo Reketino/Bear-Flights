@@ -15,9 +15,16 @@ export default async function FlightActivity() {
   const hours = Math.floor(minutes / 60);
 
   return (
-    <p className="mt-6 text-sm text-blue-950">
-      ✈️ Last flight observed was {hours > 0 ? `${hours}h` : ""} {minutes % 60}m{" "}
+    <section className="mt-4 mb-4">
+
+    <p className="text-center font-medium text-blue-950">
+      ✈️ Last flight observed: 
+      </p>
+
+    <p className="text-center font-light text-green-600">
+      {hours > 0 ? `${hours}h` : ""} {minutes % 60}m{" "}
       {seconds % 60}s ago
     </p>
+    </section>
   );
 }
