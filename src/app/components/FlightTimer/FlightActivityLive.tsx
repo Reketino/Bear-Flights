@@ -1,6 +1,11 @@
 "use client";
-import { getSupabaseServerClient } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+)
 
 export default function FlightActivityLive({
   initialSeconds,
@@ -8,13 +13,34 @@ export default function FlightActivityLive({
   initialSeconds: number;
 }) {
   const [seconds, setSeconds] = useState(initialSeconds);
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const channel = supabase
+    .channel("flight-activity")
+    .on(
+        "postgres_changes",
+        {
+            event: "*",
+            schema: "public",
+            table: "flights",
+        },
+        () => {
+            setSeconds(0);
+        }
+    )
+    .subscribe();
+
+    return () => {
+        supabase.removeChannel(channel);
+    };
   }, []);
 
   const minutes = Math.floor(seconds / 60);
