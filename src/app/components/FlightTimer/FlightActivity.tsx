@@ -11,5 +11,8 @@ export default async function FlightActivity() {
     if (!data?.seconds_since_last_flight) {
         return null;
     }
+
+    const seconds = Math.floor(data.seconds_since_last_flight);
+    
     
 }
