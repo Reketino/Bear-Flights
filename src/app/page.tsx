@@ -82,6 +82,7 @@ export default function HomePage() {
           </a>
         </nav>
 
+        {/* Flight Timer */}
         <FlightActivity />
 
         <p className="text-xs text-blue-950 mt-5">
