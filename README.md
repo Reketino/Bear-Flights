@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding "time since last flight" indicator to the UI
+- Adding reset to time w/out the need to refresh page
 
 ---
 
