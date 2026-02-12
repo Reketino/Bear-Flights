@@ -86,7 +86,7 @@ export default function HomePage() {
      
       <FlightActivity  />
      
-        <p className="text-xs text-blue-950">
+        <p className="text-xs text-blue-950 mt-5">
           Built using Next.js, Supabase & Opensky API
         </p>
 
