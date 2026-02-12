@@ -28,7 +28,7 @@ export default function FlightActivityLive({
       .on(
         "postgres_changes",
         {
-          event: "*",
+          event: "INSERT",
           schema: "public",
           table: "flights",
         },
@@ -47,7 +47,10 @@ export default function FlightActivityLive({
   const hours = Math.floor(minutes / 60);
 
   return (
-    <section className="flex items-center justify-center p-2 gap-2">
+    <section
+      className="flex items-center justify-center p-2 gap-2"
+      aria-live="polite"
+    >
       <p className="font-bold text-blue-950">✈️ Last Flight:</p>
 
       <p className=" font-serif text-sky-200">
