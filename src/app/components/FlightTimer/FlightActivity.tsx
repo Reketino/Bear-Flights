@@ -11,8 +11,8 @@ export default async function FlightActivity() {
   }
 
   return (
-    <FlightActivityLive 
-    initialSeconds={Math.floor(data.seconds_since_last_flight)} />
-
+    <FlightActivityLive
+      initialSeconds={Math.floor(data.seconds_since_last_flight)}
+    />
   );
 }

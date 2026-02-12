@@ -1,4 +1,5 @@
 "use client";
+import { getSupabaseServerClient } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 
 export default function FlightActivityLive({
