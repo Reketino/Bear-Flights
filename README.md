@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- adding airport to airport coords
+- Adding more Airport data.
 
 ---
 
@@ -150,7 +150,6 @@ Through this project I gained:
 
 - Additional data enrichment over time
 - Improve Route visualization
-- Add "time since last flight" indicator
 
 
 ---
