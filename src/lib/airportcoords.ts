@@ -65,7 +65,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
 
   ENSR: {
     lat: 69.787113,
-    lon: 20.959490,
+    lon: 20.95949,
     country: "Norway",
     name: "Sørkjosen",
   },
@@ -155,13 +155,12 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Reykjavik",
   },
 
-    EHAM: {
+  EHAM: {
     lat: 52.304642,
-    lon:  4.778401,
+    lon: 4.778401,
     country: "Netherlands",
     name: "Amsterdam",
   },
-
 
   GCFV: {
     lat: 28.448793,
