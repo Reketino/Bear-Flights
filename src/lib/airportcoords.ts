@@ -63,6 +63,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Trondheim",
   },
 
+  ENSR: {
+    lat: 69.787113,
+    lon: 20.95949,
+    country: "Norway",
+    name: "Sørkjosen",
+  },
+
   ESSA: {
     lat: 59.651901245117,
     lon: 17.918600082397,
@@ -146,6 +153,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: -22.633124,
     country: "Iceland",
     name: "Reykjavik",
+  },
+
+  EHAM: {
+    lat: 52.304642,
+    lon: 4.778401,
+    country: "Netherlands",
+    name: "Amsterdam",
   },
 
   GCFV: {
