@@ -4,15 +4,19 @@ import FlightActivityLive from "./FlightActivityLive";
 export default async function FlightActivity() {
   const supabase = getSupabaseServerClient();
 
-  const { data } = await supabase.from("flight_activity").select("*").single();
+  const { data } = 
+  await supabase
+  .from("flight_activity")
+  .select("last_observed")
+  .single();
 
-  if (!data?.seconds_since_last_flight) {
+  if (!data?.last_observed) {
     return null;
   }
 
   return (
     <FlightActivityLive
-      initialSeconds={Math.floor(data.seconds_since_last_flight)}
+      initialSeconds={secondsSince(data.last_observed)}
     />
   );
 }
