@@ -176,6 +176,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Puerto del Rosario",
   },
 
+  LEBB: {
+    lat: 43.301105,
+    lon: -2.910609,
+    country: "Bilbao",
+    name: "Spain",
+  },
+
   LBLS: {
     lat: 42.633488,
     lon: 23.646295,
@@ -211,5 +218,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 51.608056,
     country: "Qatar",
     name: "Doha",
+  },
+
+  // Asia
+  RJTT: {
+    lat: 35.548064,
+    lon: 139.777595,
+    country: "Japan",
+    name: "Tokyo",
   },
 };
