@@ -63,7 +63,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Trondheim",
   },
 
-      ENTC: {
+  ENTC: {
     lat: 69.682925,
     lon: 18.918375,
     country: "Norway",
