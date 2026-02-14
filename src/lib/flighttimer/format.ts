@@ -1,10 +1,9 @@
+type Duration = { h: number; m: number; s: number };
 
-type Duration = { h: number; m: number; s: number;}
+export function formatDuration(seconds: number): Duration {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
 
-export function formatDuration(seconds: number): Duration  {
-const h = Math.floor(seconds / 3600);
-const m = Math.floor((seconds % 3600) / 60);
-const s = seconds % 60;
-
-return { h, m, s};
+  return { h, m, s };
 }
