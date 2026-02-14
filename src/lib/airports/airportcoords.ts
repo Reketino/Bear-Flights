@@ -212,4 +212,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Qatar",
     name: "Doha",
   },
+
+    RJTT: {
+    lat: 35.548064,
+    lon: 139.777595,
+    country: "Japan",
+    name: "Tokyo",
+  },
+
+
 };
