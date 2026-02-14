@@ -25,27 +25,25 @@ export default function FlightActivityLive({
   }, []);
 
   useEffect(() => {
-    const channel = supabase
-      .channel("flight-activity")
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "flights",
-       },
-       (payload) => {
+    const channel = supabase.channel("flight-activity").on(
+      "postgres_changes",
+      {
+        event: "INSERT",
+        schema: "public",
+        table: "flights",
+      },
+      (payload) => {
         const observedAt = payload.new.created_at;
         setSeconds(secondsSince(observedAt));
-       }
-       );
+      },
+    );
 
     return () => {
       supabase.removeChannel(channel);
     };
   }, []);
 
-const { h, m, s } = formatDuration(seconds);
+  const { h, m, s } = formatDuration(seconds);
 
   return (
     <section
