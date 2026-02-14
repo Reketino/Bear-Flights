@@ -2,6 +2,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { secondsSince } from "@/lib/flighttimer/timer";
+import { formatDuration } from "@/lib/flighttimer/format";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -44,8 +45,7 @@ export default function FlightActivityLive({
     };
   }, []);
 
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
+const { h, m, s } = formatDuration(seconds);
 
   return (
     <section
@@ -55,8 +55,8 @@ export default function FlightActivityLive({
       <p className="font-bold text-blue-950">✈️ Last Flight:</p>
 
       <p className=" font-serif text-sky-200">
-        {hours > 0 && `${hours}h `}
-        {minutes % 60}m {seconds % 60}s ago
+        {h > 0 && `${h}h `}
+        {m}m {s}s ago
       </p>
     </section>
   );
