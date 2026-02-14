@@ -1,6 +1,7 @@
 "use client";
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import { secondsSince } from "@/lib/flighttimer/timer";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -31,12 +32,12 @@ export default function FlightActivityLive({
           event: "INSERT",
           schema: "public",
           table: "flights",
-        },
-        () => {
-          setSeconds(0);
-        },
-      )
-      .subscribe();
+       },
+       (payload) => {
+        const observedAt = payload.new.created_at;
+        setSeconds(secondsSince(observedAt));
+       }
+       );
 
     return () => {
       supabase.removeChannel(channel);
