@@ -1,5 +1,6 @@
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightActivityLive from "./FlightActivityLive";
+import { secondsSince } from "@/lib/timer";
 
 export default async function FlightActivity() {
   const supabase = getSupabaseServerClient();
