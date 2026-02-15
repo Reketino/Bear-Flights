@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving layout and structure of buttons in table
+- Researching 3D mapping libraries to visualize flight paths in a more engaging way
 
 ---
 
