@@ -84,7 +84,6 @@ export default async function FlightsPage({ searchParams }: PageProps) {
 
       {/* Footer w/ table pages */}
       <footer className="mt-6 flex items-center justify-between">
-
         <section className="flex gap-2">
           <Link
             href={`/flights/flight-history?page=${page - 1}`}
@@ -132,7 +131,6 @@ export default async function FlightsPage({ searchParams }: PageProps) {
         <section className="text-sm text-sky-200">
           Page {page} of {totalPages}
         </section>
-
       </footer>
     </main>
   );
