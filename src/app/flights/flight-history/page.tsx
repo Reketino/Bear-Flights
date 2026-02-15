@@ -101,9 +101,9 @@ export default async function FlightsPage({ searchParams }: PageProps) {
             transition-all
             duration-200
             ${
-              page <= 1 
-              ? "opacity-40 pointer-events-none" 
-              : "hover:bg-sky-400/20 hover:shadow-lg hover:shadow-sky-500/20"
+              page <= 1
+                ? "opacity-40 pointer-events-none"
+                : "hover:bg-sky-400/20 hover:shadow-lg hover:shadow-sky-500/20"
             }  
             `}
           >
