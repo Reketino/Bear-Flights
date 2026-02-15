@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding new airport to coordinates
+- Improving layout and structure of buttons in table
 
 ---
 
