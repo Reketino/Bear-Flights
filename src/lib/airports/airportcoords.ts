@@ -28,7 +28,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Førde",
   },
 
-  
   ENSG: {
     lat: 61.156424,
     lon: 7.138488,
