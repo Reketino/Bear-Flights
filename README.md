@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving layout and structure of buttons in table
+- Researching 3D mapping libraries to visualize flight paths in a more engaging way
 
 ---
 
@@ -150,6 +150,7 @@ Through this project I gained:
 
 - Additional data enrichment over time
 - Improve Route visualization
+- AI-generated airline descriptions based on flight data
 
 
 ---
