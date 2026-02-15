@@ -83,16 +83,9 @@ export default async function FlightsPage({ searchParams }: PageProps) {
       <FlightsTable flights={data} />
 
       {/* Footer w/ table pages */}
-      <footer
-        className="
-      mt-6 flex items-center justify-between
-      "
-      >
-        <section
-          className="
-        text-sm text-sky-200
-        "
-        >
+      <footer className="mt-6 flex items-center justify-between">
+
+        <section className="text-sm text-sky-200">
           Page {page} of {totalPages}
         </section>
 
