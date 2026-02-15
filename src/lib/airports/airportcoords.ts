@@ -28,6 +28,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Førde",
   },
 
+  
+  ENSG: {
+    lat: 61.156424,
+    lon: 7.138488,
+    country: "Norway",
+    name: "Sogndal",
+  },
+
   ENSD: {
     lat: 61.830029,
     lon: 6.105118,
