@@ -150,6 +150,7 @@ Through this project I gained:
 
 - Additional data enrichment over time
 - Improve Route visualization
+- AI-generated airline descriptions based on flight data
 
 
 ---
