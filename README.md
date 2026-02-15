@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Researching 3D mapping libraries to visualize flight paths in a more engaging way
+- Fixing timer on frontpage to show time since last update
 
 ---
 
@@ -151,6 +151,7 @@ Through this project I gained:
 - Additional data enrichment over time
 - Improve Route visualization
 - AI-generated airline descriptions based on flight data
+- 3D mapping libraries to visualize flight paths in a more engaging way
 
 
 ---
