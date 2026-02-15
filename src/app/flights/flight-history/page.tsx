@@ -93,9 +93,17 @@ export default async function FlightsPage({ searchParams }: PageProps) {
             href={`/flights/flight-history?page=${page - 1}`}
             aria-disabled={page <= 1}
             className={`
-            px-3 py-1 rounded-lg border
+            px-3 py-1 rounded-lg 
+            border border-sky border-sky-400/60
+            text-sky-100
+            bg-sky-500/10
+            backdrop-blur-sm
+            transition-all
+            duration-200
             ${
-              page <= 1 ? "opacity-40 pointer-events-none" : "hover:bg-white/10"
+              page <= 1 
+              ? "opacity-40 pointer-events-none" 
+              : "hover:bg-sky-400/20 hover:shadow-lg hover:shadow-sky-500/20"
             }  
             `}
           >
