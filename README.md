@@ -152,6 +152,7 @@ Through this project I gained:
 - Improve Route visualization
 - AI-generated airline descriptions based on flight data
 - 3D mapping libraries to visualize flight paths in a more engaging way
+- Improve Table UI with better sorting, filtering, and pagination
 
 
 ---
