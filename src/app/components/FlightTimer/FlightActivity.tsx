@@ -1,6 +1,5 @@
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightActivityLive from "./FlightActivityLive";
-import { secondsSince } from "@/lib/flighttimer/timer";
 
 export default async function FlightActivity() {
   const supabase = getSupabaseServerClient();
@@ -13,10 +12,6 @@ export default async function FlightActivity() {
     .single();
 
   if (!data?.last_seen) return null;
-  
 
-  return (
-    <FlightActivityLive 
-    initialTimestamp={data.last_seen} />
-  );
+  return <FlightActivityLive initialTimestamp={data.last_seen} />;
 }

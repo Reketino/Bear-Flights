@@ -14,31 +14,32 @@ export default function FlightActivityLive({
 }: {
   initialTimestamp: string;
 }) {
-  const [seconds, setSeconds] = useState(() =>
-    secondsSince(initialTimestamp)
-  );
+  const [seconds, setSeconds] = useState(() => secondsSince(initialTimestamp));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(secondsSince(initialTimestamp));
+      setSeconds((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(interval);
   }, [initialTimestamp]);
 
   useEffect(() => {
-    const channel = supabase.channel("flight-activity").on(
-      "postgres_changes",
-      {
-        event: "INSERT",
-        schema: "public",
-        table: "flights",
-      },
-      (payload) => {
-        const observedAt = payload.new.last_seen;
-        setSeconds(secondsSince(observedAt));
-      },
-    );
+    const channel = supabase
+      .channel("flights-realtime")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "flights",
+        },
+        (payload) => {
+          const observedAt = payload.new.last_seen;
+          setSeconds(secondsSince(observedAt));
+        },
+      )
+      .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
