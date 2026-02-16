@@ -35,7 +35,7 @@ export default function FlightActivityLive({
         table: "flights",
       },
       (payload) => {
-        const observedAt = payload.new.created_at;
+        const observedAt = payload.new.last_seen;
         setSeconds(secondsSince(observedAt));
       },
     );
