@@ -16,6 +16,7 @@ export default async function FlightActivity() {
   
 
   return (
-    <FlightActivityLive initialSeconds={secondsSince(data.last_seen)} />
+    <FlightActivityLive 
+    initialTimestamp={data.last_seen} />
   );
 }
