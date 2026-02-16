@@ -12,7 +12,7 @@ const supabase = createClient(
 export default function FlightActivityLive({
   initialTimestamp,
 }: {
-  initialTimestamp: number;
+  initialTimestamp: string;
 }) {
   const [seconds, setSeconds] = useState(() =>
     secondsSince(initialTimestamp)
