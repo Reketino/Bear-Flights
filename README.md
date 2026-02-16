@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- AI description of airlines in flight table
+- Fixing timer on frontpage to show time since last update
 
 ---
 

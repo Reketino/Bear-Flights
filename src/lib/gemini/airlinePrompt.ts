@@ -1,5 +1,5 @@
 export function airlinePrompt(callsign: string): string {
-    return `
+  return `
     You are an aviaton industry expert.
 
     Explain the airline that uses ${callsign}
@@ -12,5 +12,5 @@ export function airlinePrompt(callsign: string): string {
     - fleet focus
     - route network profile
 
-    `
+    `;
 }
