@@ -20,7 +20,7 @@ export default function FlightActivityLive({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(secondsSince(initialTimestamp));
+      setSeconds((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(interval);
