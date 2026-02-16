@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { aircraftPrompt } from "./aircraftPrompt";
+import { aircraftPrompt } from "./prompts/aircraftPrompt";
 
 const genAI = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY!,
