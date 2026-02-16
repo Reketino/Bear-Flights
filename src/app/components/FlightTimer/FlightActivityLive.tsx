@@ -27,7 +27,9 @@ export default function FlightActivityLive({
   }, [initialTimestamp]);
 
   useEffect(() => {
-    const channel = supabase.channel("flight-activity").on(
+    const channel = supabase
+    .channel("flights-realtime")
+    .on(
       "postgres_changes",
       {
         event: "INSERT",
@@ -38,7 +40,8 @@ export default function FlightActivityLive({
         const observedAt = payload.new.last_seen;
         setSeconds(secondsSince(observedAt));
       },
-    );
+    )
+    .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
