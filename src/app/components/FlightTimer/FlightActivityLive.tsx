@@ -30,12 +30,13 @@ export default function FlightActivityLive({
       .on(
         "postgres_changes",
         {
-          event: "INSERT",
+          event: "*",
           schema: "public",
           table: "flights",
         },
         (payload) => {
-          const observedAt = payload.new.last_seen;
+          const row = payload.new as { last_seen: string };
+          const observedAt = row.last_seen;
           setSeconds(secondsSince(observedAt));
         },
       )
