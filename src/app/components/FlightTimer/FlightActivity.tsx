@@ -6,15 +6,17 @@ export default async function FlightActivity() {
   const supabase = getSupabaseServerClient();
 
   const { data } = await supabase
-    .from("flight_activity")
-    .select("last_observed")
+    .from("flights")
+    .select("last_seen")
+    .order("last_seen", { ascending: false })
+    .limit(1)
     .single();
 
-  if (!data?.last_observed) {
-    return null;
-  }
+  if (!data?.last_seen) return null;
+  
 
   return (
-    <FlightActivityLive initialSeconds={secondsSince(data.last_observed)} />
+    <FlightActivityLive 
+    initialTimestamp={data.last_seen} />
   );
 }

@@ -10,19 +10,21 @@ const supabase = createClient(
 );
 
 export default function FlightActivityLive({
-  initialSeconds,
+  initialTimestamp,
 }: {
-  initialSeconds: number;
+  initialTimestamp: string;
 }) {
-  const [seconds, setSeconds] = useState(initialSeconds);
+  const [seconds, setSeconds] = useState(() =>
+    secondsSince(initialTimestamp)
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prev) => prev + 1);
+      setSeconds(secondsSince(initialTimestamp));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [initialTimestamp]);
 
   useEffect(() => {
     const channel = supabase.channel("flight-activity").on(
@@ -33,7 +35,7 @@ export default function FlightActivityLive({
         table: "flights",
       },
       (payload) => {
-        const observedAt = payload.new.created_at;
+        const observedAt = payload.new.last_seen;
         setSeconds(secondsSince(observedAt));
       },
     );
