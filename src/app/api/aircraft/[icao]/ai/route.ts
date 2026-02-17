@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
-import { aiAircraftDescription } from "@/lib/gemini/geminiAircraft";
+import { aiAircraftDescription } from "@/lib/gemini/models/geminiAircraftModel";
 
 export async function GET(
   _req: Request,
