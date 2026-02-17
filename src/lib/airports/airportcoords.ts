@@ -234,8 +234,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Tel Aviv",
   },
 
-  
-
   // Asia
   RJTT: {
     lat: 35.548064,
