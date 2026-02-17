@@ -12,5 +12,13 @@ export function airlinePrompt(callsign: string): string {
     - fleet focus
     - route network profile
 
+    Rules:
+    - Max 3-4 sentences
+    - No markdown
+    - No headings
+    - Use a neutral informative tone
+    - Optimized for UI display
+
+    keep it concise
     `;
 }
