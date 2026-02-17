@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Fix caching issues in Next.js to ensure data freshness
+- Adding Gemini for AI-generated airline descriptions based on flight data.
 
 ---
 
