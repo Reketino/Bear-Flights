@@ -48,6 +48,10 @@ export default function FlightActivityLive({
     };
   }, []);
 
+  if (seconds === null) {
+    return null;
+  }
+
   const { h, m, s } = formatDuration(seconds);
 
   return (
