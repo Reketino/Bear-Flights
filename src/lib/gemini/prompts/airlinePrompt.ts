@@ -19,6 +19,6 @@ export function airlinePrompt(callsign: string): string {
     - Use a neutral informative tone
     - Optimized for UI display
 
-keep it concise
+    keep it concise
     `;
 }
