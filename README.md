@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Fixing timer on frontpage to show time since last update
+- Fix caching issues in Next.js to ensure data freshness
 
 ---
 
