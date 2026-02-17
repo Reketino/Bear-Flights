@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding Gemini for AI-generated airline descriptions based on flight data.
+- Adding airport coordinates to airportcoords
 
 ---
 
