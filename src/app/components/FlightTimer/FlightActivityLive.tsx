@@ -17,8 +17,10 @@ export default function FlightActivityLive({
   const [seconds, setSeconds] = useState(() => secondsSince(initialTimestamp));
 
   useEffect(() => {
+    setSeconds(secondsSince(initialTimestamp));
+
     const interval = setInterval(() => {
-      setSeconds((prev) => prev + 1);
+      setSeconds((prev) => (prev !== null ? prev + 1 : 0 ));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -36,8 +38,7 @@ export default function FlightActivityLive({
         },
         (payload) => {
           const row = payload.new as { last_seen: string };
-          const observedAt = row.last_seen;
-          setSeconds(secondsSince(observedAt));
+          setSeconds(secondsSince(row.last_seen));
         },
       )
       .subscribe();
