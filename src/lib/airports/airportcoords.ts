@@ -227,6 +227,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Doha",
   },
 
+  LLBG: {
+    lat: 32.006735,
+    lon: 34.881193,
+    country: "Israel",
+    name: "Tel Aviv",
+  },
+
   // Asia
   RJTT: {
     lat: 35.548064,
