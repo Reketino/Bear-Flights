@@ -20,7 +20,7 @@ export default function FlightActivityLive({
     setSeconds(secondsSince(initialTimestamp));
 
     const interval = setInterval(() => {
-      setSeconds((prev) => (prev !== null ? prev + 1 : 0 ));
+      setSeconds((prev) => (prev !== null ? prev + 1 : 0));
     }, 1000);
 
     return () => clearInterval(interval);
