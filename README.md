@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding error handling to supabase database route.ts
+- Set up modal for airlines
 
 ---
 
