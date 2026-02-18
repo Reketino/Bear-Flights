@@ -2,7 +2,7 @@ export function airlinePrompt(callsign: string): string {
   return `
     You are an aviaton industry expert.
 
-    Explain the airline that uses ${callsign}
+    Explain the airline associated with the ICAO airline designator ${callsign},
     in a friendly aviation-expert tone.
 
     Include:
