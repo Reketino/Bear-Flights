@@ -40,7 +40,7 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
       <motion.main
         className="fixed inset-0 z-50 flex items-center justify-center"
         style={{
-          backgroundImage: "url('/modal/modal.png')",
+          backgroundImage: "url('/modal/airlinemodal.webp')",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -14,6 +14,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Aalesund",
   },
 
+  ENML: {
+    lat: 62.74471,
+    lon: 7.261608,
+    country: "Norway",
+    name: "Molde",
+  },
+
   ENOV: {
     lat: 62.179652,
     lon: 6.072509,
