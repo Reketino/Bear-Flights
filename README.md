@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding airport coordinates to airportcoords
+- Adding error handling to supabase database route.ts
 
 ---
 

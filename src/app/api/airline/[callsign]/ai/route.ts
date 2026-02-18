@@ -7,31 +7,40 @@ export async function GET(
   context: { params: Promise<{ callsign: string }> },
 ) {
   const { callsign } = await context.params;
+  const cleanCallsign = callsign.trim().toUpperCase();
 
   const supabase = getSupabaseServerClient();
 
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("airline_ai_descriptions")
     .select("description")
-    .eq("callsign", callsign)
+    .eq("callsign", cleanCallsign)
     .maybeSingle();
+
+  if (error) {
+    console.error("Supabase choose your error:", error);
+    return NextResponse.json(
+      { error: "Database error" },
+      { status: 500 }
+    )
+  }
 
   if (data?.description) {
     return NextResponse.json({
-      callsign,
+      callsign: cleanCallsign,
       description: data.description,
       cached: true,
     });
   }
 
-  const description = await aiAirlineDescription(callsign);
+  const description = await aiAirlineDescription(cleanCallsign);
 
   await supabase
     .from("airline_ai_descriptions")
-    .insert({ callsign, description });
+    .insert({ callsign: cleanCallsign, description });
 
   return NextResponse.json({
-    callsign,
+    callsign: cleanCallsign,
     description,
     cached: false,
   });
