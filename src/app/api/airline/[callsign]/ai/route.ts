@@ -10,11 +10,19 @@ export async function GET(
 
   const supabase = getSupabaseServerClient();
 
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("airline_ai_descriptions")
     .select("description")
     .eq("callsign", callsign)
     .maybeSingle();
+
+  if (error) {
+    console.error("Supabase choose your error:", error);
+    return NextResponse.json(
+      { error: "Database error" },
+      { status: 500 }
+    )
+  }
 
   if (data?.description) {
     return NextResponse.json({
