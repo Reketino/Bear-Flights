@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding new airport coordinates
+- Improving Modal airline modal
 
 ---
 
