@@ -30,4 +30,17 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
       });
     return () => controller.abort();
   }, [callsign]);
+
+  return (
+    <AnimatePresence>
+      <motion.main
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{
+        backgroundImage: "url('/modal/modal.png')"
+      }}
+      >
+
+      </motion.main>
+    </AnimatePresence>
+  )
 }

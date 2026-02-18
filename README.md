@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Set up modal for airlines
+- setting up modal style of airline AI generating page
 
 ---
 
