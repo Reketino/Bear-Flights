@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- setting up modal style of airline AI generating page
+- Adding new airport coordinates
 
 ---
 
