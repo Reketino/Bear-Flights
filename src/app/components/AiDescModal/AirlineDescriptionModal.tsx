@@ -38,19 +38,19 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
   return (
     <AnimatePresence>
       <motion.main
-      className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{
-        backgroundImage: "url('/modal/modal.png')",
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
+        className="fixed inset-0 z-50 flex items-center justify-center"
+        style={{
+          backgroundImage: "url('/modal/modal.png')",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
       >
         <div className="absolute inset-0 bg-black/85 backdrop-blur-md" />
 
         <motion.section
-        className="
+          className="
         relative z-10  
             max-w-lg w-full p-6 rounded-xl 
             
@@ -61,21 +61,20 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
             shadow-2xl shadow-black/40
             overflow-hidden
             "
-            initial={{ scale: 0.9, opacity: 0}}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration:0.2 }}
-            onClick={(e) => e.stopPropagation()}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={(e) => e.stopPropagation()}
         >
-          <div 
-          className="
+          <div
+            className="
           absolute inset-0
           flex items-center justify-center
           opacity-10
           pointer-events-none
           "
-          >
-          </div>
+          ></div>
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
@@ -83,14 +82,14 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
                 Airline: {cleanCallsign}
               </h2>
               <button
-              onClick={onClose}
-              className="text-white/60 hover:text-white"
+                onClick={onClose}
+                className="text-white/60 hover:text-white"
               >
                 ✕
               </button>
             </header>
 
-             {loading && (
+            {loading && (
               <p className="text-white/60">Loading airline info...</p>
             )}
 
@@ -103,5 +102,5 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
         </motion.section>
       </motion.main>
     </AnimatePresence>
-  )
+  );
 }
