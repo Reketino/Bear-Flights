@@ -19,10 +19,7 @@ export async function GET(
 
   if (error) {
     console.error("Supabase choose your error:", error);
-    return NextResponse.json(
-      { error: "Database error" },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: "Database error" }, { status: 500 });
   }
 
   if (data?.description) {
@@ -33,11 +30,31 @@ export async function GET(
     });
   }
 
-  const description = await aiAirlineDescription(cleanCallsign);
+  let description: string;
 
-  await supabase
+  try {
+    description = await aiAirlineDescription(cleanCallsign);
+  } catch (err) {
+    console.error("AI error:", err);
+    return NextResponse.json(
+      {
+        error:
+          "AI failed on text generating, will evalute his future in the comapny",
+      },
+      { status: 500 },
+    );
+  }
+
+  const { error: insertError } = await supabase
     .from("airline_ai_descriptions")
-    .insert({ callsign: cleanCallsign, description });
+    .upsert(
+      { callsign: cleanCallsign, description },
+      { onConflict: "callsign" },
+    );
+
+  if (insertError) {
+    console.error("Supabase UPSERT error:", insertError);
+  }
 
   return NextResponse.json({
     callsign: cleanCallsign,
