@@ -1,7 +1,11 @@
-
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
 
+const FlightActivity = dynamic(
+  () => import("./components/FlightTimer/FlightActivity"),
+  { ssr: false }
+);
 
 export default function HomePage() {
   return (
