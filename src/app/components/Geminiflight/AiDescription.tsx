@@ -3,16 +3,16 @@
 import { useEffect, useState } from "react";
 
 type Props = {
-  endpoint: "aircraft" | "airline"
+  endpoint: "aircraft" | "airline";
   entityKey: string;
   loadingText?: string;
 };
 
-export default function AiDescription({ 
+export default function AiDescription({
   endpoint,
   entityKey,
   loadingText = "Loading info...",
- }: Props) {
+}: Props) {
   const [description, setDescription] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -23,26 +23,24 @@ export default function AiDescription({
 
     async function fetchAI() {
       try {
-      const res = await fetch(`/api/${endpoint}/${entityKey}/ai`,
-        { signal: controller.signal }
-      );
-      const json = await res.json();
-      setDescription(json.description);
-      } finally { 
-      setLoading(false);
+        const res = await fetch(`/api/${endpoint}/${entityKey}/ai`, {
+          signal: controller.signal,
+        });
+        const json = await res.json();
+        setDescription(json.description);
+      } finally {
+        setLoading(false);
+      }
     }
-  }
 
     fetchAI();
 
     return () => controller.abort();
-    }, [endpoint, entityKey]);
+  }, [endpoint, entityKey]);
 
-    if (loading) return <p>{loadingText}</p>
+  if (loading) return <p>{loadingText}</p>;
 
-    return (
-      <p className="font-serif text-white/80 leading-relaxed">
-        {description}
-      </p>
-    );
-    }
+  return (
+    <p className="font-serif text-white/80 leading-relaxed">{description}</p>
+  );
+}
