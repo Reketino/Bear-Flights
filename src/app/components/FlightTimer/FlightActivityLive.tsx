@@ -13,35 +13,34 @@ export default function FlightActivityLive() {
   const [seconds, setSeconds] = useState<number | null>(null);
 
   useEffect(() => {
-   async function fetchLatest() {
-    const { data, error } = await supabase
-    .from("flights")
-    .select("last_seen")
-    .not("last_seen", "is", null)
-    .order("last_seen", { ascending: false })
-    .limit(1)
-    .maybeSingle();
+    async function fetchLatest() {
+      const { data, error } = await supabase
+        .from("flights")
+        .select("last_seen")
+        .not("last_seen", "is", null)
+        .order("last_seen", { ascending: false })
+        .limit(1)
+        .maybeSingle();
 
- 
-    console.log("Latest flight:", data, error);
+      console.log("Latest flight:", data, error);
 
-    if (error) {
-      console.error("Supabase error:", error);
-      return;
+      if (error) {
+        console.error("Supabase error:", error);
+        return;
+      }
+
+      if (!data?.last_seen) {
+        console.warn("No flights found");
+        setSeconds(0);
+        return;
+      }
+
+      setSeconds(secondsSince(data.last_seen));
     }
+    fetchLatest();
+  }, []);
 
-    if (!data?.last_seen) {
-      console.warn("No flights found");
-      setSeconds(0);
-      return;
-    }
-
-    setSeconds(secondsSince(data.last_seen));
-  }
-   fetchLatest();
-   }, []);
-
-   useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((prev) => (prev !== null ? prev + 1 : prev));
     }, 1000);
@@ -71,7 +70,7 @@ export default function FlightActivityLive() {
     };
   }, []);
 
-   if (seconds === null) {
+  if (seconds === null) {
     return (
       <section className="flex items-center justify-center p-2 gap-2">
         <p className="font-bold text-blue-950">✈️ Last Flight:</p>
