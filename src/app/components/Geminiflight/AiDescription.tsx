@@ -2,26 +2,45 @@
 
 import { useEffect, useState } from "react";
 
-type AircraftAI = {
-  icao: string;
-  description: string;
+type Props = {
+  endpoint: "aircraft" | "airline";
+  entityKey: string;
+  loadingText?: string;
 };
 
-export default function AiDescription({ icao }: { icao: string }) {
-  const [data, setData] = useState<AircraftAI | null>(null);
+export default function AiDescription({
+  endpoint,
+  entityKey,
+  loadingText = "Loading info...",
+}: Props) {
+  const [description, setDescription] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!entityKey) return;
+
+    const controller = new AbortController();
+
     async function fetchAI() {
-      const res = await fetch(`/api/aircraft/${icao}/ai`);
-      const json = await res.json();
-      setData(json);
-      setLoading(false);
+      try {
+        const res = await fetch(`/api/${endpoint}/${entityKey}/ai`, {
+          signal: controller.signal,
+        });
+        const json = await res.json();
+        setDescription(json.description);
+      } finally {
+        setLoading(false);
+      }
     }
 
     fetchAI();
-  }, [icao]);
 
-  if (loading) return <p>Loading Aircraft Info...</p>;
-  return <p>{data?.description}</p>;
+    return () => controller.abort();
+  }, [endpoint, entityKey]);
+
+  if (loading) return <p>{loadingText}</p>;
+
+  return (
+    <p className="font-serif text-white/80 leading-relaxed">{description}</p>
+  );
 }

@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- fix hydration error in flightactivity timer
+- Universal Ai description component
 
 ---
 
