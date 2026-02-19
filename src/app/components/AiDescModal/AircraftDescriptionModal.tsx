@@ -1,7 +1,8 @@
 "use client";
 
-import {  useEffect, useState } from "react";
+import {  useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import AiDescription from "../Geminiflight/AiDescription";
 
 type Props = {
   aircraftType: string | null;
@@ -12,28 +13,7 @@ export default function AircraftDescriptionModal({
   aircraftType,
   onClose,
 }: Props) {
-  const [description, setDescription] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (!aircraftType) return;
-
-    const controller = new AbortController();
-    setLoading(true);
-
-    setLoading(true);
-    fetch(`/api/aircraft/${aircraftType}/ai`, {
-      signal: controller.signal,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setDescription(data.description);
-        setLoading(false);
-      });
-
-    return () => controller.abort();
-  }, [aircraftType]);
-
+ 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -99,15 +79,11 @@ export default function AircraftDescriptionModal({
               </button>
             </label>
 
-            {loading && (
-              <p className="text-white/60">Loading aircraft info...</p>
-            )}
-
-            {!loading && description && (
-              <p className="font-serif text-white/80 leading leading-relaxed">
-                {description}
-              </p>
-            )}
+            <AiDescription
+            endpoint="aircraft"
+            entityKey={aircraftType}
+            loadingText="Loading aircraft info"
+            />
           </motion.section>
         </motion.div>
       )}
