@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving Modal airline modal
+- fix hydration error in flightactivity timer
 
 ---
 
