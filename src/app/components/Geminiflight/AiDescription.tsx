@@ -23,18 +23,19 @@ export default function AiDescription({
 
     async function fetchAI() {
       try {
-        const res = await fetch(`
-          /api/${endpoint}/${entityKey}/ai`, 
-          { signal: controller.signal }
+        const res = await fetch(
+          `
+          /api/${endpoint}/${entityKey}/ai`,
+          { signal: controller.signal },
         );
 
         const json = await res.json();
         setDescription(json.description);
-        } catch (err: any) {
-          if (err.name !== "AbortError") {
-            console.error("AI fetch error:", err);
-          }
-        } finally {
+      } catch (err: any) {
+        if (err.name !== "AbortError") {
+          console.error("AI fetch error:", err);
+        }
+      } finally {
         setLoading(false);
       }
     }
