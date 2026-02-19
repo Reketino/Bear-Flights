@@ -1,8 +1,7 @@
-export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
-import FlightActivity from "./components/FlightTimer/FlightActivity";
+
 
 export default function HomePage() {
   return (
