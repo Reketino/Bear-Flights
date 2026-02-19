@@ -9,10 +9,7 @@ type Props = {
   onClose: () => void;
 };
 
-export default function AirlineDescriptionModal({ 
-  callsign, onClose 
-}: Props) {
- 
+export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -86,9 +83,9 @@ export default function AirlineDescriptionModal({
               </button>
             </header>
             <AiDescription
-            endpoint="airline"
-            entityKey={cleanCallsign}
-            loadingText="Loading airline info..."
+              endpoint="airline"
+              entityKey={cleanCallsign}
+              loadingText="Loading airline info..."
             />
           </div>
         </motion.section>
