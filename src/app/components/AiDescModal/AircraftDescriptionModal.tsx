@@ -19,8 +19,7 @@ export default function AircraftDescriptionModal({
     if (!aircraftType) return;
 
     const controller = new AbortController();
-    setLoading(true);
-
+    
     setLoading(true);
     fetch(`/api/aircraft/${aircraftType}/ai`, {
       signal: controller.signal,
