@@ -4,17 +4,26 @@ import { aiAirlineDescription } from "@/lib/gemini/models/geminiAirlineModel";
 
 export async function GET(
   _req: Request,
-  context: { params: Promise<{ callsign: string }> },
+  context: { params: Promise<{ airlineIcao: string }> },
 ) {
-  const { callsign } = await context.params;
-  const cleanCallsign = callsign.trim().toUpperCase();
+  const { airlineIcao } = await context.params;
+
+  const cleanIcao = airlineIcao.trim().toUpperCase();
+
+  if (!/^[A-Z]{2,3}$/.test(cleanIcao)) {
+    return NextResponse.json(
+      { error: "Invalid airline ICAO code." },
+      { status: 400 }
+    );
+  }
+
 
   const supabase = getSupabaseServerClient();
 
   const { data, error } = await supabase
     .from("airline_ai_descriptions")
     .select("description")
-    .eq("callsign", cleanCallsign)
+    .eq("airline_icao", cleanIcao)
     .maybeSingle();
 
   if (error) {
@@ -24,7 +33,7 @@ export async function GET(
 
   if (data?.description) {
     return NextResponse.json({
-      callsign: cleanCallsign,
+      callsign: cleanIcao,
       description: data.description,
       cached: true,
     });
@@ -33,7 +42,7 @@ export async function GET(
   let description: string;
 
   try {
-    description = await aiAirlineDescription(cleanCallsign);
+    description = await aiAirlineDescription(cleanIcao);
   } catch (err) {
     console.error("AI error:", err);
     return NextResponse.json(
@@ -48,8 +57,8 @@ export async function GET(
   const { error: insertError } = await supabase
     .from("airline_ai_descriptions")
     .upsert(
-      { callsign: cleanCallsign, description },
-      { onConflict: "callsign" },
+      { airline_icao: cleanIcao, description },
+      { onConflict: "airline_icao" },
     );
 
   if (insertError) {
@@ -57,7 +66,7 @@ export async function GET(
   }
 
   return NextResponse.json({
-    callsign: cleanCallsign,
+    callsign: cleanIcao,
     description,
     cached: false,
   });

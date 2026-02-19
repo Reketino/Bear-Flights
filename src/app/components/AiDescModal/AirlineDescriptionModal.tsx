@@ -5,11 +5,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import AiDescription from "../Geminiflight/AiDescription";
 
 type Props = {
-  callsign: string | null;
+  airlineIcao: string | null;
   onClose: () => void;
 };
 
-export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
+export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -19,15 +19,15 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
   }, [onClose]);
 
   useEffect(() => {
-    if (callsign) document.body.style.overflow = "hidden";
+    if (airlineIcao) document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [callsign]);
+  }, [airlineIcao]);
 
-  if (!callsign) return null;
+  if (!airlineIcao) return null;
 
-  const cleanCallsign = callsign.trim().toUpperCase();
+  const cleanIcao = airlineIcao.trim().toUpperCase();
 
   return (
     <AnimatePresence>
@@ -73,7 +73,7 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
               <h2 className="font-bold text-sky-300">
-                Airline: {cleanCallsign}
+                Airline: {cleanIcao}
               </h2>
               <button
                 onClick={onClose}
@@ -84,7 +84,7 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
             </header>
             <AiDescription
               endpoint="airline"
-              entityKey={cleanCallsign}
+              entityKey={cleanIcao}
               loadingText="Loading airline info..."
             />
           </div>

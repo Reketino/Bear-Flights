@@ -1,8 +1,8 @@
-export function airlinePrompt(callsign: string): string {
+export function airlinePrompt(airlineIcao: string): string {
   return `
     You are an aviaton industry expert.
 
-    Explain the airline associated with the ICAO airline designator ${callsign},
+    Explain the airline associated with the ICAO airline designator ${airlineIcao},
     in a friendly aviation-expert tone.
 
     Include:

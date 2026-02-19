@@ -28,12 +28,20 @@ export default function AiDescription({
           /api/${endpoint}/${entityKey}/ai`,
           { signal: controller.signal },
         );
+        
+        if (!res.ok) {
+          const text = await res.text();
+          console.error("API error:", res.status, text);
+          setDescription("No information avaliable");
+          return;
+        }
 
         const json = await res.json();
-        setDescription(json.description);
+        setDescription(json.description ?? "No information avliable.");
       } catch (err: any) {
         if (err.name !== "AbortError") {
           console.error("AI fetch error:", err);
+          setDescription("Failed to load information.");
         }
       } finally {
         setLoading(false);
