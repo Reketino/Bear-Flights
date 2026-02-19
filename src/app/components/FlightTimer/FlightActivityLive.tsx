@@ -9,22 +9,33 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 );
 
-export default function FlightActivityLive({
-  initialTimestamp,
-}: {
-  initialTimestamp: string;
-}) {
-  const [seconds, setSeconds] = useState(() => secondsSince(initialTimestamp));
+export default function FlightActivityLive() {
+  const [seconds, setSeconds] = useState<number | null>(null);
 
   useEffect(() => {
-    setSeconds(secondsSince(initialTimestamp));
+   async function fetchLatest() {
+    const { data } = await supabase
+    .from("flights")
+    .select("last_seen")
+    .order("last_seen", { ascending: false })
+    .limit(1)
+    .single();
 
+    if (data?.last_seen) {
+      setSeconds(secondsSince(data.last_seen));
+    }
+   }
+
+   fetchLatest();
+   }, []);
+
+   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prev) => (prev !== null ? prev + 1 : 0));
+      setSeconds((prev) => (prev !== null ? prev + 1 : prev));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [initialTimestamp]);
+  }, []);
 
   useEffect(() => {
     const channel = supabase
