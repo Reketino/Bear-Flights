@@ -1,34 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import AiDescription from "../Geminiflight/AiDescription";
 
 type Props = {
   callsign: string | null;
   onClose: () => void;
 };
 
-export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
-  const [description, setDescription] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+export default function AirlineDescriptionModal({ 
+  callsign, onClose 
+}: Props) {
+ 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
 
   useEffect(() => {
-    if (!callsign) return;
-
-    const controller = new AbortController();
-    const cleanCallsign = callsign.trim().toUpperCase();
-
-    setLoading(true);
-
-    fetch(`/api/airline/${cleanCallsign}/ai`, {
-      signal: controller.signal,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setDescription(data.description);
-        setLoading(false);
-      });
-    return () => controller.abort();
+    if (callsign) document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [callsign]);
 
   if (!callsign) return null;
@@ -88,16 +85,11 @@ export default function AirlineDescriptionModal({ callsign, onClose }: Props) {
                 ✕
               </button>
             </header>
-
-            {loading && (
-              <p className="text-white/60">Loading airline info...</p>
-            )}
-
-            {!loading && description && (
-              <p className="font-serif text-white/80 leading leading-relaxed">
-                {description}
-              </p>
-            )}
+            <AiDescription
+            endpoint="airline"
+            entityKey={cleanCallsign}
+            loadingText="Loading airline info..."
+            />
           </div>
         </motion.section>
       </motion.main>
