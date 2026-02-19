@@ -4,6 +4,7 @@ import Link from "next/link";
 import OriginFlag from "../flags/OriginFlag";
 import { useState } from "react";
 import AircraftDescriptionModal from "@/app/components/AiDescModal/AircraftDescriptionModal";
+import AirlineDescriptionModal from "@/app/components/AiDescModal/AirlineDescriptionModal";
 
 type FlightsTableProps = {
   flights: Flight[];
@@ -11,6 +12,7 @@ type FlightsTableProps = {
 
 export default function FlightsTable({ flights }: FlightsTableProps) {
   const [selectedAircraft, setSelectedAircraft] = useState<string | null>(null);
+  const [selectedAirline, setSelectedAirline] = useState<string | null>(null);
 
   return (
     <>
@@ -50,7 +52,14 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                   </td>
 
                   <td className="p-3">
+                    <button
+                    title="Click to view airline description"
+                    onClick={()=> setSelectedAirline(flight.airline_icao ?? null)}
+                    className="text-sky-400 hover:underline text-left"
+                    disabled={!flight.airline_icao}
+                    >
                     {flight.airline ?? "Airline Unavaliable"}
+                    </button>
                   </td>
 
                   <td className="p-3">
@@ -115,6 +124,11 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
       <AircraftDescriptionModal
         aircraftType={selectedAircraft}
         onClose={() => setSelectedAircraft(null)}
+      />
+
+      <AirlineDescriptionModal
+      airlineIcao={selectedAirline}
+      onClose={() => setSelectedAirline(null)}
       />
     </>
   );
