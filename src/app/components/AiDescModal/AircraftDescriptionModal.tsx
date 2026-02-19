@@ -61,7 +61,7 @@ export default function AircraftDescriptionModal({
           bg-cover bg-center
           "
           style={{
-            backgroundImage: "url('/modal/modal.png')",
+            backgroundImage: "url('/modal/aircraftmodal.webp')",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
