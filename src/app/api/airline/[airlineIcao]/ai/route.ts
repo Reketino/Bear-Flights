@@ -4,7 +4,7 @@ import { aiAirlineDescription } from "@/lib/gemini/models/geminiAirlineModel";
 
 export async function GET(
   _req: Request,
-  context: { params: { airlineIcao: string } },
+  context: { params: Promise<{ airlineIcao: string }> },
 ) {
   const { airlineIcao } = await context.params;
 
