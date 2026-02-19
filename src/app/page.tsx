@@ -1,8 +1,7 @@
-export const dynamic = "force-dynamic";
-
+import FlightActivityLive from "./components/FlightTimer/FlightActivityLive";
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
-import FlightActivity from "./components/FlightTimer/FlightActivity";
+
 
 export default function HomePage() {
   return (
@@ -85,7 +84,8 @@ export default function HomePage() {
         </nav>
 
         {/* Flight Timer */}
-        <FlightActivity />
+        <FlightActivityLive />
+     
 
         <p className="text-xs text-blue-950 mt-5">
           Built using Next.js, Supabase & Opensky API

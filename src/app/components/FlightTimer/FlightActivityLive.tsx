@@ -9,22 +9,44 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 );
 
-export default function FlightActivityLive({
-  initialTimestamp,
-}: {
-  initialTimestamp: string;
-}) {
-  const [seconds, setSeconds] = useState(() => secondsSince(initialTimestamp));
+export default function FlightActivityLive() {
+  const [seconds, setSeconds] = useState<number | null>(null);
 
   useEffect(() => {
-    setSeconds(secondsSince(initialTimestamp));
+    async function fetchLatest() {
+      const { data, error } = await supabase
+        .from("flights")
+        .select("last_seen")
+        .not("last_seen", "is", null)
+        .order("last_seen", { ascending: false })
+        .limit(1)
+        .maybeSingle();
 
+      console.log("Latest flight:", data, error);
+
+      if (error) {
+        console.error("Supabase error:", error);
+        return;
+      }
+
+      if (!data?.last_seen) {
+        console.warn("No flights found");
+        setSeconds(0);
+        return;
+      }
+
+      setSeconds(secondsSince(data.last_seen));
+    }
+    fetchLatest();
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prev) => (prev !== null ? prev + 1 : 0));
+      setSeconds((prev) => (prev !== null ? prev + 1 : prev));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [initialTimestamp]);
+  }, []);
 
   useEffect(() => {
     const channel = supabase
@@ -49,9 +71,13 @@ export default function FlightActivityLive({
   }, []);
 
   if (seconds === null) {
-    return null;
+    return (
+      <section className="flex items-center justify-center p-2 gap-2">
+        <p className="font-bold text-blue-950">✈️ Last Flight:</p>
+        <p className="font-serif text-sky-200">Loading...</p>
+      </section>
+    );
   }
-
   const { h, m, s } = formatDuration(seconds);
 
   return (
