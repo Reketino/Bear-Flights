@@ -14,18 +14,30 @@ export default function FlightActivityLive() {
 
   useEffect(() => {
    async function fetchLatest() {
-    const { data } = await supabase
+    const { data, error } = await supabase
     .from("flights")
     .select("last_seen")
+    .not("last_seen", "is", null)
     .order("last_seen", { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
-    if (data?.last_seen) {
-      setSeconds(secondsSince(data.last_seen));
+ 
+    console.log("Latest flight:", data, error);
+
+    if (error) {
+      console.error("Supabase error:", error);
+      return;
     }
-   }
 
+    if (!data?.last_seen) {
+      console.warn("No flights found");
+      setSeconds(0);
+      return;
+    }
+
+    setSeconds(secondsSince(data.last_seen));
+  }
    fetchLatest();
    }, []);
 
@@ -59,10 +71,14 @@ export default function FlightActivityLive() {
     };
   }, []);
 
-  if (seconds === null) {
-    return null;
+   if (seconds === null) {
+    return (
+      <section className="flex items-center justify-center p-2 gap-2">
+        <p className="font-bold text-blue-950">✈️ Last Flight:</p>
+        <p className="font-serif text-sky-200">Loading...</p>
+      </section>
+    );
   }
-
   const { h, m, s } = formatDuration(seconds);
 
   return (

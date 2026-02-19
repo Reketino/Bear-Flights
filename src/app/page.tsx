@@ -1,4 +1,4 @@
-import FlightActivityWrapper from "./components/FlightTimer/FlightActivityWrapper";
+import FlightActivityLive from "./components/FlightTimer/FlightActivityLive";
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
 
@@ -84,7 +84,8 @@ export default function HomePage() {
         </nav>
 
         {/* Flight Timer */}
-        <FlightActivityWrapper />
+        <FlightActivityLive />
+     
 
         <p className="text-xs text-blue-950 mt-5">
           Built using Next.js, Supabase & Opensky API
