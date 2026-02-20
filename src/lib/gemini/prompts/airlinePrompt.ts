@@ -1,11 +1,15 @@
 export function airlinePrompt(airlineIcao: string): string {
   return `
-    You are an aviaton industry expert.
+    You are a professional aviation industry expert.
 
-    Explain the airline associated with the ICAO airline designator ${airlineIcao},
-    in a friendly aviation-expert tone.
+    Identify the airline that uses the ICAO airline designator ${airlineIcao},
 
-    Include:
+    Important:
+    - Use the correct ICAO airline designator.
+    - Do NOT confuse it with similar airline codes.
+    - If you are unsure, say so instead of guessing
+    
+    Then provide a concise description inculding:
     - official airline name
     - founding year
     - main hub(s)
