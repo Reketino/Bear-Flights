@@ -28,7 +28,7 @@ export default function AiDescription({
           /api/${endpoint}/${entityKey}/ai`,
           { signal: controller.signal },
         );
-        
+
         if (!res.ok) {
           const text = await res.text();
           console.error("API error:", res.status, text);
