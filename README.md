@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Universal Ai description component
+- Adding logos to airline modal
 
 ---
 

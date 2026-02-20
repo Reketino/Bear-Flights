@@ -68,7 +68,8 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
           opacity-10
           pointer-events-none
           "
-          ></div>
+          
+          />
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
