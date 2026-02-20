@@ -65,14 +65,19 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
         >
           <div
             className="
-          absolute inset-0
-          bg-center bg-no-repeat
-          bg-contain opacity-10
+          absolute 
+          top-0 left-52
+          w-32 h-16
+         bg-no-repeat
+          bg-contain
+          pointer-events-auto 
           "
           style={{
             backgroundImage: `url('/airlinelogos/${cleanIcao}.svg')`,
           }}
           />
+
+          <div className="absolute inset-0" />
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
