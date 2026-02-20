@@ -9,7 +9,10 @@ type Props = {
   onClose: () => void;
 };
 
-export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props) {
+export default function AirlineDescriptionModal({
+  airlineIcao,
+  onClose,
+}: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -29,7 +32,7 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
 
   const cleanIcao = airlineIcao.trim().toUpperCase();
 
-  const logoUrl = `airlinelogos/${cleanIcao}.svg`
+  const logoUrl = `airlinelogos/${cleanIcao}.svg`;
 
   return (
     <AnimatePresence>
@@ -72,18 +75,16 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
           bg-contain
           pointer-events-auto 
           "
-          style={{
-            backgroundImage: `url('/airlinelogos/${cleanIcao}.svg')`,
-          }}
+            style={{
+              backgroundImage: `url('/airlinelogos/${cleanIcao}.svg')`,
+            }}
           />
 
           <div className="absolute inset-0" />
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
-              <h2 className="font-bold text-sky-300">
-                Airline: {cleanIcao}
-              </h2>
+              <h2 className="font-bold text-sky-300">Airline: {cleanIcao}</h2>
               <button
                 onClick={onClose}
                 className="text-white/60 hover:text-white"
