@@ -53,12 +53,14 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
 
                   <td className="p-3">
                     <button
-                    title="Click to view airline description"
-                    onClick={()=> setSelectedAirline(flight.airline_icao ?? null)}
-                    className="text-sky-400 hover:underline text-left"
-                    disabled={!flight.airline_icao}
+                      title="Click to view airline description"
+                      onClick={() =>
+                        setSelectedAirline(flight.airline_icao ?? null)
+                      }
+                      className="text-sky-400 hover:underline text-left"
+                      disabled={!flight.airline_icao}
                     >
-                    {flight.airline ?? "Airline Unavaliable"}
+                      {flight.airline ?? "Airline Unavaliable"}
                     </button>
                   </td>
 
@@ -70,7 +72,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
 
                   <td className="p-3 font-mono text-sky-600">
                     <button
-                    title="Click to view aircraft description"
+                      title="Click to view aircraft description"
                       onClick={() =>
                         setSelectedAircraft(flight.aircraft_type ?? null)
                       }
@@ -127,8 +129,8 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
       />
 
       <AirlineDescriptionModal
-      airlineIcao={selectedAirline}
-      onClose={() => setSelectedAirline(null)}
+        airlineIcao={selectedAirline}
+        onClose={() => setSelectedAirline(null)}
       />
     </>
   );
