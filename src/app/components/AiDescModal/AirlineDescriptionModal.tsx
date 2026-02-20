@@ -29,6 +29,8 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
 
   const cleanIcao = airlineIcao.trim().toUpperCase();
 
+  const logoUrl = `airlinelogos/${cleanIcao}.svg`
+
   return (
     <AnimatePresence>
       <motion.main
@@ -64,11 +66,12 @@ export default function AirlineDescriptionModal({ airlineIcao, onClose }: Props)
           <div
             className="
           absolute inset-0
-          flex items-center justify-center
-          opacity-10
-          pointer-events-none
+          bg-center bg-no-repeat
+          bg-contain opacity-10
           "
-          
+          style={{
+            backgroundImage: `url('/airlinelogos/${cleanIcao}.svg')`,
+          }}
           />
 
           <div className="relative z-10">
