@@ -2,7 +2,6 @@ import FlightActivityLive from "./components/FlightTimer/FlightActivityLive";
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
 
-
 export default function HomePage() {
   return (
     <main
@@ -85,7 +84,6 @@ export default function HomePage() {
 
         {/* Flight Timer */}
         <FlightActivityLive />
-     
 
         <p className="text-xs text-blue-950 mt-5">
           Built using Next.js, Supabase & Opensky API
