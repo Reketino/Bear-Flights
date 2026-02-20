@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Refactoring airline prompt
+- Adding Logos for modal
 
 ---
 
