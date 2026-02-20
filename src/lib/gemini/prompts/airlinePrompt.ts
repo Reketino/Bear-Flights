@@ -9,7 +9,7 @@ export function airlinePrompt(airlineIcao: string): string {
     - Do NOT confuse it with similar airline codes.
     - If you are unsure, say so instead of guessing
     
-    Include:
+    Then provide a concise description inculding:
     - official airline name
     - founding year
     - main hub(s)
