@@ -13,10 +13,9 @@ export async function GET(
   if (!/^[A-Z]{2,3}$/.test(cleanIcao)) {
     return NextResponse.json(
       { error: "Invalid airline ICAO code." },
-      { status: 400 }
+      { status: 400 },
     );
   }
-
 
   const supabase = getSupabaseServerClient();
 
