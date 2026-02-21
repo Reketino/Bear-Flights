@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding Logos for modal
+- Cleaning up folder structure
 
 ---
 
