@@ -56,4 +56,6 @@ const filePath = path.resolve(
 
 fs.writeFileSync(filePath, fileContent);
 
+// Run script in console w: npm run sort:airports
+
 console.log("Airports sorted and file are up to d8🫡")
