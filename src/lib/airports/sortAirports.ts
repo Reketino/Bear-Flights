@@ -1,8 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { AIRPORTS, AirPortCoords } from "./airportcoords"
-import { object } from "framer-motion/client";
-import { json } from "stream/consumers";
+
 
 function compareAirports(a: AirPortCoords, b: AirPortCoords): number {
     const byCountry = a.country.localeCompare(b.country);
