@@ -46,7 +46,7 @@ export default function AirlineDescriptionModal({
         exit={{ opacity: 0 }}
         onClick={onClose}
       >
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-none" />
 
         <motion.section
           className="
@@ -65,8 +65,8 @@ export default function AirlineDescriptionModal({
           <div
             className="
           absolute inset-0
-          bg-center
           bg-no-repeat
+          bg-position-[50%_45%]
           bg-size-[60%]
           opacity-60
           mix-blend-soft-light
@@ -77,7 +77,7 @@ export default function AirlineDescriptionModal({
             }}
           />
 
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/60 to-black/80 backdrop-blur-md" />
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">
