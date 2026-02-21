@@ -51,7 +51,7 @@ export type AirPortCoords = {
 
 const filePath = path.resolve(
     process.cwd(),
-    "src/components/lib/airports/airportcoords.ts"
+    "src/lib/airports/airportcoords.ts"
 );
 
 fs.writeFileSync(filePath, fileContent);
