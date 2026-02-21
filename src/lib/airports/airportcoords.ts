@@ -1,258 +1,286 @@
+
 export type AirPortCoords = {
-  lat: number;
-  lon: number;
-  country: string;
-  name?: string;
-};
+    lat: number;
+    lon: number;
+    country: string;
+    name?: string;
+    }
+    
+    export const AIRPORTS: Record<string, AirPortCoords> = {
 
-export const AIRPORTS: Record<string, AirPortCoords> = {
-  // SCANDINAVIA
-  ENAL: {
-    lat: 62.5625,
-    lon: 6.119699954986572,
-    country: "Norway",
-    name: "Aalesund",
-  },
+  // BULGARIA
+  LBLS: {
+    "lat": 42.633488,
+    "lon": 23.646295,
+    "country": "Bulgaria",
+    "name": "Lesnovo"
+  }, 
 
-  ENML: {
-    lat: 62.74471,
-    lon: 7.261608,
-    country: "Norway",
-    name: "Molde",
-  },
 
-  ENOV: {
-    lat: 62.179652,
-    lon: 6.072509,
-    country: "Norway",
-    name: "Orsta-Volda",
-  },
-
-  ENBL: {
-    lat: 61.392091,
-    lon: 5.762737,
-    country: "Norway",
-    name: "Førde",
-  },
-
-  ENSG: {
-    lat: 61.156424,
-    lon: 7.138488,
-    country: "Norway",
-    name: "Sogndal",
-  },
-
-  ENSD: {
-    lat: 61.830029,
-    lon: 6.105118,
-    country: "Norway",
-    name: "Sandane",
-  },
-
-  ENBR: {
-    lat: 60.294009,
-    lon: 5.220485,
-    country: "Norway",
-    name: "Bergen",
-  },
-
-  ENHD: {
-    lat: 59.343927,
-    lon: 5.211017,
-    country: "Norway",
-    name: "Haugesund",
-  },
-
-  ENGM: {
-    lat: 60.197303,
-    lon: 11.09708,
-    country: "Norway",
-    name: "Oslo",
-  },
-
-  ENVA: {
-    lat: 63.457611,
-    lon: 10.919623,
-    country: "Norway",
-    name: "Trondheim",
-  },
-
-  ENTC: {
-    lat: 69.682925,
-    lon: 18.918375,
-    country: "Norway",
-    name: "Tromsø",
-  },
-
-  ENSR: {
-    lat: 69.787113,
-    lon: 20.95949,
-    country: "Norway",
-    name: "Sørkjosen",
-  },
-
-  ENSU: {
-    lat: 62.656985,
-    lon: 8.679868,
-    country: "Norway",
-    name: "Sunndal",
-  },
-
-  ESSA: {
-    lat: 59.651901245117,
-    lon: 17.918600082397,
-    country: "Sweden",
-    name: "Stockholm,",
-  },
-
+  // DENMARK
   EKCH: {
-    lat: 55.617900848389,
-    lon: 12.656000137329,
-    country: "Denmark",
-    name: "Copenhagen",
-  },
+    "lat": 55.617900848389,
+    "lon": 12.656000137329,
+    "country": "Denmark",
+    "name": "Copenhagen"
+  }, 
 
-  // EUROPE
-  EGKK: {
-    lat: 51.148102,
-    lon: -0.190278,
-    country: "United Kingdom",
-    name: "London",
-  },
 
-  EGGW: {
-    lat: 51.873663,
-    lon: -0.374588,
-    country: "United Kingdom",
-    name: "London",
-  },
-
-  EGCC: {
-    lat: 53.350981,
-    lon: -2.280403,
-    country: "United Kingdom",
-    name: "Manchester",
-  },
-
-  EGGD: {
-    lat: 51.382758,
-    lon: -2.718607,
-    country: "United Kingdom",
-    name: "Bristol",
-  },
-
-  EGVN: {
-    lat: 51.750717,
-    lon: -1.579009,
-    country: "United Kingdom",
-    name: "Carterton",
-  },
-
-  EINN: {
-    lat: 52.701966,
-    lon: -8.925054,
-    country: "Ireland",
-    name: "Limerick",
-  },
-
+  // FINLAND
   EFHK: {
-    lat: 60.316442,
-    lon: 24.9448,
-    country: "Finland",
-    name: "Helsingfors",
-  },
+    "lat": 60.316442,
+    "lon": 24.9448,
+    "country": "Finland",
+    "name": "Helsingfors"
+  }, 
 
   EFJP: {
-    lat: 68.7114,
-    lon: 25.7528,
-    country: "Finland",
-    name: "Jäkäläpää",
-  },
+    "lat": 68.7114,
+    "lon": 25.7528,
+    "country": "Finland",
+    "name": "Jäkäläpää"
+  }, 
 
-  EVRA: {
-    lat: 56.921328,
-    lon: 23.970873,
-    country: "Latvia",
-    name: "Riga",
-  },
 
+  // ICELAND
   BIKF: {
-    lat: 63.985099,
-    lon: -22.633124,
-    country: "Iceland",
-    name: "Reykjavik",
-  },
+    "lat": 63.985099,
+    "lon": -22.633124,
+    "country": "Iceland",
+    "name": "Reykjavik"
+  }, 
 
+
+  // IRELAND
+  EINN: {
+    "lat": 52.701966,
+    "lon": -8.925054,
+    "country": "Ireland",
+    "name": "Limerick"
+  }, 
+
+
+  // ISRAEL
+  LLBG: {
+    "lat": 32.006735,
+    "lon": 34.881193,
+    "country": "Israel",
+    "name": "Tel Aviv"
+  }, 
+
+
+  // JAPAN
+  RJTT: {
+    "lat": 35.548064,
+    "lon": 139.777595,
+    "country": "Japan",
+    "name": "Tokyo"
+  }, 
+
+
+  // LATVIA
+  EVRA: {
+    "lat": 56.921328,
+    "lon": 23.970873,
+    "country": "Latvia",
+    "name": "Riga"
+  }, 
+
+
+  // NETHERLANDS
   EHAM: {
-    lat: 52.304642,
-    lon: 4.778401,
-    country: "Netherlands",
-    name: "Amsterdam",
-  },
+    "lat": 52.304642,
+    "lon": 4.778401,
+    "country": "Netherlands",
+    "name": "Amsterdam"
+  }, 
+
+
+  // NORWAY
+  ENBR: {
+    "lat": 60.294009,
+    "lon": 5.220485,
+    "country": "Norway",
+    "name": "Bergen"
+  }, 
+
+  ENBL: {
+    "lat": 61.392091,
+    "lon": 5.762737,
+    "country": "Norway",
+    "name": "Førde"
+  }, 
+
+  ENHD: {
+    "lat": 59.343927,
+    "lon": 5.211017,
+    "country": "Norway",
+    "name": "Haugesund"
+  }, 
+
+  ENML: {
+    "lat": 62.74471,
+    "lon": 7.261608,
+    "country": "Norway",
+    "name": "Molde"
+  }, 
+
+  ENOV: {
+    "lat": 62.179652,
+    "lon": 6.072509,
+    "country": "Norway",
+    "name": "Orsta-Volda"
+  }, 
+
+  ENGM: {
+    "lat": 60.197303,
+    "lon": 11.09708,
+    "country": "Norway",
+    "name": "Oslo"
+  }, 
+
+  ENSD: {
+    "lat": 61.830029,
+    "lon": 6.105118,
+    "country": "Norway",
+    "name": "Sandane"
+  }, 
+
+  ENSG: {
+    "lat": 61.156424,
+    "lon": 7.138488,
+    "country": "Norway",
+    "name": "Sogndal"
+  }, 
+
+  ENSU: {
+    "lat": 62.656985,
+    "lon": 8.679868,
+    "country": "Norway",
+    "name": "Sunndal"
+  }, 
+
+  ENSR: {
+    "lat": 69.787113,
+    "lon": 20.95949,
+    "country": "Norway",
+    "name": "Sørkjosen"
+  }, 
+
+  ENTC: {
+    "lat": 69.682925,
+    "lon": 18.918375,
+    "country": "Norway",
+    "name": "Tromsø"
+  }, 
+
+  ENVA: {
+    "lat": 63.457611,
+    "lon": 10.919623,
+    "country": "Norway",
+    "name": "Trondheim"
+  }, 
+
+  ENAL: {
+    "lat": 62.5625,
+    "lon": 6.119699954986572,
+    "country": "Norway",
+    "name": "Aalesund"
+  }, 
+
+
+  // QATAR
+  OTHH: {
+    "lat": 25.273056,
+    "lon": 51.608056,
+    "country": "Qatar",
+    "name": "Doha"
+  }, 
+
+
+  // SPAIN
+  LEBB: {
+    "lat": 43.301105,
+    "lon": -2.910609,
+    "country": "Spain",
+    "name": "Bilbao"
+  }, 
 
   GCFV: {
-    lat: 28.448793,
-    lon: -13.863925,
-    country: "Spain",
-    name: "Puerto del Rosario",
-  },
+    "lat": 28.448793,
+    "lon": -13.863925,
+    "country": "Spain",
+    "name": "Puerto del Rosario"
+  }, 
 
-  LEBB: {
-    lat: 43.301105,
-    lon: -2.910609,
-    country: "Spain",
-    name: "Bilbao",
-  },
 
-  LBLS: {
-    lat: 42.633488,
-    lon: 23.646295,
-    country: "Bulgaria",
-    name: "Lesnovo",
-  },
+  // SWEDEN
+  ESSA: {
+    "lat": 59.651901245117,
+    "lon": 17.918600082397,
+    "country": "Sweden",
+    "name": "Stockholm,"
+  }, 
 
-  // UNITED STATES OF AMERICA
-  KJFK: {
-    lat: 40.63980103,
-    lon: -73.77890015,
-    country: "USA",
-    name: "New York",
-  },
 
+  // UNITED KINGDOM
+  EGGD: {
+    "lat": 51.382758,
+    "lon": -2.718607,
+    "country": "United Kingdom",
+    "name": "Bristol"
+  }, 
+
+  EGVN: {
+    "lat": 51.750717,
+    "lon": -1.579009,
+    "country": "United Kingdom",
+    "name": "Carterton"
+  }, 
+
+  EGKK: {
+    "lat": 51.148102,
+    "lon": -0.190278,
+    "country": "United Kingdom",
+    "name": "London"
+  }, 
+
+  EGGW: {
+    "lat": 51.873663,
+    "lon": -0.374588,
+    "country": "United Kingdom",
+    "name": "London"
+  }, 
+
+  EGCC: {
+    "lat": 53.350981,
+    "lon": -2.280403,
+    "country": "United Kingdom",
+    "name": "Manchester"
+  }, 
+
+
+  // USA
   KDFW: {
-    lat: 32.894291,
-    lon: -97.038278,
-    country: "USA",
-    name: "Dallas",
-  },
+    "lat": 32.894291,
+    "lon": -97.038278,
+    "country": "USA",
+    "name": "Dallas"
+  }, 
 
   KMIA: {
-    lat: 25.786904,
-    lon: -80.297804,
-    country: "USA",
-    name: "Miami",
-  },
+    "lat": 25.786904,
+    "lon": -80.297804,
+    "country": "USA",
+    "name": "Miami"
+  }, 
 
-  // MIDDLE EAST
-  OTHH: {
-    lat: 25.273056,
-    lon: 51.608056,
-    country: "Qatar",
-    name: "Doha",
-  },
+  KJFK: {
+    "lat": 40.63980103,
+    "lon": -73.77890015,
+    "country": "USA",
+    "name": "New York"
+  }, 
 
-  LLBG: {
-    lat: 32.006735,
-    lon: 34.881193,
-    country: "Israel",
-    name: "Tel Aviv",
-  },
-
-  // Asia
-  RJTT: {
-    lat: 35.548064,
-    lon: 139.777595,
-    country: "Japan",
-    name: "Tokyo",
-  },
 };
+    

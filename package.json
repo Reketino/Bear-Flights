@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sort:airports": "ts-node -P tsconfig.scripts.json src/lib/airports/sortAirports.ts"
   },
   "dependencies": {
     "@google/genai": "^1.40.0",
@@ -30,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
