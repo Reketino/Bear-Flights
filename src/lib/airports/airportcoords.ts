@@ -207,8 +207,8 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   LBLS: {
     lat: 42.633488,
     lon: 23.646295,
-    country: "Lesnovo",
-    name: "Bulgaria",
+    country: "Bulgaria",
+    name: "Lesnovo",
   },
 
   // UNITED STATES OF AMERICA
