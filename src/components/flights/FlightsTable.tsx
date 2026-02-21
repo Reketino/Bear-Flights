@@ -3,8 +3,8 @@ import type { Flight } from "@/types/flightid";
 import Link from "next/link";
 import OriginFlag from "../flags/OriginFlag";
 import { useState } from "react";
-import AircraftDescriptionModal from "@/app/components/AiDescModal/AircraftDescriptionModal";
-import AirlineDescriptionModal from "@/app/components/AiDescModal/AirlineDescriptionModal";
+import AircraftDescriptionModal from "@/app/aicomponents/AiDescModal/AircraftDescriptionModal";
+import AirlineDescriptionModal from "@/app/aicomponents/AiDescModal/AirlineDescriptionModal";
 
 type FlightsTableProps = {
   flights: Flight[];

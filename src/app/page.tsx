@@ -1,4 +1,4 @@
-import FlightActivityLive from "./components/FlightTimer/FlightActivityLive";
+import FlightActivityLive from "./FlightTimer/FlightActivityLive";
 import Link from "next/link";
 import AnimatedLogo from "@/components/Logo/animatedlogo";
 
