@@ -200,8 +200,8 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   LEBB: {
     lat: 43.301105,
     lon: -2.910609,
-    country: "Bilbao",
-    name: "Spain",
+    country: "Spain",
+    name: "Bilbao",
   },
 
   LBLS: {
