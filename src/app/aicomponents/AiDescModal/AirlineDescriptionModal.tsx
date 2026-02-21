@@ -46,16 +46,12 @@ export default function AirlineDescriptionModal({
         exit={{ opacity: 0 }}
         onClick={onClose}
       >
-        <div className="absolute inset-0 bg-black/85 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-none" />
 
         <motion.section
           className="
-        relative z-10  
+            relative z-10   
             max-w-lg w-full p-6 rounded-xl 
-            
-            bg-white/5
-            backdrop-blur-xl
-
             border border-white/20
             shadow-2xl shadow-black/40
             overflow-hidden
@@ -68,19 +64,20 @@ export default function AirlineDescriptionModal({
         >
           <div
             className="
-          absolute 
-          top-0 left-52
-          w-32 h-16
-         bg-no-repeat
-          bg-contain
-          pointer-events-auto 
+          absolute inset-0
+          bg-no-repeat
+          bg-position-[50%_45%]
+          bg-size-[60%]
+          opacity-60
+          mix-blend-soft-light
+          pointer-events-none
           "
             style={{
               backgroundImage: `url('/airlinelogos/${cleanIcao}.svg')`,
             }}
           />
 
-          <div className="absolute inset-0" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/60 to-black/80 backdrop-blur-md" />
 
           <div className="relative z-10">
             <header className="flex justify-between items-center mb-4">

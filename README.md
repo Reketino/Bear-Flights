@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Cleaning up folder structure
+- Cleaning up logo style
 
 ---
 
