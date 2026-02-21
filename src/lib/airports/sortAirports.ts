@@ -38,3 +38,14 @@ function generateFileContent(
     )};
     `;
 }
+
+const sorted = sortAirports(AIRPORTS);
+
+const filePath = path.resolve(
+    __dirname,
+    "./airportcoords.ts"
+);
+
+fs.writeFileSync(filePath, generateFileContent(sorted));
+
+console.log("Airports sorted and file are up to d8🫡")
