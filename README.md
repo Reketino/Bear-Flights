@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Making sortAirports automatically run prettier
+- testing commit template on new pc
 
 ---
 
