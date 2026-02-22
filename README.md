@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- testing commit template on new pc
+- Improving map template
 
 ---
 
