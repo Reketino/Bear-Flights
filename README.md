@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Making sortAirports automatically run prettier
+- Improving map template
 
 ---
 
