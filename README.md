@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving AI Loading Text
+- Adding New Airport Coords
 
 ---
 
