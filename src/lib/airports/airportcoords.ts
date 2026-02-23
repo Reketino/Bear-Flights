@@ -208,6 +208,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Stockholm,",
   },
 
+  // TURKEY
+  LTFM: {
+    lat: 41.27948,
+    lon: 28.727188,
+    country: "Turkey",
+    name: "Istanbul",
+  },
+
   // UNITED KINGDOM
   EGGD: {
     lat: 51.382758,

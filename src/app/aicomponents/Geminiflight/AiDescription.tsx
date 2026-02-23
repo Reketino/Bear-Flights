@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion"
 
 type Props = {
   endpoint: "aircraft" | "airline";
@@ -19,13 +20,15 @@ export default function AiDescription({
   useEffect(() => {
     if (!entityKey) return;
 
+    setLoading(true);
+    setDescription(null);
+
     const controller = new AbortController();
 
     async function fetchAI() {
       try {
         const res = await fetch(
-          `
-          /api/${endpoint}/${entityKey}/ai`,
+          `/api/${endpoint}/${entityKey}/ai`,
           { signal: controller.signal },
         );
 
@@ -37,6 +40,9 @@ export default function AiDescription({
         }
 
         const json = await res.json();
+
+        await new Promise((r) => setTimeout(r, 1500));
+        
         setDescription(json.description ?? "No information avliable.");
       } catch (err: any) {
         if (err.name !== "AbortError") {
@@ -53,9 +59,29 @@ export default function AiDescription({
     return () => controller.abort();
   }, [endpoint, entityKey]);
 
-  if (loading) return <p>{loadingText}</p>;
+  if (loading) 
+    return ( 
+    <motion.div
+    initial={{ opacity: 0.4 }}
+    animate={{ opacity: 1 }}
+    transition={{ 
+      repeat: Infinity,
+      repeatType: "reverse",
+      duration: 0.8,
+    }}
+    className=" relative z-20 text-white/70"
+    >
+      {loadingText}
+      </motion.div> );
 
   return (
-    <p className="font-serif text-white/80 leading-relaxed">{description}</p>
+    <motion.p
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3 }}
+    className="font-serif text-white/80 leading-relaxed"
+    >
+      {description}
+    </motion.p>
   );
 }
