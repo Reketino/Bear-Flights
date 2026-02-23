@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding New Airport Coords
+- Debugging loading text
 
 ---
 
