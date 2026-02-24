@@ -66,7 +66,7 @@ export default function AircraftDescriptionModal({
             transition={{ duration: 0.2, ease: "easeInOut" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <label className="flex justify-between items-center mb-4">
+            <header className="flex justify-between items-center mb-4">
               <h2 className="font-bold text-sky-300">
                 Aircraft: {aircraftType}
               </h2>
@@ -76,7 +76,7 @@ export default function AircraftDescriptionModal({
               >
                 ✕
               </button>
-            </label>
+            </header>
 
             <AiDescription
               endpoint="aircraft"
