@@ -17,14 +17,14 @@ export default function AiDescription({
 
 type Status = "idle" | "loading" | "success" | "error";
 
-  const [description, setDescription] = useState<string | null>(null);
-  const [status, setStaus] = useState(false);
+  const [description, setDescription] = useState<string>("");
+  const [status, setStatus] = useState<Status>("idle");
 
   useEffect(() => {
     if (!entityKey) return;
 
-    setLoading(true);
-    setDescription(null);
+    setStatus("loading");
+    setDescription("");
 
     const controller = new AbortController();
 
@@ -47,6 +47,7 @@ type Status = "idle" | "loading" | "success" | "error";
         await new Promise((r) => setTimeout(r, 1500));
         
         setDescription(json.description ?? "No information avliable.");
+        setStatus("success")
       } catch (err: any) {
         if (err.name !== "AbortError") {
           console.error("AI fetch error:", err);
