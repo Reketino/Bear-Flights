@@ -50,11 +50,9 @@ type Status = "idle" | "loading" | "success" | "error";
         setStatus("success")
       } catch (err: any) {
         if (err.name !== "AbortError") {
-          console.error("AI fetch error:", err);
+          setStatus("error");
           setDescription("Failed to load information.");
-        }
-      } finally {
-        setLoading(false);
+      } 
       }
     }
 
@@ -63,7 +61,7 @@ type Status = "idle" | "loading" | "success" | "error";
     return () => controller.abort();
   }, [endpoint, entityKey]);
 
-  if (loading) 
+  if (status === "loading") {
     return ( 
     <motion.div
     initial={{ opacity: 0.4 }}
@@ -76,8 +74,15 @@ type Status = "idle" | "loading" | "success" | "error";
     className=" relative z-20 text-white/70"
     >
       {loadingText}
-      </motion.div> );
+      </motion.div> 
+      );
+    }
 
+    if (status === "error") {
+      return <p className="text-red-400">{description}</p>;
+    }
+
+  if (status === "success") {
   return (
     <motion.p
     initial={{ opacity: 0 }}
@@ -88,4 +93,7 @@ type Status = "idle" | "loading" | "success" | "error";
       {description}
     </motion.p>
   );
+  }
+
+  return null;
 }
