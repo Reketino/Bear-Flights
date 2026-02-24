@@ -14,8 +14,11 @@ export default function AiDescription({
   entityKey,
   loadingText = "Loading info...",
 }: Props) {
+
+type Status = "idle" | "loading" | "success" | "error";
+
   const [description, setDescription] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [status, setStaus] = useState(false);
 
   useEffect(() => {
     if (!entityKey) return;
