@@ -32,25 +32,25 @@ export default function AircraftDescriptionModal({
 
   return (
     <AnimatePresence>
-        <motion.main
-          key={aircraftType}
-          className="
+      <motion.main
+        key={aircraftType}
+        className="
           fixed inset-0 z-50  
           flex items-center justify-center
           bg-cover bg-center
           "
-          style={{
-            backgroundImage: "url('/modal/aircraftmodal.webp')",
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-        >
-          <div className=" absolute inset-0 bg-black/80 backdrop-blur-xs" />
+        style={{
+          backgroundImage: "url('/modal/aircraftmodal.webp')",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+        <div className=" absolute inset-0 bg-black/80 backdrop-blur-xs" />
 
-          <motion.section
-            className="relative z-10  
+        <motion.section
+          className="relative z-10  
             max-w-lg w-full p-6 rounded-xl 
             
             bg-white/5
@@ -60,31 +60,29 @@ export default function AircraftDescriptionModal({
             shadow-2xl
             shadow-black/40
             "
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <header className="flex justify-between items-center mb-4">
-              <h2 className="font-bold text-sky-300">
-                Aircraft: {aircraftType}
-              </h2>
-              <button
-                onClick={onClose}
-                className="text-white/60 hover:text-white"
-              >
-                ✕
-              </button>
-            </header>
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <header className="flex justify-between items-center mb-4">
+            <h2 className="font-bold text-sky-300">Aircraft: {aircraftType}</h2>
+            <button
+              onClick={onClose}
+              className="text-white/60 hover:text-white"
+            >
+              ✕
+            </button>
+          </header>
 
-            <AiDescription
-              endpoint="aircraft"
-              entityKey={aircraftType}
-              loadingText="Loading aircraft info"
-            />
-          </motion.section>
-        </motion.main>
+          <AiDescription
+            endpoint="aircraft"
+            entityKey={aircraftType}
+            loadingText="Loading aircraft info"
+          />
+        </motion.section>
+      </motion.main>
     </AnimatePresence>
   );
 }
