@@ -35,6 +35,7 @@ export default function AircraftDescriptionModal({
     <AnimatePresence>
       {aircraftType && (
         <motion.div
+        key={aircraftType}
           className="
           fixed inset-0 z-50  
           flex items-center justify-center
