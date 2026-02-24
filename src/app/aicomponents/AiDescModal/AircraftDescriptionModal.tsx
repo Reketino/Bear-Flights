@@ -34,7 +34,7 @@ export default function AircraftDescriptionModal({
   return (
     <AnimatePresence>
       {aircraftType && (
-        <motion.div
+        <motion.main
         key={aircraftType}
           className="
           fixed inset-0 z-50  
@@ -86,7 +86,7 @@ export default function AircraftDescriptionModal({
             loadingText="Loading aircraft info"
             />
           </motion.section>
-        </motion.div>
+        </motion.main>
       )}
     </AnimatePresence>
   );
