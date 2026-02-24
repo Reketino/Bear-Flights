@@ -79,7 +79,7 @@ export default function AircraftDescriptionModal({
           <AiDescription
             endpoint="aircraft"
             entityKey={aircraftType}
-            loadingText="Loading aircraft info"
+            loadingText="Loading aircraft info..."
           />
         </motion.section>
       </motion.main>
