@@ -274,11 +274,10 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "New York",
   },
 
-    KRIC: {
+  KRIC: {
     lat: 37.507186,
     lon: -77.327128,
     country: "USA",
     name: "Sandston",
   },
-
 };
