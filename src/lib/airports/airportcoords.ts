@@ -280,4 +280,11 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "USA",
     name: "Sandston",
   },
+
+    KCLT: {
+    lat: 35.217143,
+    lon: -80.938863,
+    country: "USA",
+    name: "Charlotte",
+  },
 };
