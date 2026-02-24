@@ -1,6 +1,6 @@
 "use client";
 
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AiDescription from "../Geminiflight/AiDescription";
 
@@ -13,7 +13,6 @@ export default function AircraftDescriptionModal({
   aircraftType,
   onClose,
 }: Props) {
- 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -35,7 +34,7 @@ export default function AircraftDescriptionModal({
     <AnimatePresence>
       {aircraftType && (
         <motion.main
-        key={aircraftType}
+          key={aircraftType}
           className="
           fixed inset-0 z-50  
           flex items-center justify-center
@@ -81,9 +80,9 @@ export default function AircraftDescriptionModal({
             </label>
 
             <AiDescription
-            endpoint="aircraft"
-            entityKey={aircraftType}
-            loadingText="Loading aircraft info"
+              endpoint="aircraft"
+              entityKey={aircraftType}
+              loadingText="Loading aircraft info"
             />
           </motion.section>
         </motion.main>
