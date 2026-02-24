@@ -55,7 +55,7 @@ export default function AirlineDescriptionModal({
             max-w-lg w-full p-6 rounded-xl 
             border border-white/20
             shadow-2xl shadow-black/40
-            overflow-hidden
+            
             "
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
