@@ -287,4 +287,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "USA",
     name: "Sandston",
   },
+
+    BKPR: {
+    lat: 42.574073,
+    lon: 21.035818,
+    country: "Pristina",
+    name: "Kosovo",
+  },
+
+
 };
