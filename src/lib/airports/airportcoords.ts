@@ -177,6 +177,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Aalesund",
   },
 
+  // PRISTINA
+  BKPR: {
+    lat: 42.574073,
+    lon: 21.035818,
+    country: "Pristina",
+    name: "Kosovo",
+  },
+
   // QATAR
   OTHH: {
     lat: 25.273056,
