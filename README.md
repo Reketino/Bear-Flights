@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding new airports w/ coordinates
+- Adding new logos
 
 ---
 
