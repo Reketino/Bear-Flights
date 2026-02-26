@@ -1,12 +1,10 @@
 import { Polyline } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
+import type { FlightPosition } from "@/types/flightposition";
 
 type FlightRouteLogic = {
-  flight: {
-    latitude: number;
-    longitude: number;
-    altitude?: number;
-  } | null;
+  flight: FlightPosition | null;
+  
 
   departureAirport: {
     lat: number;
