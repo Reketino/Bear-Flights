@@ -60,7 +60,12 @@ export default function FlightMap({
       <MapContainer
         center={CENTER} // Sykkylven Center
         zoom={8}
-        className="h-150 w-full rounded-xl"
+        className="
+        h-150 w-full 
+        rounded-xl
+        transform-gpu
+        perspective-distant
+        "
       >
         <AutoPanFlight flight={AutoFlight} />
 
