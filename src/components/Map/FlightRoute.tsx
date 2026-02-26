@@ -5,6 +5,7 @@ type FlightRouteLogic = {
   flight: {
     latitude: number;
     longitude: number;
+    altitude?: number;
   } | null;
 
   departureAirport: {
@@ -25,7 +26,15 @@ export function FlightRoute({
 }: FlightRouteLogic) {
   if (!flight) return null;
 
-  const flightPosition: LatLngExpression = [flight.latitude, flight?.longitude];
+  const altitude = flight.altitude ?? 0;
+
+  const weight = Math.min(6, 2 + altitude / 6000);
+  const opacity = Math.min(1, 0.5 + altitude /2000);
+
+  const flightPosition: LatLngExpression = [
+    flight.latitude, 
+    flight.longitude
+  ];
 
   return (
     <main>
@@ -37,9 +46,9 @@ export function FlightRoute({
           ]}
           pathOptions={{
             color: "#9ca3af",
-            weight: 6,
+            weight,
+            opacity,
             dashArray: "6 6",
-            opacity: 0.8,
           }}
         />
       )}
@@ -49,9 +58,9 @@ export function FlightRoute({
           positions={[[arrivalAirport.lat, arrivalAirport.lon], flightPosition]}
           pathOptions={{
             color: "#22c55e",
-            weight: 6,
+            weight,
+            opacity,
             dashArray: "4 6",
-            opacity: 0.9,
           }}
         />
       )}
