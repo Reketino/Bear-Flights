@@ -4,7 +4,6 @@ import type { FlightPosition } from "@/types/flightposition";
 
 type FlightRouteLogic = {
   flight: FlightPosition | null;
-  
 
   departureAirport: {
     lat: number;
@@ -27,12 +26,9 @@ export function FlightRoute({
   const altitude = flight.altitude ?? 0;
 
   const weight = Math.min(6, 2 + altitude / 6000);
-  const opacity = Math.min(1, 0.5 + altitude /2000);
+  const opacity = Math.min(1, 0.5 + altitude / 2000);
 
-  const flightPosition: LatLngExpression = [
-    flight.latitude, 
-    flight.longitude
-  ];
+  const flightPosition: LatLngExpression = [flight.latitude, flight.longitude];
 
   return (
     <main>
