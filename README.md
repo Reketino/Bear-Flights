@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- More 3D look to leaflet map.
+- Refactoring 3D map look
 
 ---
 
