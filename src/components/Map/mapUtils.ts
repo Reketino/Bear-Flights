@@ -16,7 +16,9 @@ export const planeIcon = (heading: number | null, altitude: number | null) => {
   return L.divIcon({
     className: "",
     html: `
-      <div style="
+      <div 
+      class="flight-marker"
+      style="
       width:45px;
       height:45px;
       display:flex;
