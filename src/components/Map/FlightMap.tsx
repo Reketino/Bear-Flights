@@ -36,7 +36,7 @@ export default function FlightMap({
   const arrivalAirport = arrivalICAO ? AIRPORTS[arrivalICAO] : null;
 
   return (
-    <section className=" relative">
+    <section className="relative perspective-distant">
       {singleFlight && (
         <div className="absolute top-4 right-4 z-1000">
           <a
@@ -64,7 +64,6 @@ export default function FlightMap({
         h-150 w-full 
         rounded-xl
         transform-gpu
-        perspective-distant
         "
       >
         <AutoPanFlight flight={AutoFlight} />
