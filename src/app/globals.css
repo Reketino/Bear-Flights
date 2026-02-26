@@ -61,3 +61,14 @@ table {
 .bearflights-popup .leaflet-popup-tip {
   display: none;
 }
+
+.leaflet-container {
+  transform: rotateX('25deg');
+  transform-origin: center center;
+}
+
+.flight-marker {
+  filter: 
+  drop-shadow(0 6px 10px rgba(0,0,0,0.0.45))
+drop-shadow(0 0  8px rgba(56,189,248,0.7));
+}

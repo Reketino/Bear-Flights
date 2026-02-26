@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding new aiport w/coordinates
+- More 3D look to leaflet map.
 
 ---
 
