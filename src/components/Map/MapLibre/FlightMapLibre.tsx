@@ -13,7 +13,11 @@ type Props = {
 export default function FlightMapLibre({
     flights,
     selectedFlight,
-}: Props) {
+}: Props) { {
+    const mapRef = useRef<maplibregl.Map | null>(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+}
     return (
         <main>
             MapLibre coming soon
