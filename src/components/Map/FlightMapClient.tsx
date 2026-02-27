@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import { FlightPosition } from "@/types/flightposition";
 
-const FlightMap = dynamic(() => import("./FlightMap"), { ssr: false });
+const FlightMap = dynamic(() => import("./Leaflet/FlightMapLeaflet"), { ssr: false });
 
 export default function FlightMapClient({
   flights,
