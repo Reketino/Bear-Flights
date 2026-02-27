@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Refactoring 3D map look
+- Mapbox for 3D look on map
 
 ---
 
