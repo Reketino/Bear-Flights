@@ -13,5 +13,12 @@ type Props = {
 export default function FlightMapLibre({
     flights,
     selectedFlight,
-}: Props)
+}: Props) {
+    return (
+        <main>
+            MapLibre coming soon
+        </main>
+    )
+
+}
 
