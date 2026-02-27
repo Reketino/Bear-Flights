@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Maplibre for 3D look on map
+- Maplibre map component
 
 ---
 
