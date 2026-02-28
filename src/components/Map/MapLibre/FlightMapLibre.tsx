@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
 import type { Feature, LineString } from "geojson";
+import { AIRPORTS } from "@/lib/airports/airportcoords";
 
 type Props = {
   flights: FlightPosition[];
@@ -98,6 +99,26 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
       zoom: 10,
       speed: 0.8,
     });
+
+    if (selectedFlight.departure_airport) {
+      const dep =
+        AIRPORTS[selectedFlight.departure_airport.trim().toUpperCase()];
+      if (dep) {
+        const routeData = {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [dep.lon, dep.lat],
+              [selectedFlight.longitude, selectedFlight.latitude],
+            ],
+          },
+        };
+
+        const routeSource = map.getSource("route") as maplibregl.GeoJSONSource;
+        routeSource?.setData(routeData as any);
+      }
+    }
   }, [selectedFlight]);
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
