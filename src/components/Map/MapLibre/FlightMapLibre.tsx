@@ -120,7 +120,7 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
   };
 }
 
-function emptyLine(){
+function emptyLine(): Feature<LineString> {
     return {
         type: "Feature",
         properties: {},
@@ -128,5 +128,5 @@ function emptyLine(){
             type: "LineString",
             coordinates: [],
         },
-    } as const;
+    };
 }
