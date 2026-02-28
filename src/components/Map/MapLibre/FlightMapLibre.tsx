@@ -101,8 +101,9 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     });
 
     if (selectedFlight.departure_airport) {
-      const dep = AIRPORTS[selectedFlight.departure_airport.trim().toUpperCase()];
-      if (dep)  {
+      const dep =
+        AIRPORTS[selectedFlight.departure_airport.trim().toUpperCase()];
+      if (dep) {
         const routeData = {
           type: "Feature",
           geometry: {
