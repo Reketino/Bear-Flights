@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
-import { AIRPORTS } from "@/lib/airports/airportcoords";
 
 
 type Props = {
@@ -19,7 +18,7 @@ export default function FlightMapLibre({
     const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if (!containerRef.current) return;
+        if (!containerRef.current || mapRef.current) return;
 
         const map = new maplibregl.Map({
             container: containerRef.current,
