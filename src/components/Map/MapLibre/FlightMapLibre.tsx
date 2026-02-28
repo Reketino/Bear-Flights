@@ -17,6 +17,19 @@ export default function FlightMapLibre({
     const mapRef = useRef<maplibregl.Map | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const map = new maplibregl.Map({
+            container: containerRef.current,
+            style: "https://demotiles.maplibre.org/style.json",
+            center: [6.578392, 62.392497],
+            zoom: 8,
+            pitch: 60,
+            bearing: -20,
+        })
+    })
+
 }
     return (
         <main>
