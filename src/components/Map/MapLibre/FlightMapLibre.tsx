@@ -72,8 +72,8 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
         type: "line",
         source: "route",
         paint: {
-            "line-width": 4,
-            "line-color": "#38bdf8",
+          "line-width": 4,
+          "line-color": "#38bdf8",
         },
       });
     });
@@ -121,12 +121,12 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
 }
 
 function emptyLine(): Feature<LineString> {
-    return {
-        type: "Feature",
-        properties: {},
-        geometry: {
-            type: "LineString",
-            coordinates: [],
-        },
-    };
+  return {
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "LineString",
+      coordinates: [],
+    },
+  };
 }
