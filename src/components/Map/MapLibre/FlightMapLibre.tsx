@@ -38,11 +38,29 @@ export default function FlightMapLibre({
             });
 
         map.addLayer({
-            id: 
-        })
-
-        
-        })
+            id: "flight-circles",
+            type: "circle",
+            source: "flights",
+            paint: {
+                "circle-radius": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "altitude"],
+                    0, 4,
+                    4000, 12,
+                ],
+                "circle-color": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "altitude"],
+                    0, "#22c55e",
+                    1000, "eab308",
+                    3000, "#ef4444",
+                ],
+            }
+        });
+    });
+   
     })
 
 }
