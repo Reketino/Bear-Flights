@@ -5,6 +5,7 @@ import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 
+
 type Props = {
     flights: FlightPosition[];
     selectedFlight: FlightPosition | null;
@@ -13,7 +14,7 @@ type Props = {
 export default function FlightMapLibre({
     flights,
     selectedFlight,
-}: Props) { {
+}: Props) { 
     const mapRef = useRef<maplibregl.Map | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -54,7 +55,7 @@ export default function FlightMapLibre({
                     ["linear"],
                     ["get", "altitude"],
                     0, "#22c55e",
-                    1000, "eab308",
+                    1000, "#eab308",
                     3000, "#ef4444",
                 ],
             }
@@ -72,12 +73,40 @@ export default function FlightMapLibre({
         source.setData(flightsToGeoJSON(flights));
     }, [flights]);
 
-}
-    return (
-        <main>
-            MapLibre coming soon
-        </main>
-    )
+    useEffect(() => {
+        const map = mapRef.current;
+        if (!map || !selectedFlight) return;
 
+        map.flyTo({
+            center: [selectedFlight.longitude, selectedFlight.latitude],
+            zoom: 10,
+            speed: 0.8,
+        });
+    }, [selectedFlight]);
+
+    return (
+        <div 
+        ref={containerRef}
+        className="h-150 w-full rounded-xl"
+        />
+    );
 }
+
+function flightsToGeoJSON(flights: FlightPosition[]) {
+    return {
+        type: "FeatureCollection" as const,
+        features: flights.map((f) => ({
+            type: "Feature" as const,
+            properties: {
+                altitude: f.altitude ?? 0,
+                icao24: f.icao24,
+            },
+            geometry: {
+                type: "Point" as const,
+                coordinates: [f.longitude, f.latitude]
+            },
+        })),
+      };
+    }
+
 
