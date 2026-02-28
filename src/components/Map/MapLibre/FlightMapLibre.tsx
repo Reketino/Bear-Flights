@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
+import type { Feature, LineString } from "geojson";
 
 type Props = {
   flights: FlightPosition[];
@@ -60,6 +61,21 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
           ],
         },
       });
+
+      map.addSource("route", {
+        type: "geojson",
+        data: emptyLine(),
+      });
+
+      map.addLayer({
+        id: "route-line",
+        type: "line",
+        source: "route",
+        paint: {
+          "line-width": 4,
+          "line-color": "#38bdf8",
+        },
+      });
     });
 
     return () => map.remove();
@@ -101,5 +117,16 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
         coordinates: [f.longitude, f.latitude],
       },
     })),
+  };
+}
+
+function emptyLine(): Feature<LineString> {
+  return {
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "LineString",
+      coordinates: [],
+    },
   };
 }

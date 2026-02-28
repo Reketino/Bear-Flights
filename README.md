@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Maplibre map component
+- Improving maplibre map
 
 ---
 
