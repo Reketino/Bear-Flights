@@ -114,7 +114,8 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
           },
         };
 
-        
+        const routeSource = map.getSource("route") as maplibregl.GeoJSONSource;
+        routeSource?.setData(routeData as any);
       }
     }
   }, [selectedFlight]);
