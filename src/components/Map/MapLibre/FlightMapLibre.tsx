@@ -64,7 +64,13 @@ export default function FlightMapLibre({
     return () => map.remove();
     }, []);
 
-    
+    useEffect(() => {
+        const map = mapRef.current;
+        if (!map || !map.getSource("flights")) return;
+        
+        const source = map.getSource("flights") as maplibregl.GeoJSONSource;
+        source.setData(flightsToGeoJSON(flights));
+    }, [flights]);
 
 }
     return (
