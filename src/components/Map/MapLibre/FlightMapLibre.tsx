@@ -60,8 +60,11 @@ export default function FlightMapLibre({
             }
         });
     });
-   
-    })
+
+    return () => map.remove();
+    }, []);
+
+    
 
 }
     return (
