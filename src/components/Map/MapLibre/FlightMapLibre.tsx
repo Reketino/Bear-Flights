@@ -31,7 +31,18 @@ export default function FlightMapLibre({
         map.addControl(new maplibregl.NavigationControl());
         mapRef.current = map;
         
+        map.on ("load", () => {
+            map.addSource("flights", {
+                type: "geojson",
+                data: flightsToGeoJSON(flights),
+            });
+
+        map.addLayer({
+            id: 
+        })
+
         
+        })
     })
 
 }
