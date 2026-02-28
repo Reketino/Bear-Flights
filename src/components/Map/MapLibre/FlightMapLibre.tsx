@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
+import type { Feature, LineString } from "geojson";
 
 type Props = {
   flights: FlightPosition[];
@@ -63,7 +64,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
 
       map.addSource("route", {
         type: "geojson",
-        data: emptyLine();
+        data: emptyLine(),
       });
 
       map.addLayer({
@@ -119,4 +120,13 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
   };
 }
 
-
+function emptyLine(){
+    return {
+        type: "Feature",
+        properties: {},
+        geometry: {
+            type: "LineString",
+            coordinates: [],
+        },
+    } as const;
+}
