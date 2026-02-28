@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving maplibre map
+- Replacing leaflet w/ mapllibre
 
 ---
 
