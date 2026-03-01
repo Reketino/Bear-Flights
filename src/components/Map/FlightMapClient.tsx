@@ -32,7 +32,12 @@ export default function FlightMapClient({
       >
         Leaflet
       </button>
-
+      <button
+      onClick={() => setEngine("maplibre")}
+      className="px-3 py-1 bg-neutral-800 text-white rounded"
+      >
+        MapLibre
+      </button>
     </section>
 
     </>
