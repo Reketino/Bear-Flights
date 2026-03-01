@@ -86,7 +86,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
 
     return () => {
       map.remove();
-    mapRef.current = null;
+      mapRef.current = null;
     };
   }, []);
 
@@ -94,9 +94,9 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     const map = mapRef.current;
     if (!map || !mapLoaded) return;
 
-    const source = map.getSource("flights") as 
-    | maplibregl.GeoJSONSource
-    | undefined;
+    const source = map.getSource("flights") as
+      | maplibregl.GeoJSONSource
+      | undefined;
 
     if (!source) return;
 
@@ -107,9 +107,9 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     const map = mapRef.current;
     if (!map || !mapLoaded) return;
 
-    const routeSource = map.getSource("route") as 
-    | maplibregl.GeoJSONSource
-    | undefined;
+    const routeSource = map.getSource("route") as
+      | maplibregl.GeoJSONSource
+      | undefined;
 
     if (!routeSource) return;
 
