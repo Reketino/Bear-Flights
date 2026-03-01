@@ -7,6 +7,11 @@ const FlightMapLeaflet = dynamic(
   { ssr: false }
 );
 
+const FlightMapLibre = dynamic(
+  () => import("./MapLibre/FlightMapLibre"), 
+  { ssr: false }
+);
+
 export default function FlightMapClient({
   flights,
   singleFlight,
