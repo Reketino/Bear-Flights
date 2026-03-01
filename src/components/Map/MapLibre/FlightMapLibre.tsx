@@ -139,7 +139,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     }
   }, [selectedFlight, mapLoaded]);
 
-  return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
+  return <div ref={containerRef} className="h-[600px] w-full rounded-xl" />;
 }
 
 function flightsToGeoJSON(flights: FlightPosition[]) {

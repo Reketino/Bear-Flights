@@ -64,7 +64,7 @@ table {
 }
 
 .leaflet-container {
-  transform: rotateX("25deg");
+  transform: rotateX(25deg);
   transform-origin: center center;
 }
 
