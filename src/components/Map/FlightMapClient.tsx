@@ -1,5 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { FlightPosition } from "@/types/flightposition";
 
 const FlightMapLeaflet = dynamic(
@@ -19,5 +20,7 @@ export default function FlightMapClient({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
+  const [engine, setEngine] = useState<"leaflet" | "maplibre">("maplibre");
+  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(null);
   return <FlightMapLeaflet flights={flights} singleFlight={singleFlight} />;
 }
