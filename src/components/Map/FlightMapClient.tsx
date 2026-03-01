@@ -40,6 +40,19 @@ export default function FlightMapClient({
       </button>
     </section>
 
+    {engine === "leaflet" && (
+      <FlightMapLeaflet
+      flights={flights}
+      singleFlight={singleFlight}
+      />
+    )}
+
+    {engine === "maplibre" && (
+      <FlightMapLibre
+      flights={flights}
+      selectedFlight={selectedFlight}
+      />
+    )}
     </>
   )
 }
