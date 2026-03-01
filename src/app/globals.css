@@ -63,8 +63,8 @@ table {
   display: none;
 }
 
-.leaflet-container {
-  transform: rotateX("25deg");
+ .leaflet-container {
+  transform: rotateX(25deg);
   transform-origin: center center;
 }
 
