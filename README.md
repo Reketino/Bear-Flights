@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Debugging maplibre
+- Adding planeicon to maplibre
 
 ---
 
