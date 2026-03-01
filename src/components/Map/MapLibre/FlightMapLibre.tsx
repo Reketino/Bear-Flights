@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import type { FlightPosition } from "@/types/flightposition";
 import type { Feature, LineString } from "geojson";
@@ -14,6 +14,7 @@ type Props = {
 export default function FlightMapLibre({ flights, selectedFlight }: Props) {
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -30,6 +31,8 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     mapRef.current = map;
 
     map.on("load", () => {
+      setMapLoaded(true);
+
       map.addSource("flights", {
         type: "geojson",
         data: flightsToGeoJSON(flights),
@@ -84,15 +87,31 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !map.getSource("flights")) return;
+    if (!map || !mapLoaded) return;
 
-    const source = map.getSource("flights") as maplibregl.GeoJSONSource;
+    const source = map.getSource("flights") as 
+    | maplibregl.GeoJSONSource
+    | undefined;
+
+    if (!source) return;
+
     source.setData(flightsToGeoJSON(flights));
-  }, [flights]);
+  }, [flights, mapLoaded]);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !selectedFlight) return;
+    if (!map || !mapLoaded) return;
+
+    const routeSource = map.getSource("route") as 
+    | maplibregl.GeoJSONSource
+    | undefined;
+
+    if (!routeSource) return;
+
+    if (!selectedFlight) {
+      routeSource.setData(emptyLine());
+      return;
+    }
 
     map.flyTo({
       center: [selectedFlight.longitude, selectedFlight.latitude],
@@ -115,11 +134,10 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
           },
         };
 
-        const routeSource = map.getSource("route") as maplibregl.GeoJSONSource;
-        routeSource?.setData(routeData as any);
+        routeSource.setData(routeData as any);
       }
     }
-  }, [selectedFlight]);
+  }, [selectedFlight, mapLoaded]);
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
 }
