@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Replacing leaflet w/ mapllibre
+- Button switch, switching between maplibre & leaflet
 
 ---
 
