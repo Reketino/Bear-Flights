@@ -63,10 +63,10 @@ table {
   display: none;
 }
 
-/*  .leaflet-container {
+ .leaflet-container {
   transform: rotateX(25deg);
   transform-origin: center center;
-} */
+}
 
 .flight-marker {
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45))
