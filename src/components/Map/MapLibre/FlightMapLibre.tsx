@@ -12,6 +12,7 @@ type Props = {
 };
 
 export default function FlightMapLibre({ flights, selectedFlight }: Props) {
+  console.log("FlightMapLibre rendred");
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -21,7 +22,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
 
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: "https://demotiles.maplibre.org/style.json",
+      style: "https://tiles.openfreemap.org/styles/liberty",
       center: [6.578392, 62.392497],
       zoom: 8,
       pitch: 60,
@@ -31,6 +32,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
     mapRef.current = map;
 
     map.on("load", () => {
+      console.log("Maplibre loaded");
       setMapLoaded(true);
 
       map.addSource("flights", {
@@ -82,7 +84,10 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
       });
     });
 
-    return () => map.remove();
+    return () => {
+      map.remove();
+    mapRef.current = null;
+    };
   }, []);
 
   useEffect(() => {
