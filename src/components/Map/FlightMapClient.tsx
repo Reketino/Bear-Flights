@@ -22,5 +22,19 @@ export default function FlightMapClient({
 }) {
   const [engine, setEngine] = useState<"leaflet" | "maplibre">("maplibre");
   const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(null);
-  return <FlightMapLeaflet flights={flights} singleFlight={singleFlight} />;
+  
+  return (
+    <>
+    <section className="flex gap-2 mb-4">
+      <button
+      onClick={() => setEngine("leaflet")}
+      className="px-3 py-1 bg-neutral-800 text-white rounded"
+      >
+        Leaflet
+      </button>
+
+    </section>
+
+    </>
+  )
 }
