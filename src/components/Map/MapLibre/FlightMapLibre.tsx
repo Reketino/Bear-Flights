@@ -45,34 +45,54 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
       
+     (async () => {
+  try {
+    const response = await map.loadImage("/icons/airplane.png");
+    const image = response.data;
 
-      map.addLayer({
-        id: "flight-circles",
-        type: "circle",
-        source: "flights",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["get", "altitude"],
-            0,
-            4,
-            4000,
-            12,
-          ],
-          "circle-color": [
-            "interpolate",
-            ["linear"],
-            ["get", "altitude"],
-            0,
-            "#22c55e",
-            1000,
-            "#eab308",
-            3000,
-            "#ef4444",
-          ],
-        },
-      });
+    if (!map.hasImage("airplane-icon")) {
+      map.addImage("airplane-icon", image);
+    }
+
+    map.addLayer({
+      id: "flight-symbol",
+      type: "symbol",
+      source: "flights",
+      layout: {
+        "icon-image": "airplane-icon",
+        "icon-size": 0.06,
+        "icon-rotate": ["get", "heading"],
+        "icon-rotation-alignment": "map",
+        "icon-allow-overlap": true,
+      },
+    });
+
+    (map as any).on("click", "flight-symbol", (e: any) => {
+      const feature = e.features?.[0];
+      if (!feature) return;
+
+      const icao24 = feature.properties?.icao24;
+      if (!icao24) return;
+
+      const flight = flights.find((f) => f.icao24 === icao24);
+      if (!flight) return;
+
+      onSelectFlight(flight);
+    });
+
+    (map as any).on("mouseenter", "flight-symbol", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    (map as any).on("mouseleave", "flight-symbol", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+  } catch (err) {
+    console.error("Image load error", err);
+  }
+})();
+
 
       map.addSource("route", {
         type: "geojson",
@@ -161,6 +181,7 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
       properties: {
         altitude: f.altitude ?? 0,
         icao24: f.icao24,
+        heading: f.heading ?? 0,
       },
       geometry: {
         type: "Point" as const,
