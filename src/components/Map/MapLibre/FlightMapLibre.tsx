@@ -45,49 +45,53 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
       
-      map.loadImage("/icons/airplane.png", (error, image) => {
-      if (error || !image) return;
+     (async () => {
+  try {
+    const response = await map.loadImage("/icons/airplane.png");
+    const image = response.data;
 
-      if (!map.hasImage("airplane-icon")) {
-        map.addImage("airplane-icon", image);
-      }
-     
+    if (!map.hasImage("airplane-icon")) {
+      map.addImage("airplane-icon", image);
+    }
 
-      map.addLayer({
-        id: "flight-symbol",
-        type: "symbol",
-        source: "flights",
-        layout: {
-          "icon-image": "airplane-icon",
-          "icon-size": 0.06,
-          "icon-rotate": ["get", "heading"],
-          "icon-rotation-alignment": "map",
-          "icon-allow-overlap": true
-        },
-      });
+    map.addLayer({
+      id: "flight-symbol",
+      type: "symbol",
+      source: "flights",
+      layout: {
+        "icon-image": "airplane-icon",
+        "icon-size": 0.06,
+        "icon-rotate": ["get", "heading"],
+        "icon-rotation-alignment": "map",
+        "icon-allow-overlap": true,
+      },
+    });
 
-      map.on("click", "flight-symbol", (e) => {
-        const feature = e.features?.[0];
-        if (!feature) return;
+    (map as any).on("click", "flight-symbol", (e: any) => {
+      const feature = e.features?.[0];
+      if (!feature) return;
 
-        const icao24 = feature.properties?.icao24;
-        if (!icao24) return;
+      const icao24 = feature.properties?.icao24;
+      if (!icao24) return;
 
-        const flight = flights.find((f) => f.icao24 === icao24);
-        if (!flight) return;
+      const flight = flights.find((f) => f.icao24 === icao24);
+      if (!flight) return;
 
-        onSelectFlight(flight);
-      });
+      onSelectFlight(flight);
+    });
 
-      map.on("mouseenter", "flight-symbol", () => {
-        map.getCanvas().style.cursor = "pointer";
-      });
+    (map as any).on("mouseenter", "flight-symbol", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
 
-      map.on("mouseleave", "flight-symbol", () => {
-        map.getCanvas().style.cursor = "";
-      })
-      });
+    (map as any).on("mouseleave", "flight-symbol", () => {
+      map.getCanvas().style.cursor = "";
+    });
 
+  } catch (err) {
+    console.error("Image load error", err);
+  }
+})();
 
 
       map.addSource("route", {
