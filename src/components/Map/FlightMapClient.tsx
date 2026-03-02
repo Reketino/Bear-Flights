@@ -41,7 +41,9 @@ export default function FlightMapClient({
       </section>
 
       {engine === "leaflet" && (
-        <FlightMapLeaflet flights={flights} singleFlight={singleFlight} />
+        <FlightMapLeaflet 
+        flights={flights} 
+        singleFlight={singleFlight} />
       )}
 
       {engine === "maplibre" && (
