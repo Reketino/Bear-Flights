@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding icons to maplibre
+- Fixing ts any error
 
 ---
 

@@ -59,14 +59,14 @@ export default function FlightMapLibre({
         source: "flights",
         layout: {
           "icon-image": "airplane-icon",
-          "icon-size": 0,06,
+          "icon-size": 0.06,
           "icon-rotate": ["get", "heading"],
           "icon-rotation-alignment": "map",
           "icon-allow-overlap": true
         },
       });
 
-      map.on("click", "flight-symbols", (e) => {
+      map.on("click", "flight-symbol", (e) => {
         const feature = e.features?.[0];
         if (!feature) return;
 
@@ -79,11 +79,11 @@ export default function FlightMapLibre({
         onSelectFlight(flight);
       });
 
-      map.on("mouseenter", "flight-symbols", () => {
+      map.on("mouseenter", "flight-symbol", () => {
         map.getCanvas().style.cursor = "pointer";
       });
 
-      map.on("mouseleave", "flight-symbols", () => {
+      map.on("mouseleave", "flight-symbol", () => {
         map.getCanvas().style.cursor = "";
       })
       });
@@ -177,6 +177,7 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
       properties: {
         altitude: f.altitude ?? 0,
         icao24: f.icao24,
+        heading: f.heading ?? 0,
       },
       geometry: {
         type: "Point" as const,
