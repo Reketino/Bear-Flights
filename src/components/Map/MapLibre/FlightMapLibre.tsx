@@ -12,8 +12,8 @@ type Props = {
   onSelectFlight: (flight: FlightPosition | null) => void;
 };
 
-export default function FlightMapLibre({ 
-  flights, 
+export default function FlightMapLibre({
+  flights,
   selectedFlight,
   onSelectFlight,
 }: Props) {
@@ -44,55 +44,53 @@ export default function FlightMapLibre({
         type: "geojson",
         data: flightsToGeoJSON(flights),
       });
-      
-     (async () => {
-  try {
-    const response = await map.loadImage("/icons/airplane.png");
-    const image = response.data;
 
-    if (!map.hasImage("airplane-icon")) {
-      map.addImage("airplane-icon", image);
-    }
+      (async () => {
+        try {
+          const response = await map.loadImage("/icons/airplane.png");
+          const image = response.data;
 
-    map.addLayer({
-      id: "flight-symbol",
-      type: "symbol",
-      source: "flights",
-      layout: {
-        "icon-image": "airplane-icon",
-        "icon-size": 0.06,
-        "icon-rotate": ["get", "heading"],
-        "icon-rotation-alignment": "map",
-        "icon-allow-overlap": true,
-      },
-    });
+          if (!map.hasImage("airplane-icon")) {
+            map.addImage("airplane-icon", image);
+          }
 
-    (map as any).on("click", "flight-symbol", (e: any) => {
-      const feature = e.features?.[0];
-      if (!feature) return;
+          map.addLayer({
+            id: "flight-symbol",
+            type: "symbol",
+            source: "flights",
+            layout: {
+              "icon-image": "airplane-icon",
+              "icon-size": 0.06,
+              "icon-rotate": ["get", "heading"],
+              "icon-rotation-alignment": "map",
+              "icon-allow-overlap": true,
+            },
+          });
 
-      const icao24 = feature.properties?.icao24;
-      if (!icao24) return;
+          (map as any).on("click", "flight-symbol", (e: any) => {
+            const feature = e.features?.[0];
+            if (!feature) return;
 
-      const flight = flights.find((f) => f.icao24 === icao24);
-      if (!flight) return;
+            const icao24 = feature.properties?.icao24;
+            if (!icao24) return;
 
-      onSelectFlight(flight);
-    });
+            const flight = flights.find((f) => f.icao24 === icao24);
+            if (!flight) return;
 
-    (map as any).on("mouseenter", "flight-symbol", () => {
-      map.getCanvas().style.cursor = "pointer";
-    });
+            onSelectFlight(flight);
+          });
 
-    (map as any).on("mouseleave", "flight-symbol", () => {
-      map.getCanvas().style.cursor = "";
-    });
+          (map as any).on("mouseenter", "flight-symbol", () => {
+            map.getCanvas().style.cursor = "pointer";
+          });
 
-  } catch (err) {
-    console.error("Image load error", err);
-  }
-})();
-
+          (map as any).on("mouseleave", "flight-symbol", () => {
+            map.getCanvas().style.cursor = "";
+          });
+        } catch (err) {
+          console.error("Image load error", err);
+        }
+      })();
 
       map.addSource("route", {
         type: "geojson",
