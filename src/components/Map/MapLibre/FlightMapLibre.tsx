@@ -9,9 +9,14 @@ import { AIRPORTS } from "@/lib/airports/airportcoords";
 type Props = {
   flights: FlightPosition[];
   selectedFlight: FlightPosition | null;
+  onSelectFlight: (flight: FlightPosition | null) => void;
 };
 
-export default function FlightMapLibre({ flights, selectedFlight }: Props) {
+export default function FlightMapLibre({ 
+  flights, 
+  selectedFlight,
+  onSelectFlight,
+}: Props) {
   console.log("FlightMapLibre rendred");
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -39,6 +44,7 @@ export default function FlightMapLibre({ flights, selectedFlight }: Props) {
         type: "geojson",
         data: flightsToGeoJSON(flights),
       });
+      
 
       map.addLayer({
         id: "flight-circles",
