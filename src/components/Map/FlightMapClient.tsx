@@ -47,7 +47,11 @@ export default function FlightMapClient({
       )}
 
       {engine === "maplibre" && (
-        <FlightMapLibre flights={flights} selectedFlight={selectedFlight} />
+        <FlightMapLibre 
+        flights={flights} 
+        selectedFlight={selectedFlight}
+        onSelectFlight={setSelectedFlight}
+        />
       )}
     </>
   );
