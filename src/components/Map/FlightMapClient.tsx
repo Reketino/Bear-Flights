@@ -18,10 +18,11 @@ export default function FlightMapClient({
   flights: FlightPosition[];
   singleFlight?: boolean;
 }) {
-  const [engine, setEngine] = useState<"leaflet" | "maplibre">("maplibre");
-  const [selectedFlight, setSelectedFlight] = useState<FlightPosition | null>(
-    null,
-  );
+  const [engine, setEngine] = 
+  useState<"leaflet" | "maplibre">("maplibre");
+  
+  const [selectedFlight, setSelectedFlight] = 
+  useState<FlightPosition | null>(null);
 
   return (
     <>
