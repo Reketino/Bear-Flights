@@ -76,7 +76,16 @@ export default function FlightMapLibre({
         const flight = flights.find((f) => f.icao24 === icao24);
         if (!flight) return;
 
-        onSelectedFlight(flight);
+        onSelectFlight(flight);
+      });
+
+      map.on("mouseenter", "flight-symbols", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      map.on("mouseleave", "flight-symbols", () => {
+        map.getCanvas().style.cursor = "";
+      })
       });
 
 
