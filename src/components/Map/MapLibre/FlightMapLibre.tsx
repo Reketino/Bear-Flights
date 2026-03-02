@@ -69,7 +69,17 @@ export default function FlightMapLibre({
       map.on("click", "flight-symbols", (e) => {
         const feature = e.features?.[0];
         if (!feature) return;
-      })
+
+        const icao24 = feature.properties?.icao24;
+        if (!icao24) return;
+
+        const flight = flights.find((f) => f.icao24 === icao24);
+        if (!flight) return;
+
+        onSelectedFlight(flight);
+      });
+
+
 
       map.addSource("route", {
         type: "geojson",
