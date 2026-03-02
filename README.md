@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Making flight clickable in FlightMapLibre
+- Adding icons to maplibre
 
 ---
 
