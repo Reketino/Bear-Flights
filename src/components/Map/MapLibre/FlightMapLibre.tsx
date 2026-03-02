@@ -45,34 +45,31 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
       
+      map.loadImage("/icons/airplane.png", (error, image) => {
+      if (error || !image) return;
+
+      if (!map.hasImage("airplane-icon")) {
+        map.addImage("airplane-icon", image);
+      }
+     
 
       map.addLayer({
-        id: "flight-circles",
-        type: "circle",
+        id: "flight-symbol",
+        type: "symbol",
         source: "flights",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["get", "altitude"],
-            0,
-            4,
-            4000,
-            12,
-          ],
-          "circle-color": [
-            "interpolate",
-            ["linear"],
-            ["get", "altitude"],
-            0,
-            "#22c55e",
-            1000,
-            "#eab308",
-            3000,
-            "#ef4444",
-          ],
+        layout: {
+          "icon-image": "airplane-icon",
+          "icon-size": 0,06,
+          "icon-rotate": ["get", "heading"],
+          "icon-rotation-alignment": "map",
+          "icon-allow-overlap": true
         },
       });
+
+      map.on("click", "flight-symbols", (e) => {
+        const feature = e.features?.[0];
+        if (!feature) return;
+      })
 
       map.addSource("route", {
         type: "geojson",
