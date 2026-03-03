@@ -51,7 +51,7 @@ export default function FlightMapLibre({
           const image = response.data;
 
           if (!map.hasImage("airplane-icon")) {
-            map.addImage("airplane-icon", image);
+            map.addImage("airplane-icon", image, { sdf: true });
           }
 
           map.addLayer({
