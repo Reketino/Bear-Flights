@@ -47,11 +47,11 @@ export default function FlightMapLibre({
 
       (async () => {
         try {
-          const response = await map.loadImage("/icons/airplane.svg");
+          const response = await map.loadImage("/icons/airplane1.png");
           const image = response.data;
 
           if (!map.hasImage("airplane-icon")) {
-            map.addImage("airplane-icon", image, { sdf: true });
+            map.addImage("airplane-icon", image);
           }
 
           map.addLayer({
