@@ -51,7 +51,7 @@ export default function FlightMapLibre({
           const image = response.data;
 
           if (!map.hasImage("airplane-icon")) {
-            map.addImage("airplane-icon", image);
+            map.addImage("airplane-icon", image, { sdf: true });
           }
 
           map.addLayer({
@@ -60,10 +60,17 @@ export default function FlightMapLibre({
             source: "flights",
             layout: {
               "icon-image": "airplane-icon",
-              "icon-size": 1.2,
+              "icon-size": 1,
               "icon-rotate": ["get", "heading"],
               "icon-rotation-alignment": "map",
               "icon-allow-overlap": true,
+            },
+            paint: {
+              "icon-color": "#38bdf8",
+
+              "icon-halo-color": "#000000",
+              "icon-halo-width": 2,
+              "icon-halo-blur": 0.5,
             },
           });
 
