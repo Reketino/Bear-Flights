@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Cleaning up unused svg files
+- Improving icon even more on map.
 
 ---
 
