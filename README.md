@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Adding SVG for maplibre
+- Refactoring png style on map
 
 ---
 
