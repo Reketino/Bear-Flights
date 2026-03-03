@@ -60,7 +60,7 @@ export default function FlightMapLibre({
             source: "flights",
             layout: {
               "icon-image": "airplane-icon",
-              "icon-size": 1.2,
+              "icon-size": 0.08,
               "icon-rotate": ["get", "heading"],
               "icon-rotation-alignment": "map",
               "icon-allow-overlap": true,
