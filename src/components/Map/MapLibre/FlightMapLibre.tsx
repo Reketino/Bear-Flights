@@ -32,6 +32,7 @@ export default function FlightMapLibre({
       zoom: 8,
       pitch: 60,
       bearing: -20,
+      maxPitch: 85,
     });
     map.addControl(new maplibregl.NavigationControl());
     mapRef.current = map;
@@ -114,6 +115,10 @@ export default function FlightMapLibre({
           "line-color": "#38bdf8",
         },
       });
+
+      map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
+
+      map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
     });
 
     return () => {
