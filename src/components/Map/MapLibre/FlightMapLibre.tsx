@@ -114,9 +114,22 @@ export default function FlightMapLibre({
           "line-color": "#38bdf8",
         },
       });
-    });
-
     
+
+    map.addLayer({
+      id: "3d-buildings",
+      source: "openfreemap",
+      "source-layer": "building",
+      type: "fill-extrusion",
+      minzoom: 15,
+      paint: {
+        "fill-extrusion-color": "#aaa",
+        "fill-extrusion-height": ["get", "height"],
+        "fill-extrusion-base": ["get", "min_height"],
+        "fill-extrusion-opacity": 0.6,
+      },
+    });
+  });
 
     return () => {
       map.remove();
