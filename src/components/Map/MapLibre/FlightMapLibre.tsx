@@ -37,8 +37,6 @@ export default function FlightMapLibre({
     mapRef.current = map;
 
     map.on("load", () => {
-      console.log("SOURCES", map.getStyle().sources);
-      console.log("LAYERS", map.getStyle().layers)
       console.log("Maplibre loaded");
       setMapLoaded(true);
 
