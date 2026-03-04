@@ -72,7 +72,7 @@ export default function FlightMapLibre({
 
               "icon-halo-color": "#ea5e9",
               "icon-halo-width": 2,
-              "icon-halo-blur": 0.5,
+              "icon-halo-blur": 1,
             },
           });
 
