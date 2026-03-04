@@ -70,7 +70,7 @@ export default function FlightMapLibre({
             paint: {
               "icon-color": "#38bdf8",
 
-              "icon-halo-color": "#000000",
+              "icon-halo-color": "#ea5e9",
               "icon-halo-width": 2,
               "icon-halo-blur": 0.5,
             },
