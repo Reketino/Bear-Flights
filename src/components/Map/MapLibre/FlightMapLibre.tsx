@@ -32,6 +32,7 @@ export default function FlightMapLibre({
       zoom: 8,
       pitch: 60,
       bearing: -20,
+      maxPitch: 85,
     });
     map.addControl(new maplibregl.NavigationControl());
     mapRef.current = map;
