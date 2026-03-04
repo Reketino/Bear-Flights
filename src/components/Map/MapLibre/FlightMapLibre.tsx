@@ -61,7 +61,7 @@ export default function FlightMapLibre({
             source: "flights",
             layout: {
               "icon-image": "airplane-icon",
-              "icon-size": 1,
+              "icon-size": 1.4,
               "icon-rotate": ["get", "heading"],
               "icon-rotation-alignment": "map",
               "icon-pitch-alignment": "map",
