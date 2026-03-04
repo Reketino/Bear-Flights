@@ -77,6 +77,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Riga",
   },
 
+  // MAPULACA
+  MHLP: {
+    lat: 14.034167289734,
+    lon: -88.62833404541,
+    country: "Mapulaca",
+    name: "Honduras",
+  },
+
   // NETHERLANDS
   EHAM: {
     lat: 52.304642,
@@ -295,11 +303,4 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "USA",
     name: "Sandston",
   },
-
-  MHLP: {
-    lat: 14.034167289734,
-    lon: -88.62833404541,
-    country: "Mapulaca",
-    name: "Honduras",
-  }
 };
