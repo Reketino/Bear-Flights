@@ -61,7 +61,7 @@ export default function FlightMapLibre({
             source: "flights",
             layout: {
               "icon-image": "airplane-icon",
-              "icon-size": 1,
+              "icon-size": 1.4,
               "icon-rotate": ["get", "heading"],
               "icon-rotation-alignment": "map",
               "icon-pitch-alignment": "map",
@@ -70,9 +70,9 @@ export default function FlightMapLibre({
             paint: {
               "icon-color": "#38bdf8",
 
-              "icon-halo-color": "#000000",
+              "icon-halo-color": "#ea5e9",
               "icon-halo-width": 2,
-              "icon-halo-blur": 0.5,
+              "icon-halo-blur": 1,
             },
           });
 
