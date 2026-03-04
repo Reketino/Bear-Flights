@@ -37,6 +37,8 @@ export default function FlightMapLibre({
     mapRef.current = map;
 
     map.on("load", () => {
+      console.log("SOURCES", map.getStyle().sources);
+      console.log("LAYERS", map.getStyle().layers)
       console.log("Maplibre loaded");
       setMapLoaded(true);
 
@@ -116,19 +118,17 @@ export default function FlightMapLibre({
       });
     
 
-    map.addLayer({
-      id: "3d-buildings",
-      source: "openfreemap",
-      "source-layer": "building",
-      type: "fill-extrusion",
-      minzoom: 15,
-      paint: {
-        "fill-extrusion-color": "#aaa",
-        "fill-extrusion-height": ["get", "height"],
-        "fill-extrusion-base": ["get", "min_height"],
-        "fill-extrusion-opacity": 0.6,
-      },
-    });
+     map.setPaintProperty(
+     "building-3d",
+     "fill-extrusion-color",
+     "#9ca3af"
+     );
+
+     map.setPaintProperty(
+      "building-3d",
+      "fill-extrusion-opacity",
+      0.8
+     );
   });
 
     return () => {
