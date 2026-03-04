@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Improving icon even more on map.
+- Adding new maplayer
 
 ---
 

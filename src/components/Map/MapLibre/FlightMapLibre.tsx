@@ -116,6 +116,8 @@ export default function FlightMapLibre({
       });
     });
 
+    
+
     return () => {
       map.remove();
       mapRef.current = null;
