@@ -15,20 +15,19 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   // DENMARK
-  EKCH: {
-    lat: 55.617900848389,
-    lon: 12.656000137329,
-    country: "Denmark",
-    name: "Copenhagen",
-  },
-
-   EKBI: {
+  EKBI: {
     lat: 55.740279,
     lon: 9.150559,
     country: "Denmark",
     name: "Billund",
   },
 
+  EKCH: {
+    lat: 55.617900848389,
+    lon: 12.656000137329,
+    country: "Denmark",
+    name: "Copenhagen",
+  },
 
   // FINLAND
   EFHK: {
