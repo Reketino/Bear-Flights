@@ -60,6 +60,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   // IRELAND
+  EIDW: {
+    lat: 53.426756,
+    lon: -6.254579,
+    country: "Ireland",
+    name: "Dublin",
+  },
+
   EINN: {
     lat: 52.701966,
     lon: -8.925054,
