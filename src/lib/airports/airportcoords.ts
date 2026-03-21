@@ -14,14 +14,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Lesnovo",
   },
 
-    LEAL: {
-    lat: 38.284320,
-    lon: -0.560521,
-    country: "Spain",
-    name: "Alicante",
-  },
-
-
   // DENMARK
   EKBI: {
     lat: 55.740279,
@@ -238,6 +230,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   // SPAIN
+  LEAL: {
+    lat: 38.28432,
+    lon: -0.560521,
+    country: "Spain",
+    name: "Alicante",
+  },
+
   LEBB: {
     lat: 43.301105,
     lon: -2.910609,
