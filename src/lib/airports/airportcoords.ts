@@ -21,12 +21,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Denmark",
     name: "Billund",
   },
-   ENCN: {
-    lat: 58.203738,
-    lon: 8.084568,
-    country: "Norway",
-    name: "Kristiansand",
-  },
 
   EKCH: {
     lat: 55.617900848389,
@@ -140,6 +134,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 5.211017,
     country: "Norway",
     name: "Haugesund",
+  },
+
+  ENCN: {
+    lat: 58.203738,
+    lon: 8.084568,
+    country: "Norway",
+    name: "Kristiansand",
   },
 
   ENML: {
