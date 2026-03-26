@@ -36,6 +36,12 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Finland",
     name: "Birkala",
   },
+  EFMP: {
+    lat: 68.6603012085,
+    lon: 25.7028999329,
+    country: "Finland",
+    name: "Inari",
+  },
 
   EFHK: {
     lat: 60.316442,
