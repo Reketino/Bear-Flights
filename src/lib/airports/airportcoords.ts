@@ -113,6 +113,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Riga",
   },
 
+  // LITHUANIA
+  EYVI: {
+    lat: 54.637053,
+    lon: 25.287853,
+    country: "Lithuania",
+    name: "Vilnius",
+  },
+
   // MAPULACA
   MHLP: {
     lat: 14.034167289734,
