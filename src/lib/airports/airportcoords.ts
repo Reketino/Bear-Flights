@@ -13,13 +13,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Bulgaria",
     name: "Lesnovo",
   },
-    LSZH: {
-    lat: 47.458153,
-    lon:  8.547944,
-    country: "Switzerland",
-    name: "Zurich",
-  },
-
 
   // DENMARK
   EKBI: {
@@ -301,6 +294,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 17.918600082397,
     country: "Sweden",
     name: "Stockholm,",
+  },
+
+  // SWITZERLAND
+  LSZH: {
+    lat: 47.458153,
+    lon: 8.547944,
+    country: "Switzerland",
+    name: "Zurich",
   },
 
   // TURKEY
