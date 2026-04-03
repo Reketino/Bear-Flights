@@ -296,6 +296,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Stockholm,",
   },
 
+  // SWITZERLAND
+  LSZH: {
+    lat: 47.458153,
+    lon: 8.547944,
+    country: "Switzerland",
+    name: "Zurich",
+  },
+
   // TURKEY
   LTFM: {
     lat: 41.27948,
