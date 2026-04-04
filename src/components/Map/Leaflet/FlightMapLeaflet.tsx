@@ -2,7 +2,6 @@
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { AutoPanFlight } from "../AutoPan";
 import { FlightMarker } from "../FlightMarker";
