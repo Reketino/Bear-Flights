@@ -144,12 +144,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Norway",
     name: "Bergen",
   },
-    ENZV: {
-    lat: 58.876797,
-    lon: 5.637771,
-    country: "Norway",
-    name: "Stavanger",
-  },
 
   ENBL: {
     lat: 61.392091,
@@ -212,6 +206,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 7.138488,
     country: "Norway",
     name: "Sogndal",
+  },
+
+  ENZV: {
+    lat: 58.876797,
+    lon: 5.637771,
+    country: "Norway",
+    name: "Stavanger",
   },
 
   ENSU: {
