@@ -13,12 +13,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Bulgaria",
     name: "Lesnovo",
   },
-  EPCE: {
-    lat: 54.4165,
-    lon: 17.7657,
-    country: "Poland",
-    name: "Lebork",
-  },
 
   // DENMARK
   EKBI: {
@@ -261,6 +255,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 6.119699954986572,
     country: "Norway",
     name: "Aalesund",
+  },
+
+  // POLAND
+  EPCE: {
+    lat: 54.4165,
+    lon: 17.7657,
+    country: "Poland",
+    name: "Lebork",
   },
 
   // PRISTINA
