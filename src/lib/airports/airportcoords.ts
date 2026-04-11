@@ -257,6 +257,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Aalesund",
   },
 
+  // POLAND
+  EPCE: {
+    lat: 54.4165,
+    lon: 17.7657,
+    country: "Poland",
+    name: "Lebork",
+  },
+
   // PRISTINA
   BKPR: {
     lat: 42.574073,
