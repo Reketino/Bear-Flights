@@ -137,6 +137,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Amsterdam",
   },
 
+  EHEH: {
+    lat: 51.453789,
+    lon: 5.378562,
+    country: "Netherlands",
+    name: "Eindhoven",
+  },
+
   // NORWAY
   ENBR: {
     lat: 60.294009,
