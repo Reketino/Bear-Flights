@@ -265,6 +265,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   // POLAND
+  EPGD: {
+    lat: 54.376528,
+    lon: 18.477127,
+    country: "Poland",
+    name: "Gdańsk",
+  },
+
   EPCE: {
     lat: 54.4165,
     lon: 17.7657,
