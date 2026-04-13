@@ -21,6 +21,12 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     country: "Denmark",
     name: "Billund",
   },
+   EPGD: {
+    lat: 54.376528,
+    lon: 18.477127,
+    country: "Poland",
+    name: "Gdańsk",
+  },
 
   EKCH: {
     lat: 55.617900848389,
