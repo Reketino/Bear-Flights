@@ -385,6 +385,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Charlotte",
   },
 
+  KORD: {
+    lat: 41.983885,
+    lon: -87.91186,
+    country: "USA",
+    name: "Chicago",
+  },
+
   KDFW: {
     lat: 32.894291,
     lon: -97.038278,
