@@ -50,7 +50,13 @@ export default function FlightMapLibre({
         id: "flight-shadow",
         type: "circle",
         source: "flights",
-        
+        paint: {
+          "circle-radius": [
+            "interpolate",
+            ["linear"],
+            ["get", "alitude"],
+          ]
+        }
       });
 
       (async () => {
