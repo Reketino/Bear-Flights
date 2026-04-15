@@ -56,6 +56,7 @@ export default function FlightMapLibre({
             ["linear"],
             ["get", "alitude"],
             0, 2,
+            10000, 14
           ]
         }
       });
