@@ -55,6 +55,7 @@ export default function FlightMapLibre({
             "interpolate",
             ["linear"],
             ["get", "alitude"],
+            0, 2,
           ]
         }
       });
