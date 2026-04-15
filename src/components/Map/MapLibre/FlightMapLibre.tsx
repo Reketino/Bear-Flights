@@ -59,6 +59,7 @@ export default function FlightMapLibre({
             10000, 14
           ],
           "circle-color": "#000",
+          "circle-opacity": 0.25
         }
       });
 
