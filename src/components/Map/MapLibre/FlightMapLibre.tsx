@@ -55,8 +55,10 @@ export default function FlightMapLibre({
             "interpolate",
             ["linear"],
             ["get", "alitude"],
-            0, 2,
-            10000, 14
+            0,
+            2,
+            10000,
+            14,
           ],
           "circle-color": "#000",
           "circle-opacity": 0.25,
