@@ -57,7 +57,8 @@ export default function FlightMapLibre({
             ["get", "alitude"],
             0, 2,
             10000, 14
-          ]
+          ],
+          "circle-color": "#000",
         }
       });
 
