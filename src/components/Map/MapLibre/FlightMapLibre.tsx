@@ -46,6 +46,13 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
 
+      map.addLayer({
+        id: "flight-shadow",
+        type: "circle",
+        source: "flights",
+        
+      });
+
       (async () => {
         try {
           const response = await map.loadImage("/icons/airplane1.png");
