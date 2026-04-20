@@ -54,7 +54,7 @@ export default function FlightMapLibre({
           "circle-radius": [
             "interpolate",
             ["linear"],
-            ["get", "alitude"],
+            ["get", "altitude"],
             0,
             2,
             10000,
