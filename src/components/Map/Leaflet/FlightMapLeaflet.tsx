@@ -3,11 +3,11 @@ import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import { useState } from "react";
-import { AutoPanFlight } from "../AutoPan";
+import { AutoPanFlight } from "./layers/AutoPan";
 import { FlightMarker } from "../FlightMarker";
 import { FlightPosition } from "@/types/flightposition";
 import { FlightRoute } from "../FlightRoute";
-import { AirportMarker } from "../AirportMarker";
+import { AirportMarker } from "./layers/AirportMarker";
 
 // Center position of Sykkylven
 const CENTER: LatLngExpression = [62.392497, 6.578392];
