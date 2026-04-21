@@ -2,7 +2,7 @@ import { Marker, Popup } from "react-leaflet";
 import { useMemo } from "react";
 import type { LatLngExpression } from "leaflet";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
-import { planeIcon } from "./mapUtils";
+import { planeIcon } from "../../mapUtils";
 import { FlightPosition } from "@/types/flightposition";
 
 export function FlightMarker({
