@@ -6,7 +6,7 @@ import { useState } from "react";
 import { AutoPanFlight } from "./layers/AutoPan";
 import { FlightMarker } from "../FlightMarker";
 import { FlightPosition } from "@/types/flightposition";
-import { FlightRoute } from "../FlightRoute";
+import { FlightRoute } from "./layers/FlightRoute";
 import { AirportMarker } from "./layers/AirportMarker";
 
 // Center position of Sykkylven
