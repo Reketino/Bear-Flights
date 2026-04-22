@@ -3,7 +3,6 @@ import { FlightPosition } from "@/types/flightposition";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightMapClient from "@/components/Map/client/FlightMapClient";
 
-
 type pageProps = {
   searchParams?: Promise<{
     icao24?: string;
