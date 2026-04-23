@@ -3,11 +3,11 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { FlightPosition } from "@/types/flightposition";
 
-const FlightMapLeaflet = dynamic(() => import("./Leaflet/FlightMapLeaflet"), {
+const FlightMapLeaflet = dynamic(() => import("../Leaflet/FlightMapLeaflet"), {
   ssr: false,
 });
 
-const FlightMapLibre = dynamic(() => import("./MapLibre/FlightMapLibre"), {
+const FlightMapLibre = dynamic(() => import("../MapLibre/FlightMapLibre"), {
   ssr: false,
 });
 

@@ -1,8 +1,7 @@
 export const dynamic = "force-dynamic";
 import { FlightPosition } from "@/types/flightposition";
 import { getSupabaseServerClient } from "@/lib/supabase";
-import FlightMapClient from "@/components/Map/FlightMapClient";
-
+import FlightMapClient from "@/components/Map/client/FlightMapClient";
 
 type pageProps = {
   searchParams?: Promise<{
