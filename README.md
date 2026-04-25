@@ -142,7 +142,7 @@ Through this project I gained:
 
 ## 🟢 Working on now:
 
-- Refactor mapLibre 
+- flight.ts in MapLibre
 
 ---
 
