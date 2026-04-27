@@ -22,3 +22,11 @@ export function addFlightShadow(map: maplibregl.Map) {
     },
   });
 }
+
+export async function addFlightSymbols(
+  map: maplibregl.Map,
+  flights: FlightPosition[],
+  onSelectFlight: (f: FlightPosition | null) => void
+) {
+  
+}
