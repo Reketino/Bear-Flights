@@ -24,6 +24,6 @@ export function addFlightShadow(map: maplibregl.Map) {
 }
 
 export async function addFlightSymbols(
-  map:maplibregl.Map,
+  map: maplibregl.Map,
   flights: FlightPosition[],
 ) 
