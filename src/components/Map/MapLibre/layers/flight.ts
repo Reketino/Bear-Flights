@@ -28,5 +28,8 @@ export async function addFlightSymbols(
   flights: FlightPosition[],
   onSelectFlight: (f: FlightPosition | null) => void
 ) {
+  const res = await map.loadImage("/icons/airplane1.png");
+  const image = res.data;
+
   
 }
