@@ -31,5 +31,7 @@ export async function addFlightSymbols(
   const res = await map.loadImage("/icons/airplane1.png");
   const image = res.data;
 
-  
+  if (!map.hasImage("airplane-icon")) {
+    map.addImage("airplane-icon", image);
+  }
 }
