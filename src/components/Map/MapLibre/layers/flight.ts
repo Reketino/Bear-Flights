@@ -26,10 +26,12 @@ export function addFlightShadow(map: maplibregl.Map) {
 export async function addFlightSymbols(
   map: maplibregl.Map,
   flights: FlightPosition[],
-  onSelectFlight: (f: FlightPosition | null) => void
+  onSelectFlight: (f: FlightPosition | null) => void,
 ) {
   const res = await map.loadImage("/icons/airplane1.png");
   const image = res.data;
 
-  
+  if (!map.hasImage("airplane-icon")) {
+    map.addImage("airplane-icon", image);
+  }
 }
