@@ -37,30 +37,30 @@ export async function addFlightSymbols(
 
   map.addLayer({
     id: "flight-symbol",
-            type: "symbol",
-            source: "flights",
-            layout: {
-              "icon-image": "airplane-icon",
-              "icon-size": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                5,
-                0.2,
-                8,
-                0.6,
-                12,
-                1.2,
-              ],
-              "icon-rotate": ["get", "heading"],
-              "icon-rotation-alignment": "map",
-              "icon-pitch-alignment": "map",
-              "icon-allow-overlap": true,
-            },
-            paint: {
-              "icon-halo-color": "#0ea5e9",
-              "icon-halo-width": 2,
-              "icon-halo-blur": 1,
-            },
-  })
+    type: "symbol",
+    source: "flights",
+    layout: {
+      "icon-image": "airplane-icon",
+      "icon-size": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        5,
+        0.2,
+        8,
+        0.6,
+        12,
+        1.2,
+      ],
+      "icon-rotate": ["get", "heading"],
+      "icon-rotation-alignment": "map",
+      "icon-pitch-alignment": "map",
+      "icon-allow-overlap": true,
+    },
+    paint: {
+      "icon-halo-color": "#0ea5e9",
+      "icon-halo-width": 2,
+      "icon-halo-blur": 1,
+    },
+  });
 }
