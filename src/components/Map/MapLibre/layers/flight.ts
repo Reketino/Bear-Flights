@@ -63,4 +63,7 @@ export async function addFlightSymbols(
       "icon-halo-blur": 1,
     },
   });
+
+  (map as any).on("click", "flight-symbol", (e: any) => {
+  })
 }
