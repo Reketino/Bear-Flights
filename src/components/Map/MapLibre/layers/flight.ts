@@ -67,5 +67,8 @@ export async function addFlightSymbols(
   (map as any).on("click", "flight-symbol", (e: any) => {
     const feature = e.features?.[0];
     if (!feature) return;
+
+    const icao24 = feature.properties?.icao24;
+
   });
 }
