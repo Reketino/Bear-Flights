@@ -69,6 +69,9 @@ export async function addFlightSymbols(
     if (!feature) return;
 
     const icao24 = feature.properties?.icao24;
+    const flight = flights.find((f) => f.icao24 === icao24);
+
+    onSelectFlight(flight ?? null);
 
   });
 }
