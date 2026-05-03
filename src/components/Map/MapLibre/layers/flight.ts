@@ -72,6 +72,5 @@ export async function addFlightSymbols(
     const flight = flights.find((f) => f.icao24 === icao24);
 
     onSelectFlight(flight ?? null);
-
   });
 }
