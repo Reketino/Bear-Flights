@@ -12,11 +12,11 @@ export function addRouteLayer(
 
   map.addLayer({
     id: "route-line",
-     type: "line",
-        source: "route",
-        paint: {
-        "line-width": 4,
-        "line-color": "#38bdf8",
-      },
+    type: "line",
+    source: "route",
+    paint: {
+      "line-width": 4,
+      "line-color": "#38bdf8",
+    },
   });
 }
