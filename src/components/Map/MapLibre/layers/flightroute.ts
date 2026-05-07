@@ -8,5 +8,15 @@ export function addRouteLayer(
   map.addSource("route", {
     type: "geojson",
     data: emptyLine(),
-  })
+  });
+
+  map.addLayer({
+    id: "route-line",
+     type: "line",
+        source: "route",
+        paint: {
+        "line-width": 4,
+        "line-color": "#38bdf8",
+      },
+  });
 }
