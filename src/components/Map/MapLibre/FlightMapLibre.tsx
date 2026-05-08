@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
+import { addFlightShadow, addFlightSymbols } from "./layers/flight";
+import { addRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import type { Feature, LineString } from "geojson";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
