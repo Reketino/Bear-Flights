@@ -39,7 +39,7 @@ export default function FlightMapLibre({
     map.addControl(new maplibregl.NavigationControl());
     mapRef.current = map;
 
-    map.on("load", () => {
+    (map as any).on("load", async () => {
       console.log("Maplibre loaded");
       setMapLoaded(true);
 
@@ -48,113 +48,28 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
 
-      map.addLayer({
-        id: "flight-shadow",
-        type: "circle",
-        source: "flights",
-        paint: {
-          "circle-radius": [
-            "interpolate",
-            ["linear"],
-            ["get", "altitude"],
-            0,
-            2,
-            10000,
-            14,
-          ],
-          "circle-color": "#000",
-          "circle-opacity": 0.25,
-          "circle-blur": 1.5,
-        },
+      addFlightShadow(map);
+      await addFlightSymbols(map, flights, onSelectFlight);
+      addRouteLayer(map, emptyLine);
+
+      map.setPaintProperty(
+        "building-3d", 
+        "fill-extrusion-color", 
+        "#9ca3af"
+      );
+
+       map.setPaintProperty(
+        "building-3d", 
+        "fill-extrusion-opacity", 
+        0.8
+      );
       });
 
-      (async () => {
-        try {
-          const response = await map.loadImage("/icons/airplane1.png");
-          const image = response.data;
-          if (!map.hasImage("airplane-icon")) {
-            map.addImage("airplane-icon", image);
-          }
-
-          map.addLayer({
-            id: "flight-symbol",
-            type: "symbol",
-            source: "flights",
-            layout: {
-              "icon-image": "airplane-icon",
-              "icon-size": [
-                "interpolate",
-                ["linear"],
-                ["zoom"],
-                5,
-                0.2,
-                8,
-                0.6,
-                12,
-                1.2,
-              ],
-              "icon-rotate": ["get", "heading"],
-              "icon-rotation-alignment": "map",
-              "icon-pitch-alignment": "map",
-              "icon-allow-overlap": true,
-            },
-            paint: {
-              "icon-halo-color": "#0ea5e9",
-              "icon-halo-width": 2,
-              "icon-halo-blur": 1,
-            },
-          });
-
-          (map as any).on("click", "flight-symbol", (e: any) => {
-            const feature = e.features?.[0];
-            if (!feature) return;
-
-            const icao24 = feature.properties?.icao24;
-            if (!icao24) return;
-
-            const flight = flights.find((f) => f.icao24 === icao24);
-            if (!flight) return;
-
-            onSelectFlight(flight);
-          });
-
-          (map as any).on("mouseenter", "flight-symbol", () => {
-            map.getCanvas().style.cursor = "pointer";
-          });
-
-          (map as any).on("mouseleave", "flight-symbol", () => {
-            map.getCanvas().style.cursor = "";
-          });
-        } catch (err) {
-          console.error("Image load error", err);
-        }
-      })();
-
-      map.addSource("route", {
-        type: "geojson",
-        data: emptyLine(),
-      });
-
-      map.addLayer({
-        id: "route-line",
-        type: "line",
-        source: "route",
-        paint: {
-          "line-width": 4,
-          "line-color": "#38bdf8",
-        },
-      });
-
-      map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
-
-      map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
-    });
-
-    return () => {
-      map.remove();
-      mapRef.current = null;
-    };
-  }, []);
+       return () => {
+        map.remove();
+        mapRef.current = null;
+       };
+      }, []);
 
   useEffect(() => {
     const map = mapRef.current;
