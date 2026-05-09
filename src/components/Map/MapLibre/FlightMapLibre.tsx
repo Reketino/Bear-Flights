@@ -52,24 +52,16 @@ export default function FlightMapLibre({
       await addFlightSymbols(map, flights, onSelectFlight);
       addRouteLayer(map, emptyLine);
 
-      map.setPaintProperty(
-        "building-3d", 
-        "fill-extrusion-color", 
-        "#9ca3af"
-      );
+      map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
 
-       map.setPaintProperty(
-        "building-3d", 
-        "fill-extrusion-opacity", 
-        0.8
-      );
-      });
+      map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
+    });
 
-       return () => {
-        map.remove();
-        mapRef.current = null;
-       };
-      }, []);
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, []);
 
   useEffect(() => {
     const map = mapRef.current;
