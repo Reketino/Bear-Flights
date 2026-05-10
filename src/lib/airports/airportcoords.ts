@@ -66,6 +66,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Jäkäläpää",
   },
 
+  // GERMANY
+  EDDM: {
+    lat: 48.364082,
+    lon: 11.783878,
+    country: "Germany",
+    name: "Munich",
+  },
+
   // ICELAND
   BIKF: {
     lat: 63.985099,
