@@ -14,6 +14,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Lesnovo",
   },
 
+   EDDF: {
+    lat: 50.040283,
+    lon:  8.566775,
+    country: "Germany",
+    name: "Frankfurt",
+  },
+
   // DENMARK
   EKBI: {
     lat: 55.740279,
