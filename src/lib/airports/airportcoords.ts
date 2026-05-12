@@ -22,6 +22,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Billund",
   },
 
+    CYMX: {
+    lat: 45.671832,
+    lon: -74.035738,
+    country: "Canada",
+    name: "Montreal",
+  },
+
   EKCH: {
     lat: 55.617900848389,
     lon: 12.656000137329,
