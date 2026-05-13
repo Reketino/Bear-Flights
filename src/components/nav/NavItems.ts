@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { MapIcon, PlaneTakeoff, Clock, } from "lucide-react";
+import { MapIcon, PlaneTakeoff, Clock } from "lucide-react";
 
 // Defining Navitem function
 export type NavItem = {
