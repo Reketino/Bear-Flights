@@ -14,13 +14,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Lesnovo",
   },
 
-   EDDH: {
-    lat: 53.631356,
-    lon: 9.995250,
-    country: "Germany",
-    name: "Hamburg",
-  },
-
   // CANADA
   CYMX: {
     lat: 45.671832,
@@ -87,6 +80,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 8.566775,
     country: "Germany",
     name: "Frankfurt",
+  },
+
+  EDDH: {
+    lat: 53.631356,
+    lon: 9.99525,
+    country: "Germany",
+    name: "Hamburg",
   },
 
   EDDM: {
