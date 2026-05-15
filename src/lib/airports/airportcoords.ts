@@ -82,6 +82,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Frankfurt",
   },
 
+  EDDH: {
+    lat: 53.631356,
+    lon: 9.99525,
+    country: "Germany",
+    name: "Hamburg",
+  },
+
   EDDM: {
     lat: 48.364082,
     lon: 11.783878,
