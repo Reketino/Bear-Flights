@@ -5,10 +5,10 @@ export function flightsToGeoJSON(flights: FlightPosition[]) {
         type: "FeatureCollection" as const,
 
         features: flights.map((f) => ({
-            type: "FeatureCollection" as const, 
+            type: "Feature" as const, 
 
             properties: {
-                
+                altitude: f.altitude ?? 0,
             }
         }))
     }
