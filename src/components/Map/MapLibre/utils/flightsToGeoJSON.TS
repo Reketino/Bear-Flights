@@ -10,6 +10,7 @@ export function flightsToGeoJSON(flights: FlightPosition[]) {
             properties: {
                 altitude: f.altitude ?? 0,
                 icao24: f.icao24,
+                heading: f.heading ?? 0,
             }
         }))
     }
