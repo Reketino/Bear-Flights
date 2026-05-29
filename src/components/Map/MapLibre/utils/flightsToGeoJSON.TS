@@ -15,6 +15,7 @@ export function flightsToGeoJSON(flights: FlightPosition[]) {
 
             geometry: {
                 type: "Linestring",
+                coordinates: [f.longitude, f.latitude],
             }
         }))
     }
