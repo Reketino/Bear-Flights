@@ -1,9 +1,9 @@
-import type {FeatureCollection, Point} from "geojson";
+import type { FeatureCollection, Point } from "geojson";
 
 import type { FlightPosition } from "../../types/flightposition";
 
 export function flightsToGeoJSON(
-  flights: FlightPosition[]
+  flights: FlightPosition[],
 ): FeatureCollection<Point> {
   return {
     type: "FeatureCollection",
