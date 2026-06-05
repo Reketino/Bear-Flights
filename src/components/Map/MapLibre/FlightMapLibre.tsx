@@ -7,6 +7,7 @@ import { addRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import type { Feature, LineString } from "geojson";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
+import { emptyLine } from "@/lib/map/emptyLine";
 
 type Props = {
   flights: FlightPosition[];
@@ -138,13 +139,3 @@ function flightsToGeoJSON(flights: FlightPosition[]) {
   };
 }
 
-function emptyLine(): Feature<LineString> {
-  return {
-    type: "Feature",
-    properties: {},
-    geometry: {
-      type: "LineString",
-      coordinates: [],
-    },
-  };
-}
