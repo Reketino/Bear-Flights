@@ -6,6 +6,7 @@ import { addFlightShadow, addFlightSymbols } from "./layers/flight";
 import { addRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
+import { flightsToGeoJSON } from "@/lib/map/flightsToGeoJSON";
 import { emptyLine } from "@/lib/map/emptyLine";
 
 type Props = {
@@ -118,23 +119,5 @@ export default function FlightMapLibre({
   }, [selectedFlight, mapLoaded]);
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
-}
-
-function flightsToGeoJSON(flights: FlightPosition[]) {
-  return {
-    type: "FeatureCollection" as const,
-    features: flights.map((f) => ({
-      type: "Feature" as const,
-      properties: {
-        altitude: f.altitude ?? 0,
-        icao24: f.icao24,
-        heading: f.heading ?? 0,
-      },
-      geometry: {
-        type: "Point" as const,
-        coordinates: [f.longitude, f.latitude],
-      },
-    })),
-  };
 }
 
