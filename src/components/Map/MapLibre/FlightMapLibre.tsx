@@ -6,7 +6,7 @@ import { addFlightShadow, addFlightSymbols } from "./layers/flight";
 import { addRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
-import { flightsToGeoJSON } from "../../../lib/map/flightsToGeoJSON";
+import { flightsToGeoJSON } from "@/lib/map/flightsToGeoJSON";
 import { emptyLine } from "@/lib/map/emptyLine";
 
 type Props = {
