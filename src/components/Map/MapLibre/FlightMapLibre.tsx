@@ -120,4 +120,3 @@ export default function FlightMapLibre({
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
 }
-
