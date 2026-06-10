@@ -51,7 +51,7 @@ export default function FlightMapLibre({
 
       addFlightShadow(map);
       await addFlightSymbols(map, flights, onSelectFlight);
-      addRouteLayer(map, emptyLine);
+      addRouteLayer(map);
 
       map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
 
