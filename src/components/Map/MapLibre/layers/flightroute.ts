@@ -1,10 +1,7 @@
 import maplibregl from "maplibre-gl";
-import type { Feature, LineString } from "geojson";
+import { emptyLine } from "@/lib/map/emptyLine";
 
-export function addRouteLayer(
-  map: maplibregl.Map,
-  emptyLine: () => Feature<LineString>,
-) {
+export function addRouteLayer(map: maplibregl.Map) {
   map.addSource("route", {
     type: "geojson",
     data: emptyLine(),
