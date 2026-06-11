@@ -8,5 +8,5 @@ export function emptyLine(): Feature<LineString> {
             type: "LineString",
             coordinates: [],
         }
-    }
+    } as const;
 }
