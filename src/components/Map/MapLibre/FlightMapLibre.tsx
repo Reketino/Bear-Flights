@@ -20,7 +20,7 @@ export default function FlightMapLibre({
   selectedFlight,
   onSelectFlight,
 }: Props) {
-  console.log("FlightMapLibre rendred");
+  console.log("FlightMapLibre rendered");
   const mapRef = useRef<maplibregl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
