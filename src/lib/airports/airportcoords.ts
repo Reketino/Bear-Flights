@@ -14,6 +14,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Lesnovo",
   },
 
+    ENBO: {
+    lat: 67.269035,
+    lon: 14.362974,
+    country: "Norway",
+    name: "Bodø",
+  },
+
   // CANADA
   CYMX: {
     lat: 45.671832,
