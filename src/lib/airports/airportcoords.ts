@@ -144,6 +144,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   },
 
   // LITHUANIA
+  EYPA: {
+    lat: 55.971271,
+    lon: 21.093051,
+    country: "Lithuania",
+    name: "Palanga",
+  },
+
   EYVI: {
     lat: 54.637053,
     lon: 25.287853,
