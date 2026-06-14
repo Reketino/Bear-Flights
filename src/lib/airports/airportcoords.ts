@@ -182,6 +182,13 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Bergen",
   },
 
+  ENBO: {
+    lat: 67.269035,
+    lon: 14.362974,
+    country: "Norway",
+    name: "Bodø",
+  },
+
   ENBL: {
     lat: 61.392091,
     lon: 5.762737,
