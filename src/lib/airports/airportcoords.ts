@@ -96,6 +96,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Munich",
   },
 
+  // HONDURAS
+  MHLP: {
+    lat: 14.034167289734,
+    lon: -88.62833404541,
+    country: "Honduras",
+    name: "Mapulaca",
+  },
+
   // ICELAND
   BIKF: {
     lat: 63.985099,
@@ -156,14 +164,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 25.287853,
     country: "Lithuania",
     name: "Vilnius",
-  },
-
-  // MAPULACA
-  MHLP: {
-    lat: 14.034167289734,
-    lon: -88.62833404541,
-    country: "Honduras",
-    name: "Mapulaca",
   },
 
   // NETHERLANDS
