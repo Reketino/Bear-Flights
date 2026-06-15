@@ -162,8 +162,8 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
   MHLP: {
     lat: 14.034167289734,
     lon: -88.62833404541,
-    country: "Mapulaca",
-    name: "Honduras",
+    country: "Honduras",
+    name: "Mapulaca",
   },
 
   // NETHERLANDS
