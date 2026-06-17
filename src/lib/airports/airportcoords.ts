@@ -143,6 +143,14 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     name: "Tokyo",
   },
 
+  // KOSOVO
+  BKPR: {
+    lat: 42.574073,
+    lon: 21.035818,
+    country: "Kosovo",
+    name: "Pristina",
+  },
+
   // LATVIA
   EVRA: {
     lat: 56.921328,
@@ -321,14 +329,6 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lon: 17.7657,
     country: "Poland",
     name: "Lebork",
-  },
-
-  // PRISTINA
-  BKPR: {
-    lat: 42.574073,
-    lon: 21.035818,
-    country: "Kosovo",
-    name: "Pristina",
   },
 
   // QATAR
