@@ -366,7 +366,7 @@ export const AIRPORTS: Record<string, AirPortCoords> = {
     lat: 59.651901245117,
     lon: 17.918600082397,
     country: "Sweden",
-    name: "Stockholm,",
+    name: "Stockholm",
   },
 
   // SWITZERLAND
