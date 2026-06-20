@@ -30,7 +30,7 @@ export default function FlightMapLibre({
 
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: "https://tiles.openfreemap.org/styles/liberty",
+      style: `https://api.maptiler.com/maps/hybrid/style.json?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
       center: [6.578392, 62.392497],
       zoom: 8,
       pitch: 60,
@@ -53,9 +53,9 @@ export default function FlightMapLibre({
       await addFlightSymbols(map, flights, onSelectFlight);
       addRouteLayer(map);
 
-      map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
+      // map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
 
-      map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
+      // map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
     });
 
     return () => {
