@@ -52,10 +52,6 @@ export default function FlightMapLibre({
       addFlightShadow(map);
       await addFlightSymbols(map, flights, onSelectFlight);
       addRouteLayer(map);
-
-      // map.setPaintProperty("building-3d", "fill-extrusion-color", "#9ca3af");
-
-      // map.setPaintProperty("building-3d", "fill-extrusion-opacity", 0.8);
     });
 
     return () => {
