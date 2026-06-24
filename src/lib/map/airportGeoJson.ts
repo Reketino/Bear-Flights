@@ -25,7 +25,7 @@ export function airportGeoJson(
     }
   }
 
-    if (arrivalIcao) {
+  if (arrivalIcao) {
     const airport = AIRPORTS[arrivalIcao];
 
     if (airport) {
