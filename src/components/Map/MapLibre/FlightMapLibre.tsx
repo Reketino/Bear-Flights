@@ -51,6 +51,14 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
 
+      map.addSource("flights", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [],
+        },
+      });
+
       addFlightShadow(map);
       await addFlightSymbols(map, flights, onSelectFlight);
       addRouteLayer(map);
