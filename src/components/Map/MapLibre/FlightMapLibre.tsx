@@ -51,7 +51,7 @@ export default function FlightMapLibre({
         data: flightsToGeoJSON(flights),
       });
 
-      map.addSource("flights", {
+      map.addSource("airports", {
         type: "geojson",
         data: {
           type: "FeatureCollection",
