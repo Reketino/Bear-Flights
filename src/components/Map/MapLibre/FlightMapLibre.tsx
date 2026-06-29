@@ -10,7 +10,6 @@ import { flightsToGeoJSON } from "@/lib/map/flightGeoJson";
 import { airportGeoJson } from "@/lib/map/airportGeoJson";
 import { emptyLine } from "@/lib/map/emptyLine";
 
-
 type Props = {
   flights: FlightPosition[];
   selectedFlight: FlightPosition | null;
@@ -77,10 +76,9 @@ export default function FlightMapLibre({
             "#22c55e",
             "#ef4444",
           ],
-          "circle-stroke-color": "#ffffff"
-          
+          "circle-stroke-color": "#ffffff",
         },
-      })
+      });
     });
 
     return () => {
