@@ -79,9 +79,7 @@ export default function FlightMapLibre({
           "circle-stroke-color": "#ffffff",
         },
       });
-    });
-
-    map.addLayer({
+      map.addLayer({
       id: "airport-labels",
       type: "symbol",
       source: "airports",
@@ -95,6 +93,7 @@ export default function FlightMapLibre({
         "text-halo-color": "#000000",
         "text-halo-width": 1,
       },
+    });
     });
 
     return () => {
