@@ -123,10 +123,20 @@ export default function FlightMapLibre({
       | maplibregl.GeoJSONSource
       | undefined;
 
+    const airportSource = map.getSource("airports") as
+    | maplibregl.GeoJSONSource
+    | undefined;
+
     if (!routeSource) return;
 
     if (!selectedFlight) {
       routeSource.setData(emptyLine());
+
+      airportSource?.setData({
+        type: "FeatureCollection",
+        features: [],
+      })
+      
       return;
     }
 
