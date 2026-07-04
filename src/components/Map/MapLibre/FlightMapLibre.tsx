@@ -63,7 +63,7 @@ export default function FlightMapLibre({
       addRouteLayer(map);
 
       map.addLayer({
-        id: "airports-markers",
+        id: "airport-markers",
         type: "circle",
         source: "airports",
         paint: {
