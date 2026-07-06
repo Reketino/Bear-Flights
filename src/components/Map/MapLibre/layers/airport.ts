@@ -18,5 +18,19 @@ export function addAirportLayers(map: maplibregl.Map) {
           "circle-stroke-color": "#ffffff",
         },
       });
-    
+           map.addLayer({
+      id: "airport-labels",
+      type: "symbol",
+      source: "airports",
+      layout: {
+        "text-field": ["get", "name"],
+        "text-offset": [0, 1.5],
+        "text-size": 12,
+      },
+      paint: {
+        "text-color": "#ffffff",
+        "text-halo-color": "#000000",
+        "text-halo-width": 1,
+      },
+    });
 }
