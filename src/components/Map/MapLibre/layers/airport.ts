@@ -16,6 +16,7 @@ export function addAirportLayers(map: maplibregl.Map) {
         "#ef4444",
       ],
       "circle-stroke-color": "#ffffff",
+      "circle-stroke-width": 2,
     },
   });
   map.addLayer({
