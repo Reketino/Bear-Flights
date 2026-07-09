@@ -62,6 +62,7 @@ export default function FlightMapLibre({
       addFlightShadow(map);
       await addFlightSymbols(map, flights, onSelectFlight);
       addRouteLayer(map);
+      addAirportLayers(map);
 
       map.addLayer({
         id: "airport-markers",
