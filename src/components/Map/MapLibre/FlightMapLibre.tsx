@@ -147,6 +147,13 @@ export default function FlightMapLibre({
       zoom: 10,
       speed: 0.8,
     });
+    
+    airportSource?.setData(
+      airportGeoJson(
+        selectedFlight.departure_airport?.trim().toUpperCase(),
+        selectedFlight.arrival_airport?.trim().toUpperCase(),
+      )
+    );
 
     if (selectedFlight.departure_airport) {
       const dep =
