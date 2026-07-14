@@ -1,4 +1,6 @@
 import maplibregl from "maplibre-gl";
+import { airportGeoJson } from "@/lib/map/airportGeoJson";
+import type { FlightPosition } from "@/types/flightposition";
 
 export function addAirportLayers(map: maplibregl.Map) {
   map.addLayer({
@@ -34,4 +36,11 @@ export function addAirportLayers(map: maplibregl.Map) {
       "text-halo-width": 1,
     },
   });
+}
+
+export function updateAirportLayer(
+  map: maplibregl.Map,
+  flight: FlightPosition | null,
+) {
+  
 }
