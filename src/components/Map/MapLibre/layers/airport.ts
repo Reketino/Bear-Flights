@@ -47,5 +47,12 @@ export function updateAirportLayer(
   | undefined;
 
   if (!source) return;
+
+  if (!flight) {
+    source.setData({
+      type: "FeatureCollection",
+      features: [],
+    });
+  }
   
 }
