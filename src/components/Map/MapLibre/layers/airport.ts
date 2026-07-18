@@ -53,6 +53,8 @@ export function updateAirportLayer(
       type: "FeatureCollection",
       features: [],
     });
+
+    return;
   }
   
 }
