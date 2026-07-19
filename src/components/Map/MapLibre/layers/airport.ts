@@ -56,5 +56,10 @@ export function updateAirportLayer(
 
     return;
   }
-  
+  source.setData(
+    airportGeoJson(
+      flight.departure_airport?.trim().toUpperCase(),
+      flight.arrival_airport?.trim().toUpperCase(),
+    ),
+  );
 }
