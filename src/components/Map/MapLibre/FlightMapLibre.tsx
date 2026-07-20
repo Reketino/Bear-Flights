@@ -9,7 +9,10 @@ import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { flightsToGeoJSON } from "@/lib/map/flightGeoJson";
 import { airportGeoJson } from "@/lib/map/airportGeoJson";
 import { emptyLine } from "@/lib/map/emptyLine";
-import { addAirportLayers } from "./layers/airport";
+import { 
+  addAirportLayers, 
+  updateAirportLayer,
+} from "./layers/airport";
 
 type Props = {
   flights: FlightPosition[];
