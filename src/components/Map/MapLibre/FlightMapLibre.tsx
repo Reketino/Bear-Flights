@@ -7,7 +7,6 @@ import { addRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { flightsToGeoJSON } from "@/lib/map/flightGeoJson";
-import { airportGeoJson } from "@/lib/map/airportGeoJson";
 import { emptyLine } from "@/lib/map/emptyLine";
 import { 
   addAirportLayers, 
