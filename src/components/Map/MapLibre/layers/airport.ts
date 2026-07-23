@@ -43,8 +43,8 @@ export function updateAirportLayer(
   flight: FlightPosition | null,
 ) {
   const source = map.getSource("airports") as
-  | maplibregl.GeoJSONSource
-  | undefined;
+    | maplibregl.GeoJSONSource
+    | undefined;
 
   if (!source) return;
 
