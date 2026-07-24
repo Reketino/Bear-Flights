@@ -1,5 +1,8 @@
 import maplibregl from "maplibre-gl";
+
+import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { emptyLine } from "@/lib/map/emptyLine";
+import type { FlightPosition } from "@/types/flightposition";
 
 export function addRouteLayer(map: maplibregl.Map) {
   map.addSource("route", {
