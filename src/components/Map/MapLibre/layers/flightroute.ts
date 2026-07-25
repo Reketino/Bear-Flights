@@ -20,3 +20,10 @@ export function addRouteLayer(map: maplibregl.Map) {
     },
   });
 }
+
+export function updateRouteLayer(
+  map: maplibregl.Map,
+  flight: FlightPosition | null,
+) {
+  
+}
