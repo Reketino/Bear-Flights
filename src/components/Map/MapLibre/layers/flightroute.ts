@@ -25,5 +25,7 @@ export function updateRouteLayer(
   map: maplibregl.Map,
   flight: FlightPosition | null,
 ) {
-  
+  const source = map.getSource("route") as 
+  | maplibregl.GeoJSONSource
+  | undefined;
 }
