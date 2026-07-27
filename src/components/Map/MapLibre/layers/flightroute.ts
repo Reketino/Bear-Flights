@@ -26,6 +26,14 @@ export function updateRouteLayer(
   flight: FlightPosition | null,
 ) {
   const source = map.getSource("route") as 
-  | maplibregl.GeoJSONSource
-  | undefined;
+    | maplibregl.GeoJSONSource
+    | undefined;
+
+  if (!source) return;
+
+  if (!flight?.departure_airport) {
+    source.setData(emptyLine());
+    return;
+  }
+
 }
