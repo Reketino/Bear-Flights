@@ -37,6 +37,11 @@ export function updateRouteLayer(
   }
 
   const departureIcao = flight.departure_airport.trim().toUpperCase();
-  const departure_airport = AIRPORTS[departureIcao]
+  const departureAirport = AIRPORTS[departureIcao]
+
+  if (!departureAirport) {
+    source.setData(emptyLine());
+    return;
+  }
   
 }
