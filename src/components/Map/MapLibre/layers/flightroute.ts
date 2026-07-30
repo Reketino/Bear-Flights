@@ -43,5 +43,16 @@ export function updateRouteLayer(
     source.setData(emptyLine());
     return;
   }
-  
+
+  source.setData({
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [departureAirport.lon, departureAirport.lat],
+        [flight.longitude, flight.latitude],
+      ],
+    },
+  });
 }
