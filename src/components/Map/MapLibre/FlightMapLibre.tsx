@@ -90,43 +90,16 @@ export default function FlightMapLibre({
     const map = mapRef.current;
     if (!map || !mapLoaded) return;
 
-    const routeSource = map.getSource("route") as
-      | maplibregl.GeoJSONSource
-      | undefined;
-
-    if (!routeSource) return;
-
     updateAirportLayer(map, selectedFlight);
+    updateRouteLayer(map, selectedFlight)
 
-    if (!selectedFlight) {
-      routeSource.setData(emptyLine());
-      return;
-    }
+    if (!selectedFlight) return;
 
     map.flyTo({
       center: [selectedFlight.longitude, selectedFlight.latitude],
       zoom: 10,
       speed: 0.8,
     });
-
-    if (selectedFlight.departure_airport) {
-      const dep =
-        AIRPORTS[selectedFlight.departure_airport.trim().toUpperCase()];
-      if (dep) {
-        const routeData = {
-          type: "Feature",
-          geometry: {
-            type: "LineString",
-            coordinates: [
-              [dep.lon, dep.lat],
-              [selectedFlight.longitude, selectedFlight.latitude],
-            ],
-          },
-        };
-
-        routeSource.setData(routeData as any);
-      }
-    }
   }, [selectedFlight, mapLoaded]);
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
