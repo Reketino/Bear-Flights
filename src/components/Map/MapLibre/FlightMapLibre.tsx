@@ -5,9 +5,8 @@ import maplibregl from "maplibre-gl";
 import { addFlightShadow, addFlightSymbols } from "./layers/flight";
 import { addRouteLayer, updateRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
-import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { flightsToGeoJSON } from "@/lib/map/flightGeoJson";
-import { emptyLine } from "@/lib/map/emptyLine";
+import { updateCamera } from "./layers/camera";
 import { 
   addAirportLayers, 
   updateAirportLayer,
@@ -44,7 +43,7 @@ export default function FlightMapLibre({
     map.addControl(new maplibregl.NavigationControl());
     mapRef.current = map;
 
-    (map as any).on("load", async () => {
+    (map).on("load", async () => {
       console.log("Maplibre loaded");
       setMapLoaded(true);
 
@@ -88,18 +87,12 @@ export default function FlightMapLibre({
 
   useEffect(() => {
     const map = mapRef.current;
+
     if (!map || !mapLoaded) return;
 
     updateAirportLayer(map, selectedFlight);
-    updateRouteLayer(map, selectedFlight)
-
-    if (!selectedFlight) return;
-
-    map.flyTo({
-      center: [selectedFlight.longitude, selectedFlight.latitude],
-      zoom: 10,
-      speed: 0.8,
-    });
+    updateRouteLayer(map, selectedFlight);
+    updateCamera(map, selectedFlight);
   }, [selectedFlight, mapLoaded]);
 
   return <div ref={containerRef} className="h-150 w-full rounded-xl" />;
