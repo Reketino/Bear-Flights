@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { FlightPosition } from "@/types/flightposition";
+import FlightInfoPanel from "@/components/Flight/FlightInfoPanel";
 
 const FlightMapLeaflet = dynamic(() => import("../Leaflet/FlightMapLeaflet"), {
   ssr: false,
@@ -46,11 +47,15 @@ export default function FlightMapClient({
       )}
 
       {engine === "maplibre" && (
+        <>
         <FlightMapLibre
           flights={flights}
           selectedFlight={selectedFlight}
           onSelectFlight={setSelectedFlight}
         />
+
+        <FlightInfoPanel flight={selectedFlight} />
+        </>
       )}
     </>
   );
