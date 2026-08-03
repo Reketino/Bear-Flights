@@ -1,6 +1,7 @@
 "use client";
 
 import type { FlightPosition } from "@/types/flightposition";
+import { AIRPORTS } from "@/lib/airports/airportcoords";
 
 type Props = {
   flight: FlightPosition | null;
@@ -8,6 +9,9 @@ type Props = {
 
 export default function FlightInfoPanel({ flight }: Props) {
   if (!flight) return null;
+
+  const departureICAO = flight.departure_airport?.trim().toUpperCase();
+  const arrivalICAO = flight.arrival_airport?.trim().toUpperCase();
 
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
