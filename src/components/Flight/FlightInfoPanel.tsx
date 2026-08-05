@@ -17,6 +17,11 @@ export default function FlightInfoPanel({ flight }: Props) {
   ? AIRPORTS[departureICAO]
   : undefined;
 
+    const arrivalAirport = arrivalICAO
+  ? AIRPORTS[arrivalICAO]
+  : undefined;
+  
+
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
 
