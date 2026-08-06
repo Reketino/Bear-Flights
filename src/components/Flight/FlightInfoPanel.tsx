@@ -56,6 +56,8 @@ export default function FlightInfoPanel({ flight }: Props) {
           <p className="font-medium">{flight.heading ?? "Unknown"}°</p>
         </div>
       </div>
+
+      <hr className="my-6 border-white/10" />
     </aside>
   );
 }
