@@ -58,6 +58,52 @@ export default function FlightInfoPanel({ flight }: Props) {
       </div>
 
       <hr className="my-6 border-white/10" />
+
+      <h3 className="mb-4 text-lg font-semibold text-white">
+        Route
+      </h3>
+
+      <div className="space-y-5">
+        <div>
+          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+            🛫 Departure
+          </p>
+
+          <p className="font-medium">
+            {departureICAO ?? "Unknown"}
+          </p>
+
+          <p className="text-sm text-neutral-400">
+            {departureAirport?.name ?? "Unknown Airport"}
+          </p>
+
+          <p className="text-xs text-neutral-500">
+            {departureAirport?.country ?? ""}
+          </p>
+        </div>
+
+      <div className="flex justify-center text-3xl text-sky-400">
+        ↓
+      </div>
+
+      <div>
+        <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+          🛬 Arrival
+        </p>
+
+        <p className="font-medium">
+          {arrivalICAO ?? "Unknown"}
+        </p>
+
+        <p className="text-sm text-neutral-400">
+          {arrivalAirport?.name ?? "Unknown Airport"}
+        </p>
+
+        <p className="text-xs text-neutral-500">
+          {arrivalAirport?.country ?? ""}
+        </p>
+      </div>
+      </div>
     </aside>
   );
 }
