@@ -14,25 +14,25 @@ export default function FlightInfoPanel({ flight }: Props) {
   const arrivalICAO = flight.arrival_airport?.trim().toUpperCase();
 
   const departureAirport = departureICAO
-  ? AIRPORTS[departureICAO]
-  : undefined;
+    ? AIRPORTS[departureICAO]
+    : undefined;
 
-    const arrivalAirport = arrivalICAO
-  ? AIRPORTS[arrivalICAO]
-  : undefined;
-  
+  const arrivalAirport = arrivalICAO
+    ? AIRPORTS[arrivalICAO]
+    : undefined;
+
 
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
 
       <div className="mb-6 border-b border-white/10 pb-4">
-      <h2 className="text-2xl font-bold text-sky-400">
-        ✈ {flight.callsign || "Unknown"}
-      </h2>
+        <h2 className="text-2xl font-bold text-sky-400">
+          ✈ {flight.callsign || "Unknown"}
+        </h2>
 
-      <p className="mt-1 text-sm text-neutral-400">
-        Aircraft information
-      </p>
+        <p className="mt-1 text-sm text-neutral-400">
+          Aircraft information
+        </p>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -82,27 +82,27 @@ export default function FlightInfoPanel({ flight }: Props) {
           </p>
         </div>
 
-      <div className="flex justify-center text-3xl text-sky-400">
-        ↓
-      </div>
+        <div className="flex justify-center text-3xl text-sky-400">
+          ↓
+        </div>
 
-      <div>
-        <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-          🛬 Arrival
-        </p>
+        <div>
+          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+            🛬 Arrival
+          </p>
 
-        <p className="font-medium">
-          {arrivalICAO ?? "Unknown"}
-        </p>
+          <p className="font-medium">
+            {arrivalICAO ?? "Unknown"}
+          </p>
 
-        <p className="text-sm text-neutral-400">
-          {arrivalAirport?.name ?? "Unknown Airport"}
-        </p>
+          <p className="text-sm text-neutral-400">
+            {arrivalAirport?.name ?? "Unknown Airport"}
+          </p>
 
-        <p className="text-xs text-neutral-500">
-          {arrivalAirport?.country ?? ""}
-        </p>
-      </div>
+          <p className="text-xs text-neutral-500">
+            {arrivalAirport?.country ?? ""}
+          </p>
+        </div>
       </div>
     </aside>
   );
