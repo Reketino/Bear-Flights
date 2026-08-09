@@ -82,8 +82,9 @@ export default function FlightInfoPanel({ flight }: Props) {
           </p>
         </div>
 
-        <div className="flex justify-center text-3xl text-sky-400">
-          ↓
+        <div className="flex justify-center">
+          <div className="h-8 border border-dashed border-sky-400/50" />
+          
         </div>
 
         <div>
