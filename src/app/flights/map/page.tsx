@@ -40,6 +40,9 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     );
   }
 
+  const icao24s = (data ?? []).map((flight) => flight.icao24);
+  
+
   const safeFlights = (data ?? []).filter(
     (f): f is FlightPosition =>
       Number.isFinite(f.latitude) && Number.isFinite(f.longitude),
