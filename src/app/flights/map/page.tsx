@@ -41,6 +41,13 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   }
 
   const icao24s = (data ?? []).map((flight) => flight.icao24);
+
+  const { data: aircraftData, error: aircraftError } = await supabase
+    .from("aircraft_registry")
+    .select(
+      "icao24, registration, ttypecode, manufacturer, model, owner",
+    )
+    .in("icao24", icao24s);
   
 
   const safeFlights = (data ?? []).filter(
