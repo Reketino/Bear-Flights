@@ -53,6 +53,13 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     console.error("Aircraft registry error:", aircraftError);
   }
 
+  const aircraftByIcao24 = new Map(
+    (aircraftData ?? []).map((aircraft) => [
+      aircraft.icao24,
+      aircraft,
+    ]),
+  );
+
   const safeFlights = (data ?? []).filter(
     (f): f is FlightPosition =>
       Number.isFinite(f.latitude) && Number.isFinite(f.longitude),
