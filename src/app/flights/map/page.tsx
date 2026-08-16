@@ -48,10 +48,10 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
       "icao24, registration, ttypecode, manufacturer, model, owner",
     )
     .in("icao24", icao24s);
-  
-    if (aircraftError) {
-      console.error("Aircraft registry error:", aircraftError);
-    }
+
+  if (aircraftError) {
+    console.error("Aircraft registry error:", aircraftError);
+  }
 
   const safeFlights = (data ?? []).filter(
     (f): f is FlightPosition =>
