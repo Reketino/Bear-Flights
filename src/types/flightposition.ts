@@ -11,4 +11,9 @@ export type FlightPosition = {
 
   departure_airport: string | null;
   arrival_airport: string | null;
+
+  aircraft: {
+    registration: string | null;
+    
+  }
 };
