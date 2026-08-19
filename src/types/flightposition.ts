@@ -14,6 +14,7 @@ export type FlightPosition = {
 
   aircraft: {
     registration: string | null;
-    
+    typecode: string | null;
+    manufacturer: string | null;
   }
 };
