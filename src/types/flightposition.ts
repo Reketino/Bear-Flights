@@ -17,5 +17,6 @@ export type FlightPosition = {
     typecode: string | null;
     manufacturer: string | null;
     model: string | null;
-  }
+    oowner: string | null;
+  } | null;
 };
