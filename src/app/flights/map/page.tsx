@@ -60,7 +60,8 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     ]),
   );
 
-  const safeFlights = (data ?? []).filter(
+  const safeFlights: FlightPosition[] = (data ?? [])
+  .filter(
     (f): f is FlightPosition =>
       Number.isFinite(f.latitude) && Number.isFinite(f.longitude),
   );
