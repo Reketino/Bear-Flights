@@ -62,9 +62,26 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
 
   const safeFlights: FlightPosition[] = (data ?? [])
   .filter(
-    (f): f is FlightPosition =>
-      Number.isFinite(f.latitude) && Number.isFinite(f.longitude),
-  );
+    (flight) =>
+      Number.isFinite(flight.latitude) && 
+    Number.isFinite(flight.longitude),
+  )
+  .map((flight) => {
+    const aircraft = aircraftByIcao24.get(flight.icao24);
+
+    return {
+      ...flight,
+      aircraft: aircraft
+      ? {
+        registration: aircraft.registration,
+        typecode: aircraft.typecode,
+        manufacturer: aircraft.manufacturer,
+        model: aircraft.model,
+        owner: aircraft.owner 
+      }
+      : null
+    };
+  })
 
   return (
     <main
