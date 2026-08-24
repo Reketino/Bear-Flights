@@ -61,27 +61,27 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   );
 
   const safeFlights: FlightPosition[] = (data ?? [])
-  .filter(
-    (flight) =>
-      Number.isFinite(flight.latitude) && 
-    Number.isFinite(flight.longitude),
-  )
-  .map((flight) => {
-    const aircraft = aircraftByIcao24.get(flight.icao24);
+    .filter(
+      (flight) =>
+        Number.isFinite(flight.latitude) &&
+        Number.isFinite(flight.longitude),
+    )
+    .map((flight) => {
+      const aircraft = aircraftByIcao24.get(flight.icao24);
 
-    return {
-      ...flight,
-      aircraft: aircraft
-      ? {
-        registration: aircraft.registration,
-        typecode: aircraft.typecode,
-        manufacturer: aircraft.manufacturer,
-        model: aircraft.model,
-        owner: aircraft.owner 
-      }
-      : null
-    };
-  })
+      return {
+        ...flight,
+        aircraft: aircraft
+          ? {
+            registration: aircraft.registration,
+            typecode: aircraft.typecode,
+            manufacturer: aircraft.manufacturer,
+            model: aircraft.model,
+            owner: aircraft.owner
+          }
+          : null
+      };
+    })
 
   return (
     <main
