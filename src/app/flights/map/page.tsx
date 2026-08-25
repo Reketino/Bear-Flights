@@ -81,7 +81,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
           }
           : null
       };
-    })
+    });
 
   return (
     <main
