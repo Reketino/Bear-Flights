@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  Badge,
+  Building2,
+  Hash,
+  Plane,
+  PlaneLanding,
+  PlaneTakeoff,
+} from "lucide-react";
+
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 
