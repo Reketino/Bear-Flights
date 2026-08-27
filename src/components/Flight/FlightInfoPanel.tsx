@@ -33,8 +33,11 @@ export default function FlightInfoPanel({ flight }: Props) {
 
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
-
       <div className="mb-6 border-b border-white/10 pb-4">
+      <div className="flex items-center gap-3">
+        <div className="rounded-lg bg-sky-400/10 p-2 text-sky-400">
+        <Plane className="size-6" />
+        </div>
         <h2 className="text-2xl font-bold text-sky-400">
           ✈ {flight.callsign || "Unknown"}
         </h2>
@@ -42,6 +45,7 @@ export default function FlightInfoPanel({ flight }: Props) {
         <p className="mt-1 text-sm text-neutral-400">
           Aircraft information
         </p>
+      </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
