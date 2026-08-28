@@ -38,6 +38,7 @@ export default function FlightInfoPanel({ flight }: Props) {
         <div className="rounded-lg bg-sky-400/10 p-2 text-sky-400">
         <Plane className="size-6" />
         </div>
+
         <h2 className="text-2xl font-bold text-sky-400">
           ✈ {flight.callsign || "Unknown"}
         </h2>
@@ -48,6 +49,13 @@ export default function FlightInfoPanel({ flight }: Props) {
       </div>
       </div>
 
+
+
+    <section aria-labelledby="flight-details-heading">
+      <h3 id="flight-details-heading" className="sr-only">
+        Flight details
+      </h3>
+    
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">ICAO24</p>
@@ -69,6 +77,7 @@ export default function FlightInfoPanel({ flight }: Props) {
           <p className="font-medium">{flight.heading ?? "Unknown"}°</p>
         </div>
       </div>
+      </section>
 
       <hr className="my-6 border-white/10" />
 
