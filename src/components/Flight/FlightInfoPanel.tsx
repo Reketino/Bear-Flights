@@ -58,7 +58,11 @@ export default function FlightInfoPanel({ flight }: Props) {
     
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">ICAO24</p>
+          <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
+            <Hash className="size-3.5" />
+            ICAO24
+            </p>
+
           <p className="font-medium">{flight.icao24 || "Unknown"}</p>
         </div>
 
