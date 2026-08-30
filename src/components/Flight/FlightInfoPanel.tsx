@@ -91,8 +91,9 @@ export default function FlightInfoPanel({ flight }: Props) {
 
       <div className="space-y-5">
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-            🛫 Departure
+          <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
+            <PlaneTakeoff className="size-4 text-emerald-400" />
+            Departure
           </p>
 
           <p className="font-medium">
