@@ -110,12 +110,12 @@ export default function FlightInfoPanel({ flight }: Props) {
         </div>
 
         <div className="flex justify-center">
-          <div className="h-8 border-l border-dashed border-sky-400/50" />
-          
+          <div className="h-8 border-l border-dashed border-sky-400/50" />  
         </div>
 
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+          <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
+            <PlaneLanding className="size-4 text-rose-400" />
             🛬 Arrival
           </p>
 
