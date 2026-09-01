@@ -85,6 +85,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
       <hr className="my-6 border-white/10" />
 
+      <section aria-labelledby="route-heading">
       <h3 className="mb-4 text-lg font-semibold text-white">
         Route
       </h3>
@@ -116,7 +117,7 @@ export default function FlightInfoPanel({ flight }: Props) {
         <div>
           <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
             <PlaneLanding className="size-4 text-rose-400" />
-            🛬 Arrival
+             Arrival
           </p>
 
           <p className="font-medium">
@@ -132,6 +133,7 @@ export default function FlightInfoPanel({ flight }: Props) {
           </p>
         </div>
       </div>
+      </section>
     </aside>
   );
 }
