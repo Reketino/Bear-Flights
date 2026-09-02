@@ -39,6 +39,7 @@ export default function FlightInfoPanel({ flight }: Props) {
         <Plane className="size-6" />
         </div>
 
+        <div>
         <h2 className="text-2xl font-bold text-sky-400">
           ✈ {flight.callsign || "Unknown"}
         </h2>
@@ -46,6 +47,7 @@ export default function FlightInfoPanel({ flight }: Props) {
         <p className="mt-1 text-sm text-neutral-400">
           Aircraft information
         </p>
+      </div>
       </div>
       </div>
 
@@ -67,18 +69,33 @@ export default function FlightInfoPanel({ flight }: Props) {
         </div>
 
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">Altitude</p>
-          <p className="font-medium">{flight.altitude ?? "Unknown"} ft</p>
+          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+            Altitude
+            </p>
+
+          <p className="font-medium">
+            {flight.altitude ?? "Unknown"} ft
+            </p>
         </div>
 
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">Speed</p>
-          <p className="font-medium">{flight.velocity ?? "Unknown"} km/h</p>
+          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+            Speed
+            </p>
+
+          <p className="font-medium">
+            {flight.velocity ?? "Unknown"} km/h
+          </p>
         </div>
 
         <div>
-          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">Heading</p>
-          <p className="font-medium">{flight.heading ?? "Unknown"}°</p>
+          <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+            Heading
+            </p>
+
+          <p className="font-medium">
+            {flight.heading ?? "Unknown"}°
+          </p>
         </div>
       </div>
       </section>
@@ -105,9 +122,11 @@ export default function FlightInfoPanel({ flight }: Props) {
             {departureAirport?.name ?? "Unknown Airport"}
           </p>
 
+          {departureAirport?.country && (
           <p className="text-xs text-neutral-500">
             {departureAirport?.country ?? ""}
           </p>
+          )}
         </div>
 
         <div className="flex justify-center">
