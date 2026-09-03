@@ -103,7 +103,10 @@ export default function FlightInfoPanel({ flight }: Props) {
       <hr className="my-6 border-white/10" />
 
       <section aria-labelledby="route-heading">
-      <h3 className="mb-4 text-lg font-semibold text-white">
+      <h3
+      id="route-heading" 
+      className="mb-4 text-lg font-semibold text-white"
+      >
         Route
       </h3>
 
@@ -147,9 +150,11 @@ export default function FlightInfoPanel({ flight }: Props) {
             {arrivalAirport?.name ?? "Unknown Airport"}
           </p>
 
+          {arrivalAirport?.country && (
           <p className="text-xs text-neutral-500">
             {arrivalAirport?.country ?? ""}
           </p>
+          )}
         </div>
       </div>
       </section>
