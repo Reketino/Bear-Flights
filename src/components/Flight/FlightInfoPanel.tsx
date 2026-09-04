@@ -158,6 +158,15 @@ export default function FlightInfoPanel({ flight }: Props) {
         </div>
       </div>
       </section>
+
+      <hr className="my-6 border-white/10" />
+
+      <section aria-labelledby="aircraft-heading">
+      <div className="mb-4 flex items-center gap-2">
+      <Plane className="size-5 text-sky-400" />
+      </div>
+
+      </section>
     </aside>
   );
 }
