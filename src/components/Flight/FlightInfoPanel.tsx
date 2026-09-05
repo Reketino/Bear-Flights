@@ -164,6 +164,13 @@ export default function FlightInfoPanel({ flight }: Props) {
       <section aria-labelledby="aircraft-heading">
       <div className="mb-4 flex items-center gap-2">
       <Plane className="size-5 text-sky-400" />
+
+      <h3 
+      id="aircraft-heading"
+      className="text-lg font-semibold text-white"
+      >
+        Aircraft
+      </h3>
       </div>
 
       </section>
