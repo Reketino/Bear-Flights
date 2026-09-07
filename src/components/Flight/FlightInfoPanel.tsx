@@ -179,8 +179,13 @@ export default function FlightInfoPanel({ flight }: Props) {
             <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
               <Building2 className="size-3.5" />
               Manufacturer
-            </p>     
+            </p> 
+
+            <p className="font-medium">
+            {flight.aircraft.manufacturer ?? "Unknown"}
+            </p>    
           </div>
+          
         </div>
       ) : (
         <p className="text-sm text-neutral-400">
