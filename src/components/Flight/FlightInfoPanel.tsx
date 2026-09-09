@@ -191,6 +191,10 @@ export default function FlightInfoPanel({ flight }: Props) {
               <Badge className="size-3.5" />
               Typecode
             </p>
+
+            <p className="font-medium">
+              {flight.aircraft.typecode ?? "Unknown"}
+            </p>
           </div>
           
         </div>
