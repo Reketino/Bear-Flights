@@ -196,6 +196,12 @@ export default function FlightInfoPanel({ flight }: Props) {
               {flight.aircraft.typecode ?? "Unknown"}
             </p>
           </div>
+
+          <div>
+            <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+              Registration
+            </p>
+          </div>
           
         </div>
       ) : (
