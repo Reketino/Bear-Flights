@@ -201,8 +201,11 @@ export default function FlightInfoPanel({ flight }: Props) {
             <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
               Registration
             </p>
+
+            <p className="font-medium">
+              {flight.aircraft.registration ?? "Unknown"}
+            </p>
           </div>
-          
         </div>
       ) : (
         <p className="text-sm text-neutral-400">
