@@ -127,7 +127,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             {departureAirport?.country && (
               <p className="text-xs text-neutral-500">
-                {departureAirport?.country ?? ""}
+                {departureAirport?.country}
               </p>
             )}
           </div>
