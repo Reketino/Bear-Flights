@@ -209,7 +209,7 @@ export default function FlightInfoPanel({ flight }: Props) {
           </div>
         ) : (
           <p className="text-sm text-neutral-400">
-            Aircraft information unavaliable
+            Aircraft information  unavailable
           </p>
         )}
       </section>
