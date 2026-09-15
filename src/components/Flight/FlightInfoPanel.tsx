@@ -199,6 +199,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <div>
               <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
+                <Hash />
                 Registration
               </p>
 
