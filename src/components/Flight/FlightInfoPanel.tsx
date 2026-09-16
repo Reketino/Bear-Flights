@@ -188,6 +188,15 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <div>
               <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
+                <Plane className="size-3.5" />
+                Model
+              </p>
+
+              
+            </div>
+
+            <div>
+              <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
                 <Badge className="size-3.5" />
                 Typecode
               </p>
