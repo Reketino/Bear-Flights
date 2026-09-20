@@ -51,8 +51,6 @@ export default function FlightInfoPanel({ flight }: Props) {
         </div>
       </div>
 
-
-
       <section aria-labelledby="flight-details-heading">
         <h3 id="flight-details-heading" className="sr-only">
           Flight details
