@@ -192,7 +192,9 @@ export default function FlightInfoPanel({ flight }: Props) {
                 Model
               </p>
 
-              
+              <p className="font-medium">
+                {flight.aircraft.model ?? "Unknown"}
+              </p>
             </div>
 
             <div>
