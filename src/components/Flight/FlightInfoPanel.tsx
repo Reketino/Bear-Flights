@@ -30,7 +30,6 @@ export default function FlightInfoPanel({ flight }: Props) {
     ? AIRPORTS[arrivalICAO]
     : undefined;
 
-
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
       <div className="mb-6 border-b border-white/10 pb-4">
