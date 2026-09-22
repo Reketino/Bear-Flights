@@ -207,7 +207,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <div>
               <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-                <Hash />
+                <Hash className="size-3.5" />
                 Registration
               </p>
 
@@ -218,7 +218,7 @@ export default function FlightInfoPanel({ flight }: Props) {
           </div>
         ) : (
           <p className="text-sm text-neutral-400">
-            Aircraft information  unavailable
+            Aircraft information unavailable
           </p>
         )}
       </section>
