@@ -35,6 +35,11 @@ export default function FlightInfoPanel({ flight }: Props) {
     ? Math.round(flight.altitude * 3.28084)
     : null;
 
+    const speedKmh =
+    flight.velocity !== null
+    ? Math.round(flight.velocity * 3.6)
+    : null;
+    
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
       <div className="mb-6 border-b border-white/10 pb-4">
