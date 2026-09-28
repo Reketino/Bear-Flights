@@ -97,7 +97,9 @@ export default function FlightInfoPanel({ flight }: Props) {
             </p>
 
             <p className="font-medium">
-              {flight.velocity ?? "Unknown"} km/h
+              {speedKmh !== null
+              ? `${speedKmh} km/h`
+              : "Unknown"}
             </p>
           </div>
 
