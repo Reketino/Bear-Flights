@@ -30,20 +30,20 @@ export default function FlightInfoPanel({ flight }: Props) {
     ? AIRPORTS[arrivalICAO]
     : undefined;
 
-    const altitudeFeet =
+  const altitudeFeet =
     flight.altitude !== null
-    ? Math.round(flight.altitude * 3.28084)
-    : null;
+      ? Math.round(flight.altitude * 3.28084)
+      : null;
 
-    const speedKmh =
+  const speedKmh =
     flight.velocity !== null
-    ? Math.round(flight.velocity * 3.6)
-    : null;
+      ? Math.round(flight.velocity * 3.6)
+      : null;
 
-    const heading = flight.heading !== null
+  const heading = flight.heading !== null
     ? Math.round(flight.heading)
     : null
-    
+
   return (
     <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
       <div className="mb-6 border-b border-white/10 pb-4">
@@ -86,8 +86,8 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <p className="font-medium">
               {altitudeFeet !== null
-              ? `${altitudeFeet.toLocaleString} ft`
-              : "Unknown"}
+                ? `${altitudeFeet.toLocaleString} ft`
+                : "Unknown"}
             </p>
           </div>
 
@@ -98,8 +98,8 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <p className="font-medium">
               {speedKmh !== null
-              ? `${speedKmh} km/h`
-              : "Unknown"}
+                ? `${speedKmh} km/h`
+                : "Unknown"}
             </p>
           </div>
 
