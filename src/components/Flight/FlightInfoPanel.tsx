@@ -11,6 +11,7 @@ import {
 
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
+import { head } from "framer-motion/client";
 
 type Props = {
   flight: FlightPosition | null;
@@ -109,7 +110,10 @@ export default function FlightInfoPanel({ flight }: Props) {
             </p>
 
             <p className="font-medium">
-              {flight.heading ?? "Unknown"}°
+              {heading !== null
+              ? `${heading}°`
+              : "Unknown"
+              }
             </p>
           </div>
         </div>
