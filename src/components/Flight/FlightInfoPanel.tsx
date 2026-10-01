@@ -11,7 +11,7 @@ import {
 
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
-import { head } from "framer-motion/client";
+
 
 type Props = {
   flight: FlightPosition | null;
