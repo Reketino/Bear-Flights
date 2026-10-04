@@ -7,6 +7,7 @@ import {
   Plane,
   PlaneLanding,
   PlaneTakeoff,
+  UserRound,
 } from "lucide-react";
 
 import type { FlightPosition } from "@/types/flightposition";
