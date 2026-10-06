@@ -242,6 +242,7 @@ export default function FlightInfoPanel({ flight }: Props) {
             <div className="sm:col-span-2">
               <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
                 <UserRound className="size-3.5" />
+                Owner
               </p>
               
             </div>
