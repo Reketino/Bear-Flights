@@ -112,8 +112,8 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <p className="font-medium">
               {heading !== null
-              ? `${heading}°`
-              : "Unknown"
+                ? `${heading}°`
+                : "Unknown"
               }
             </p>
           </div>
@@ -244,7 +244,7 @@ export default function FlightInfoPanel({ flight }: Props) {
                 <UserRound className="size-3.5" />
                 Owner
               </p>
-              
+
             </div>
           </div>
         ) : (
