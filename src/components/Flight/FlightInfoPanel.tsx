@@ -88,7 +88,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
             <p className="font-medium">
               {altitudeFeet !== null
-                ? `${altitudeFeet.toLocaleString} ft`
+                ? `${altitudeFeet.toLocaleString()} ft`
                 : "Unknown"}
             </p>
           </div>
