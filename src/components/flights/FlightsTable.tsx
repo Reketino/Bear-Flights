@@ -60,7 +60,7 @@ export default function FlightsTable({ flights }: FlightsTableProps) {
                       className="text-sky-400 hover:underline text-left"
                       disabled={!flight.airline_icao}
                     >
-                      {flight.airline ?? "Airline Unavaliable"}
+                      {flight.airline ?? "Airline Unavailable"}
                     </button>
                   </td>
 
