@@ -3,17 +3,15 @@ import Link from "next/link";
 import OriginFlag from "../flags/OriginFlag";
 import { ReactNode } from "react";
 
-
 const DATE_LOCALE = "en-GB";
 
 type Props = {
-    flight: IcaoFlight;
-    };
-
+  flight: IcaoFlight;
+};
 
 export default function IacoDetails({ flight }: Props) {
   return (
-      <main
+    <main
       className="
         p-6 max-w-3xl mx-auto
         "
@@ -21,7 +19,7 @@ export default function IacoDetails({ flight }: Props) {
       <h1 className="text-3xl font-bold mb-6">
         ✈️ Flight {flight.callsign ?? flight.icao24}
       </h1>
-     
+
       <section
         className="
             grid grid-cols-1 
@@ -32,10 +30,10 @@ export default function IacoDetails({ flight }: Props) {
         <Info label="ICAO24" value={flight.icao24} />
 
         <Info label="Origin"
-              value={
-                <OriginFlag country={flight.origin_country ?? flight.origin ?? "Unknown"} /> 
-                 }
-                 />
+          value={
+            <OriginFlag country={flight.origin_country ?? flight.origin ?? "Unknown"} />
+          }
+        />
         <Info
           label="Route"
           value={flight.route ? `✈️${flight.route}` : "In flight"}
@@ -55,11 +53,11 @@ export default function IacoDetails({ flight }: Props) {
           value={new Date(flight.last_seen).toLocaleString(DATE_LOCALE)}
         />
       </section>
-       
-       <section className="flex justify-center mt-6">
-       <Link 
-      href={`/flights/map?icao24=${flight.icao24}`}
-      className="
+
+      <section className="flex justify-center mt-6">
+        <Link
+          href={`/flights/map?icao24=${flight.icao24}`}
+          className="
       inline-block mt-6
       px-4 py-4 rounded-lg
      bg-black/50 
@@ -67,9 +65,9 @@ export default function IacoDetails({ flight }: Props) {
      hover:bg-blue-950 hover:scale-95
       transition 
       "
-      >
-        🗺️ View Flight On Map
-      </Link>
+        >
+          🗺️ View Flight On Map
+        </Link>
       </section>
 
     </main>
