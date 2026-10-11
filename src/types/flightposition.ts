@@ -2,6 +2,9 @@ export type FlightPosition = {
   icao24: string;
   callsign: string | null;
 
+  airline?: string | null;
+  airline_icao?: string | null;
+
   latitude: number;
   longitude: number;
 
