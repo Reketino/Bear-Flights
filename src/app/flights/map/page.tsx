@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
-import { FlightPosition } from "@/types/flightposition";
+
+import type { FlightPosition } from "@/types/flightposition";
 import { getSupabaseServerClient } from "@/lib/supabase";
 import FlightMapClient from "@/components/Map/client/FlightMapClient";
 
@@ -12,7 +13,7 @@ type pageProps = {
 export default async function FlightsMapPage({ searchParams }: pageProps) {
   const supabase = getSupabaseServerClient();
   const params = await searchParams;
-  const icao24 = params?.icao24;
+  const icao24 = params?.icao24?.trim().toLowerCase();
 
   let query = supabase
     .from("flight_positions")
@@ -29,12 +30,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   if (error) {
     return (
       <section className="p-6">
-        <h1
-          className="
-                text-2xl font-bold"
-        >
-          Map error
-        </h1>
+        <h1 className="text-2xl font-bold">Map error</h1>
         <p className="text-red-400">{error.message}</p>
       </section>
     );
