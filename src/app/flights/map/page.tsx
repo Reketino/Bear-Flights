@@ -29,10 +29,10 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
 
   if (error) {
     return (
-      <section className="p-6">
+      <main className="mx-auto max-w-7xl p-6">
         <h1 className="text-2xl font-bold">Map error</h1>
         <p className="text-red-400">{error.message}</p>
-      </section>
+      </main>
     );
   }
 
