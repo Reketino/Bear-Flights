@@ -36,6 +36,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     );
   }
 
+  const positions = data ?? [];
   const icao24s = (data ?? []).map((flight) => flight.icao24);
 
   const { data: aircraftData, error: aircraftError } = await supabase
