@@ -31,13 +31,34 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     return (
       <main className="mx-auto max-w-7xl p-6">
         <h1 className="text-2xl font-bold">Map error</h1>
-        <p className="text-red-400">{error.message}</p>
+        <p className="mt-2 text-red-400">{error.message}</p>
       </main>
     );
   }
 
   const positions = data ?? [];
   const icao24s = [...new Set(positions.map((flight) => flight.icao24))];
+
+  const [aircraftResult, flightsResult] =  await Promise.all([
+    icao24s.length > 0
+    ? supabase
+    .from("aircraft_registry")
+    .select("icao24, registration, typecode, manufacturer, model, owner")
+    .in("icao24", icao24s)
+    : Promise.resolve({ data: [], error: null}),
+
+    icao24s.length > 0
+    ? supabase
+    .from("flights")
+    .select("icao24, airline, airline_icao, first_seen")
+    .in("icao24", icao24s)
+    .order("first_seen", { ascending: false })
+    : Promise.resolve({ data: [], error: null }),
+  ]);
+
+  if (aircraftResult.error) { 
+    console.error("Aircraft registry error:", aircraftResult.error.message); 
+  }
 
   const { data: aircraftData, error: aircraftError } = await supabase
     .from("aircraft_registry")
