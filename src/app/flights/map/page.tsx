@@ -60,6 +60,10 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     console.error("Aircraft registry error:", aircraftResult.error.message); 
   }
 
+  if (flightsResult.error) {
+    console.error("Airline lookup error:", flightsResult.error.message);
+  }
+
   const { data: aircraftData, error: aircraftError } = await supabase
     .from("aircraft_registry")
     .select(
