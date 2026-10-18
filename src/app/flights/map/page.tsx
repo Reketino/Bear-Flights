@@ -64,19 +64,8 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     console.error("Airline lookup error:", flightsResult.error.message);
   }
 
-  const { data: aircraftData, error: aircraftError } = await supabase
-    .from("aircraft_registry")
-    .select(
-      "icao24, registration, typecode, manufacturer, model, owner",
-    )
-    .in("icao24", icao24s);
-
-  if (aircraftError) {
-    console.error("Aircraft registry error:", aircraftError);
-  }
-
   const aircraftByIcao24 = new Map(
-    (aircraftData ?? []).map((aircraft) => [
+    (aircraftResult.data ?? []).map((aircraft) => [
       aircraft.icao24,
       aircraft,
     ]),
