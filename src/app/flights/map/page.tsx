@@ -75,8 +75,9 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     string,
     { airline: string | null; airline_icao: string | null }
   >();
-
-  
+  for (const record of flightsResult.data ?? []) {
+    if (airlineByIcao24.has(record.icao24)) continue;
+  }
 
   const safeFlights: FlightPosition[] = (data ?? [])
     .filter(
