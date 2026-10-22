@@ -1,4 +1,4 @@
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 import { airportGeoJson } from "@/lib/map/airportGeoJson";
 import type { FlightPosition } from "@/types/flightposition";
 

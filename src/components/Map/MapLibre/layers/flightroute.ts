@@ -1,4 +1,4 @@
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 import { emptyLine } from "@/lib/map/emptyLine";
