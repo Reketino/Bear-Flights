@@ -17,9 +17,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
 
   let query = supabase
     .from("flight_positions")
-    .select(
-      "icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport, arrival_airport",
-    );
+    .select("icao24, callsign, latitude, longitude, altitude, velocity, heading, departure_airport, arrival_airport");
 
   if (icao24) {
     query = query.eq("icao24", icao24);
@@ -39,25 +37,25 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
   const positions = data ?? [];
   const icao24s = [...new Set(positions.map((flight) => flight.icao24))];
 
-  const [aircraftResult, flightsResult] =  await Promise.all([
+  const [aircraftResult, flightsResult] = await Promise.all([
     icao24s.length > 0
-    ? supabase
-    .from("aircraft_registry")
-    .select("icao24, registration, typecode, manufacturer, model, owner")
-    .in("icao24", icao24s)
-    : Promise.resolve({ data: [], error: null}),
+      ? supabase
+        .from("aircraft_registry")
+        .select("icao24, registration, typecode, manufacturer, model, owner")
+        .in("icao24", icao24s)
+      : Promise.resolve({ data: [], error: null }),
 
     icao24s.length > 0
-    ? supabase
-    .from("flights")
-    .select("icao24, airline, airline_icao, first_seen")
-    .in("icao24", icao24s)
-    .order("first_seen", { ascending: false })
-    : Promise.resolve({ data: [], error: null }),
+      ? supabase
+        .from("flights")
+        .select("icao24, airline, airline_icao, first_seen")
+        .in("icao24", icao24s)
+        .order("first_seen", { ascending: false })
+      : Promise.resolve({ data: [], error: null }),
   ]);
 
-  if (aircraftResult.error) { 
-    console.error("Aircraft registry error:", aircraftResult.error.message); 
+  if (aircraftResult.error) {
+    console.error("Aircraft registry error:", aircraftResult.error.message);
   }
 
   if (flightsResult.error) {
@@ -86,7 +84,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
       });
     }
   }
-  
+
   const safeFlights: FlightPosition[] = (data ?? [])
     .filter(
       (flight) =>
@@ -111,11 +109,7 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
     });
 
   return (
-    <main
-      className="
-        p-6 max-w-7xl mx-auto
-        "
-    >
+    <main className="p-6 max-w-7xl mx-auto">
       <header className="mb-4">
         <h1 className="text-3xl font-bold"> Flight Map of Sykkylven</h1>
         <p className="text-neutral-300 font-medium mt-2">
@@ -123,9 +117,9 @@ export default async function FlightsMapPage({ searchParams }: pageProps) {
         </p>
       </header>
 
-      <FlightMapClient 
-      flights={safeFlights} 
-      singleFlight={Boolean(icao24)} 
+      <FlightMapClient
+        flights={safeFlights}
+        singleFlight={Boolean(icao24)}
       />
     </main>
   );
