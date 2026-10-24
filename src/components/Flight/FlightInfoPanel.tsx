@@ -8,6 +8,9 @@ import {
   PlaneLanding,
   PlaneTakeoff,
   UserRound,
+  Gauge,
+  Compass,
+  Ruler,
 } from "lucide-react";
 
 import type { FlightPosition } from "@/types/flightposition";
