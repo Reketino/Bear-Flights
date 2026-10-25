@@ -21,6 +21,14 @@ type Props = {
   flight: FlightPosition | null;
 };
 
+function Detail ({label, value, icon: Icon}: {
+label: string;
+value: string;
+icon?: typeof Hash;
+}) {
+
+}
+
 export default function FlightInfoPanel({ flight }: Props) {
   if (!flight) return null;
 
