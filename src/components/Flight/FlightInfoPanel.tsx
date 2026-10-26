@@ -26,7 +26,14 @@ label: string;
 value: string;
 icon?: typeof Hash;
 }) {
-
+return (
+  <div className="rounded-xl border border-white/10 bg-slate-950/30 p-4">
+    <p className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-slate-400">
+      {Icon && <Icon className="size-3.5" />}
+      {label}
+    </p>
+  </div>
+)
 }
 
 export default function FlightInfoPanel({ flight }: Props) {
