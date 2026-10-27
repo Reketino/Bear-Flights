@@ -32,6 +32,7 @@ return (
       {Icon && <Icon className="size-3.5" />}
       {label}
     </p>
+    <p className="wrap-break-word font-semibold text-slate-100">{value}</p>
   </div>
 )
 }
