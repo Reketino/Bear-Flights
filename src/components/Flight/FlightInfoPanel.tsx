@@ -66,11 +66,21 @@ export default function FlightInfoPanel({ flight }: Props) {
     : null
 
   return (
-    <aside className="mt-4 rounded-2xl border border-white/10 bg-slate-900/80 p-6 backdrop-blur-md">
-      <div className="mb-6 border-b border-white/10 pb-4">
+    <aside className="
+    mt-4 overflow-hidden rounded-2xl 
+    border border-white/10 bg-slate-900/95 
+    text-white shadow-2xl shadow-black/20
+    "
+    >
+      <div className="
+      border-b border-white/10 p-5 sm:p-6 
+      bg-linear-to-r from-sky-500/10 
+      via-slate-900/40 to-transparent  
+      "
+      >
         <div className="flex items-center gap-3">
           <div className="rounded-lg bg-sky-400/10 p-2 text-sky-400">
-            <Plane className="size-6" />
+            <Plane className="size-7" />
           </div>
 
           <div>
