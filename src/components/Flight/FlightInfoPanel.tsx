@@ -61,9 +61,11 @@ export default function FlightInfoPanel({ flight }: Props) {
       ? Math.round(flight.velocity * 3.6)
       : null;
 
-  const heading = flight.heading !== null
-    ? Math.round(flight.heading)
-    : null
+  const heading = 
+  flight.heading !== null ? Math.round(flight.heading) : null
+
+  const aircraft = flight.aircraft;
+  const aircraftName = aircraft?.model ?? aircraft?.typecode ?? null;
 
   return (
     <aside className="
@@ -83,14 +85,14 @@ export default function FlightInfoPanel({ flight }: Props) {
             <Plane className="size-7" />
           </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-sky-400">
-              ✈ {flight.callsign || "Unknown"}
-            </h2>
-
-            <p className="mt-1 text-sm text-neutral-400">
-              Aircraft information
+          <div className="min-w-0">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Flight information
             </p>
+              <h2 className="truncate text-2xl font-bold tracking-tight text-sky-400">
+                {flight.callsign?.trim() || flight.icao24.toUpperCase()}
+              </h2>
+
           </div>
         </div>
       </div>
