@@ -89,6 +89,7 @@ export default function FlightInfoPanel({ flight }: Props) {
             <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-400">
               Flight information
             </p>
+            
               <h2 className="truncate text-2xl font-bold tracking-tight text-sky-400">
                 {flight.callsign?.trim() || flight.icao24.toUpperCase()}
               </h2>
