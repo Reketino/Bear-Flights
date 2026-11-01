@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -16,25 +17,28 @@ import {
 import type { FlightPosition } from "@/types/flightposition";
 import { AIRPORTS } from "@/lib/airports/airportcoords";
 
-
 type Props = {
   flight: FlightPosition | null;
 };
 
-function Detail ({label, value, icon: Icon}: {
-label: string;
-value: string;
-icon?: typeof Hash;
+function Detail({
+  label,
+  value,
+  icon: Icon,
+}: {
+  label: string;
+  value: string;
+  icon?: typeof Hash;
 }) {
-return (
-  <div className="rounded-xl border border-white/10 bg-slate-950/30 p-4">
-    <p className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-slate-400">
-      {Icon && <Icon className="size-3.5" />}
-      {label}
-    </p>
-    <p className="wrap-break-word font-semibold text-slate-100">{value}</p>
-  </div>
-)
+  return (
+    <div className="rounded-xl border border-white/10 bg-slate-950/30 p-4">
+      <p className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-slate-400">
+        {Icon && <Icon className="size-3.5" />}
+        {label}
+      </p>
+      <p className="wrap-break-word font-semibold text-slate-100">{value}</p>
+    </div>
+  );
 }
 
 export default function FlightInfoPanel({ flight }: Props) {
@@ -61,227 +65,216 @@ export default function FlightInfoPanel({ flight }: Props) {
       ? Math.round(flight.velocity * 3.6)
       : null;
 
-  const heading = 
-  flight.heading !== null ? Math.round(flight.heading) : null
+  const heading =
+    flight.heading !== null ? Math.round(flight.heading) : null;
 
   const aircraft = flight.aircraft;
   const aircraftName = aircraft?.model ?? aircraft?.typecode ?? null;
 
   return (
-    <aside className="
-    mt-4 overflow-hidden rounded-2xl 
-    border border-white/10 bg-slate-900/95 
-    text-white shadow-2xl shadow-black/20
-    "
-    >
-      <div className="
-      border-b border-white/10 p-5 sm:p-6 
-      bg-linear-to-r from-sky-500/10 
-      via-slate-900/40 to-transparent  
-      "
-      >
-        <div className="flex items-center gap-3">
-          <div className="rounded-lg bg-sky-400/10 p-2 text-sky-400">
-            <Plane className="size-7" />
-          </div>
+    <aside className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 text-white shadow-2xl shadow-black/20">
+      <header className="border-b border-white/10 bg-gradient-to-r from-sky-500/10 via-slate-900/40 to-transparent p-5 sm:p-6">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex min-w-0 items-center gap-4">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10 text-sky-400">
+              <Plane className="size-7" />
+            </div>
 
-          <div className="min-w-0">
-            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Flight information
-            </p>
-            
+            <div className="min-w-0">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                Flight information
+              </p>
+
               <h2 className="truncate text-2xl font-bold tracking-tight text-sky-400">
                 {flight.callsign?.trim() || flight.icao24.toUpperCase()}
               </h2>
 
+              <p className="mt-1 text-sm text-slate-300">
+                {aircraftName ?? "Aircraft details unavailable"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {flight.airline && (
+              <span className="rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1.5 text-sm font-medium text-sky-300">
+                {flight.airline}
+              </span>
+            )}
+
+            {flight.airline_icao && (
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-slate-300">
+                {flight.airline_icao}
+              </span>
+            )}
           </div>
         </div>
+
+        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-400">
+          <span className="inline-flex items-center gap-2">
+            <Hash className="size-4" />
+            ICAO24:{" "}
+            <span className="font-mono text-slate-200">
+              {flight.icao24.toUpperCase()}
+            </span>
+          </span>
+
+          {aircraft?.registration && (
+            <span className="inline-flex items-center gap-2">
+              <Badge className="size-4" />
+              <span className="font-mono text-slate-200">
+                {aircraft.registration}
+              </span>
+            </span>
+          )}
+        </div>
+      </header>
+
+      <div className="grid gap-3 p-5 sm:grid-cols-2 lg:grid-cols-4 sm:p-6">
+        <Detail
+          label="Altitude"
+          value={
+            altitudeFeet !== null
+              ? `${altitudeFeet.toLocaleString("en-US")} ft`
+              : "Unavailable"
+          }
+          icon={Ruler}
+        />
+
+        <Detail
+          label="Ground speed"
+          value={speedKmh !== null ? `${speedKmh} km/h` : "Unavailable"}
+          icon={Gauge}
+        />
+
+        <Detail
+          label="Heading"
+          value={heading !== null ? `${heading}°` : "Unavailable"}
+          icon={Compass}
+        />
+
+        <Detail
+          label="Aircraft type"
+          value={aircraft?.typecode ?? "Unavailable"}
+          icon={Plane}
+        />
       </div>
 
-      <section aria-labelledby="flight-details-heading">
-        <h3 id="flight-details-heading" className="sr-only">
-          Flight details
-        </h3>
-
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-              <Hash className="size-3.5" />
-              ICAO24
-            </p>
-
-            <p className="font-medium">{flight.icao24 || "Unknown"}</p>
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-              Altitude
-            </p>
-
-            <p className="font-medium">
-              {altitudeFeet !== null
-                ? `${altitudeFeet.toLocaleString()} ft`
-                : "Unknown"}
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-              Speed
-            </p>
-
-            <p className="font-medium">
-              {speedKmh !== null
-                ? `${speedKmh} km/h`
-                : "Unknown"}
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-              Heading
-            </p>
-
-            <p className="font-medium">
-              {heading !== null
-                ? `${heading}°`
-                : "Unknown"
-              }
-            </p>
-          </div>
+      <section aria-labelledby="route-heading" className="px-5 pb-6 sm:px-6">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 id="route-heading" className="text-lg font-semibold">
+            Route
+          </h3>
+          <span className="text-xs uppercase tracking-wider text-slate-500">
+            Recorded airports
+          </span>
         </div>
-      </section>
 
-      <hr className="my-6 border-white/10" />
-
-      <section aria-labelledby="route-heading">
-        <h3
-          id="route-heading"
-          className="mb-4 text-lg font-semibold text-white"
-        >
-          Route
-        </h3>
-
-        <div className="space-y-5">
-          <div>
-            <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-              <PlaneTakeoff className="size-4 text-emerald-400" />
+        <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-center">
+          <div className="rounded-xl border border-emerald-400/15 bg-emerald-400/5 p-4">
+            <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <PlaneTakeoff className="size-4" />
               Departure
             </p>
 
-            <p className="font-medium">
+            <p className="text-xl font-bold">
               {departureICAO ?? "Unknown"}
             </p>
 
-            <p className="text-sm text-neutral-400">
-              {departureAirport?.name ?? "Unknown Airport"}
+            <p className="mt-1 text-sm text-slate-300">
+              {departureAirport?.name ?? "Airport unavailable"}
             </p>
 
             {departureAirport?.country && (
-              <p className="text-xs text-neutral-500">
-                {departureAirport?.country}
+              <p className="mt-1 text-xs text-slate-500">
+                {departureAirport.country}
               </p>
             )}
           </div>
 
-          <div className="flex justify-center">
-            <div className="h-8 border-l border-dashed border-sky-400/50" />
+          <div className="flex items-center justify-center py-1 text-sky-400">
+            <div className="hidden w-8 border-t border-dashed border-sky-400/50 md:block" />
+            <Plane className="size-5 rotate-90 md:rotate-0" />
+            <div className="hidden w-8 border-t border-dashed border-sky-400/50 md:block" />
           </div>
 
-          <div>
-            <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-              <PlaneLanding className="size-4 text-rose-400" />
+          <div className="rounded-xl border border-rose-400/15 bg-rose-400/5 p-4">
+            <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-rose-400">
+              <PlaneLanding className="size-4" />
               Arrival
             </p>
 
-            <p className="font-medium">
+            <p className="text-xl font-bold">
               {arrivalICAO ?? "Unknown"}
             </p>
 
-            <p className="text-sm text-neutral-400">
-              {arrivalAirport?.name ?? "Unknown Airport"}
+            <p className="mt-1 text-sm text-slate-300">
+              {arrivalAirport?.name ?? "Airport unavailable"}
             </p>
 
             {arrivalAirport?.country && (
-              <p className="text-xs text-neutral-500">
-                {arrivalAirport?.country}
+              <p className="mt-1 text-xs text-slate-500">
+                {arrivalAirport.country}
               </p>
             )}
           </div>
         </div>
       </section>
 
-      <hr className="my-6 border-white/10" />
+      <section
+        aria-labelledby="aircraft-heading"
+        className="border-t border-white/10 p-5 sm:p-6"
+      >
+        <div className="mb-4 flex items-center gap-3">
+          <div className="rounded-lg bg-sky-400/10 p-2 text-sky-400">
+            <Plane className="size-5" />
+          </div>
 
-      <section aria-labelledby="aircraft-heading">
-        <div className="mb-4 flex items-center gap-2">
-          <Plane className="size-5 text-sky-400" />
-
-          <h3
-            id="aircraft-heading"
-            className="text-lg font-semibold text-white"
-          >
-            Aircraft
-          </h3>
+          <div>
+            <h3 id="aircraft-heading" className="font-semibold">
+              Aircraft details
+            </h3>
+            <p className="text-sm text-slate-400">
+              Registry and manufacturer information
+            </p>
+          </div>
         </div>
 
-        {flight.aircraft ? (
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-                <Building2 className="size-3.5" />
-                Manufacturer
-              </p>
+        {aircraft ? (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Detail
+              label="Manufacturer"
+              value={aircraft.manufacturer ?? "Unavailable"}
+              icon={Building2}
+            />
 
-              <p className="font-medium">
-                {flight.aircraft.manufacturer ?? "Unknown"}
-              </p>
-            </div>
+            <Detail
+              label="Model"
+              value={aircraft.model ?? "Unavailable"}
+              icon={Plane}
+            />
 
-            <div>
-              <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-                <Plane className="size-3.5" />
-                Model
-              </p>
+            <Detail
+              label="Typecode"
+              value={aircraft.typecode ?? "Unavailable"}
+              icon={Badge}
+            />
 
-              <p className="font-medium">
-                {flight.aircraft.model ?? "Unknown"}
-              </p>
-            </div>
+            <Detail
+              label="Registration"
+              value={aircraft.registration ?? "Unavailable"}
+              icon={Hash}
+            />
 
-            <div>
-              <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-                <Badge className="size-3.5" />
-                Typecode
-              </p>
-
-              <p className="font-medium">
-                {flight.aircraft.typecode ?? "Unknown"}
-              </p>
-            </div>
-
-            <div>
-              <p className="mb-1 text-xs uppercase tracking-wide text-neutral-400">
-                <Hash className="size-3.5" />
-                Registration
-              </p>
-
-              <p className="font-medium">
-                {flight.aircraft.registration ?? "Unknown"}
-              </p>
-            </div>
-
-            <div className="sm:col-span-2">
-              <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-neutral-400">
-                <UserRound className="size-3.5" />
-                Owner
-              </p>
-
-            </div>
+            <Detail
+              label="Owner"
+              value={aircraft.owner ?? "Unavailable"}
+              icon={UserRound}
+            />
           </div>
         ) : (
-          <p className="text-sm text-neutral-400">
-            Aircraft information unavailable
+          <p className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-slate-400">
+            Aircraft registry information is not available for this aircraft.
           </p>
         )}
       </section>
