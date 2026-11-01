@@ -73,7 +73,7 @@ export default function FlightInfoPanel({ flight }: Props) {
 
   return (
     <aside className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 text-white shadow-2xl shadow-black/20">
-      <header className="border-b border-white/10 bg-gradient-to-r from-sky-500/10 via-slate-900/40 to-transparent p-5 sm:p-6">
+      <header className="border-b border-white/10 bg-linear-to-r from-sky-500/10 via-slate-900/40 to-transparent p-5 sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex min-w-0 items-center gap-4">
             <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10 text-sky-400">
