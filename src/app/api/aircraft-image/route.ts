@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+type WikimediaPage = {
     
+}
+
+export async function GET(request: NextRequest) {
+
 }
