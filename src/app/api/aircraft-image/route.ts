@@ -12,6 +12,14 @@ type WikimediaPage = {
     }[];
 };
 
+type WikimediaResponse = {
+    query?: {
+        pages?: Record<string, WikimediaPage>;
+    };
+};
+
+
+
 export async function GET(request: NextRequest) {
 
 }
