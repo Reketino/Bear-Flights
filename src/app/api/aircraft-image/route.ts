@@ -18,6 +18,13 @@ type WikimediaResponse = {
     };
 };
 
+type AircraftImage = {
+    imageUrl: string;
+    sourceUrl: string;
+    title:  string;
+    license: string | null;
+}
+
 
 
 export async function GET(request: NextRequest) {
