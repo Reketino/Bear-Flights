@@ -25,7 +25,11 @@ type AircraftImage = {
     license: string | null;
 }
 
-
+async function searchAircraftImage(
+    query: string,
+): Promise<AircraftImage | null> {
+    return null;
+}
 
 export async function GET(request: NextRequest) {
 
