@@ -28,6 +28,9 @@ type AircraftImage = {
 async function searchAircraftImage(
     query: string,
 ): Promise<AircraftImage | null> {
+    const params = new URLSearchParams({
+        
+    })
     return null;
 }
 
