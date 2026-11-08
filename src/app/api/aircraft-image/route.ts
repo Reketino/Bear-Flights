@@ -23,14 +23,25 @@ type AircraftImage = {
     sourceUrl: string;
     title:  string;
     license: string | null;
-}
+};
 
 async function searchAircraftImage(
     query: string,
 ): Promise<AircraftImage | null> {
     const params = new URLSearchParams({
-        
-    })
+        action: "query",
+        generator: "search",
+        gsrsearch: query,
+        gsrnamespace: "6",
+        gsrlimit: "5",
+        prop: "imageinfo",
+        liprop: "url|extmetdata",
+        liurlwidth: "1200",
+        format: "json",
+        origin: "*", 
+    });
+
+    
     return null;
 }
 
