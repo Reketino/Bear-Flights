@@ -8,10 +8,7 @@ import { addRouteLayer, updateRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
 import { flightsToGeoJSON } from "@/lib/map/flightGeoJson";
 import { updateCamera } from "./layers/camera";
-import {
-  addAirportLayers,
-  updateAirportLayer,
-} from "./layers/airport";
+import { addAirportLayers, updateAirportLayer } from "./layers/airport";
 
 setWorkerUrl(
   new URL(
