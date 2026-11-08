@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
+import { setWorkerUrl } from "maplibre-gl";
 import { addFlightShadow, addFlightSymbols } from "./layers/flight";
 import { addRouteLayer, updateRouteLayer } from "./layers/flightroute";
 import type { FlightPosition } from "@/types/flightposition";
@@ -11,6 +12,13 @@ import {
   addAirportLayers,
   updateAirportLayer,
 } from "./layers/airport";
+
+setWorkerUrl(
+  new URL(
+    "maplibre-gl/dist/maplibre-gl-worker.mjs",
+    import.meta.url
+  ).toString()
+);
 
 type Props = {
   flights: FlightPosition[];
