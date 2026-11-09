@@ -41,6 +41,9 @@ async function searchAircraftImage(
         origin: "*", 
     });
 
+    const resopnse = await fetch(
+        `https://commons.wikimedia.org/w/api.php?${params.toString()}`
+    )
     
     return null;
 }
