@@ -42,8 +42,16 @@ async function searchAircraftImage(
     });
 
     const resopnse = await fetch(
-        `https://commons.wikimedia.org/w/api.php?${params.toString()}`
-    )
+        `https://commons.wikimedia.org/w/api.php?${params.toString()}`,
+        {
+            headers: {
+                "User-Afent": "BearFlights/1.0 (aircraft image lookup)",
+            },
+            next: {
+                revalidate: 86400,
+            },
+        },
+    );
     
     return null;
 }
