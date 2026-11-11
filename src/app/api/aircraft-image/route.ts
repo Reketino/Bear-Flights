@@ -52,6 +52,10 @@ async function searchAircraftImage(
             },
         },
     );
+
+    if (!resopnse.ok) {
+        throw new Error("Wikimedia image search failed.");
+    }
     
     return null;
 }
