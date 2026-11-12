@@ -41,7 +41,7 @@ async function searchAircraftImage(
         origin: "*", 
     });
 
-    const resopnse = await fetch(
+    const response = await fetch(
         `https://commons.wikimedia.org/w/api.php?${params.toString()}`,
         {
             headers: {
@@ -53,9 +53,11 @@ async function searchAircraftImage(
         },
     );
 
-    if (!resopnse.ok) {
+    if (!response.ok) {
         throw new Error("Wikimedia image search failed.");
     }
+
+    const data = (await response.json()) as WikimediaResponse;
     
     return null;
 }
