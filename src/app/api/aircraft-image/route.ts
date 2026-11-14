@@ -59,6 +59,12 @@ async function searchAircraftImage(
 
     const data = (await response.json()) as WikimediaResponse;
     const pages = Object.values(data.query?.pages ?? {});
+
+    for (const page of pages) {
+        const image = page.imageinfo?.[0];
+
+        
+    }
     
     return null;
 }
