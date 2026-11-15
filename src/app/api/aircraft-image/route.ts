@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 type WikimediaPage = {
     title?: string;
     imageinfo?: {
+        descriptionurl: any;
+        descriptionUrl: any;
         thumburl?: string;
         extmetadata?: {
             LicenseShortName?: {
@@ -63,6 +65,9 @@ async function searchAircraftImage(
     for (const page of pages) {
         const image = page.imageinfo?.[0];
 
+        if (!image?.thumburl || !image.descriptionurl) {
+            continue
+        }
         
     }
     
