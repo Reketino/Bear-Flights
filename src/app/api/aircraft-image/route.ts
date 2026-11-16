@@ -66,8 +66,16 @@ async function searchAircraftImage(
         const image = page.imageinfo?.[0];
 
         if (!image?.thumburl || !image.descriptionurl) {
-            continue
+            continue;
         }
+
+        return {
+            imageUrl: image.thumburl,
+            sourceUrl: image.descriptionurl,
+            title: page.title ?? "Aircraft image",
+            license:
+            image.extmetadata?.LicenseShortName?.value ?? null,
+        };
         
     }
     
