@@ -85,4 +85,8 @@ async function searchAircraftImage(
 export async function GET(request: NextRequest) {
     const { searchParams } = request.nextUrl;
 
+    const model = searchParams.get("model")?.trim();
+    const manufacturer = searchParams.get("manufacturer")?.trim();
+    
+
 }
