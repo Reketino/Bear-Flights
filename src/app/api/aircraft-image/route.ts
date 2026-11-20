@@ -1,3 +1,4 @@
+import { Vault } from "lucide-react";
 import { NextRequest, NextResponse } from "next/server";
 
 type WikimediaPage = {
@@ -88,6 +89,9 @@ export async function GET(request: NextRequest) {
     const model = searchParams.get("model")?.trim();
     const manufacturer = searchParams.get("manufacturer")?.trim();
     const typecode = searchParams.get("typecode")?.trim();
+
+    const clean = (value?: string | null) =>
+        value?.replace(/[^\p{L}\p{N}\s.-]/gu, "").slice(0, 100).trim() ?? "";
 
     
     
