@@ -93,6 +93,7 @@ export async function GET(request: NextRequest) {
     const clean = (value?: string | null) =>
         value?.replace(/[^\p{L}\p{N}\s.-]/gu, "").slice(0, 100).trim() ?? "";
 
+    const safeModel = clean(model);
     
     
 
