@@ -94,6 +94,7 @@ export async function GET(request: NextRequest) {
         value?.replace(/[^\p{L}\p{N}\s.-]/gu, "").slice(0, 100).trim() ?? "";
 
     const safeModel = clean(model);
+    const safeManufacturer = clean(manufacturer);
     
     
 
