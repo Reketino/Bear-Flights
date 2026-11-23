@@ -95,6 +95,7 @@ export async function GET(request: NextRequest) {
 
     const safeModel = clean(model);
     const safeManufacturer = clean(manufacturer);
+    const safeTypecode = clean(typecode);
     
     
 
