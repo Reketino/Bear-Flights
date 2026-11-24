@@ -1,3 +1,4 @@
+import { error } from "console";
 import { Vault } from "lucide-react";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -96,6 +97,13 @@ export async function GET(request: NextRequest) {
     const safeModel = clean(model);
     const safeManufacturer = clean(manufacturer);
     const safeTypecode = clean(typecode);
+
+    if (!safeModel && !safeTypecode) {
+        return NextResponse.json(
+            { error: "No aircraft model provided" },
+            { status: 400 },
+        );
+    }
     
     
 
