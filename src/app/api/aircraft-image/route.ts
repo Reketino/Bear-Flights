@@ -106,7 +106,10 @@ export async function GET(request: NextRequest) {
     }
     
     const searches = [
-        
+        safeManufacturer && safeModel
+        ? `"${safeManufacturer} ${safeModel}" aircraft`
+        : null,
+        safeModel ? `"${safeModel}" aircraft` : null,
     ]
     
 
