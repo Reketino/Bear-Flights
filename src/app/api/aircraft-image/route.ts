@@ -110,7 +110,8 @@ export async function GET(request: NextRequest) {
         ? `"${safeManufacturer} ${safeModel}" aircraft`
         : null,
         safeModel ? `"${safeModel}" aircraft` : null,
-    ]
+    ].filter((query): query is string => Boolean(query));
+    
     
 
 }
